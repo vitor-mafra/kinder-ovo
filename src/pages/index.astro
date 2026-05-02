@@ -1,0 +1,62 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/Hero.astro";
+import RankingTable from "../components/RankingTable.tsx";
+import ErasTimeline from "../components/ErasTimeline.tsx";
+import WinTimeline from "../components/WinTimeline.tsx";
+import TopFigures from "../components/TopFigures.tsx";
+import SearchBar from "../components/SearchBar.tsx";
+---
+
+<Layout title="Kinder Ovo — Foro de Teresina">
+  <Hero />
+
+  <div class="container-wide">
+    <section class="section" id="busca">
+      <SearchBar client:load />
+    </section>
+  </div>
+
+  <div class="container-wide">
+    <section class="section" id="ranking">
+      <h2 class="section-title">Ranking de Participantes</h2>
+      <p class="section-subtitle">
+        Quem mais acertou a figura pública do Kinder Ovo ao longo de 381 episódios.
+        Clique nos cabeçalhos para reordenar.
+      </p>
+      <RankingTable client:load />
+    </section>
+  </div>
+
+  <div class="container-wide">
+    <section class="section" id="eras">
+      <h2 class="section-title">As Eras do Foro</h2>
+      <p class="section-subtitle">
+        Três formações de bancada marcaram a história do podcast.
+        Fernando de Barros e Silva é o único presente em todas.
+      </p>
+      <ErasTimeline client:load />
+    </section>
+  </div>
+
+  <div class="container-wide">
+    <section class="section" id="evolucao">
+      <h2 class="section-title">Evolução ao Longo do Tempo</h2>
+      <p class="section-subtitle">
+        A trajetória de vitórias de cada participante, ano a ano ou acumulada.
+      </p>
+      <WinTimeline client:load />
+    </section>
+  </div>
+
+  <div class="container-wide">
+    <section class="section" id="figuras">
+      <h2 class="section-title">Figuras Públicas</h2>
+      <p class="section-subtitle">
+        As personalidades que mais apareceram no Kinder Ovo.
+        Use a busca para encontrar alguém específico.
+      </p>
+      <TopFigures client:load />
+    </section>
+  </div>
+</Layout>

@@ -1,0 +1,68 @@
+{
+  "panels": [
+    {
+      "label": "Bancada Original",
+      "period": "Mai 2018 – Jan 2021",
+      "members": [
+        "Fernando de Barros e Silva",
+        "Malu Gaspar",
+        "José Roberto de Toledo"
+      ],
+      "notes": "Formação inaugural do Foro de Teresina. Thaís Bilenky começa a participar como convidada a partir de junho de 2019."
+    },
+    {
+      "label": "Bancada de Transição",
+      "period": "Fev 2021 – Out 2023",
+      "members": [
+        "Fernando de Barros e Silva",
+        "José Roberto de Toledo",
+        "Thaís Bilenky"
+      ],
+      "notes": "Malu Gaspar sai em janeiro de 2021. Thaís Bilenky assume como titular. Ana Clara Costa aparece esporadicamente a partir de agosto de 2021."
+    },
+    {
+      "label": "Bancada Atual",
+      "period": "Mar 2024 – Presente",
+      "members": [
+        "Fernando de Barros e Silva",
+        "Ana Clara Costa",
+        "Celso Rocha de Barros"
+      ],
+      "notes": "Toledo e Thaís saem em outubro de 2023. Hiato até março de 2024. Nova formação com Celso e Ana Clara."
+    }
+  ],
+  "events": [
+    {
+      "date": "Mai 2018",
+      "text": "Estreia do Foro: Fernando + Malu + Toledo"
+    },
+    {
+      "date": "Jun 2019",
+      "text": "Thaís Bilenky começa a participar como convidada"
+    },
+    {
+      "date": "Jan 2021",
+      "text": "Última participação de Malu Gaspar (#135)"
+    },
+    {
+      "date": "Fev 2021",
+      "text": "Thaís Bilenky assume como titular"
+    },
+    {
+      "date": "Ago 2021",
+      "text": "Ana Clara Costa começa a participar esporadicamente"
+    },
+    {
+      "date": "Out 2023",
+      "text": "Última participação de Toledo e Thaís (#276)"
+    },
+    {
+      "date": "Nov 2023",
+      "text": "Episódio de despedida do Foro original"
+    },
+    {
+      "date": "Mar 2024",
+      "text": "Retorno: Fernando + Ana Clara + Celso Rocha de Barros"
+    }
+  ]
+}

@@ -1,0 +1,107 @@
+---
+import stats from "../data/stats.json";
+---
+
+<section class="hero">
+  <div class="container">
+    <h1 class="hero-title">Kinder Ovo</h1>
+    <p class="hero-tagline">
+      O ranking definitivo do quadro mais disputado do
+      <strong>Foro de Teresina</strong>
+    </p>
+    <p class="hero-description">
+      Quem acertou mais? Quem dominou cada era? Explore a história completa do
+      Kinder Ovo, extraída de {stats.total} episódios do podcast de política da revista piauí.
+    </p>
+
+    <div class="stats-grid">
+      <div class="stat-item">
+        <span class="stat-value">{stats.total}</span>
+        <span class="stat-label">Episódios analisados</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-value">{stats.koDetected}</span>
+        <span class="stat-label">Com Kinder Ovo</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-value">{stats.winnersFound}</span>
+        <span class="stat-label">Vencedores identificados</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-value">{stats.figuresFound}</span>
+        <span class="stat-label">Figuras públicas</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    padding: var(--spacing-2xl) 0;
+    text-align: center;
+  }
+
+  .hero-title {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--color-accent);
+    margin-bottom: var(--spacing-sm);
+    letter-spacing: -0.02em;
+  }
+
+  .hero-tagline {
+    font-size: 1.15rem;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .hero-tagline strong {
+    color: var(--color-text);
+    font-weight: 600;
+  }
+
+  .hero-description {
+    font-size: 0.9rem;
+    color: var(--color-text-tertiary);
+    max-width: 520px;
+    margin: 0 auto var(--spacing-xl);
+    line-height: 1.7;
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-md);
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  .stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+  }
+
+  .stat-value {
+    font-family: var(--font-serif);
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--color-text);
+  }
+
+  .stat-label {
+    font-size: 0.75rem;
+    color: var(--color-text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  @media (max-width: 600px) {
+    .hero-title { font-size: 2.25rem; }
+    .stats-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--spacing-lg);
+    }
+  }
+</style>
