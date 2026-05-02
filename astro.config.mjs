@@ -4,6 +4,6 @@ import react from "@astrojs/react";
 export default defineConfig({
   integrations: [react()],
   output: "static",
-  site: "https://vitormafra.github.io",
+  site: "https://vitor-mafra.github.io",
   base: "/kinder-ovo",
 });
