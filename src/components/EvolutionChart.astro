@@ -1,7 +1,16 @@
 ---
-import timeline from "../data/timeline.json";
+import episodesRaw from "../data/episodes.json";
 
 const base = import.meta.env.BASE_URL;
+
+const episodes = [...episodesRaw]
+  .sort((a, b) => new Date(a.publishedAt).getTime() - new Date(b.publishedAt).getTime())
+  .map(e => ({
+    publishedAt: e.publishedAt,
+    title: e.title,
+    publicFigure: e.publicFigure,
+    winners: e.winners || []
+  }));
 
 const SLUGS: Record<string, string> = {
   "Fernando de Barros e Silva": "fernando-de-barros-e-silva",
@@ -12,188 +21,714 @@ const SLUGS: Record<string, string> = {
   "Celso Rocha de Barros": "celso-rocha-de-barros",
 };
 
-// All within the cocoa palette (no rainbow).
 const COLORS: Record<string, string> = {
-  "José Roberto de Toledo": "#352517",
-  "Thais Bilenky": "#b85c3b",
-  "Fernando de Barros e Silva": "#ebb83d",
-  "Malu Gaspar": "#725a43",
-  "Celso Rocha de Barros": "#8d735b",
-  "Ana Clara Costa": "#b07a4c",
+  "José Roberto de Toledo": "#2d3436",
+  "Thais Bilenky": "#c0392b",
+  "Fernando de Barros e Silva": "#a87b00",
+  "Malu Gaspar": "#16a085",
+  "Celso Rocha de Barros": "#2980b9",
+  "Ana Clara Costa": "#8e44ad",
 };
 
-const series = timeline.cumulative.series;
-const years = timeline.cumulative.years;
+const SHORT_NAMES: Record<string, string> = {
+  "José Roberto de Toledo": "Toledo",
+  "Thais Bilenky": "Thais",
+  "Fernando de Barros e Silva": "Fernando",
+  "Malu Gaspar": "Malu",
+  "Celso Rocha de Barros": "Celso",
+  "Ana Clara Costa": "Ana Clara",
+};
 
-const W = 880;
-const H = 360;
-const PAD_TOP = 30;
-const PAD_BOTTOM = 40;
-const PAD_LEFT = 32;
-const PAD_RIGHT = 110;
+const PARTICIPATION_RANGES: Record<string, { start: string, bench: string, end?: string }> = {
+  "José Roberto de Toledo": { start: "2018-01-01", bench: "2018-01-01", end: "2023-11-01" },
+  "Thais Bilenky": { start: "2019-01-01", bench: "2021-01-01", end: "2023-11-01" },
+  "Fernando de Barros e Silva": { start: "2018-01-01", bench: "2018-01-01" },
+  "Malu Gaspar": { start: "2018-01-01", bench: "2018-01-01", end: "2021-02-01" },
+  "Celso Rocha de Barros": { start: "2024-01-01", bench: "2024-01-01" },
+  "Ana Clara Costa": { start: "2021-01-01", bench: "2024-01-01" },
+};
 
-const maxY = Math.max(...series.flatMap((s) => s.data));
-const yTicks = 5;
-const yStep = Math.ceil(maxY / yTicks / 5) * 5;
-const yMax = yStep * yTicks;
+const FORMATIONS: Record<string, { start: string, end: string, participants: string[] }> = {
+  all: { start: "2018-01-01", end: "2099-01-01", participants: Object.keys(COLORS) },
+  f1: { start: "2018-01-01", end: "2021-02-28", participants: ["Fernando de Barros e Silva", "José Roberto de Toledo", "Malu Gaspar"] },
+  f2: { start: "2021-03-01", end: "2023-11-30", participants: ["Fernando de Barros e Silva", "José Roberto de Toledo", "Thais Bilenky"] },
+  f3: { start: "2024-01-01", end: "2099-01-01", participants: ["Fernando de Barros e Silva", "Celso Rocha de Barros", "Ana Clara Costa"] }
+};
 
-function xFor(i: number): number {
-  if (years.length === 1) return PAD_LEFT;
-  return PAD_LEFT + (i * (W - PAD_LEFT - PAD_RIGHT)) / (years.length - 1);
-}
-
-function yFor(v: number): number {
-  return PAD_TOP + ((yMax - v) * (H - PAD_TOP - PAD_BOTTOM)) / yMax;
-}
-
-function pathFor(data: number[]): string {
-  return data
-    .map((v, i) => `${i === 0 ? "M" : "L"} ${xFor(i).toFixed(1)} ${yFor(v).toFixed(1)}`)
-    .join(" ");
-}
-
-const annotations = [
-  {
-    text: "Toledo abre vantagem em 2021",
-    year: 2021,
-    name: "José Roberto de Toledo",
-    dy: -42,
-    dx: -110,
-  },
-  {
-    text: "Thais entra em 2019 e ganha tração",
-    year: 2020,
-    name: "Thais Bilenky",
-    dy: 36,
-    dx: -120,
-  },
-];
-
-const yAxisTicks = Array.from({ length: yTicks + 1 }, (_, i) => i * yStep);
+const chartPayload = {
+  episodes,
+  SLUGS,
+  COLORS,
+  SHORT_NAMES,
+  PARTICIPATION_RANGES,
+  FORMATIONS,
+  base,
+};
 ---
 
 <section class="evolution" id="evolucao">
-  <h2 class="section-title">Quem dominou o ranking ao longo do tempo</h2>
-  <p class="section-subtitle">
-    Acertos acumulados, ano a ano. Toledo abriu vantagem cedo e a manteve;
-    Celso veio em 2024 e já está mordendo o pódio.
-  </p>
+  <div class="evolution-header">
+    <div class="header-text">
+      <h2 class="section-title">O ranking ao longo do tempo</h2>
+      <p class="section-subtitle">
+        Acertos acumulados, ano a ano. Toledo abriu vantagem cedo e a manteve.
+        Celso só chegou 2024 mas já está mordendo o pódio.
+      </p>
+    </div>
+  </div>
 
   <div class="chart-wrap">
-    <svg viewBox={`0 0 ${W} ${H}`} class="chart" role="img" aria-label="Acertos acumulados por ano">
-      {/* Grid + Y axis */}
-      {yAxisTicks.map((v) => (
-        <g>
-          <line
-            x1={PAD_LEFT}
-            x2={W - PAD_RIGHT}
-            y1={yFor(v)}
-            y2={yFor(v)}
-            stroke="rgba(77, 59, 43, 0.08)"
-            stroke-width="1"
-          />
-          <text
-            x={PAD_LEFT - 8}
-            y={yFor(v) + 4}
-            text-anchor="end"
-            class="axis-label"
-          >{v}</text>
-        </g>
-      ))}
+    <div
+      id="evolution-chart"
+      class="chart"
+      role="img"
+      aria-label="Acertos acumulados por ano"
+      data-payload={JSON.stringify(chartPayload)}
+    ></div>
+  </div>
 
-      {/* X axis labels */}
-      {years.map((y, i) => (
-        <text
-          x={xFor(i)}
-          y={H - 16}
-          text-anchor="middle"
-          class="axis-label"
-        >{y}</text>
-      ))}
-
-      {/* Lines */}
-      {series.map((s) => (
-        <path
-          d={pathFor(s.data)}
-          fill="none"
-          stroke={COLORS[s.name] ?? "#352517"}
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        />
-      ))}
-
-      {/* Annotations */}
-      {annotations.map((a) => {
-        const yearIdx = years.indexOf(a.year);
-        if (yearIdx === -1) return null;
-        const s = series.find((x) => x.name === a.name);
-        if (!s) return null;
-        const x = xFor(yearIdx);
-        const y = yFor(s.data[yearIdx]);
-        const tx = x + a.dx;
-        const ty = y + a.dy;
-        return (
-          <g class="annotation">
-            <line
-              x1={x}
-              y1={y}
-              x2={tx + 4}
-              y2={ty + 4}
-              stroke="rgba(77, 59, 43, 0.4)"
-              stroke-width="0.8"
-              stroke-dasharray="2 2"
-            />
-            <circle cx={x} cy={y} r="3" fill="var(--color-egg-yolk)" />
-            <text x={tx} y={ty} class="annotation-text">{a.text}</text>
-          </g>
-        );
-      })}
-
-      {/* End-of-line avatar markers */}
-      {series.map((s) => {
-        const lastIdx = s.data.length - 1;
-        const cx = xFor(lastIdx);
-        const cy = yFor(s.data[lastIdx]);
-        const r = 18;
-        const slug = SLUGS[s.name];
-        const color = COLORS[s.name] ?? "#352517";
-        return (
-          <g>
-            <circle cx={cx} cy={cy} r={r + 1.5} fill="var(--color-bg)" />
-            <circle cx={cx} cy={cy} r={r} fill={color} fill-opacity="0.15" stroke={color} stroke-width="1.2" />
-            <clipPath id={`clip-${slug}`}>
-              <circle cx={cx} cy={cy} r={r - 1} />
-            </clipPath>
-            {slug && (
-              <image
-                href={`${base}/avatars/${slug}.png`}
-                x={cx - r}
-                y={cy - r}
-                width={r * 2}
-                height={r * 2}
-                clip-path={`url(#clip-${slug})`}
-                preserveAspectRatio="xMidYMid slice"
-              />
-            )}
-            <text
-              x={cx + r + 8}
-              y={cy + 4}
-              class="endpoint-label"
-              fill={color}
-            >{s.data[lastIdx]}</text>
-          </g>
-        );
-      })}
-    </svg>
+  <div class="formation-filters">
+    <button class="formation-btn active" data-mode="all">História completa</button>
+    <button class="formation-btn" data-mode="f1">Formação 1</button>
+    <button class="formation-btn" data-mode="f2">Formação 2</button>
+    <button class="formation-btn" data-mode="f3">Formação 3</button>
   </div>
 </section>
+
+<script>
+  import * as echarts from "echarts/core";
+  import { LineChart, ScatterChart } from "echarts/charts";
+  import {
+    TooltipComponent,
+    GridComponent,
+    MarkPointComponent,
+    GraphicComponent,
+  } from "echarts/components";
+  import { CanvasRenderer } from "echarts/renderers";
+
+  echarts.use([
+    LineChart,
+    ScatterChart,
+    TooltipComponent,
+    GridComponent,
+    MarkPointComponent,
+    GraphicComponent,
+    CanvasRenderer,
+  ]);
+
+  const el = document.getElementById("evolution-chart");
+  if (el) {
+    const payload = JSON.parse(el.dataset.payload ?? "{}");
+    const { episodes, SLUGS, COLORS, SHORT_NAMES, PARTICIPATION_RANGES, FORMATIONS, base } = payload;
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    let started = false;
+    let apply: (isUpdate?: boolean) => void;
+    let currentMode = "all";
+
+    const grayscaleCache = new Map<string, string>();
+    const getGrayscaleImage = (url: string, callback: (bwUrl: string) => void) => {
+      if (grayscaleCache.has(url)) return callback(grayscaleCache.get(url)!);
+      const img = new Image();
+      img.crossOrigin = "Anonymous";
+      img.src = url;
+      img.onload = () => {
+        const canvas = document.createElement("canvas");
+        canvas.width = img.width;
+        canvas.height = img.height;
+        const ctx = canvas.getContext("2d");
+        if (!ctx) return callback(url);
+        ctx.drawImage(img, 0, 0);
+        const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        const data = imgData.data;
+        for (let i = 0; i < data.length; i += 4) {
+          const avg = data[i] * 0.3 + data[i + 1] * 0.59 + data[i + 2] * 0.11;
+          data[i] = avg; 
+          data[i + 1] = avg; 
+          data[i + 2] = avg; 
+          data[i + 3] = data[i + 3] * 0.85;
+        }
+        ctx.putImageData(imgData, 0, 0);
+        const bwUrl = canvas.toDataURL();
+        grayscaleCache.set(url, bwUrl);
+        callback(bwUrl);
+      };
+      img.onerror = () => callback(url);
+    };
+
+    const buildOption = (isMobile: boolean) => {
+      const avatarSize = isMobile ? 28 : 38;
+      const labelFont = isMobile ? 12 : 13;
+      
+      const formDef = FORMATIONS[currentMode];
+      const startMs = new Date(formDef.start).getTime();
+      const endMs = new Date(formDef.end).getTime();
+      const activeParticipants = formDef.participants;
+      
+      const filteredEps = episodes.filter((ep: any) => {
+         const ms = new Date(ep.publishedAt).getTime();
+         return ms >= startMs && ms <= endMs;
+      });
+
+      const guestSeriesData: Record<string, [number, number, number, number][]> = {};
+      const mainSeriesData: Record<string, [number, number, number, number][]> = {};
+      const scores: Record<string, number> = {};
+      
+      const getFractionalYear = (timeMs: number) => {
+         const d = new Date(timeMs);
+         const year = d.getUTCFullYear();
+         const start = Date.UTC(year, 0, 1);
+         const end = Date.UTC(year + 1, 0, 1);
+         return year + (timeMs - start) / (end - start);
+      };
+      
+      activeParticipants.forEach((p: string) => {
+         guestSeriesData[p] = [];
+         mainSeriesData[p] = [];
+         scores[p] = 0;
+      });
+
+      const hitIndices: Record<string, Set<number>> = {};
+      activeParticipants.forEach(p => hitIndices[p] = new Set());
+      
+      let toledoPassIdx = -1;
+      let fernandoPassIdx = -1;
+
+      // Pass 1: find hit indices and calculate exact scores for milestones
+      filteredEps.forEach((ep: any, idx: number) => {
+         const epTime = new Date(ep.publishedAt).getTime();
+         activeParticipants.forEach((p: string) => {
+            const range = PARTICIPATION_RANGES[p];
+            const pStart = new Date(`${range.start}T12:00:00Z`).getTime();
+            const pEnd = range.end ? new Date(`${range.end}T12:00:00Z`).getTime() : Infinity;
+            if (epTime >= pStart && epTime <= pEnd) {
+               if (ep.winners && ep.winners.includes(p)) {
+                  hitIndices[p].add(idx);
+                  scores[p]++;
+               }
+            }
+         });
+         
+         if (currentMode === "all") {
+            if (toledoPassIdx === -1 && scores["José Roberto de Toledo"] >= 42) toledoPassIdx = idx;
+            if (fernandoPassIdx === -1 && scores["Fernando de Barros e Silva"] >= 42) fernandoPassIdx = idx;
+         }
+      });
+
+      // Reset scores for Pass 2
+      activeParticipants.forEach(p => scores[p] = 0);
+
+      // Pass 2: generate optimized points
+      // By skipping redundant points, we prevent ECharts from treating every week as a new segment,
+      // which eliminates the bug where dense points make dashed lines render as solid.
+      activeParticipants.forEach((p: string) => {
+         const range = PARTICIPATION_RANGES[p];
+         const pStart = new Date(`${range.start}T12:00:00Z`).getTime();
+         const pBench = new Date(`${range.bench}T12:00:00Z`).getTime();
+         const pEnd = range.end ? new Date(`${range.end}T12:00:00Z`).getTime() : Infinity;
+         
+         let lastPushedIdx = -1;
+
+         filteredEps.forEach((ep: any, idx: number) => {
+            const epTime = new Date(ep.publishedAt).getTime();
+            if (epTime < pStart || epTime > pEnd) return;
+            
+            const isHit = hitIndices[p].has(idx);
+            const isFirst = lastPushedIdx === -1;
+            const isLast = idx === filteredEps.length - 1 || (idx < filteredEps.length - 1 && new Date(filteredEps[idx+1].publishedAt).getTime() > pEnd);
+            const isTransition = epTime >= pBench && (idx === 0 || new Date(filteredEps[idx - 1].publishedAt).getTime() < pBench);
+            
+            if (isFirst || isHit || isLast || isTransition) {
+               const arr = epTime < pBench ? guestSeriesData[p] : mainSeriesData[p];
+               
+               if (isHit && !isFirst && lastPushedIdx !== idx - 1) {
+                  const prevEpTime = new Date(filteredEps[idx - 1].publishedAt).getTime();
+                  const prevArr = prevEpTime < pBench ? guestSeriesData[p] : mainSeriesData[p];
+                  prevArr.push([getFractionalYear(prevEpTime), scores[p], 0, idx - 1]);
+               }
+               
+               if (isHit) scores[p]++;
+               arr.push([getFractionalYear(epTime), scores[p], isHit ? 1 : 0, idx]);
+               lastPushedIdx = idx;
+            }
+         });
+      });
+      
+      const realLastEpTime = new Date(filteredEps[filteredEps.length - 1].publishedAt).getTime();
+      const realLastEpFraction = getFractionalYear(realLastEpTime);
+      
+      const chartSeries: any[] = [];
+      activeParticipants.forEach((p: string) => {
+         const guest = guestSeriesData[p];
+         const main = mainSeriesData[p];
+         const combined = [...guest, ...main].sort((a,b) => a[0] - b[0]);
+         if (combined.length === 0) return;
+         
+         const lastTime = combined[combined.length - 1][0];
+         const lastValue = combined[combined.length - 1][1];
+         
+         const baseProps = {
+            name: p,
+            color: COLORS[p] ?? "#352517",
+            avatar: `${base}avatars/${SLUGS[p]}.png`,
+            lastTime,
+            lastValue
+         };
+         
+         if (guest.length > 0 && main.length > 0) {
+            // Draw the bridge from the last guest point to the first main point using the guest (dashed) style!
+            guest.push([main[0][0], main[0][1], 0, main[0][3]]);
+            chartSeries.push({ ...baseProps, isGuest: true, data: guest });
+            chartSeries.push({ ...baseProps, isGuest: false, data: main });
+         } else if (main.length > 0) {
+            chartSeries.push({ ...baseProps, isGuest: false, data: main });
+         } else if (guest.length > 0) {
+            chartSeries.push({ ...baseProps, isGuest: true, data: guest });
+         }
+      });
+      
+      const getScore = (p: string, targetTime: number) => {
+         const g = guestSeriesData[p] || [];
+         const m = mainSeriesData[p] || [];
+         const combined = [...g, ...m].sort((a,b) => a[0] - b[0]);
+         let v = 0;
+         for (const pt of combined) {
+            if (pt[0] <= targetTime) v = pt[1];
+            else break;
+         }
+         return v;
+      };
+
+      const annotations: any[] = [];
+      if (currentMode === "all") {
+         if (toledoPassIdx !== -1) {
+            const epTime = new Date(filteredEps[toledoPassIdx].publishedAt).getTime();
+            annotations.push({ text: "Toledo passa Malu no ep. 216\n(Setembro de 2022)", targets: [{ xValue: getFractionalYear(epTime), yValue: 42 }], dx: -60, dy: -30, align: "right" });
+         }
+         const thaisEntry = filteredEps.findIndex((e:any) => e.publishedAt.startsWith('2021'));
+         if (thaisEntry !== -1 && activeParticipants.includes("Thais Bilenky")) {
+            const epTime = new Date(filteredEps[thaisEntry].publishedAt).getTime();
+            annotations.push({ text: "Thais entra na\nbancada em 2021", targets: [{ xValue: getFractionalYear(epTime), yValue: getScore("Thais Bilenky", getFractionalYear(epTime)) }], dx: 15, dy: -35, align: "left" });
+         }
+         if (fernandoPassIdx !== -1) {
+            const epTime = new Date(filteredEps[fernandoPassIdx].publishedAt).getTime();
+            annotations.push({ text: "Após 5 anos e 245 episódios sem\nMalu, Fernando a ultrapassa", targets: [{ xValue: getFractionalYear(epTime), yValue: 42 }], dx: -60, dy: -40, align: "right" });
+         }
+         const celsoAnaEntry = filteredEps.findIndex((e:any) => e.publishedAt.startsWith('2024'));
+         if (celsoAnaEntry !== -1 && activeParticipants.includes("Celso Rocha de Barros")) {
+            const epTime = new Date(filteredEps[celsoAnaEntry].publishedAt).getTime();
+            annotations.push({ text: "Celso e Ana entram\nna bancada em 2024", targets: [{ xValue: getFractionalYear(epTime), yValue: getScore("Celso Rocha de Barros", getFractionalYear(epTime)) }, { xValue: getFractionalYear(epTime), yValue: getScore("Ana Clara Costa", getFractionalYear(epTime)) }], dx: 0, dy: -60, align: "center" });
+         }
+      }
+
+      const getImgUrl = (path: string) => {
+        if (path.startsWith('http')) return path;
+        return window.location.origin + path;
+      };
+
+      const invisibleSeriesData = filteredEps.map((ep: any, idx: number) => [getFractionalYear(new Date(ep.publishedAt).getTime()), 0, 0, idx]);
+      const invisibleSeries = {
+         name: "__invisible",
+         type: "line" as const,
+         data: invisibleSeriesData,
+         symbolSize: 0,
+         lineStyle: { opacity: 0 },
+         itemStyle: { opacity: 0 },
+         tooltip: { show: false }
+      };
+
+      const seriesCfg = chartSeries.map((s) => {
+        const isMain = !s.isGuest;
+        // About 10 weeks tolerance (~0.19 years) for "hasLeft" greying out
+        const hasLeft = isMain && s.lastTime < realLastEpFraction - 0.19;
+        const avatarBorderColor = hasLeft ? "rgba(180, 180, 180, 0.7)" : s.color;
+        const textColor = hasLeft ? "rgba(100, 100, 100, 0.9)" : s.color;
+
+        let finalImgUrl = getImgUrl(s.avatar);
+        if (hasLeft) {
+          if (grayscaleCache.has(finalImgUrl)) {
+            finalImgUrl = grayscaleCache.get(finalImgUrl)!;
+          } else {
+            getGrayscaleImage(finalImgUrl, () => {
+              if (started && apply) apply(true);
+            });
+          }
+        }
+
+        return {
+          name: s.name,
+          type: "line" as const,
+          data: s.data,
+          smooth: false,
+          showSymbol: true,
+          symbol: "circle",
+          symbolSize: (val: any) => val[2] === 1 ? (isMobile ? 4 : 5) : 0,
+          connectNulls: false,
+          lineStyle: { 
+            width: s.isGuest ? 2 : 2.2, 
+            color: s.color, 
+            type: s.isGuest ? "dashed" : "solid",
+            cap: "round" as const, 
+            join: "round" as const,
+            opacity: s.isGuest ? 0.4 : (hasLeft ? 0.65 : 1)
+          },
+          itemStyle: { 
+            color: s.color,
+            opacity: s.isGuest ? 0.4 : (hasLeft ? 0.65 : 1)
+          },
+          emphasis: {
+            focus: "series" as const,
+            lineStyle: { width: s.isGuest ? 2.5 : 3 },
+          },
+          z: s.isGuest ? 1 : 2,
+          animationDuration: reduceMotion ? 0 : 1600,
+          animationEasing: "cubicOut" as const,
+          markPoint: isMain ? {
+            symbol: "circle",
+            symbolSize: 1,
+            itemStyle: { color: "transparent" },
+            silent: false,
+            data: [
+              {
+                coord: [s.lastTime, s.lastValue],
+                value: s.lastValue,
+              },
+            ],
+            label: {
+              show: true,
+              position: "right" as const,
+              distance: 4,
+              formatter: () => `{avatar|} {val|${s.lastValue}}`,
+              rich: {
+                avatar: {
+                  backgroundColor: { image: finalImgUrl },
+                  width: avatarSize,
+                  height: avatarSize,
+                  borderRadius: avatarSize / 2,
+                  borderWidth: 2,
+                  borderColor: avatarBorderColor,
+                  align: "center"
+                },
+                val: {
+                  color: textColor,
+                  fontFamily: "var(--font-display, Georgia, serif)",
+                  fontWeight: 600,
+                  fontSize: labelFont,
+                  padding: [0, 0, 0, 4]
+                }
+              }
+            },
+            animationDelay: reduceMotion ? 0 : 1400,
+          } : undefined,
+        };
+      });
+
+      const annotationSeriesData = annotations.flatMap(a => 
+        a.targets.map((t: any) => ({
+          value: [t.xValue, t.yValue],
+          itemStyle: { borderColor: "rgba(77, 59, 43, 0.6)", borderWidth: 2, color: "rgba(0,0,0,0)" }
+        }))
+      );
+
+      const annotationSeries = annotations.length
+        ? [{
+            name: "__annotations",
+            type: "scatter" as const,
+            data: annotationSeriesData,
+            symbol: "circle",
+            symbolSize: 8,
+            tooltip: { show: false },
+            silent: true,
+            z: 5,
+            animationDuration: reduceMotion ? 0 : 600,
+            animationDelay: reduceMotion ? 0 : 1200,
+          }]
+        : [];
+
+      const xMin = parseInt(formDef.start.substring(0, 4), 10);
+      let xMax = 2027;
+      if (currentMode === "f1" || currentMode === "f2") {
+         const fraction = getFractionalYear(endMs);
+         xMax = fraction % 1 > 0.85 ? Math.ceil(fraction) : fraction + 0.05;
+      }
+
+      return {
+        animation: !reduceMotion,
+        backgroundColor: "transparent",
+        textStyle: {
+          fontFamily: "var(--font-ui, system-ui, sans-serif)",
+        },
+        grid: {
+          left: isMobile ? 36 : 44,
+          right: isMobile ? 70 : 110,
+          top: 24,
+          bottom: 50,
+          containLabel: false,
+        },
+        tooltip: {
+          trigger: "axis",
+          backgroundColor: "rgba(255, 248, 245, 0.98)",
+          borderColor: "rgba(77, 59, 43, 0.2)",
+          borderWidth: 1,
+          padding: [10, 12],
+          textStyle: { color: "#352517", fontSize: 12 },
+          axisPointer: {
+            type: "line",
+            lineStyle: { color: "rgba(77, 59, 43, 0.35)", width: 1, type: "dashed" },
+          },
+          formatter: (params: any) => {
+            if (!Array.isArray(params) || params.length === 0) return "";
+            
+            const validRows = params.filter((p: any) => p.seriesName !== "__annotations" && p.value != null && p.value[3] != null);
+            if (validRows.length === 0) return "";
+
+            const epIdx = validRows[0].value[3];
+            if (epIdx === undefined) return "";
+
+            const ep = filteredEps[epIdx];
+            const title = ep && ep.title ? ep.title : "";
+            const dateStr = ep ? new Date(ep.publishedAt).toLocaleDateString('pt-BR') : "";
+            const figureStr = ep && ep.publicFigure ? `<br><span style="font-size:11px;font-weight:600;color:#ffb703;margin-top:2px;display:inline-block;">${ep.publicFigure}</span>` : "";
+            
+            const epTime = new Date(ep.publishedAt).getTime();
+            const frac = getFractionalYear(epTime);
+
+            const rows = activeParticipants
+              .filter(p => {
+                 const r = PARTICIPATION_RANGES[p];
+                 const start = new Date(`${r.start}T12:00:00Z`).getTime();
+                 const end = r.end ? new Date(`${r.end}T12:00:00Z`).getTime() : Infinity;
+                 return epTime >= start && epTime <= end;
+              })
+              .map(p => {
+                 const short = SHORT_NAMES[p] ?? p;
+                 const color = COLORS[p];
+                 const score = getScore(p, frac);
+                 const isHit = ep.winners && ep.winners.includes(p);
+                 return { p, short, color, score, isHit };
+              })
+              .sort((a, b) => b.score - a.score)
+              .map(data => {
+                const hitBadge = data.isHit ? `<span style="font-size:10px;color:${data.color};font-weight:bold;margin-left:4px;">(+1)</span>` : '';
+                return `<div style="display:flex;align-items:center;gap:8px;padding:2px 0;">
+                  <span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:${data.color};"></span>
+                  <span style="flex:1;color:rgba(53,37,23,0.9);">${data.short}</span>
+                  <strong style="color:#352517;font-variant-numeric:tabular-nums;">${data.score}</strong>${hitBadge}
+                </div>`;
+              })
+              .join("");
+            return `<div style="font-weight:600;margin-bottom:4px;color:#352517;">${dateStr} <br><span style="font-size:10px;font-weight:normal;opacity:0.8;max-width:200px;display:inline-block;white-space:normal;line-height:1.2;">${title}</span>${figureStr}</div>${rows}`;
+          },
+        },
+        xAxis: {
+          type: "value",
+          min: xMin,
+          max: xMax,
+          interval: 1,
+          boundaryGap: false,
+          axisLine: { lineStyle: { color: "rgba(77, 59, 43, 0.2)" } },
+          axisTick: { show: true, length: 4, lineStyle: { color: "rgba(77, 59, 43, 0.3)" } },
+          splitLine: { show: false },
+          axisLabel: {
+            color: "rgba(77, 59, 43, 0.6)",
+            fontSize: 11,
+            fontFamily: "var(--font-ui, system-ui, sans-serif)",
+            formatter: (val: number) => Number.isInteger(val) ? val.toString() : "",
+          },
+        },
+        yAxis: {
+          type: "value",
+          min: 0,
+          max: currentMode === "all" ? 75 : undefined,
+          splitNumber: 5,
+          axisLine: { show: false },
+          axisTick: { show: false },
+          splitLine: { lineStyle: { color: "rgba(77, 59, 43, 0.08)" } },
+          axisLabel: {
+            color: "rgba(77, 59, 43, 0.6)",
+            fontSize: 11,
+            fontFamily: "var(--font-ui, system-ui, sans-serif)",
+          },
+        },
+        series: [
+          invisibleSeries,
+          ...seriesCfg,
+          ...annotationSeries,
+        ],
+        graphic: isMobile
+          ? []
+          : annotations.map((a, idx) => {
+              const lines = a.targets.map((t: any, i: number) => ({
+                type: "line" as const,
+                id: `ann-${idx}-line-${i}`,
+                shape: { x1: 0, y1: 0, x2: 0, y2: 0 },
+                style: { stroke: "rgba(77, 59, 43, 0.5)", lineDash: [3, 3], lineWidth: 1 },
+              }));
+              return {
+                type: "group" as const,
+                id: `ann-${idx}`,
+                z: 100,
+                $config: a,
+                children: [
+                  ...lines,
+                  {
+                    type: "text" as const,
+                    id: `ann-${idx}-text`,
+                    position: [0, 0],
+                    style: {
+                      text: a.text,
+                      fontFamily: "var(--font-body, Georgia, serif)",
+                      fontStyle: "italic",
+                      fontWeight: 600,
+                      fontSize: 13,
+                      fill: "rgba(77, 59, 43, 1)",
+                      textAlign: a.align as any,
+                      textShadowBlur: 3,
+                      textShadowColor: "rgba(255, 248, 245, 0.9)",
+                    },
+                  }
+                ]
+              };
+            }),
+      };
+    };
+
+    const chart = echarts.init(el, null, { renderer: "canvas" });
+    const isMobileNow = () => window.innerWidth < 640;
+
+    apply = (isUpdate = false) => {
+      chart.clear();
+      const opt: any = buildOption(isMobileNow());
+      if (isUpdate) opt.animation = false;
+      chart.setOption(opt, true);
+
+      // Position annotation text after layout
+      requestAnimationFrame(() => {
+        if (isMobileNow()) return;
+        const anchored = (opt.graphic as any[]) ?? [];
+        const positioned = anchored.map((g) => {
+          const a = g.$config;
+          if (!a) return g;
+          
+          const targetCoords = a.targets.map((t: any) => 
+             chart.convertToPixel({ xAxisIndex: 0, yAxisIndex: 0 }, [
+               t.xValue,
+               t.yValue,
+             ]) as [number, number] | undefined
+          );
+          
+          if (targetCoords.some((c: any) => !c)) return g;
+          
+          const basePx = targetCoords[0]!;
+          const textX = basePx[0] + a.dx;
+          const textY = basePx[1] + a.dy;
+          
+          const newChildren = g.children.map((child: any) => {
+             if (child.id && child.id.endsWith("-text")) {
+                return {
+                   ...child,
+                   position: [
+                     textX + (a.align === "right" ? -6 : (a.align === "left" ? 6 : 0)),
+                     textY + (a.dy < 0 ? -12 : 2)
+                   ]
+                };
+             }
+             if (child.id && child.id.includes("-line-")) {
+                const targetIdx = parseInt(child.id.split("-").pop()!);
+                const px = targetCoords[targetIdx];
+                if (!px) return child;
+                return {
+                   ...child,
+                   shape: {
+                      x1: px[0],
+                      y1: px[1],
+                      x2: textX,
+                      y2: textY
+                   }
+                };
+             }
+             return child;
+          });
+          
+          return {
+            id: g.id,
+            position: [0, 0],
+            children: newChildren
+          };
+        });
+        chart.setOption({ graphic: positioned });
+      });
+    };
+
+    const start = () => {
+      if (started) return;
+      started = true;
+      apply();
+    };
+
+    if ("IntersectionObserver" in window) {
+      const io = new IntersectionObserver(
+        (entries) => {
+          for (const e of entries) {
+            if (e.isIntersecting) {
+               start();
+               io.disconnect();
+               break;
+            }
+          }
+        },
+        { threshold: 0.15 }
+      );
+      io.observe(el);
+    } else {
+      start();
+    }
+
+    let resizeRaf = 0;
+    window.addEventListener("resize", () => {
+      cancelAnimationFrame(resizeRaf);
+      resizeRaf = requestAnimationFrame(() => {
+        chart.resize();
+        if (started) apply();
+      });
+    });
+
+    // Handle UI buttons
+    const btns = document.querySelectorAll(".formation-btn");
+    btns.forEach(btn => {
+      btn.addEventListener("click", (e) => {
+        const target = e.currentTarget as HTMLElement;
+        const mode = target.dataset.mode;
+        if (mode && mode !== currentMode) {
+          currentMode = mode;
+          btns.forEach(b => b.classList.remove("active"));
+          target.classList.add("active");
+          if (started) apply();
+        }
+      });
+    });
+  }
+</script>
 
 <style>
   .evolution {
     max-width: var(--container-wide);
     margin: 0 auto;
     padding: 0 24px var(--section-gap);
+  }
+
+  .evolution-header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  .header-text {
+    flex: 1;
+    min-width: 280px;
   }
 
   .chart-wrap {
@@ -206,27 +741,48 @@ const yAxisTicks = Array.from({ length: yTicks + 1 }, (_, i) => i * yStep);
 
   .chart {
     width: 100%;
-    height: auto;
+    height: 420px;
     display: block;
   }
 
-  .axis-label {
+  .formation-filters {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    justify-content: center;
+  }
+
+  .formation-btn {
     font-family: var(--font-ui);
-    font-size: 11px;
-    fill: rgba(77, 59, 43, 0.6);
-  }
-
-  .annotation-text {
-    font-family: var(--font-body);
-    font-style: italic;
-    font-size: 12px;
-    fill: rgba(77, 59, 43, 0.85);
-  }
-
-  .endpoint-label {
-    font-family: var(--font-display);
     font-size: 13px;
-    font-weight: 600;
-    font-feature-settings: "tnum";
+    font-weight: 500;
+    color: rgba(77, 59, 43, 0.6);
+    background: transparent;
+    border: 1px solid var(--color-outline-faint);
+    border-radius: 999px;
+    padding: 6px 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .formation-btn:hover {
+    background: var(--color-bg-alt);
+    color: var(--color-primary-deep);
+  }
+
+  .formation-btn.active {
+    background: var(--color-primary-deep);
+    color: var(--color-on-primary);
+    border-color: var(--color-primary-deep);
+  }
+
+  @media (max-width: 640px) {
+    .chart {
+      height: 340px;
+    }
+    .chart-wrap {
+      padding: 12px 8px;
+    }
   }
 </style>

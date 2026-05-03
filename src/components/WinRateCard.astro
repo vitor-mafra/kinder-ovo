@@ -1,67 +1,323 @@
 ---
 import rankings from "../data/rankings.json";
 
-const top3 = rankings
-  .filter((r) => r.isMainPanelist)
-  .sort((a, b) => b.winRate - a.winRate)
-  .slice(0, 3);
+const base = import.meta.env.BASE_URL;
 
-const leader = top3[0];
-const max = Math.max(...top3.map((r) => r.winRate));
+const SLUGS: Record<string, string> = {
+  "Fernando de Barros e Silva": "fernando-de-barros-e-silva",
+  "José Roberto de Toledo": "jose-roberto-de-toledo",
+  "Thais Bilenky": "thais-bilenky",
+  "Ana Clara Costa": "ana-clara-costa",
+  "Malu Gaspar": "malu-gaspar",
+  "Celso Rocha de Barros": "celso-rocha-de-barros",
+};
+
+const COLORS: Record<string, string> = {
+  "José Roberto de Toledo": "#2d3436",
+  "Thais Bilenky": "#c0392b",
+  "Fernando de Barros e Silva": "#a87b00",
+  "Malu Gaspar": "#16a085",
+  "Celso Rocha de Barros": "#2980b9",
+  "Ana Clara Costa": "#8e44ad",
+};
+
+const GUEST_IMAGES: Record<string, string> = {
+  "Bernardo Esteves": "bernardo-esteves.png",
+  "Marina Dias": "pinguim-colaborador.png",
+  "Thaís Oyama": "thais-oyama.png",
+  "Bernardo Mello Franco": "pinguim-colaborador.png",
+  "Luigi Maza": "luigi-maza.png",
+};
+
+interface Ranking {
+  name: string;
+  appearances: number;
+  wins: number;
+  isMainPanelist: boolean;
+  winRate: number;
+}
+
+const allRankings = rankings as Ranking[];
+
+const mainPanelists = allRankings
+  .filter((r) => r.isMainPanelist)
+  .sort((a, b) => b.winRate - a.winRate);
+
+const guests = allRankings
+  .filter((r) => !r.isMainPanelist && r.wins > 0)
+  .sort((a, b) => b.winRate - a.winRate);
+
+const maxWinRate = Math.max(...allRankings.filter(r => r.wins > 0).map((r) => r.winRate));
+
+const payload = {
+  mainPanelists,
+  guests,
+  maxWinRate,
+  slugs: SLUGS,
+  colors: COLORS,
+  base,
+};
 ---
 
 <section class="winrate" id="taxa-de-acerto">
-  <h2 class="section-title intro-title">Mas quem realmente joga?</h2>
+  <h2 class="section-title intro-title">Olhando melhor para os números</h2>
 
   <p class="winrate-intro">
-    Números absolutos contam apenas metade da história. Fernando de Barros e
-    Silva é o único presente em quase todas as formações da bancada, o que
-    lhe dá mais oportunidades matemáticas de errar (e ele erra bastante).
-    Se olharmos para a <strong>taxa de acerto</strong>, a liderança muda de mãos.
+    Números absolutos contam apenas parte da história. Fernando, por exemplo,
+    já acertou mais momentos Kinder Ovo do que Celso e Ana, mas também já
+    participou de muito mais competições. Para um olhar mais justo, é preciso
+    encarar as coisas de forma proporcional. Se olharmos para a
+    <strong>taxa de vitória</strong>, a liderança muda de mãos:
   </p>
 
-  <div class="card">
-    <div class="card-medal" aria-hidden="true">
-      <span class="material-symbols-outlined">emoji_events</span>
+  <div class="table-card" id="winrate-table-card" data-payload={JSON.stringify(payload)}>
+    <div class="table-header">
+      <h3 class="table-label">Ranking de Aproveitamento</h3>
+      <div class="sort-controls">
+        <button class="sort-btn active" data-sort="winRate" id="sort-winrate-btn">
+          <span class="material-symbols-outlined" aria-hidden="true">percent</span>
+          Taxa de vitória
+        </button>
+        <button class="sort-btn" data-sort="wins" id="sort-wins-btn">
+          <svg class="sort-egg-icon" width="14" height="18" viewBox="0 0 22 28" aria-hidden="true">
+            <path d="M11 1.5 C 5.8 1.5, 2.2 9.5, 2.2 16.2 C 2.2 22.4, 6.0 26.5, 11 26.5 C 16.0 26.5, 19.8 22.4, 19.8 16.2 C 19.8 9.5, 16.2 1.5, 11 1.5 Z" fill="currentColor"/>
+          </svg>
+          Kinder Ovos Acertados
+        </button>
+      </div>
     </div>
 
-    <h3 class="card-label">Aproveitamento (%)</h3>
-
-    <div class="bars">
-      {top3.map((p, i) => (
-        <div class={`bar-row ${i === 0 ? "is-leader" : ""}`}>
-          <span class="bar-name">{p.name}</span>
-          <div class="bar-track">
+    <!-- Bancada section -->
+    <div class="table-section">
+      <span class="table-section-label">Bancada</span>
+    </div>
+    <div class="ranking-table" role="table" aria-label="Ranking de aproveitamento da bancada">
+      <div class="table-row table-row-header" role="row">
+        <span class="col-rank" role="columnheader">#</span>
+        <span class="col-name" role="columnheader">Nome</span>
+        <span class="col-appearances" role="columnheader">Aparições</span>
+        <span class="col-wins" role="columnheader">Acertos</span>
+        <span class="col-rate" role="columnheader">Taxa de vitória</span>
+      </div>
+      <div id="main-table-body">
+        {mainPanelists.map((p, i) => {
+          const slug = SLUGS[p.name];
+          const color = COLORS[p.name] ?? "#352517";
+          const barWidth = maxWinRate > 0 ? (p.winRate / maxWinRate) * 100 : 0;
+          const isLeader = i === 0;
+          return (
             <div
-              class="bar-fill"
-              style={`width: ${(p.winRate / max) * 100}%;`}
-            ></div>
-          </div>
-          <span class="bar-value">{p.winRate}%</span>
-        </div>
-      ))}
+              class={`table-row ${isLeader ? "is-leader" : ""}`}
+              role="row"
+              data-name={p.name}
+              data-wins={p.wins}
+              data-winrate={p.winRate}
+              data-appearances={p.appearances}
+              data-is-main="true"
+              data-color={color}
+              style={`--row-color: ${color};`}
+            >
+              <span class="col-rank" role="cell">
+                <span class="rank-badge" style={`background: ${color};`}>{i + 1}</span>
+              </span>
+              <span class="col-name" role="cell">
+                <span class="name-group">
+                  {slug && (
+                    <img
+                      class="row-avatar"
+                      src={`${base}avatars/${slug}.png`}
+                      alt=""
+                      loading="lazy"
+                      style={`border-color: ${color};`}
+                    />
+                  )}
+                  <span class="name-text">{p.name}</span>
+                  {isLeader && (
+                    <svg class="crown-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                      <path d="M21.609 13.5616L21.8382 11.1263C22.0182 9.2137 22.1082 8.25739 21.781 7.86207C21.604 7.64823 21.3633 7.5172 21.106 7.4946C20.6303 7.45282 20.0329 8.1329 18.8381 9.49307C18.2202 10.1965 17.9113 10.5482 17.5666 10.6027C17.3757 10.6328 17.1811 10.6018 17.0047 10.5131C16.6865 10.3529 16.4743 9.91812 16.0499 9.04851L13.8131 4.46485C13.0112 2.82162 12.6102 2 12 2C11.3898 2 10.9888 2.82162 10.1869 4.46486L7.95007 9.04852C7.5257 9.91812 7.31351 10.3529 6.99526 10.5131C6.81892 10.6018 6.62434 10.6328 6.43337 10.6027C6.08872 10.5482 5.77977 10.1965 5.16187 9.49307C3.96708 8.1329 3.36968 7.45282 2.89399 7.4946C2.63666 7.5172 2.39598 7.64823 2.21899 7.86207C1.8918 8.25739 1.9818 9.2137 2.16181 11.1263L2.391 13.5616C2.76865 17.5742 2.95748 19.5805 4.14009 20.7902C5.32271 22 7.09517 22 10.6401 22H13.3599C16.9048 22 18.6773 22 19.8599 20.7902C21.0425 19.5805 21.2313 17.5742 21.609 13.5616Z" fill="var(--color-egg-yolk)"/>
+                    </svg>
+                  )}
+                </span>
+              </span>
+              <span class="col-appearances" role="cell">{p.appearances}</span>
+              <span class="col-wins" role="cell">{p.wins}</span>
+              <span class="col-rate" role="cell">
+                <strong class="rate-value">{p.winRate}%</strong>
+              </span>
+            </div>
+          );
+        })}
+      </div>
     </div>
 
-    <div class="callout">
-      <span class="material-symbols-outlined" aria-hidden="true">info</span>
-      <p>
-        <strong>{leader.name}</strong> apareceu menos vezes ({leader.appearances}),
-        mas acerta mais de 1 em cada 3 ovos que tenta quebrar, garantindo a
-        melhor eficiência da bancada histórica.
-      </p>
+    <!-- Convidados section -->
+    <div class="table-section guests-section">
+      <span class="table-section-label">Convidados</span>
+      <button class="toggle-guests-btn" id="toggle-guests-btn">
+        <span class="toggle-text">Mostrar convidados</span>
+        <span class="material-symbols-outlined toggle-icon" aria-hidden="true">expand_more</span>
+      </button>
+    </div>
+    <div id="guests-table-body" class="guests-table" hidden>
+      <div class="ranking-table" role="table" aria-label="Ranking de aproveitamento dos convidados">
+        <div class="table-row table-row-header" role="row">
+          <span class="col-rank" role="columnheader">#</span>
+          <span class="col-name" role="columnheader">Nome</span>
+          <span class="col-appearances" role="columnheader">Aparições</span>
+          <span class="col-wins" role="columnheader">Acertos</span>
+          <span class="col-rate" role="columnheader">Taxa de vitória</span>
+        </div>
+        {guests.map((p, i) => {
+          const barWidth = maxWinRate > 0 ? (p.winRate / maxWinRate) * 100 : 0;
+          const guestImg = GUEST_IMAGES[p.name];
+          return (
+            <div
+              class="table-row"
+              role="row"
+              data-name={p.name}
+              data-wins={p.wins}
+              data-winrate={p.winRate}
+              data-appearances={p.appearances}
+              data-is-main="false"
+              data-color="#725a43"
+            >
+              <span class="col-rank" role="cell">
+                <span class="rank-badge rank-badge-guest">{i + 1}</span>
+              </span>
+              <span class="col-name" role="cell">
+                <span class="name-group">
+                  {guestImg ? (
+                    <img
+                      class="row-avatar row-avatar-guest"
+                      src={`${base}guests/${guestImg}`}
+                      alt=""
+                      loading="lazy"
+                    />
+                  ) : (
+                    <span class="row-avatar-fallback" aria-hidden="true">
+                      {p.name.split(" ").map((w) => w[0]).slice(0, 2).join("").toUpperCase()}
+                    </span>
+                  )}
+                  <span class="name-text">{p.name}</span>
+                </span>
+              </span>
+              <span class="col-appearances" role="cell">{p.appearances}</span>
+              <span class="col-wins" role="cell">{p.wins}</span>
+              <span class="col-rate" role="cell">
+                <strong class="rate-value">{p.winRate}%</strong>
+              </span>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+
+    <!-- Callouts -->
+    <div class="callouts">
+      <div class="callout callout-malu">
+        <svg class="callout-crown" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M21.609 13.5616L21.8382 11.1263C22.0182 9.2137 22.1082 8.25739 21.781 7.86207C21.604 7.64823 21.3633 7.5172 21.106 7.4946C20.6303 7.45282 20.0329 8.1329 18.8381 9.49307C18.2202 10.1965 17.9113 10.5482 17.5666 10.6027C17.3757 10.6328 17.1811 10.6018 17.0047 10.5131C16.6865 10.3529 16.4743 9.91812 16.0499 9.04851L13.8131 4.46485C13.0112 2.82162 12.6102 2 12 2C11.3898 2 10.9888 2.82162 10.1869 4.46486L7.95007 9.04852C7.5257 9.91812 7.31351 10.3529 6.99526 10.5131C6.81892 10.6018 6.62434 10.6328 6.43337 10.6027C6.08872 10.5482 5.77977 10.1965 5.16187 9.49307C3.96708 8.1329 3.36968 7.45282 2.89399 7.4946C2.63666 7.5172 2.39598 7.64823 2.21899 7.86207C1.8918 8.25739 1.9818 9.2137 2.16181 11.1263L2.391 13.5616C2.76865 17.5742 2.95748 19.5805 4.14009 20.7902C5.32271 22 7.09517 22 10.6401 22H13.3599C16.9048 22 18.6773 22 19.8599 20.7902C21.0425 19.5805 21.2313 17.5742 21.609 13.5616Z" fill="var(--color-egg-yolk)"/>
+        </svg>
+        <p>
+          <strong>Malu Gaspar</strong> é a rainha do Kinder Ovo. Com
+          {mainPanelists.find(p => p.name === "Malu Gaspar")?.appearances ?? 114} aparições,
+          acerta mais de 1 em cada 3 Kinder Ovos. A lenda é real: é a melhor eficiência
+          da história da bancada.
+        </p>
+      </div>
+      <div class="callout callout-celso">
+        <span class="material-symbols-outlined callout-icon" aria-hidden="true">trending_up</span>
+        <p>
+          <strong>Celso Rocha de Barros</strong> é muito melhor do que parece:
+          com {mainPanelists.find(p => p.name === "Celso Rocha de Barros")?.winRate ?? 35}%
+          de aproveitamento, ele disputa com Malu o posto de maior taxa de acerto,
+          podendo até superar sua fama (sem pressão, Celso!)
+        </p>
+      </div>
     </div>
   </div>
 </section>
 
+<script>
+  function initWinRateTable() {
+    const card = document.getElementById("winrate-table-card");
+    if (!card) return;
+
+    // Sort buttons
+    const sortBtns = card.querySelectorAll<HTMLButtonElement>(".sort-btn");
+    const mainBody = document.getElementById("main-table-body");
+    const guestsWrapper = document.getElementById("guests-table-body");
+    const guestsBody = guestsWrapper?.querySelector(".ranking-table");
+    const toggleBtn = document.getElementById("toggle-guests-btn");
+
+    let currentSort = "winRate";
+
+    function sortRows(container: Element | null, field: string) {
+      if (!container) return;
+      const rows = Array.from(container.querySelectorAll<HTMLElement>('.table-row:not(.table-row-header)'));
+      rows.sort((a, b) => {
+        const va = parseFloat(a.dataset[field === "winRate" ? "winrate" : field] ?? "0");
+        const vb = parseFloat(b.dataset[field === "winRate" ? "winrate" : field] ?? "0");
+        return vb - va;
+      });
+
+      rows.forEach((row, i) => {
+        const badge = row.querySelector(".rank-badge");
+        if (badge) badge.textContent = String(i + 1);
+
+        // Update leader class for main panelists
+        if (row.dataset.isMain === "true") {
+          row.classList.toggle("is-leader", i === 0);
+        }
+
+        // Re-append to keep DOM order
+        row.parentElement?.appendChild(row);
+      });
+    }
+
+    sortBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const field = btn.dataset.sort ?? "winRate";
+        if (field === currentSort) return;
+        currentSort = field;
+
+        sortBtns.forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
+
+        sortRows(mainBody, field);
+        if (guestsBody) sortRows(guestsBody, field);
+      });
+    });
+
+    // Toggle guests
+    if (toggleBtn && guestsWrapper) {
+      toggleBtn.addEventListener("click", () => {
+        const isHidden = guestsWrapper.hidden;
+        guestsWrapper.hidden = !isHidden;
+        const textEl = toggleBtn.querySelector(".toggle-text");
+        const iconEl = toggleBtn.querySelector(".toggle-icon");
+        if (textEl) textEl.textContent = isHidden ? "Ocultar convidados" : "Mostrar convidados";
+        if (iconEl) iconEl.textContent = isHidden ? "expand_less" : "expand_more";
+      });
+    }
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initWinRateTable);
+  } else {
+    initWinRateTable();
+  }
+</script>
+
 <style>
   .winrate {
-    max-width: 640px;
+    max-width: 800px;
     margin: 0 auto;
     padding: 0 24px var(--section-gap);
   }
 
   .intro-title {
-    text-align: left;
+    text-align: center;
     margin-bottom: 24px;
   }
 
@@ -73,134 +329,464 @@ const max = Math.max(...top3.map((r) => r.winRate));
     margin-bottom: 40px;
   }
 
-  .card {
-    position: relative;
+  /* Table card container */
+  .table-card {
     background: var(--color-surface);
     border: 1px solid var(--color-outline-soft);
     border-radius: var(--radius-xl);
-    padding: 32px;
+    padding: 0;
     box-shadow: 0 30px 60px -40px rgba(53, 37, 23, 0.18);
+    overflow: hidden;
   }
 
-  .card-medal {
-    position: absolute;
-    top: -16px;
-    right: -16px;
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    background: var(--color-primary-deep);
-    border: 2px solid var(--color-bg);
+  /* Header with title and sort buttons */
+  .table-header {
     display: flex;
     align-items: center;
-    justify-content: center;
-    transform: rotate(-12deg);
-    color: var(--color-bg);
+    justify-content: space-between;
+    gap: 16px;
+    padding: 24px 28px 16px;
+    border-bottom: 1px solid var(--color-outline-faint);
+    flex-wrap: wrap;
   }
 
-  .card-medal .material-symbols-outlined {
-    font-size: 24px;
-  }
-
-  .card-label {
+  .table-label {
     font-family: var(--font-ui);
     font-size: 12px;
     font-weight: 600;
     letter-spacing: 0.16em;
     text-transform: uppercase;
     color: rgba(77, 59, 43, 0.7);
-    padding-bottom: 12px;
-    border-bottom: 1px solid var(--color-outline-soft);
-    margin-bottom: 24px;
+    margin: 0;
   }
 
-  .bars {
+  .sort-controls {
     display: flex;
-    flex-direction: column;
-    gap: 16px;
+    gap: 6px;
   }
 
-  .bar-row {
-    display: grid;
-    grid-template-columns: 110px 1fr 60px;
+  .sort-btn {
+    display: inline-flex;
     align-items: center;
-    gap: 16px;
-  }
-
-  .bar-name {
+    gap: 5px;
     font-family: var(--font-ui);
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 500;
-    color: rgba(77, 59, 43, 0.7);
-    text-align: right;
+    color: rgba(77, 59, 43, 0.6);
+    background: transparent;
+    border: 1px solid var(--color-outline-faint);
+    border-radius: 999px;
+    padding: 6px 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
   }
 
-  .is-leader .bar-name {
-    color: var(--color-primary-deep);
+  .sort-btn .material-symbols-outlined {
+    font-size: 16px;
+  }
+
+  .sort-btn:hover {
+    color: var(--color-egg-chocolate);
+    border-color: var(--color-outline-soft);
+    background: var(--color-bg-alt);
+  }
+
+  .sort-btn.active {
+    color: var(--color-on-primary);
+    background: var(--color-egg-chocolate);
+    border-color: var(--color-egg-chocolate);
+  }
+
+  /* Egg icon in sort button */
+  .sort-egg-icon {
+    flex-shrink: 0;
+  }
+
+  /* Golden egg when wins sort is active */
+  .sort-btn.active .sort-egg-icon {
+    color: var(--color-egg-yolk);
+  }
+
+  /* Section labels */
+  .table-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 28px 8px;
+  }
+
+  .table-section-label {
+    font-family: var(--font-ui);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(77, 59, 43, 0.45);
+  }
+
+  .guests-section {
+    border-top: 1px solid var(--color-outline-faint);
+    margin-top: 4px;
+    padding-top: 16px;
+  }
+
+  .toggle-guests-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-family: var(--font-ui);
+    font-size: 12px;
+    font-weight: 500;
+    color: rgba(77, 59, 43, 0.6);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: var(--radius-lg);
+    transition: color 0.15s ease, background 0.15s ease;
+  }
+
+  .toggle-guests-btn:hover {
+    color: var(--color-egg-chocolate);
+    background: var(--color-bg-alt);
+  }
+
+  .toggle-guests-btn .material-symbols-outlined {
+    font-size: 18px;
+    transition: transform 0.2s ease;
+  }
+
+  /* Table rows */
+  .ranking-table {
+    padding: 0 16px;
+  }
+
+  .table-row {
+    display: grid;
+    grid-template-columns: 40px 1fr 80px 72px 110px;
+    align-items: center;
+    gap: 0 12px;
+    padding: 10px 16px;
+    border-radius: var(--radius-lg);
+    transition: background 0.2s ease;
+  }
+
+  .table-row:not(.table-row-header):hover {
+    background: var(--color-bg-alt);
+  }
+
+  /* Bancada rows: hover shows participant's theme color */
+  .table-row[data-is-main="true"]:hover {
+    background: color-mix(in srgb, var(--row-color, var(--color-bg-alt)) 8%, transparent);
+  }
+
+  /* Guest rows: subtle grey hover */
+  .table-row[data-is-main="false"]:hover {
+    background: rgba(77, 59, 43, 0.04);
+  }
+
+  .table-row-header {
+    padding: 4px 16px 6px;
+  }
+
+  .table-row-header span {
+    font-family: var(--font-ui);
+    font-size: 10px;
     font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(77, 59, 43, 0.4);
   }
 
-  .bar-track {
+  /* Leader row highlight */
+  .table-row.is-leader {
+    background: color-mix(in srgb, var(--row-color, #16a085) 7%, transparent);
+  }
+
+  .table-row.is-leader:hover {
+    background: color-mix(in srgb, var(--row-color, #16a085) 12%, transparent);
+  }
+
+  /* Columns */
+  .col-rank {
+    text-align: center;
+  }
+
+  .rank-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
     height: 24px;
-    background: var(--color-bg);
-    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    border-radius: 50%;
+    font-family: var(--font-ui);
+    font-size: 11px;
+    font-weight: 700;
+    color: #fff;
+    font-feature-settings: "tnum";
+  }
+
+  .rank-badge-guest {
+    background: rgba(77, 59, 43, 0.3) !important;
+    color: rgba(77, 59, 43, 0.75) !important;
+    font-size: 10px;
+  }
+
+  .col-name {
+    min-width: 0;
     overflow: hidden;
   }
 
-  .bar-fill {
-    height: 100%;
-    background: rgba(77, 59, 43, 0.2);
-    transition: width 0.4s ease;
+  .name-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
   }
 
-  .is-leader .bar-fill {
-    background: var(--color-primary-deep);
+  .row-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center top;
+    border: 2px solid;
+    flex-shrink: 0;
   }
 
-  .bar-value {
-    font-family: var(--font-display);
-    font-size: 1.25rem;
+  .row-avatar-guest {
+    border-color: var(--color-outline-soft);
+  }
+
+  .row-avatar-fallback {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--color-bg-alt);
+    border: 1px solid var(--color-outline-faint);
+    font-family: var(--font-ui);
+    font-size: 11px;
+    font-weight: 600;
+    color: rgba(77, 59, 43, 0.5);
+    flex-shrink: 0;
+  }
+
+  .name-text {
+    font-family: var(--font-ui);
+    font-size: 14px;
     font-weight: 500;
-    color: rgba(77, 59, 43, 0.7);
-    text-align: left;
+    color: var(--color-primary-deep);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
-  .is-leader .bar-value {
-    font-size: 2rem;
+  .crown-icon {
+    flex-shrink: 0;
+    margin-left: 2px;
+  }
+
+  .col-appearances,
+  .col-wins {
+    font-family: var(--font-ui);
+    font-size: 13px;
+    font-weight: 500;
+    color: rgba(77, 59, 43, 0.65);
+    text-align: right;
+    font-feature-settings: "tnum";
+  }
+
+  .col-rate {
+    text-align: right;
+  }
+
+  .rate-value {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
     font-weight: 600;
     color: var(--color-primary-deep);
+    font-feature-settings: "tnum";
+  }
+
+  /* Guests table */
+  .guests-table {
+    padding-bottom: 4px;
+    animation: fadeIn 0.25s ease;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .guests-table .name-text {
+    font-size: 13px;
+    color: rgba(77, 59, 43, 0.7);
+  }
+
+  .guests-table .rate-value {
+    font-size: 0.95rem;
+    color: rgba(77, 59, 43, 0.7);
+  }
+
+  .guests-table .col-appearances,
+  .guests-table .col-wins {
+    font-size: 12px;
+    color: rgba(77, 59, 43, 0.5);
+  }
+
+  /* Callouts */
+  .callouts {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border-top: 1px solid var(--color-outline-faint);
+    margin-top: 8px;
   }
 
   .callout {
     display: flex;
-    gap: 12px;
-    margin-top: 24px;
-    padding-top: 16px;
-    border-top: 1px solid var(--color-outline-soft);
+    gap: 14px;
+    padding: 18px 28px;
+    border-bottom: 1px solid var(--color-outline-faint);
+    transition: background 0.15s ease;
   }
 
-  .callout .material-symbols-outlined {
-    color: var(--color-primary-deep);
+  .callout:last-child {
+    border-bottom: none;
+  }
+
+  .callout:hover {
+    background: var(--color-bg-alt);
+  }
+
+  .callout-icon {
     font-size: 20px;
     flex-shrink: 0;
     margin-top: 2px;
+  }
+
+  .callout-crown {
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+
+  .callout-celso .callout-icon {
+    color: #2980b9;
   }
 
   .callout p {
     font-family: var(--font-body);
     font-size: 14px;
     font-style: italic;
-    line-height: 1.55;
+    line-height: 1.6;
     color: rgba(77, 59, 43, 0.85);
   }
 
-  @media (max-width: 540px) {
-    .bar-row {
-      grid-template-columns: 90px 1fr 56px;
-      gap: 12px;
+  /* ── Responsive ── */
+  @media (max-width: 640px) {
+    .winrate {
+      padding-left: 16px;
+      padding-right: 16px;
     }
-    .is-leader .bar-value {
-      font-size: 1.5rem;
+
+    .table-header {
+      padding: 20px 16px 14px;
+    }
+
+    .sort-controls {
+      width: 100%;
+    }
+
+    .sort-btn {
+      flex: 1;
+      justify-content: center;
+      font-size: 11px;
+      padding: 6px 10px;
+    }
+
+    .table-row {
+      grid-template-columns: 32px 1fr 50px 44px 64px;
+      padding: 8px 8px;
+      gap: 0 4px;
+    }
+
+    .table-section {
+      padding: 12px 16px 8px;
+    }
+
+    .ranking-table {
+      padding: 0 8px;
+    }
+
+    .row-avatar {
+      width: 26px;
+      height: 26px;
+    }
+
+    .row-avatar-fallback {
+      width: 26px;
+      height: 26px;
+      font-size: 9px;
+    }
+
+    .name-text {
+      font-size: 12px;
+    }
+
+    .name-group {
+      gap: 6px;
+    }
+
+    .rank-badge {
+      width: 20px;
+      height: 20px;
+      font-size: 10px;
+    }
+
+    .col-appearances,
+    .col-wins {
+      font-size: 11px;
+    }
+
+    .rate-value {
+      font-size: 0.9rem;
+    }
+
+    .callout {
+      padding: 14px 16px;
+    }
+
+    .guests-table .name-text {
+      font-size: 11px;
+    }
+
+    .guests-section {
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+  }
+
+  @media (max-width: 420px) {
+    .table-row {
+      grid-template-columns: 28px 1fr 40px 36px 50px;
+    }
+
+    .col-appearances .table-row-header span,
+    .col-wins .table-row-header span {
+      font-size: 8px;
+    }
+
+    .name-text {
+      font-size: 11px;
+    }
+
+    .rate-value {
+      font-size: 0.82rem;
     }
   }
 </style>

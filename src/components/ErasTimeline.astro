@@ -9,6 +9,25 @@ const PANEL_DATE_RANGES: Record<string, { start: string; end: string | null }> =
   atual: { start: "2024-03-01", end: null },
 };
 
+/**
+ * Date ranges when each person was an official bench MEMBER (not guest).
+ * Wins are only counted within these ranges, ensuring guest appearances
+ * are never counted as bench-member wins.
+ *
+ * E.g. Thais appeared as guest from Jun 2019, but only became a bench
+ * member in Feb 2021 — her 4 guest wins in Formation 1 are excluded.
+ * Ana Clara appeared as guest from Aug 2021, but only became a bench
+ * member in Mar 2024 — her 5 guest wins in Formation 2 are excluded.
+ */
+const MEMBER_BENCH_RANGES: Record<string, { start: string; end: string | null }> = {
+  "Fernando de Barros e Silva": { start: "2018-05-01", end: null },
+  "Malu Gaspar":                { start: "2018-05-01", end: "2021-01-31" },
+  "José Roberto de Toledo":     { start: "2018-05-01", end: "2023-10-31" },
+  "Thais Bilenky":              { start: "2021-02-01", end: "2023-10-31" },
+  "Ana Clara Costa":            { start: "2024-03-01", end: null },
+  "Celso Rocha de Barros":      { start: "2024-03-01", end: null },
+};
+
 function presenterShortName(full: string): string {
   if (full === "José Roberto de Toledo") return "Toledo";
   return full.split(" ")[0];
@@ -33,8 +52,16 @@ function statsForPanel(slug: string, members: string[]): PanelStat {
 
   const winsByName: Record<string, number> = {};
   for (const e of eps) {
+    const epDate = new Date(e.publishedAt).getTime();
     for (const w of e.winners ?? []) {
       if (!members.includes(w)) continue;
+      // Only count this win if the person was an official bench member
+      // at the time of the episode (not a guest)
+      const benchRange = MEMBER_BENCH_RANGES[w];
+      if (!benchRange) continue;
+      const benchStart = new Date(benchRange.start).getTime();
+      const benchEnd = benchRange.end ? new Date(benchRange.end).getTime() : Number.POSITIVE_INFINITY;
+      if (epDate < benchStart || epDate > benchEnd) continue;
       winsByName[w] = (winsByName[w] ?? 0) + 1;
     }
   }

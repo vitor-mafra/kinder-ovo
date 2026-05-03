@@ -5,7 +5,6 @@ const items = [
   { value: stats.total, label: "Episódios" },
   { value: stats.koDetected, label: "Com Kinder Ovo" },
   { value: stats.winnersFound, label: "Acertos" },
-  { value: stats.episodesWithoutWinners, label: "Sem vencedores" },
   { value: stats.figuresFound, label: "Figuras públicas distintas" },
 ] as const;
 ---
@@ -25,12 +24,15 @@ const items = [
   .hero-stats {
     margin-top: 40px;
     width: min(960px, 100%);
+    margin-inline: auto;
     padding: 0 4px;
   }
 
   .hero-counters {
-    display: grid;
-    grid-template-columns: repeat(5, minmax(0, 1fr));
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
     column-gap: clamp(6px, 1.6vw, 16px);
     row-gap: 8px;
   }
@@ -39,6 +41,10 @@ const items = [
     display: flex;
     flex-direction: column;
     align-items: center;
+    /* Largura estável por bloco; o grupo inteiro fica centralizado no flex pai */
+    flex: 0 1 200px;
+    min-width: min(200px, calc(50% - 10px));
+    max-width: 240px;
     text-align: center;
     gap: 10px;
   }
@@ -69,14 +75,12 @@ const items = [
 
   @media (max-width: 840px) {
     .hero-counters {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
       row-gap: 24px;
     }
   }
 
   @media (max-width: 540px) {
     .hero-counters {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
       row-gap: 28px;
     }
   }

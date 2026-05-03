@@ -100,10 +100,10 @@ const figureEpisodeIndex = buildFigureEpisodeIndex(episodes as EpisodeRow[]);
       name="figures-search"
       autocomplete="off"
       spellcheck="false"
-      placeholder={`Buscar entre ${totalFigures} figuras…`}
+      placeholder={`Buscar entre ${totalFigures} figuras públicas…`}
     />
     <p class="figures-search-hint" id="figures-search-hint">
-      Exibindo as {INITIAL_SHOWN} mais frequentes. Use a busca para ver qualquer uma das {totalFigures} figuras.
+      Exibindo as {INITIAL_SHOWN} mais frequentes. Use a busca para encontrar uma em específico.
     </p>
     <p class="figures-live" id="figures-live" role="status" aria-live="polite"></p>
   </div>
@@ -301,9 +301,7 @@ const figureEpisodeIndex = buildFigureEpisodeIndex(episodes as EpisodeRow[]);
         grid.innerHTML = initialHTML;
         hint.hidden = false;
         setEmpty(false);
-        updateLive(
-          `Lista principal: ${INITIAL_SHOWN} figuras mais frequentes (de ${totalFigures}).`
-        );
+        updateLive("");
         return;
       }
 
@@ -335,9 +333,7 @@ const figureEpisodeIndex = buildFigureEpisodeIndex(episodes as EpisodeRow[]);
       }, 140);
     }
 
-    updateLive(
-      `Lista principal: ${INITIAL_SHOWN} figuras mais frequentes (de ${totalFigures}).`
-    );
+    updateLive("");
 
     input.addEventListener("input", scheduleApply);
     input.addEventListener("search", scheduleApply);
@@ -402,37 +398,18 @@ const figureEpisodeIndex = buildFigureEpisodeIndex(episodes as EpisodeRow[]);
       const rows = figureEpisodeIndex[name];
       buildListRows(rows);
 
-      const margin = 12;
-      const gap = 12;
-      const rect = card.getBoundingClientRect();
-      const vh = window.visualViewport?.height ?? window.innerHeight;
-
       tooltip.style.visibility = "hidden";
       tooltip.style.display = "flex";
-      tooltip.style.position = "fixed";
-
-      const viewportCap = Math.min(vh * 0.7, 520, vh - 2 * margin);
-      tooltip.style.maxHeight = `${Math.max(120, viewportCap)}px`;
-
+      const rect = card.getBoundingClientRect();
+      const margin = 12;
       const tipRect = tooltip.getBoundingClientRect();
-      const tipW = tipRect.width;
-      const tipH = tipRect.height;
-
-      let left = rect.left + rect.width / 2 - tipW / 2;
-      left = Math.max(margin, Math.min(window.innerWidth - tipW - margin, left));
-
-      let top = rect.top - tipH - gap;
+      let left = rect.left + rect.width / 2 - tipRect.width / 2;
+      left = Math.max(margin, Math.min(window.innerWidth - tipRect.width - margin, left));
+      let top = rect.top - tipRect.height - 12;
       if (top < margin) {
-        top = rect.bottom + gap;
+        top = rect.bottom + 12;
       }
-
-      if (top + tipH > vh - margin) {
-        top = Math.max(margin, vh - margin - tipH);
-      }
-      if (top < margin) {
-        top = margin;
-      }
-
+      tooltip.style.position = "fixed";
       tooltip.style.left = `${left}px`;
       tooltip.style.top = `${top}px`;
       tooltip.style.visibility = "visible";
@@ -446,7 +423,6 @@ const figureEpisodeIndex = buildFigureEpisodeIndex(episodes as EpisodeRow[]);
     function forceHide() {
       pinned = false;
       tooltip.style.display = "none";
-      tooltip.style.maxHeight = "";
       tooltip.setAttribute("aria-hidden", "true");
       if (activeCard) activeCard.classList.remove("is-active");
       activeCard = null;
@@ -656,7 +632,6 @@ const figureEpisodeIndex = buildFigureEpisodeIndex(episodes as EpisodeRow[]);
     line-height: 1.35;
     color: var(--color-egg-yolk);
     margin: 0 0 10px;
-    flex-shrink: 0;
   }
 
   .fig-tt-sub {
@@ -665,7 +640,6 @@ const figureEpisodeIndex = buildFigureEpisodeIndex(episodes as EpisodeRow[]);
     color: rgba(77, 59, 43, 0.72);
     margin: 0 0 12px;
     line-height: 1.35;
-    flex-shrink: 0;
   }
 
   .fig-tt-list {
@@ -673,26 +647,12 @@ const figureEpisodeIndex = buildFigureEpisodeIndex(episodes as EpisodeRow[]);
     margin: 0;
     padding: 0;
     overflow-y: auto;
-    overflow-x: hidden;
-    flex: 1 1 0;
+    flex: 1;
     min-height: 0;
     display: flex;
     flex-direction: column;
     gap: 14px;
     padding-right: 4px;
-    overscroll-behavior: contain;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: thin;
-    scrollbar-color: rgba(77, 59, 43, 0.35) transparent;
-  }
-
-  .fig-tt-list::-webkit-scrollbar {
-    width: 6px;
-  }
-
-  .fig-tt-list::-webkit-scrollbar-thumb {
-    background: rgba(77, 59, 43, 0.28);
-    border-radius: 999px;
   }
 
   /*
@@ -740,7 +700,7 @@ const figureEpisodeIndex = buildFigureEpisodeIndex(episodes as EpisodeRow[]);
     align-items: center;
     gap: 6px;
     align-self: flex-start;
-    background: var(--color-primary-deep);
+    background: var(--color-egg-chocolate);
     color: var(--color-bg);
     font-family: var(--font-ui);
     font-size: 12px;
@@ -756,7 +716,7 @@ const figureEpisodeIndex = buildFigureEpisodeIndex(episodes as EpisodeRow[]);
 
   .figure-episodes-tooltip :global(a.fig-tt-spotify-btn:hover) {
     background: var(--color-egg-yolk);
-    color: var(--color-primary-deep);
+    color: var(--color-egg-chocolate);
     text-decoration: none;
   }
 
@@ -813,7 +773,7 @@ const figureEpisodeIndex = buildFigureEpisodeIndex(episodes as EpisodeRow[]);
     width: 26px;
     height: 26px;
     border-radius: 50%;
-    background: var(--color-primary-deep);
+    background: var(--color-egg-chocolate);
     color: var(--color-bg);
     display: flex;
     align-items: center;
