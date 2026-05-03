@@ -75,10 +75,14 @@ const eras = panelsData.panels.map((p) => ({
           </div>
           {era.stats.topWinner && (
             <div>
-              <dt>Maior acertador</dt>
+              <dt>
+                {era.slug === "original" || era.slug === "transicao"
+                  ? "Maior vencedora"
+                  : "Maior vencedor"}
+              </dt>
               <dd>
                 {presenterShortName(era.stats.topWinner.name)}{" "}
-                <span class="era-stats-num">·{era.stats.topWinner.wins}</span>
+                <span class="era-stats-num">{era.stats.topWinner.wins}</span>
               </dd>
             </div>
           )}
@@ -205,7 +209,6 @@ const eras = panelsData.panels.map((p) => ({
   .era-stats-num {
     color: var(--color-egg-yolk);
     font-weight: 600;
-    margin-left: 2px;
   }
 
   .era-notes {

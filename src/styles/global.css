@@ -16,10 +16,11 @@
   --color-secondary: #725a43;
   --color-on-surface-variant: #4e453e;
 
-  --color-egg-yolk: #e2a93a;
-  --color-egg-shell: #b07a4c;
-  /* Pictogramas: chocolate ao leite (Kinder) — baseline antes de novos afinos de tom */
-  --color-egg-chocolate: #b8845e;
+  /* Destaque / hover dos ovos — dourado um pouco mais claro e “surpresa” */
+  --color-egg-yolk: #ebb83d;
+  --color-egg-shell: #925e44;
+  /* Pictogramas (ovos preenchidos / chocolate escuro) */
+  --color-egg-chocolate: #46292c;
 
   --color-outline: #80756d;
   --color-outline-soft: rgba(77, 59, 43, 0.2);

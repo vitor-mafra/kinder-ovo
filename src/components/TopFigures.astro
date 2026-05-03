@@ -1,27 +1,116 @@
 ---
 import figures from "../data/figures.json";
+import episodes from "../data/episodes.json";
 
 interface Figure {
   name: string;
   count: number;
   wikipediaUrl?: string;
   imageUrl?: string;
-  description?: string;
 }
 
-const top = (figures as Figure[]).slice(0, 12);
+interface FigEpisodeRow {
+  episodeNumber: number | null;
+  title: string;
+  dateLabel: string;
+  spotifyUrl: string;
+}
+
+interface EpisodeRow {
+  id: number;
+  title: string;
+  episodeNumber: number | null;
+  publishedAt: string | null;
+  hasKinderOvo?: boolean;
+  publicFigure?: string | null;
+}
+
+function spotifySearchUrl(title: string): string {
+  return `https://open.spotify.com/search/${encodeURIComponent(title)}`;
+}
+
+function formatEpisodeDate(iso: string): string {
+  const d = new Date(iso);
+  return d.toLocaleDateString("pt-BR", {
+    day: "2-digit",
+    month: "short",
+    year: "numeric",
+  });
+}
+
+function splitPublicFigure(raw: string | null | undefined): string[] {
+  if (!raw?.trim()) return [];
+  return raw.split(";").map((s) => s.trim()).filter(Boolean);
+}
+
+/** Episódios onde cada figura aparece em publicFigure (ordenados por data). */
+function buildFigureEpisodeIndex(eps: EpisodeRow[]): Record<string, FigEpisodeRow[]> {
+  type Acc = FigEpisodeRow & { sortMs: number; id: number };
+  const bucket: Record<string, Acc[]> = {};
+
+  for (const ep of eps) {
+    if (!ep.hasKinderOvo || !ep.publicFigure?.trim() || !ep.publishedAt) continue;
+    const parts = splitPublicFigure(ep.publicFigure);
+    if (parts.length === 0) continue;
+
+    const sortMs = new Date(ep.publishedAt).getTime();
+    const dateLabel = formatEpisodeDate(ep.publishedAt);
+    const spotifyUrl = spotifySearchUrl(ep.title);
+    const row: Acc = {
+      id: ep.id,
+      episodeNumber: ep.episodeNumber ?? null,
+      title: ep.title,
+      dateLabel,
+      spotifyUrl,
+      sortMs,
+    };
+
+    for (const name of parts) {
+      if (!bucket[name]) bucket[name] = [];
+      const arr = bucket[name];
+      if (!arr.some((x) => x.id === ep.id)) arr.push(row);
+    }
+  }
+
+  const out: Record<string, FigEpisodeRow[]> = {};
+  for (const [name, rows] of Object.entries(bucket)) {
+    rows.sort((a, b) => a.sortMs - b.sortMs);
+    out[name] = rows.map(({ id: _id, sortMs: _s, ...rest }) => rest);
+  }
+  return out;
+}
+
+const allFigures = figures as Figure[];
+const INITIAL_SHOWN = 20;
+const top = allFigures.slice(0, INITIAL_SHOWN);
+const totalFigures = allFigures.length;
+
+const figureEpisodeIndex = buildFigureEpisodeIndex(episodes as EpisodeRow[]);
 ---
 
 <section class="top-figures" id="figuras">
-  <h2 class="section-title">Quem mais cai no ovo</h2>
-  <p class="section-subtitle">
-    Além de medir os apresentadores, dá para medir quem mais foi adivinhado.
-    Estes são os personagens que a bancada ouviu falando mais vezes.
-  </p>
+  <h2 class="section-title">As surpresas mais frequentes</h2>
 
-  <div class="figures-grid">
+  <div class="figures-search-block">
+    <label class="figures-search-label" for="figures-search">Buscar figura pública</label>
+    <input
+      id="figures-search"
+      class="figures-search-input"
+      type="search"
+      name="figures-search"
+      autocomplete="off"
+      spellcheck="false"
+      placeholder={`Buscar entre ${totalFigures} figuras…`}
+    />
+    <p class="figures-search-hint" id="figures-search-hint">
+      Exibindo as {INITIAL_SHOWN} mais frequentes. Use a busca para ver qualquer uma das {totalFigures} figuras.
+    </p>
+    <p class="figures-live" id="figures-live" role="status" aria-live="polite"></p>
+  </div>
+
+  <div class="figures-grid" id="figures-grid">
     {top.map((f, i) => (
-      <article class="figure-card">
+      <article class="figure-card" data-figure-name={f.name} tabindex="0" role="button" aria-label={`Ver episódios com áudio de ${f.name}`}>
         <div class="figure-thumb">
           {f.imageUrl ? (
             <img
@@ -39,10 +128,6 @@ const top = (figures as Figure[]).slice(0, 12);
 
         <h3 class="figure-name">{f.name}</h3>
 
-        {f.description && (
-          <p class="figure-desc">{f.description}</p>
-        )}
-
         <div class="figure-meta">
           <span class="figure-count">
             <strong>{f.count}</strong> {f.count === 1 ? "aparição" : "aparições"}
@@ -52,7 +137,7 @@ const top = (figures as Figure[]).slice(0, 12);
               class="figure-link"
               href={f.wikipediaUrl}
               target="_blank"
-              rel="noopener"
+              rel="noopener noreferrer"
             >
               Wikipedia <span aria-hidden="true">↗</span>
             </a>
@@ -61,13 +146,430 @@ const top = (figures as Figure[]).slice(0, 12);
       </article>
     ))}
   </div>
+
+  <p class="figures-empty" id="figures-empty" hidden>
+    Nenhuma figura encontrada com esse termo.
+  </p>
+
+  <div
+    id="figure-episodes-tooltip"
+    class="figure-episodes-tooltip"
+    role="dialog"
+    aria-hidden="true"
+    aria-labelledby="fig-tt-name"
+  >
+    <h3 class="fig-tt-title" id="fig-tt-name"></h3>
+    <p class="fig-tt-sub">Foi a surpresa do Kinder Ovo em:</p>
+    <ul class="fig-tt-list" id="fig-tt-list"></ul>
+  </div>
 </section>
+
+<script define:vars={{ allFigures, totalFigures, INITIAL_SHOWN, figureEpisodeIndex }}>
+  /** Normaliza texto para busca: sem acentos, minúsculas, pontuação virando espaço. */
+  function normalize(str) {
+    return str
+      .normalize("NFD")
+      .replace(/\p{M}/gu, "")
+      .toLowerCase()
+      .replace(/[^a-z0-9\s]/g, " ")
+      .replace(/\s+/g, " ")
+      .trim();
+  }
+
+  /** Correspondência por substring ou por tokens (ex.: "S. Neves" → só exige "neves"). */
+  function nameMatchesQuery(nameNorm, queryNorm) {
+    if (!queryNorm) return true;
+    if (nameNorm.includes(queryNorm)) return true;
+    const tokens = queryNorm.split(/\s+/).filter((t) => t.length >= 2);
+    if (tokens.length === 0) return nameNorm.includes(queryNorm);
+    return tokens.every((t) => nameNorm.includes(t));
+  }
+
+  function globalRank(fig) {
+    const idx = allFigures.findIndex((x) => x.name === fig.name);
+    return idx >= 0 ? idx + 1 : 0;
+  }
+
+  function initials(name) {
+    return name
+      .split(" ")
+      .map((p) => p[0])
+      .slice(0, 2)
+      .join("")
+      .toUpperCase();
+  }
+
+  function cardEl(f, rank) {
+    const article = document.createElement("article");
+    article.className = "figure-card";
+    article.dataset.figureName = f.name;
+    article.tabIndex = 0;
+    article.setAttribute("role", "button");
+    article.setAttribute("aria-label", `Ver episódios com áudio de ${f.name}`);
+
+    const thumb = document.createElement("div");
+    thumb.className = "figure-thumb";
+
+    if (f.imageUrl) {
+      const img = document.createElement("img");
+      img.src = f.imageUrl;
+      img.alt = `Foto de ${f.name} (Wikipedia)`;
+      img.loading = "lazy";
+      thumb.appendChild(img);
+    } else {
+      const fb = document.createElement("span");
+      fb.className = "figure-thumb-fallback";
+      fb.setAttribute("aria-hidden", "true");
+      fb.textContent = initials(f.name);
+      thumb.appendChild(fb);
+    }
+
+    const badge = document.createElement("span");
+    badge.className = "figure-rank";
+    badge.textContent = String(rank);
+    thumb.appendChild(badge);
+
+    const h3 = document.createElement("h3");
+    h3.className = "figure-name";
+    h3.textContent = f.name;
+
+    const meta = document.createElement("div");
+    meta.className = "figure-meta";
+
+    const countSpan = document.createElement("span");
+    countSpan.className = "figure-count";
+    const strong = document.createElement("strong");
+    strong.textContent = String(f.count);
+    countSpan.appendChild(strong);
+    countSpan.appendChild(
+      document.createTextNode(` ${f.count === 1 ? "aparição" : "aparições"}`)
+    );
+
+    meta.appendChild(countSpan);
+
+    if (f.wikipediaUrl) {
+      const a = document.createElement("a");
+      a.className = "figure-link";
+      a.href = f.wikipediaUrl;
+      a.target = "_blank";
+      a.rel = "noopener noreferrer";
+      a.innerHTML = 'Wikipedia <span aria-hidden="true">↗</span>';
+      meta.appendChild(a);
+    }
+
+    article.appendChild(thumb);
+    article.appendChild(h3);
+    article.appendChild(meta);
+    return article;
+  }
+
+  function initFiguresSearch() {
+    const grid = document.getElementById("figures-grid");
+    const input = document.getElementById("figures-search");
+    const hint = document.getElementById("figures-search-hint");
+    const live = document.getElementById("figures-live");
+    const empty = document.getElementById("figures-empty");
+
+    if (!grid || !input || !hint || !live || !empty) {
+      return;
+    }
+
+    const initialHTML = grid.innerHTML;
+
+    function renderSubset(subset, rankFn) {
+      grid.replaceChildren();
+      for (let i = 0; i < subset.length; i++) {
+        const f = subset[i];
+        grid.appendChild(cardEl(f, rankFn(f)));
+      }
+    }
+
+    function setEmpty(show) {
+      empty.hidden = !show;
+    }
+
+    function updateLive(text) {
+      live.textContent = text;
+    }
+
+    let debounce;
+
+    function applyFilter() {
+      const q = normalize(input.value);
+
+      if (!q) {
+        grid.innerHTML = initialHTML;
+        hint.hidden = false;
+        setEmpty(false);
+        updateLive(
+          `Lista principal: ${INITIAL_SHOWN} figuras mais frequentes (de ${totalFigures}).`
+        );
+        return;
+      }
+
+      hint.hidden = true;
+      const matches = allFigures.filter((f) =>
+        nameMatchesQuery(normalize(f.name), q)
+      );
+
+      if (matches.length === 0) {
+        grid.replaceChildren();
+        setEmpty(true);
+        updateLive("Nenhuma figura encontrada.");
+        return;
+      }
+
+      setEmpty(false);
+      renderSubset(matches, globalRank);
+      const noun = matches.length === 1 ? "figura" : "figuras";
+      updateLive(
+        `${matches.length} ${noun} encontrada${matches.length === 1 ? "" : "s"}.`
+      );
+    }
+
+    function scheduleApply() {
+      if (debounce) clearTimeout(debounce);
+      debounce = setTimeout(() => {
+        debounce = undefined;
+        applyFilter();
+      }, 140);
+    }
+
+    updateLive(
+      `Lista principal: ${INITIAL_SHOWN} figuras mais frequentes (de ${totalFigures}).`
+    );
+
+    input.addEventListener("input", scheduleApply);
+    input.addEventListener("search", scheduleApply);
+  }
+
+  function initFigureEpisodesTooltip() {
+    const tooltip = document.getElementById("figure-episodes-tooltip");
+    const listEl = document.getElementById("fig-tt-list");
+    const nameEl = document.getElementById("fig-tt-name");
+    const grid = document.getElementById("figures-grid");
+
+    if (!tooltip || !listEl || !nameEl || !grid) return;
+
+    let activeCard = null;
+    let pinned = false;
+
+    function buildListRows(rows) {
+      listEl.replaceChildren();
+      if (!rows || rows.length === 0) {
+        const li = document.createElement("li");
+        li.className = "fig-tt-empty";
+        li.textContent = "Nenhum episódio com esta figura indexado.";
+        listEl.appendChild(li);
+        return;
+      }
+      for (let i = 0; i < rows.length; i++) {
+        const ep = rows[i];
+        const li = document.createElement("li");
+        li.className = "fig-tt-item";
+
+        const titleP = document.createElement("p");
+        titleP.className = "fig-tt-item-title";
+        titleP.textContent = ep.title;
+
+        const meta = document.createElement("div");
+        meta.className = "fig-tt-item-meta";
+        const dateSpan = document.createElement("span");
+        dateSpan.className = "fig-tt-item-date";
+        dateSpan.textContent = ep.dateLabel || "";
+        meta.appendChild(dateSpan);
+
+        const link = document.createElement("a");
+        link.className = "fig-tt-spotify-btn";
+        link.href = ep.spotifyUrl;
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+        link.innerHTML =
+          'Ouvir no Spotify <span class="fig-tt-arrow" aria-hidden="true">↗</span>';
+
+        li.appendChild(titleP);
+        li.appendChild(meta);
+        li.appendChild(link);
+        listEl.appendChild(li);
+      }
+    }
+
+    function showForCard(card) {
+      const name = card.dataset.figureName;
+      if (!name) return;
+
+      nameEl.textContent = name;
+      const rows = figureEpisodeIndex[name];
+      buildListRows(rows);
+
+      tooltip.style.visibility = "hidden";
+      tooltip.style.display = "flex";
+      const rect = card.getBoundingClientRect();
+      const margin = 12;
+      const tipRect = tooltip.getBoundingClientRect();
+      let left = rect.left + rect.width / 2 - tipRect.width / 2;
+      left = Math.max(margin, Math.min(window.innerWidth - tipRect.width - margin, left));
+      let top = rect.top - tipRect.height - 12;
+      if (top < margin) {
+        top = rect.bottom + 12;
+      }
+      tooltip.style.position = "fixed";
+      tooltip.style.left = `${left}px`;
+      tooltip.style.top = `${top}px`;
+      tooltip.style.visibility = "visible";
+      tooltip.setAttribute("aria-hidden", "false");
+
+      if (activeCard && activeCard !== card) activeCard.classList.remove("is-active");
+      card.classList.add("is-active");
+      activeCard = card;
+    }
+
+    function forceHide() {
+      pinned = false;
+      tooltip.style.display = "none";
+      tooltip.setAttribute("aria-hidden", "true");
+      if (activeCard) activeCard.classList.remove("is-active");
+      activeCard = null;
+    }
+
+    grid.addEventListener("click", (e) => {
+      const el = e.target;
+      if (el.closest && el.closest("a.figure-link")) return;
+      const card = el.closest && el.closest(".figure-card");
+      if (!card || !grid.contains(card)) return;
+
+      e.stopPropagation();
+
+      if (pinned && activeCard === card) {
+        forceHide();
+        return;
+      }
+      pinned = true;
+      showForCard(card);
+    });
+
+    grid.addEventListener("keydown", (e) => {
+      if (e.key !== "Enter" && e.key !== " ") return;
+      const el = e.target;
+      const card = el.closest && el.closest(".figure-card");
+      if (!card || !grid.contains(card)) return;
+      if (el.closest && el.closest("a.figure-link")) return;
+      e.preventDefault();
+      pinned = true;
+      showForCard(card);
+    });
+
+    document.addEventListener("click", (e) => {
+      const el = e.target;
+      if (el.closest && el.closest(".figure-card")) return;
+      if (el.closest && el.closest("#figure-episodes-tooltip")) return;
+      forceHide();
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") forceHide();
+    });
+
+    window.addEventListener(
+      "scroll",
+      () => {
+        if (pinned && activeCard) showForCard(activeCard);
+      },
+      { passive: true }
+    );
+
+    window.addEventListener("resize", () => {
+      if (pinned && activeCard) showForCard(activeCard);
+    });
+  }
+
+  function initTopFigures() {
+    initFiguresSearch();
+    initFigureEpisodesTooltip();
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initTopFigures);
+  } else {
+    initTopFigures();
+  }
+</script>
 
 <style>
   .top-figures {
     max-width: var(--container-wide);
     margin: 0 auto;
     padding: 0 24px var(--section-gap);
+    position: relative;
+  }
+
+  .figures-search-block {
+    max-width: 420px;
+    margin: 0 auto 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .figures-search-label {
+    font-family: var(--font-ui);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(77, 59, 43, 0.6);
+  }
+
+  .figures-search-input {
+    font-family: var(--font-ui);
+    font-size: 15px;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px 14px;
+    border: 1px solid var(--color-outline-soft);
+    border-radius: var(--radius-lg);
+    background: var(--color-surface);
+    color: var(--color-primary-deep);
+    outline: none;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .figures-search-input::placeholder {
+    color: rgba(77, 59, 43, 0.45);
+  }
+
+  .figures-search-input:focus {
+    border-color: rgba(77, 59, 43, 0.35);
+    box-shadow: 0 0 0 3px var(--color-outline-faint);
+  }
+
+  .figures-search-hint {
+    font-family: var(--font-ui);
+    font-size: 13px;
+    line-height: 1.45;
+    color: rgba(77, 59, 43, 0.72);
+    margin: 0;
+  }
+
+  .figures-live {
+    font-family: var(--font-ui);
+    font-size: 12px;
+    color: var(--color-primary-deep);
+    margin: 0;
+    min-height: 1.35em;
+    font-feature-settings: "tnum";
+  }
+
+  .figures-empty {
+    font-family: var(--font-ui);
+    font-size: 14px;
+    text-align: center;
+    color: rgba(77, 59, 43, 0.75);
+    margin: 12px 0 0;
+    padding: 24px 16px;
+    border: 1px dashed var(--color-outline-soft);
+    border-radius: var(--radius-xl);
+    background: var(--color-surface-low);
   }
 
   .figures-grid {
@@ -76,41 +578,188 @@ const top = (figures as Figure[]).slice(0, 12);
     gap: 24px;
   }
 
-  .figure-card {
+  /*
+    Cards inseridos via JS não recebem data-astro-cid; :global faz o mesmo visual dos 20 SSR.
+  */
+  .figures-grid :global(.figure-card) {
     background: var(--color-surface);
     border-radius: var(--radius-xl);
-    padding: 20px;
+    padding: 16px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 8px;
     transition: transform 0.18s ease, box-shadow 0.18s ease;
     border: 1px solid var(--color-outline-faint);
+    cursor: pointer;
   }
 
-  .figure-card:hover {
+  .figures-grid :global(.figure-card:focus-visible) {
+    outline: 2px solid var(--color-egg-yolk);
+    outline-offset: 3px;
+  }
+
+  .figures-grid :global(.figure-card.is-active) {
+    transform: translateY(-2px);
+    box-shadow: 0 24px 50px -32px rgba(53, 37, 23, 0.45);
+    border-color: rgba(235, 184, 61, 0.55);
+  }
+
+  .figures-grid :global(.figure-card:hover) {
     transform: translateY(-2px);
     box-shadow: 0 24px 50px -32px rgba(53, 37, 23, 0.4);
   }
 
-  .figure-thumb {
+  .figure-episodes-tooltip {
+    position: fixed;
+    display: none;
+    flex-direction: column;
+    z-index: 220;
+    width: min(340px, calc(100vw - 24px));
+    max-height: min(70vh, 520px);
+    min-height: 0;
+    overflow: hidden;
+    background: var(--color-surface);
+    border: 1px solid var(--color-outline-soft);
+    border-radius: var(--radius-xl);
+    padding: 16px 18px;
+    box-shadow: 0 30px 60px -20px rgba(53, 37, 23, 0.25);
+    color: var(--color-primary);
+    pointer-events: auto;
+  }
+
+  .fig-tt-title {
+    font-family: var(--font-ui);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    line-height: 1.35;
+    color: var(--color-egg-yolk);
+    margin: 0 0 10px;
+  }
+
+  .fig-tt-sub {
+    font-family: var(--font-ui);
+    font-size: 12px;
+    color: rgba(77, 59, 43, 0.72);
+    margin: 0 0 12px;
+    line-height: 1.35;
+  }
+
+  .fig-tt-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    overflow-y: auto;
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding-right: 4px;
+  }
+
+  /*
+    Itens da lista são criados no cliente (createElement): sem data-astro-cid,
+    então precisam de :global para os estilos scoped pegarem (mesmo caso dos cards).
+  */
+  .figure-episodes-tooltip :global(.fig-tt-item) {
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--color-outline-faint);
+  }
+
+  .figure-episodes-tooltip :global(.fig-tt-item:last-child) {
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+
+  .figure-episodes-tooltip :global(.fig-tt-item-title) {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-weight: 500;
+    line-height: 1.25;
+    color: var(--color-primary-deep);
+    margin: 0 0 8px;
+  }
+
+  /* Igual à .tt-meta do EggPictogram (subtítulo sob o título do episódio). */
+  .figure-episodes-tooltip :global(.fig-tt-item-meta) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    font-family: var(--font-ui);
+    font-size: 12px;
+    line-height: 1.45;
+    color: rgba(77, 59, 43, 0.75);
+    margin-bottom: 14px;
+  }
+
+  .figure-episodes-tooltip :global(.fig-tt-item-date) {
+    font-feature-settings: "tnum";
+  }
+
+  /* Igual ao .tt-link do pictograma; :global no `a` porque é injetado via JS. */
+  .figure-episodes-tooltip :global(a.fig-tt-spotify-btn) {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    align-self: flex-start;
+    background: var(--color-primary-deep);
+    color: var(--color-bg);
+    font-family: var(--font-ui);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 8px 14px;
+    border-radius: 999px;
+    text-decoration: none;
+    text-underline-offset: unset;
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+
+  .figure-episodes-tooltip :global(a.fig-tt-spotify-btn:hover) {
+    background: var(--color-egg-yolk);
+    color: var(--color-primary-deep);
+    text-decoration: none;
+  }
+
+  .figure-episodes-tooltip :global(a.fig-tt-spotify-btn:focus-visible) {
+    outline: 2px solid var(--color-egg-yolk);
+    outline-offset: 2px;
+  }
+
+  .figure-episodes-tooltip :global(.fig-tt-arrow) {
+    font-size: 11px;
+  }
+
+  .figure-episodes-tooltip :global(.fig-tt-empty) {
+    font-family: var(--font-ui);
+    font-size: 13px;
+    color: rgba(77, 59, 43, 0.72);
+    padding: 8px 0;
+    line-height: 1.45;
+  }
+
+  .figures-grid :global(.figure-thumb) {
     position: relative;
     width: 96px;
     height: 96px;
     border-radius: 50%;
     overflow: hidden;
-    margin: 0 auto 6px;
+    margin: 0 auto 4px;
     background: var(--color-bg-alt);
     border: 1px solid var(--color-outline-soft);
   }
 
-  .figure-thumb img {
+  .figures-grid :global(.figure-thumb img) {
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center top;
   }
 
-  .figure-thumb-fallback {
+  .figures-grid :global(.figure-thumb-fallback) {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -121,7 +770,7 @@ const top = (figures as Figure[]).slice(0, 12);
     color: var(--color-primary-deep);
   }
 
-  .figure-rank {
+  .figures-grid :global(.figure-rank) {
     position: absolute;
     top: -4px;
     left: -4px;
@@ -140,9 +789,9 @@ const top = (figures as Figure[]).slice(0, 12);
     font-feature-settings: "tnum";
   }
 
-  .figure-name {
+  .figures-grid :global(.figure-name) {
     font-family: var(--font-display);
-    font-size: 1.05rem;
+    font-size: 1rem;
     font-weight: 500;
     color: var(--color-primary-deep);
     margin: 0;
@@ -150,41 +799,28 @@ const top = (figures as Figure[]).slice(0, 12);
     line-height: 1.2;
   }
 
-  .figure-desc {
-    font-family: var(--font-body);
-    font-size: 12px;
-    line-height: 1.4;
-    color: rgba(77, 59, 43, 0.7);
-    text-align: center;
-    margin: 0;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-
-  .figure-meta {
+  .figures-grid :global(.figure-meta) {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 8px;
     margin-top: auto;
-    padding-top: 10px;
+    padding-top: 8px;
     border-top: 1px solid var(--color-outline-faint);
   }
 
-  .figure-count {
+  .figures-grid :global(.figure-count) {
     font-family: var(--font-ui);
     font-size: 12px;
     color: rgba(77, 59, 43, 0.7);
   }
 
-  .figure-count strong {
+  .figures-grid :global(.figure-count strong) {
     color: var(--color-primary-deep);
     font-feature-settings: "tnum";
   }
 
-  .figure-link {
+  .figures-grid :global(.figure-link) {
     font-family: var(--font-ui);
     font-size: 11px;
     font-weight: 600;
@@ -196,7 +832,7 @@ const top = (figures as Figure[]).slice(0, 12);
     transition: color 0.15s ease, border-color 0.15s ease;
   }
 
-  .figure-link:hover {
+  .figures-grid :global(.figure-link:hover) {
     color: var(--color-egg-yolk);
     border-bottom-color: var(--color-egg-yolk);
   }

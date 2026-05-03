@@ -56,13 +56,6 @@
     "winRate": 18.2
   },
   {
-    "name": "Thaís Oyama",
-    "appearances": 6,
-    "wins": 1,
-    "isMainPanelist": false,
-    "winRate": 16.7
-  },
-  {
     "name": "Bernardo Mello Franco",
     "appearances": 2,
     "wins": 1,
@@ -77,77 +70,14 @@
     "winRate": 100.0
   },
   {
-    "name": "Consuelo Diegues",
-    "appearances": 4,
-    "wins": 0,
+    "name": "Thaís Oyama",
+    "appearances": 6,
+    "wins": 1,
     "isMainPanelist": false,
-    "winRate": 0.0
-  },
-  {
-    "name": "João Batista Júnior",
-    "appearances": 4,
-    "wins": 0,
-    "isMainPanelist": false,
-    "winRate": 0.0
-  },
-  {
-    "name": "Alain de Abreu",
-    "appearances": 3,
-    "wins": 0,
-    "isMainPanelist": false,
-    "winRate": 0.0
-  },
-  {
-    "name": "Marcos Nobre",
-    "appearances": 3,
-    "wins": 0,
-    "isMainPanelist": false,
-    "winRate": 0.0
-  },
-  {
-    "name": "Fábio Victor",
-    "appearances": 2,
-    "wins": 0,
-    "isMainPanelist": false,
-    "winRate": 0.0
-  },
-  {
-    "name": "Samira Bueno",
-    "appearances": 2,
-    "wins": 0,
-    "isMainPanelist": false,
-    "winRate": 0.0
-  },
-  {
-    "name": "Ana Carolina Evangelista",
-    "appearances": 1,
-    "wins": 0,
-    "isMainPanelist": false,
-    "winRate": 0.0
-  },
-  {
-    "name": "Braulio Borges",
-    "appearances": 1,
-    "wins": 0,
-    "isMainPanelist": false,
-    "winRate": 0.0
+    "winRate": 16.7
   },
   {
     "name": "Breno Pires",
-    "appearances": 1,
-    "wins": 0,
-    "isMainPanelist": false,
-    "winRate": 0.0
-  },
-  {
-    "name": "Carol Pires",
-    "appearances": 1,
-    "wins": 0,
-    "isMainPanelist": false,
-    "winRate": 0.0
-  },
-  {
-    "name": "Conrado Hübner Mendes",
     "appearances": 1,
     "wins": 0,
     "isMainPanelist": false,
@@ -175,7 +105,28 @@
     "winRate": 0.0
   },
   {
+    "name": "Braulio Borges",
+    "appearances": 1,
+    "wins": 0,
+    "isMainPanelist": false,
+    "winRate": 0.0
+  },
+  {
     "name": "Marcelo Rubens Paiva",
+    "appearances": 1,
+    "wins": 0,
+    "isMainPanelist": false,
+    "winRate": 0.0
+  },
+  {
+    "name": "Marcos Nobre",
+    "appearances": 3,
+    "wins": 0,
+    "isMainPanelist": false,
+    "winRate": 0.0
+  },
+  {
+    "name": "Ana Carolina Evangelista",
     "appearances": 1,
     "wins": 0,
     "isMainPanelist": false,
@@ -203,8 +154,57 @@
     "winRate": 0.0
   },
   {
+    "name": "Samira Bueno",
+    "appearances": 2,
+    "wins": 0,
+    "isMainPanelist": false,
+    "winRate": 0.0
+  },
+  {
     "name": "Samuel Pessoa",
     "appearances": 1,
+    "wins": 0,
+    "isMainPanelist": false,
+    "winRate": 0.0
+  },
+  {
+    "name": "Alain de Abreu",
+    "appearances": 3,
+    "wins": 0,
+    "isMainPanelist": false,
+    "winRate": 0.0
+  },
+  {
+    "name": "Conrado Hübner Mendes",
+    "appearances": 1,
+    "wins": 0,
+    "isMainPanelist": false,
+    "winRate": 0.0
+  },
+  {
+    "name": "Consuelo Diegues",
+    "appearances": 4,
+    "wins": 0,
+    "isMainPanelist": false,
+    "winRate": 0.0
+  },
+  {
+    "name": "Fábio Victor",
+    "appearances": 2,
+    "wins": 0,
+    "isMainPanelist": false,
+    "winRate": 0.0
+  },
+  {
+    "name": "Carol Pires",
+    "appearances": 1,
+    "wins": 0,
+    "isMainPanelist": false,
+    "winRate": 0.0
+  },
+  {
+    "name": "João Batista Júnior",
+    "appearances": 4,
     "wins": 0,
     "isMainPanelist": false,
     "winRate": 0.0
