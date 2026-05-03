@@ -5,8 +5,24 @@ const base = import.meta.env.BASE_URL;
 ---
 
 <section class="hero">
-  <div class="hero-egg">
-    <img src={`${base}/hero-kinder-ovo.png`} alt="Kinder Ovo de chocolate" />
+  <div class="hero-egg" aria-label="Kinder Ovo de chocolate se abrindo, revelando uma figura pública">
+    <div class="egg-stage">
+      <div class="face-layer">
+        <div class="face-sway">
+          <img class="face face-1" src={`${base}/animation/aecio_neves_cabeca.png`} alt="" />
+          <img class="face face-2" src={`${base}/animation/magno_malta_cabeca.png`} alt="" />
+          <img class="face face-3" src={`${base}/animation/ciro_nogueira_cabeca.png`} alt="" />
+          <img class="face face-4" src={`${base}/animation/eduardo_cunha_cabeca.png`} alt="" />
+        </div>
+      </div>
+
+      <img class="frame frame-1" src={`${base}/animation/kinder_ovo_1.png`} alt="" />
+      <img class="frame frame-2" src={`${base}/animation/kinder_ovo_2.png`} alt="" />
+      <img class="frame frame-2 frame-2-brown" src={`${base}/animation/kinder_ovo_2_brown.png`} alt="" />
+      <img class="frame frame-3" src={`${base}/animation/kinder_ovo_3.png`} alt="" />
+      <img class="frame frame-4 frame-4-left" src={`${base}/animation/kinder_ovo_4_esquerda.png`} alt="" />
+      <img class="frame frame-4 frame-4-right" src={`${base}/animation/kinder_ovo_4_direita.png`} alt="" />
+    </div>
   </div>
 
   <p class="kicker hero-kicker">Um ensaio sobre o Foro de Teresina</p>
@@ -41,14 +57,132 @@ const base = import.meta.env.BASE_URL;
     justify-content: center;
   }
 
-  .hero-egg img {
-    display: block;
+  .egg-stage {
+    position: relative;
     width: 100%;
-    height: auto;
+    aspect-ratio: 2528 / 1686;
     max-height: min(440px, 56vh);
+  }
+
+  .frame {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
     object-fit: contain;
-    filter: drop-shadow(0 20px 32px rgba(53, 37, 23, 0.2))
-      drop-shadow(0 8px 16px rgba(53, 37, 23, 0.1));
+    opacity: 0;
+  }
+
+  /* ---- Stop-motion frame cycle ----
+     Total cycle: ~3.2s (1.6s open + 1.6s close via `alternate`)
+     ~400ms per visible frame, hard snaps (no cross-fade). */
+
+  .frame-1 { animation: show-1 1.6s steps(1, end) infinite alternate; }
+  .frame-2 { animation: show-2 1.6s steps(1, end) infinite alternate; }
+  /* Brown-only copy of frame 2, layered above the face so the shell rim
+     overlaps the head while the cream interior stays behind it. */
+  .frame-2-brown { z-index: 3; }
+  .frame-3 { animation: show-3 1.6s steps(1, end) infinite alternate; }
+  .frame-4 { animation: show-4 1.6s steps(1, end) infinite alternate; }
+  .frame-4-left  { transform: translateX(-6%); }
+  .frame-4-right { transform: translateX(6%); }
+
+  @keyframes show-1 {
+    0%   { opacity: 1; }
+    25%  { opacity: 0; }
+  }
+  @keyframes show-2 {
+    0%   { opacity: 0; }
+    25%  { opacity: 1; }
+    50%  { opacity: 0; }
+  }
+  @keyframes show-3 {
+    0%   { opacity: 0; }
+    50%  { opacity: 1; }
+    75%  { opacity: 0; }
+  }
+  @keyframes show-4 {
+    0%   { opacity: 0; }
+    75%  { opacity: 1; }
+  }
+
+  /* ---- Face (Magno Malta) ----
+     Sits behind the egg shells, fades in once the egg cracks (frame 2+). */
+  .face-layer {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    opacity: 0;
+    transform: translateY(8%);
+    animation: face-visibility 1.6s steps(1, end) infinite alternate;
+  }
+
+  @keyframes face-visibility {
+    0%   { opacity: 0; }
+    25%  { opacity: 1; }
+  }
+
+  .face-sway {
+    position: relative;
+    width: 76%;
+    aspect-ratio: 1 / 1;
+    transform-origin: 50% 50%;
+    /* Synced with the egg cycle: one new pose per frame */
+    animation: sway 1.6s steps(1, end) infinite alternate;
+  }
+
+  @keyframes sway {
+    0%   { transform: rotate(-12deg); }  /* frame 1 (hidden) */
+    25%  { transform: rotate(10deg); }   /* frame 2 */
+    50%  { transform: rotate(-8deg); }   /* frame 3 */
+    75%  { transform: rotate(15deg); }   /* frame 4 */
+  }
+
+  .face {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    opacity: 0;
+  }
+
+  /* ---- Face rotation across egg cycles ----
+     Full egg cycle = 3.2s (1.6s open + 1.6s close).
+     4 faces * 3.2s = 12.8s per full rotation.
+     Order: Aécio Neves -> Magno Malta -> Ciro Nogueira -> Eduardo Cunha */
+  .face-1 { animation: face-cycle-1 12.8s steps(1, end) infinite; }
+  .face-2 { animation: face-cycle-2 12.8s steps(1, end) infinite; }
+  .face-3 { animation: face-cycle-3 12.8s steps(1, end) infinite; }
+  .face-4 { animation: face-cycle-4 12.8s steps(1, end) infinite; }
+
+  @keyframes face-cycle-1 {
+    0%   { opacity: 1; }
+    25%  { opacity: 0; }
+  }
+  @keyframes face-cycle-2 {
+    0%   { opacity: 0; }
+    25%  { opacity: 1; }
+    50%  { opacity: 0; }
+  }
+  @keyframes face-cycle-3 {
+    0%   { opacity: 0; }
+    50%  { opacity: 1; }
+    75%  { opacity: 0; }
+  }
+  @keyframes face-cycle-4 {
+    0%   { opacity: 0; }
+    75%  { opacity: 1; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .frame, .face-layer, .face-sway, .face { animation: none; }
+    .frame-3 { opacity: 1; }
+    .face-layer { opacity: 1; }
+    .face-1 { opacity: 1; }
   }
 
   .hero-kicker {
