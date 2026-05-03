@@ -1,6 +1,7 @@
 {
   "panels": [
     {
+      "slug": "original",
       "label": "Bancada Original",
       "period": "Mai 2018 – Jan 2021",
       "members": [
@@ -8,19 +9,21 @@
         "Malu Gaspar",
         "José Roberto de Toledo"
       ],
-      "notes": "Formação inaugural do Foro de Teresina. Thaís Bilenky começa a participar como convidada a partir de junho de 2019."
+      "notes": "Formação inaugural do Foro de Teresina. Thais Bilenky começa a participar como convidada a partir de junho de 2019."
     },
     {
-      "label": "Bancada de Transição",
+      "slug": "transicao",
+      "label": "Sai Malu, entra Thais",
       "period": "Fev 2021 – Out 2023",
       "members": [
         "Fernando de Barros e Silva",
-        "José Roberto de Toledo",
-        "Thaís Bilenky"
+        "Thais Bilenky",
+        "José Roberto de Toledo"
       ],
-      "notes": "Malu Gaspar sai em janeiro de 2021. Thaís Bilenky assume como titular. Ana Clara Costa aparece esporadicamente a partir de agosto de 2021."
+      "notes": "Malu Gaspar sai em janeiro de 2021. Thais Bilenky assume como titular. Ana Clara Costa aparece esporadicamente a partir de agosto de 2021."
     },
     {
+      "slug": "atual",
       "label": "Bancada Atual",
       "period": "Mar 2024 – Presente",
       "members": [
@@ -28,7 +31,7 @@
         "Ana Clara Costa",
         "Celso Rocha de Barros"
       ],
-      "notes": "Toledo e Thaís saem em outubro de 2023. Hiato até março de 2024. Nova formação com Celso e Ana Clara."
+      "notes": "Toledo e Thais saem em outubro de 2023. Hiato até março de 2024. Nova formação com Ana Clara Costa e Celso Rocha de Barros."
     }
   ],
   "events": [
@@ -38,7 +41,7 @@
     },
     {
       "date": "Jun 2019",
-      "text": "Thaís Bilenky começa a participar como convidada"
+      "text": "Thais Bilenky começa a participar como convidada"
     },
     {
       "date": "Jan 2021",
@@ -46,7 +49,7 @@
     },
     {
       "date": "Fev 2021",
-      "text": "Thaís Bilenky assume como titular"
+      "text": "Thais Bilenky assume como titular"
     },
     {
       "date": "Ago 2021",
@@ -54,7 +57,7 @@
     },
     {
       "date": "Out 2023",
-      "text": "Última participação de Toledo e Thaís (#276)"
+      "text": "Última participação de Toledo e Thais (#276)"
     },
     {
       "date": "Nov 2023",

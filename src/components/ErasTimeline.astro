@@ -1,0 +1,224 @@
+---
+import panelsData from "../data/panels.json";
+import episodes from "../data/episodes.json";
+import PanelistAvatar from "./PanelistAvatar.astro";
+
+const PANEL_DATE_RANGES: Record<string, { start: string; end: string | null }> = {
+  original: { start: "2018-05-01", end: "2021-01-31" },
+  transicao: { start: "2021-02-01", end: "2023-10-31" },
+  atual: { start: "2024-03-01", end: null },
+};
+
+function presenterShortName(full: string): string {
+  if (full === "José Roberto de Toledo") return "Toledo";
+  return full.split(" ")[0];
+}
+
+interface PanelStat {
+  episodes: number;
+  topWinner: { name: string; wins: number } | null;
+}
+
+function statsForPanel(slug: string, members: string[]): PanelStat {
+  const range = PANEL_DATE_RANGES[slug];
+  if (!range) return { episodes: 0, topWinner: null };
+
+  const start = new Date(range.start).getTime();
+  const end = range.end ? new Date(range.end).getTime() : Number.POSITIVE_INFINITY;
+
+  const eps = episodes.filter((e) => {
+    const t = new Date(e.publishedAt).getTime();
+    return t >= start && t <= end;
+  });
+
+  const winsByName: Record<string, number> = {};
+  for (const e of eps) {
+    for (const w of e.winners ?? []) {
+      if (!members.includes(w)) continue;
+      winsByName[w] = (winsByName[w] ?? 0) + 1;
+    }
+  }
+  const sorted = Object.entries(winsByName).sort(([, a], [, b]) => b - a);
+  const top = sorted[0] ? { name: sorted[0][0], wins: sorted[0][1] } : null;
+  return { episodes: eps.length, topWinner: top };
+}
+
+const eras = panelsData.panels.map((p) => ({
+  ...p,
+  stats: statsForPanel(p.slug, p.members),
+}));
+---
+
+<section class="eras" id="fases">
+  <h2 class="section-title">As três formações do Foro</h2>
+
+  <div class="eras-grid">
+    {eras.map((era, i) => (
+      <article class={`era era-${i + 1}`}>
+        <span class="era-tag">Formação {i + 1}</span>
+        <h3 class="era-title">{era.label}</h3>
+        <span class="era-period">{era.period}</span>
+
+        <div class="era-faces">
+          {era.members.map((m) => (
+            <div class="era-face" title={m}>
+              <PanelistAvatar name={m} size={56} />
+              <span class="era-face-name">{presenterShortName(m)}</span>
+            </div>
+          ))}
+        </div>
+
+        <dl class="era-stats">
+          <div>
+            <dt>Episódios</dt>
+            <dd>{era.stats.episodes}</dd>
+          </div>
+          {era.stats.topWinner && (
+            <div>
+              <dt>Maior acertador</dt>
+              <dd>
+                {presenterShortName(era.stats.topWinner.name)}{" "}
+                <span class="era-stats-num">·{era.stats.topWinner.wins}</span>
+              </dd>
+            </div>
+          )}
+        </dl>
+
+        <p class="era-notes">{era.notes}</p>
+      </article>
+    ))}
+  </div>
+</section>
+
+<style>
+  .eras {
+    max-width: var(--container-wide);
+    margin: 0 auto;
+    padding: 0 24px var(--section-gap);
+  }
+
+  .eras-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .era {
+    background: var(--color-surface);
+    border: 1px solid var(--color-outline-soft);
+    border-radius: var(--radius-xl);
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .era-1 {
+    background: #fff8f5;
+  }
+  .era-2 {
+    background: #f7eee8;
+  }
+  .era-3 {
+    background: #f3e8df;
+  }
+
+  .era-tag {
+    font-family: var(--font-ui);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-egg-yolk);
+  }
+
+  .era-title {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 1.2;
+    color: var(--color-primary-deep);
+    margin: 0;
+  }
+
+  .era-period {
+    font-family: var(--font-ui);
+    font-size: 12px;
+    color: rgba(77, 59, 43, 0.7);
+    letter-spacing: 0.04em;
+  }
+
+  .era-faces {
+    display: flex;
+    gap: 12px;
+    margin: 12px 0 8px;
+  }
+
+  .era-face {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .era-face-name {
+    font-family: var(--font-ui);
+    font-size: 11px;
+    color: rgba(77, 59, 43, 0.8);
+    text-align: center;
+  }
+
+  .era-stats {
+    display: flex;
+    gap: 24px;
+    padding: 12px 0;
+    margin: 0;
+    border-top: 1px solid var(--color-outline-soft);
+    border-bottom: 1px solid var(--color-outline-soft);
+  }
+
+  .era-stats > div {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .era-stats dt {
+    font-family: var(--font-ui);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(77, 59, 43, 0.6);
+  }
+
+  .era-stats dd {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    color: var(--color-primary-deep);
+    margin: 0;
+    font-feature-settings: "tnum";
+  }
+
+  .era-stats-num {
+    color: var(--color-egg-yolk);
+    font-weight: 600;
+    margin-left: 2px;
+  }
+
+  .era-notes {
+    font-family: var(--font-body);
+    font-size: 13px;
+    line-height: 1.55;
+    color: rgba(77, 59, 43, 0.8);
+    margin: 0;
+  }
+
+  @media (max-width: 900px) {
+    .eras-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

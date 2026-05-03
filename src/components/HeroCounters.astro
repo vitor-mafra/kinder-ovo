@@ -1,0 +1,83 @@
+---
+import stats from "../data/stats.json";
+
+const items = [
+  { value: stats.total, label: "Episódios" },
+  { value: stats.koDetected, label: "Com Kinder Ovo" },
+  { value: stats.winnersFound, label: "Acertos" },
+  { value: stats.episodesWithoutWinners, label: "Sem vencedores" },
+  { value: stats.figuresFound, label: "Figuras públicas distintas" },
+] as const;
+---
+
+<div class="hero-stats">
+  <div class="hero-counters" role="group" aria-label="Resumo numérico do acervo">
+    {items.map(({ value, label }) => (
+      <div class="counter">
+        <p class="counter-value">{value}</p>
+        <p class="counter-label">{label}</p>
+      </div>
+    ))}
+  </div>
+</div>
+
+<style>
+  .hero-stats {
+    margin-top: 40px;
+    width: min(960px, 100%);
+    padding: 0 4px;
+  }
+
+  .hero-counters {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    column-gap: clamp(6px, 1.6vw, 16px);
+    row-gap: 8px;
+  }
+
+  .counter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+  }
+
+  .counter-value {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(1.75rem, 4.2vw, 2.5rem);
+    line-height: 1.06;
+    letter-spacing: -0.02em;
+    color: var(--color-primary-deep);
+    margin: 0;
+    font-feature-settings: "tnum";
+  }
+
+  .counter-label {
+    font-family: var(--font-ui);
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: rgba(77, 59, 43, 0.46);
+    line-height: 1.35;
+    margin: 0;
+    padding: 0 2px;
+    text-wrap: balance;
+  }
+
+  @media (max-width: 840px) {
+    .hero-counters {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      row-gap: 24px;
+    }
+  }
+
+  @media (max-width: 540px) {
+    .hero-counters {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      row-gap: 28px;
+    }
+  }
+</style>

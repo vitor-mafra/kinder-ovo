@@ -1,0 +1,206 @@
+---
+import rankings from "../data/rankings.json";
+
+const top3 = rankings
+  .filter((r) => r.isMainPanelist)
+  .sort((a, b) => b.winRate - a.winRate)
+  .slice(0, 3);
+
+const leader = top3[0];
+const max = Math.max(...top3.map((r) => r.winRate));
+---
+
+<section class="winrate" id="taxa-de-acerto">
+  <h2 class="section-title intro-title">Mas quem realmente joga?</h2>
+
+  <p class="winrate-intro">
+    Números absolutos contam apenas metade da história. Fernando de Barros e
+    Silva é o único presente em quase todas as formações da bancada, o que
+    lhe dá mais oportunidades matemáticas de errar (e ele erra bastante).
+    Se olharmos para a <strong>taxa de acerto</strong>, a liderança muda de mãos.
+  </p>
+
+  <div class="card">
+    <div class="card-medal" aria-hidden="true">
+      <span class="material-symbols-outlined">emoji_events</span>
+    </div>
+
+    <h3 class="card-label">Aproveitamento (%)</h3>
+
+    <div class="bars">
+      {top3.map((p, i) => (
+        <div class={`bar-row ${i === 0 ? "is-leader" : ""}`}>
+          <span class="bar-name">{p.name}</span>
+          <div class="bar-track">
+            <div
+              class="bar-fill"
+              style={`width: ${(p.winRate / max) * 100}%;`}
+            ></div>
+          </div>
+          <span class="bar-value">{p.winRate}%</span>
+        </div>
+      ))}
+    </div>
+
+    <div class="callout">
+      <span class="material-symbols-outlined" aria-hidden="true">info</span>
+      <p>
+        <strong>{leader.name}</strong> apareceu menos vezes ({leader.appearances}),
+        mas acerta mais de 1 em cada 3 ovos que tenta quebrar, garantindo a
+        melhor eficiência da bancada histórica.
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .winrate {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 0 24px var(--section-gap);
+  }
+
+  .intro-title {
+    text-align: left;
+    margin-bottom: 24px;
+  }
+
+  .winrate-intro {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--color-primary);
+    margin-bottom: 40px;
+  }
+
+  .card {
+    position: relative;
+    background: var(--color-surface);
+    border: 1px solid var(--color-outline-soft);
+    border-radius: var(--radius-xl);
+    padding: 32px;
+    box-shadow: 0 30px 60px -40px rgba(53, 37, 23, 0.18);
+  }
+
+  .card-medal {
+    position: absolute;
+    top: -16px;
+    right: -16px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--color-primary-deep);
+    border: 2px solid var(--color-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: rotate(-12deg);
+    color: var(--color-bg);
+  }
+
+  .card-medal .material-symbols-outlined {
+    font-size: 24px;
+  }
+
+  .card-label {
+    font-family: var(--font-ui);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(77, 59, 43, 0.7);
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--color-outline-soft);
+    margin-bottom: 24px;
+  }
+
+  .bars {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .bar-row {
+    display: grid;
+    grid-template-columns: 110px 1fr 60px;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .bar-name {
+    font-family: var(--font-ui);
+    font-size: 14px;
+    font-weight: 500;
+    color: rgba(77, 59, 43, 0.7);
+    text-align: right;
+  }
+
+  .is-leader .bar-name {
+    color: var(--color-primary-deep);
+    font-weight: 600;
+  }
+
+  .bar-track {
+    height: 24px;
+    background: var(--color-bg);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    overflow: hidden;
+  }
+
+  .bar-fill {
+    height: 100%;
+    background: rgba(77, 59, 43, 0.2);
+    transition: width 0.4s ease;
+  }
+
+  .is-leader .bar-fill {
+    background: var(--color-primary-deep);
+  }
+
+  .bar-value {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: rgba(77, 59, 43, 0.7);
+    text-align: left;
+  }
+
+  .is-leader .bar-value {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--color-primary-deep);
+  }
+
+  .callout {
+    display: flex;
+    gap: 12px;
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 1px solid var(--color-outline-soft);
+  }
+
+  .callout .material-symbols-outlined {
+    color: var(--color-primary-deep);
+    font-size: 20px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .callout p {
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-style: italic;
+    line-height: 1.55;
+    color: rgba(77, 59, 43, 0.85);
+  }
+
+  @media (max-width: 540px) {
+    .bar-row {
+      grid-template-columns: 90px 1fr 56px;
+      gap: 12px;
+    }
+    .is-leader .bar-value {
+      font-size: 1.5rem;
+    }
+  }
+</style>

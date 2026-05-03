@@ -1,0 +1,546 @@
+---
+import rankings from "../data/rankings.json";
+import episodes from "../data/episodes.json";
+import PanelistAvatar from "./PanelistAvatar.astro";
+import EggIcon from "./EggIcon.astro";
+
+const SHOW_URL = "https://open.spotify.com/show/04bTe3UuVaZVDKV9ORFN4Y";
+
+function spotifySearchUrl(title: string): string {
+  return `https://open.spotify.com/search/${encodeURIComponent(title)}`;
+}
+
+function formatDate(iso: string): string {
+  const d = new Date(iso);
+  return d.toLocaleDateString("pt-BR", {
+    day: "2-digit",
+    month: "short",
+    year: "numeric",
+  });
+}
+
+interface EpisodeRef {
+  episodeNumber: number | null;
+  title: string;
+  date: string;
+  publicFigure: string | null;
+  url: string;
+}
+
+const sortedEpisodes = [...episodes]
+  .filter((e) => e.hasKinderOvo)
+  .sort(
+    (a, b) =>
+      new Date(a.publishedAt).getTime() - new Date(b.publishedAt).getTime()
+  );
+
+function episodeRef(e: (typeof episodes)[number]): EpisodeRef {
+  return {
+    episodeNumber: e.episodeNumber,
+    title: e.title,
+    date: formatDate(e.publishedAt),
+    publicFigure: e.publicFigure ?? null,
+    url: spotifySearchUrl(e.title),
+  };
+}
+
+const winsByPanelist: Record<string, EpisodeRef[]> = {};
+for (const ep of sortedEpisodes) {
+  for (const w of ep.winners ?? []) {
+    if (!winsByPanelist[w]) winsByPanelist[w] = [];
+    winsByPanelist[w].push(episodeRef(ep));
+  }
+}
+
+const noWinnerEpisodes: EpisodeRef[] = sortedEpisodes
+  .filter((e) => !e.winners || e.winners.length === 0)
+  .map(episodeRef);
+
+const mainPanelists = rankings
+  .filter((r) => r.isMainPanelist)
+  .sort((a, b) => b.wins - a.wins);
+
+const nNobody = noWinnerEpisodes.length;
+const nobodyLabel =
+  nNobody === 1
+    ? "Um Momento Kinder Ovo não teve nenhum vencedor"
+    : `${nNobody} momentos Kinder Ovo não tiveram nenhum vencedor`;
+---
+
+<section class="pictogram" id="pictograma">
+  <h2 class="section-title">Quem é o maior vencedor?</h2>
+
+  <div class="pictogram-list">
+    {mainPanelists.map((p) => {
+      const eps = winsByPanelist[p.name] ?? [];
+      return (
+        <article class="row">
+          <PanelistAvatar name={p.name} size={64} />
+
+          <div class="row-meta">
+            <span class="row-name">{p.name}</span>
+            <span class="row-acertos"><strong>{p.wins}</strong> acertos no quadro</span>
+            <span class="row-rate">
+              Taxa de vitória:{" "}
+              <strong>{p.winRate}%</strong>
+              {" "}
+              <span class="row-rate-muted">({p.appearances} participações)</span>
+            </span>
+          </div>
+
+          <div class="eggs">
+            {eps.map((ep) => (
+              <button
+                type="button"
+                class="egg-btn"
+                data-episode-number={ep.episodeNumber ?? ""}
+                data-title={ep.title}
+                data-date={ep.date}
+                data-figure={ep.publicFigure ?? ""}
+                data-url={ep.url}
+                data-panelist={p.name}
+                aria-label={`Episódio ${ep.episodeNumber ?? ""} — ${ep.title}`}
+              >
+                <EggIcon variant="filled" size={20} />
+              </button>
+            ))}
+          </div>
+        </article>
+      );
+    })}
+
+    <article class="row row-empty">
+      <div class="cracked-frame">
+        <EggIcon variant="cracked" size={28} />
+      </div>
+
+      <div class="row-meta">
+        <span class="row-name italic">Ninguém acertou</span>
+        <span class="nobody-line">{nobodyLabel}</span>
+      </div>
+
+      <div class="eggs">
+        {noWinnerEpisodes.map((ep) => (
+          <button
+            type="button"
+            class="egg-btn egg-btn-cracked"
+            data-episode-number={ep.episodeNumber ?? ""}
+            data-title={ep.title}
+            data-date={ep.date}
+            data-figure={ep.publicFigure ?? ""}
+            data-url={ep.url}
+            data-panelist="Ninguém acertou"
+            aria-label={`Episódio ${ep.episodeNumber ?? ""} — ${ep.title}`}
+          >
+            <EggIcon variant="cracked" size={20} />
+          </button>
+        ))}
+      </div>
+    </article>
+  </div>
+
+  <div id="egg-tooltip" class="egg-tooltip" role="dialog" aria-hidden="true">
+    <div class="tt-header">
+      <span class="tt-kicker" id="tt-panelist">—</span>
+      <span class="tt-episode" id="tt-episode">—</span>
+    </div>
+    <h3 class="tt-title" id="tt-title">—</h3>
+    <div class="tt-meta">
+      <span id="tt-date">—</span>
+      <span class="tt-meta-sep" id="tt-sep">·</span>
+      <span class="tt-figure" id="tt-figure">—</span>
+    </div>
+    <a class="tt-link" id="tt-link" href={SHOW_URL} target="_blank" rel="noopener">
+      Ouvir no Spotify
+      <span class="tt-arrow" aria-hidden="true">↗</span>
+    </a>
+  </div>
+</section>
+
+<script>
+  const tooltip = document.getElementById("egg-tooltip");
+  const ttPanelist = document.getElementById("tt-panelist");
+  const ttEpisode = document.getElementById("tt-episode");
+  const ttTitle = document.getElementById("tt-title");
+  const ttDate = document.getElementById("tt-date");
+  const ttSep = document.getElementById("tt-sep");
+  const ttFigure = document.getElementById("tt-figure");
+  const ttLink = document.getElementById("tt-link") as HTMLAnchorElement | null;
+
+  if (!tooltip || !ttPanelist || !ttEpisode || !ttTitle || !ttDate || !ttSep || !ttFigure || !ttLink) {
+    // tooltip not in DOM, bail out
+  } else {
+    let activeBtn: HTMLElement | null = null;
+    let pinned = false;
+
+    function showFor(btn: HTMLElement) {
+      const number = btn.dataset.episodeNumber;
+      const title = btn.dataset.title ?? "";
+      const date = btn.dataset.date ?? "";
+      const figure = btn.dataset.figure ?? "";
+      const url = btn.dataset.url ?? "#";
+      const panelist = btn.dataset.panelist ?? "";
+
+      ttPanelist!.textContent = panelist === "Ninguém acertou" ? "Ninguém acertou" : `Acerto de ${panelist}`;
+      ttEpisode!.textContent = number ? `Episódio #${number}` : "";
+      ttTitle!.textContent = title;
+      ttDate!.textContent = date;
+      if (figure) {
+        ttSep!.style.display = "";
+        ttFigure!.style.display = "";
+        ttFigure!.textContent = `Áudio de ${figure}`;
+      } else {
+        ttSep!.style.display = "none";
+        ttFigure!.style.display = "none";
+      }
+      ttLink!.href = url;
+
+      const rect = btn.getBoundingClientRect();
+      tooltip!.style.visibility = "hidden";
+      tooltip!.style.display = "block";
+      const tipRect = tooltip!.getBoundingClientRect();
+      const margin = 12;
+      let left = rect.left + rect.width / 2 - tipRect.width / 2;
+      left = Math.max(margin, Math.min(window.innerWidth - tipRect.width - margin, left));
+      let top = rect.top + window.scrollY - tipRect.height - 12;
+      if (top < window.scrollY + margin) {
+        top = rect.bottom + window.scrollY + 12;
+      }
+      tooltip!.style.left = `${left}px`;
+      tooltip!.style.top = `${top}px`;
+      tooltip!.style.visibility = "visible";
+      tooltip!.setAttribute("aria-hidden", "false");
+
+      btn.classList.add("is-active");
+      if (activeBtn && activeBtn !== btn) activeBtn.classList.remove("is-active");
+      activeBtn = btn;
+    }
+
+    function hide() {
+      if (pinned) return;
+      tooltip!.style.display = "none";
+      tooltip!.setAttribute("aria-hidden", "true");
+      if (activeBtn) activeBtn.classList.remove("is-active");
+      activeBtn = null;
+    }
+
+    document.querySelectorAll<HTMLElement>(".egg-btn").forEach((btn) => {
+      btn.addEventListener("mouseenter", () => {
+        if (pinned) return;
+        showFor(btn);
+      });
+      btn.addEventListener("focus", () => {
+        if (pinned) return;
+        showFor(btn);
+      });
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        if (pinned && activeBtn === btn) {
+          pinned = false;
+          hide();
+          return;
+        }
+        pinned = true;
+        showFor(btn);
+      });
+    });
+
+    document.addEventListener("mouseover", (e) => {
+      const target = e.target as HTMLElement;
+      if (pinned) return;
+      if (!target.closest(".egg-btn") && !target.closest("#egg-tooltip")) {
+        hide();
+      }
+    });
+
+    document.addEventListener("click", (e) => {
+      const target = e.target as HTMLElement;
+      if (target.closest(".egg-btn") || target.closest("#egg-tooltip")) return;
+      pinned = false;
+      hide();
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        pinned = false;
+        hide();
+      }
+    });
+
+    window.addEventListener("scroll", () => {
+      if (!pinned) hide();
+    }, { passive: true });
+  }
+</script>
+
+<style>
+  .pictogram {
+    max-width: var(--container-wide);
+    margin: 0 auto;
+    padding: 0 24px var(--section-gap);
+  }
+
+  .pictogram .section-title {
+    margin-bottom: 56px;
+  }
+
+  .pictogram-list {
+    max-width: 920px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .row {
+    display: grid;
+    grid-template-columns: 64px 200px 1fr;
+    gap: 12px 16px;
+    align-items: start;
+  }
+
+  .row-empty {
+    margin-top: 16px;
+    padding-top: 32px;
+    border-top: 1px solid var(--color-outline-soft);
+  }
+
+  .row-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 0;
+  }
+
+  .row-name {
+    font-family: var(--font-ui);
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--color-primary-deep);
+  }
+
+  .row-name.italic {
+    font-style: italic;
+    font-weight: 600;
+    color: var(--color-primary);
+  }
+
+  .row-acertos {
+    font-family: var(--font-ui);
+    font-size: 13px;
+    color: rgba(77, 59, 43, 0.78);
+    line-height: 1.38;
+  }
+
+  .row-acertos strong {
+    color: var(--color-primary-deep);
+    font-weight: 700;
+    font-feature-settings: "tnum";
+  }
+
+  .row-rate {
+    font-family: var(--font-ui);
+    font-size: 13px;
+    color: var(--color-primary-deep);
+    line-height: 1.42;
+  }
+
+  .row-rate strong {
+    font-feature-settings: "tnum";
+  }
+
+  .row-rate-muted {
+    color: rgba(77, 59, 43, 0.65);
+    font-weight: 500;
+    font-feature-settings: "tnum";
+  }
+
+  .nobody-line {
+    font-family: var(--font-ui);
+    font-size: 13px;
+    line-height: 1.42;
+    color: rgba(77, 59, 43, 0.78);
+  }
+
+  .eggs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 6px;
+    align-content: flex-start;
+    min-height: 32px;
+  }
+
+  .egg-btn {
+    appearance: none;
+    margin: 0;
+    border: none;
+    background: transparent;
+    font: inherit;
+    cursor: pointer;
+    box-sizing: border-box;
+    color: var(--color-egg-chocolate);
+    line-height: 0;
+    border-radius: 4px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3px;
+    min-width: 28px;
+    min-height: 28px;
+    transition: transform 0.12s ease, color 0.12s ease;
+  }
+
+  .egg-btn:hover,
+  .egg-btn:focus-visible,
+  .egg-btn.is-active {
+    color: var(--color-egg-yolk);
+    transform: translateY(-2px);
+  }
+
+  .egg-btn:focus-visible {
+    outline: 2px solid var(--color-egg-yolk);
+    outline-offset: 2px;
+  }
+
+  .egg-btn-cracked {
+    /* tom do --color-egg-chocolate com opacidade */
+    color: rgba(184, 132, 94, 0.68);
+  }
+
+  .egg-btn-cracked:hover,
+  .egg-btn-cracked:focus-visible,
+  .egg-btn-cracked.is-active {
+    color: var(--color-egg-chocolate);
+  }
+
+  .cracked-frame {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    border: 1px dashed var(--color-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-bg);
+    color: var(--color-egg-chocolate);
+  }
+  .egg-tooltip {
+    position: absolute;
+    display: none;
+    z-index: 200;
+    width: 320px;
+    background: var(--color-surface);
+    border: 1px solid var(--color-outline-soft);
+    border-radius: var(--radius-xl);
+    padding: 16px 18px;
+    box-shadow: 0 30px 60px -20px rgba(53, 37, 23, 0.25);
+    color: var(--color-primary);
+    pointer-events: auto;
+  }
+
+  .tt-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+
+  .tt-kicker {
+    font-family: var(--font-ui);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-egg-yolk);
+  }
+
+  .tt-episode {
+    font-family: var(--font-ui);
+    font-size: 11px;
+    color: rgba(77, 59, 43, 0.6);
+    font-feature-settings: "tnum";
+  }
+
+  .tt-title {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-weight: 500;
+    line-height: 1.25;
+    color: var(--color-primary-deep);
+    margin: 0 0 8px;
+  }
+
+  .tt-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    font-family: var(--font-ui);
+    font-size: 12px;
+    color: rgba(77, 59, 43, 0.75);
+    margin-bottom: 14px;
+  }
+
+  .tt-meta-sep {
+    color: rgba(77, 59, 43, 0.4);
+  }
+
+  .tt-figure {
+    color: var(--color-primary-deep);
+    font-weight: 500;
+  }
+
+  .tt-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--color-primary-deep);
+    color: var(--color-bg);
+    font-family: var(--font-ui);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 8px 14px;
+    border-radius: 999px;
+    text-decoration: none;
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+
+  .tt-link:hover {
+    background: var(--color-egg-yolk);
+    color: var(--color-primary-deep);
+  }
+
+  .tt-arrow {
+    font-size: 11px;
+  }
+
+  @media (max-width: 720px) {
+    .row,
+    .row-empty {
+      grid-template-columns: minmax(84px, 96px) 1fr;
+      gap: 14px;
+    }
+
+    .row .row-meta {
+      grid-column: 2;
+    }
+
+    .row .eggs {
+      grid-column: 1 / -1;
+      margin-top: 10px;
+    }
+
+    .cracked-frame {
+      width: 64px;
+      height: 64px;
+      align-self: start;
+    }
+
+    .egg-tooltip {
+      width: calc(100vw - 32px);
+      max-width: 320px;
+    }
+  }
+</style>

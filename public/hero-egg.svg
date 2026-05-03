@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <radialGradient id="eggBody" cx="38%" cy="32%" r="68%">
+      <stop offset="0%" stop-color="#f0d2ad"/>
+      <stop offset="35%" stop-color="#d4a575"/>
+      <stop offset="70%" stop-color="#a87344"/>
+      <stop offset="100%" stop-color="#5a3a1f"/>
+    </radialGradient>
+    <radialGradient id="eggHighlight" cx="35%" cy="28%" r="22%">
+      <stop offset="0%" stop-color="rgba(255,248,235,0.85)"/>
+      <stop offset="100%" stop-color="rgba(255,248,235,0)"/>
+    </radialGradient>
+    <radialGradient id="eggShadow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="rgba(60,30,10,0.35)"/>
+      <stop offset="100%" stop-color="rgba(60,30,10,0)"/>
+    </radialGradient>
+  </defs>
+
+  <!-- shadow -->
+  <ellipse cx="105" cy="232" rx="70" ry="10" fill="url(#eggShadow)"/>
+
+  <!-- egg body (ovoid shape) -->
+  <path d="M 100 30
+           C 60 30 35 90 35 145
+           C 35 195 65 230 100 230
+           C 135 230 165 195 165 145
+           C 165 90 140 30 100 30 Z"
+        fill="url(#eggBody)"/>
+
+  <!-- highlight -->
+  <ellipse cx="78" cy="80" rx="22" ry="32" fill="url(#eggHighlight)"/>
+</svg>

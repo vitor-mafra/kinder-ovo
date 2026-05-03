@@ -1,0 +1,124 @@
+---
+interface Props {
+  name: string;
+  size?: number;
+}
+
+const { name, size = 64 } = Astro.props;
+const base = import.meta.env.BASE_URL;
+
+const SLUGS: Record<string, string> = {
+  "Fernando de Barros e Silva": "fernando-de-barros-e-silva",
+  "José Roberto de Toledo": "jose-roberto-de-toledo",
+  "Thais Bilenky": "thais-bilenky",
+  "Ana Clara Costa": "ana-clara-costa",
+  "Malu Gaspar": "malu-gaspar",
+  "Celso Rocha de Barros": "celso-rocha-de-barros",
+};
+
+/** Perfis em X quando conhecidos (clique na foto). */
+const TWITTER_BY_NAME: Partial<Record<string, string>> = {
+  "Celso Rocha de Barros": "https://x.com/NPTO",
+  "Malu Gaspar": "https://x.com/malugaspar",
+  "Thais Bilenky": "https://x.com/thais_bilenky",
+  "Ana Clara Costa": "https://x.com/anaclaracosta",
+  "José Roberto de Toledo": "https://x.com/zerotoledo",
+  "Fernando de Barros e Silva": "https://x.com/fernandobarros",
+};
+
+const slug = SLUGS[name];
+const twitterUrl = TWITTER_BY_NAME[name];
+const initials = name
+  .split(" ")
+  .filter((p) => p.length > 2)
+  .map((p) => p[0])
+  .slice(0, 2)
+  .join("")
+  .toUpperCase();
+---
+
+{
+  twitterUrl ? (
+    <a
+      class="avatar-link"
+      href={twitterUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={`Perfil de ${name} no X (abre em nova aba)`}
+    >
+      <div class="avatar" style={`width:${size}px;height:${size}px`}>
+        {slug ? (
+          <img
+            src={`${base}/avatars/${slug}.png`}
+            alt={`Caricatura de ${name} feita pela revista piauí`}
+            loading="lazy"
+          />
+        ) : (
+          <span class="avatar-initials" style={`font-size:${size * 0.32}px`}>{initials}</span>
+        )}
+      </div>
+    </a>
+  ) : (
+    <div class="avatar" style={`width:${size}px;height:${size}px`}>
+      {slug ? (
+        <img
+          src={`${base}/avatars/${slug}.png`}
+          alt={`Caricatura de ${name} feita pela revista piauí`}
+          loading="lazy"
+        />
+      ) : (
+        <span class="avatar-initials" style={`font-size:${size * 0.32}px`}>{initials}</span>
+      )}
+    </div>
+  )
+}
+
+<style>
+  .avatar-link {
+    display: inline-flex;
+    flex-shrink: 0;
+    text-decoration: none;
+    border-radius: 50%;
+    color: inherit;
+    transition: transform 0.14s ease;
+    cursor: pointer;
+  }
+
+  .avatar-link:focus-visible {
+    outline: 2px solid var(--color-egg-yolk);
+    outline-offset: 3px;
+  }
+
+  .avatar-link:hover .avatar {
+    border-color: var(--color-outline);
+  }
+
+  .avatar-link:active {
+    transform: scale(0.98);
+  }
+
+  .avatar {
+    flex-shrink: 0;
+    border-radius: 50%;
+    overflow: hidden;
+    background: var(--color-surface);
+    border: 2px solid var(--color-outline-soft);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+  }
+
+  .avatar-initials {
+    font-family: var(--font-ui);
+    font-weight: 600;
+    color: var(--color-primary-deep);
+    letter-spacing: 0.02em;
+  }
+</style>

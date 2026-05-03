@@ -1,107 +1,83 @@
 ---
-import stats from "../data/stats.json";
+import HeroCounters from "./HeroCounters.astro";
+
+const base = import.meta.env.BASE_URL;
 ---
 
 <section class="hero">
-  <div class="container">
-    <h1 class="hero-title">Kinder Ovo</h1>
-    <p class="hero-tagline">
-      O ranking definitivo do quadro mais disputado do
-      <strong>Foro de Teresina</strong>
-    </p>
-    <p class="hero-description">
-      Quem acertou mais? Quem dominou cada era? Explore a história completa do
-      Kinder Ovo, extraída de {stats.total} episódios do podcast de política da revista piauí.
-    </p>
-
-    <div class="stats-grid">
-      <div class="stat-item">
-        <span class="stat-value">{stats.total}</span>
-        <span class="stat-label">Episódios analisados</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-value">{stats.koDetected}</span>
-        <span class="stat-label">Com Kinder Ovo</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-value">{stats.winnersFound}</span>
-        <span class="stat-label">Vencedores identificados</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-value">{stats.figuresFound}</span>
-        <span class="stat-label">Figuras públicas</span>
-      </div>
-    </div>
+  <div class="hero-egg">
+    <img src={`${base}/hero-kinder-ovo.png`} alt="Kinder Ovo de chocolate" />
   </div>
+
+  <p class="kicker hero-kicker">Um ensaio sobre o Foro de Teresina</p>
+
+  <h1 class="hero-title">Momento Kinder Ovo</h1>
+
+  <p class="hero-dek">
+    Desde 2018, ao fim de cada episódio do <em>Foro de Teresina</em>,
+    a bancada escuta um áudio escolhido pela direção do programa e
+    precisa adivinhar de quem é a voz surpresa. A gente contou todos esses ovos.
+  </p>
+
+  <HeroCounters />
 </section>
 
 <style>
   .hero {
-    padding: var(--spacing-2xl) 0;
-    text-align: center;
-  }
-
-  .hero-title {
-    font-size: 3rem;
-    font-weight: 700;
-    color: var(--color-accent);
-    margin-bottom: var(--spacing-sm);
-    letter-spacing: -0.02em;
-  }
-
-  .hero-tagline {
-    font-size: 1.15rem;
-    color: var(--color-text-secondary);
-    margin-bottom: var(--spacing-md);
-  }
-
-  .hero-tagline strong {
-    color: var(--color-text);
-    font-weight: 600;
-  }
-
-  .hero-description {
-    font-size: 0.9rem;
-    color: var(--color-text-tertiary);
-    max-width: 520px;
-    margin: 0 auto var(--spacing-xl);
-    line-height: 1.7;
-  }
-
-  .stats-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: var(--spacing-md);
-    max-width: 640px;
+    max-width: min(980px, 100%);
     margin: 0 auto;
-  }
-
-  .stat-item {
+    padding: 80px 24px var(--section-gap);
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 2px;
+    text-align: center;
   }
 
-  .stat-value {
-    font-family: var(--font-serif);
-    font-size: 1.75rem;
-    font-weight: 700;
-    color: var(--color-text);
+  .hero-egg {
+    width: min(620px, 96vw);
+    margin-bottom: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
-  .stat-label {
-    font-size: 0.75rem;
-    color: var(--color-text-tertiary);
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
+  .hero-egg img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: min(440px, 56vh);
+    object-fit: contain;
+    filter: drop-shadow(0 20px 32px rgba(53, 37, 23, 0.2))
+      drop-shadow(0 8px 16px rgba(53, 37, 23, 0.1));
   }
 
-  @media (max-width: 600px) {
-    .hero-title { font-size: 2.25rem; }
-    .stats-grid {
-      grid-template-columns: repeat(2, 1fr);
-      gap: var(--spacing-lg);
-    }
+  .hero-kicker {
+    margin-bottom: 24px;
+    color: var(--color-primary-deep);
+  }
+
+  .hero-title {
+    font-family: var(--font-hero-display), var(--font-body);
+    font-weight: 600;
+    font-size: clamp(2.65rem, 7vw, 4.85rem);
+    line-height: 1.06;
+    letter-spacing: -0.03em;
+    color: var(--color-primary-deep);
+    margin-bottom: 32px;
+    max-width: 620px;
+    font-variation-settings: "SOFT" 80, "WONK" 0;
+  }
+
+  .hero-dek {
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: rgba(77, 59, 43, 0.78);
+    max-width: 480px;
+  }
+
+  .hero-dek em {
+    font-style: italic;
   }
 </style>

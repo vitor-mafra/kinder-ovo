@@ -1,0 +1,86 @@
+---
+interface Props {
+  variant?: "filled" | "cracked";
+  size?: number;
+  class?: string;
+}
+
+const { variant = "filled", size = 22, class: className = "" } = Astro.props;
+---
+
+{variant === "filled" ? (
+  <svg
+    class:list={["egg-svg", "egg-svg--filled", className]}
+    width={size}
+    height={size * 1.28}
+    viewBox="0 0 22 28"
+    preserveAspectRatio="xMidYMid meet"
+    aria-hidden="true"
+  >
+    <path
+      class="egg-shape"
+      d="M11 1.5
+         C 5.8 1.5, 2.2 9.5, 2.2 16.2
+         C 2.2 22.4, 6.0 26.5, 11 26.5
+         C 16.0 26.5, 19.8 22.4, 19.8 16.2
+         C 19.8 9.5, 16.2 1.5, 11 1.5 Z"
+    />
+  </svg>
+) : (
+  <svg
+    class:list={["egg-svg", "egg-svg--cracked", className]}
+    width={size}
+    height={size * 1.28}
+    viewBox="0 0 22 28"
+    preserveAspectRatio="xMidYMid meet"
+    aria-hidden="true"
+  >
+    <path
+      class="egg-shape egg-outline"
+      d="M11 1.5
+         C 5.8 1.5, 2.2 9.5, 2.2 16.2
+         C 2.2 22.4, 6.0 26.5, 11 26.5
+         C 16.0 26.5, 19.8 22.4, 19.8 16.2
+         C 19.8 9.5, 16.2 1.5, 11 1.5 Z"
+    />
+    <!-- Trinca horizontal equatorial -->
+    <path
+      class="egg-crack"
+      d="M 3.65 14.05
+         L 6 11.5
+         L 8.42 15.58
+         L 10.7 11.62
+         L 13.1 15.42
+         L 15.4 11.92
+         L 17.12 15.22
+         L 18.45 13.2"
+    />
+  </svg>
+)}
+
+<style>
+  /* inherit = cor do pai (.egg-btn); evita pitfalls de currentColor com botão resetado */
+  .egg-svg {
+    display: inline-block;
+    flex-shrink: 0;
+    color: inherit;
+  }
+
+  .egg-svg--filled .egg-shape {
+    fill: currentColor;
+  }
+
+  .egg-svg--cracked .egg-outline {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.4;
+  }
+
+  .egg-svg--cracked .egg-crack {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.35;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+</style>

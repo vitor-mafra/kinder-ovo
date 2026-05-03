@@ -2,6 +2,7 @@
   "total": 381,
   "koDetected": 377,
   "winnersFound": 247,
-  "figuresFound": 368,
+  "episodesWithoutWinners": 130,
+  "figuresFound": 256,
   "noKo": 4
 }
