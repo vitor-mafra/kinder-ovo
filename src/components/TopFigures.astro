@@ -1,6 +1,9 @@
 ---
 import figures from "../data/figures.json";
 import episodes from "../data/episodes.json";
+import spotifyMap from "../data/spotify-episodes.json";
+
+const spotifyById = spotifyMap as Record<string, string>;
 
 interface Figure {
   name: string;
@@ -25,8 +28,11 @@ interface EpisodeRow {
   publicFigure?: string | null;
 }
 
-function spotifySearchUrl(title: string): string {
-  return `https://open.spotify.com/search/${encodeURIComponent(title)}`;
+function spotifyEpisodeUrl(id: number, title: string): string {
+  const sid = spotifyById[String(id)];
+  return sid
+    ? `https://open.spotify.com/episode/${sid}`
+    : `https://open.spotify.com/search/${encodeURIComponent(title)}`;
 }
 
 function formatEpisodeDate(iso: string): string {
@@ -55,7 +61,7 @@ function buildFigureEpisodeIndex(eps: EpisodeRow[]): Record<string, FigEpisodeRo
 
     const sortMs = new Date(ep.publishedAt).getTime();
     const dateLabel = formatEpisodeDate(ep.publishedAt);
-    const spotifyUrl = spotifySearchUrl(ep.title);
+    const spotifyUrl = spotifyEpisodeUrl(ep.id, ep.title);
     const row: Acc = {
       id: ep.id,
       episodeNumber: ep.episodeNumber ?? null,
@@ -495,7 +501,7 @@ const figureEpisodeIndex = buildFigureEpisodeIndex(episodes as EpisodeRow[]);
   .top-figures {
     max-width: var(--container-wide);
     margin: 0 auto;
-    padding: 0 24px var(--section-gap);
+    padding: 0 var(--page-padding) var(--section-gap);
     position: relative;
   }
 
@@ -842,6 +848,23 @@ const figureEpisodeIndex = buildFigureEpisodeIndex(episodes as EpisodeRow[]);
   @media (max-width: 700px) {
     .figures-grid {
       grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+  }
+
+  @media (max-width: 420px) {
+    .figures-grid {
+      gap: 12px;
+    }
+    .figures-grid :global(.figure-thumb) {
+      width: 72px;
+      height: 72px;
+    }
+    .figures-grid :global(.figure-name) {
+      font-size: 0.875rem;
+    }
+    .figures-grid :global(.figure-count) {
+      font-size: 11px;
     }
   }
 </style>

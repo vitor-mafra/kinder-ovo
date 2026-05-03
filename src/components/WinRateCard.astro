@@ -313,7 +313,8 @@ const payload = {
   .winrate {
     max-width: 800px;
     margin: 0 auto;
-    padding: 0 24px var(--section-gap);
+    padding: 0 var(--page-padding) var(--section-gap);
+    min-width: 0;
   }
 
   .intro-title {
@@ -787,6 +788,30 @@ const payload = {
 
     .rate-value {
       font-size: 0.82rem;
+    }
+  }
+
+  @media (max-width: 360px) {
+    .winrate {
+      padding-left: 12px;
+      padding-right: 12px;
+    }
+
+    /* Em telas muito pequenas, esconder aparições libera espaço essencial */
+    .col-appearances {
+      display: none;
+    }
+
+    .table-row {
+      grid-template-columns: 26px 1fr 34px 52px;
+    }
+
+    .table-row-header .col-appearances {
+      display: none;
+    }
+
+    .name-text {
+      font-size: 10px;
     }
   }
 </style>

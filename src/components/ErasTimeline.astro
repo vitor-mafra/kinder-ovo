@@ -125,13 +125,15 @@ const eras = panelsData.panels.map((p) => ({
   .eras {
     max-width: var(--container-wide);
     margin: 0 auto;
-    padding: 0 24px var(--section-gap);
+    padding: 0 var(--page-padding) var(--section-gap);
+    min-width: 0;
   }
 
   .eras-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 24px;
+    min-width: 0;
   }
 
   .era {
@@ -142,6 +144,7 @@ const eras = panelsData.panels.map((p) => ({
     display: flex;
     flex-direction: column;
     gap: 12px;
+    min-width: 0;
   }
 
   .era-1 {
@@ -248,7 +251,21 @@ const eras = panelsData.panels.map((p) => ({
 
   @media (max-width: 900px) {
     .eras-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .eras {
+      padding: 0 var(--page-padding) var(--section-gap);
+    }
+
+    .eras-grid {
       grid-template-columns: 1fr;
+    }
+
+    .era {
+      padding: 20px;
     }
   }
 </style>

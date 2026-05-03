@@ -40,6 +40,7 @@
   --radius-xl: 0.75rem;
 
   --section-gap: 120px;
+  --page-padding: 24px;
 }
 
 *, *::before, *::after {
@@ -52,6 +53,9 @@ html {
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* clip é mais robusto que hidden no Safari iOS — previne o mini-scroll
+     sem criar um novo contexto de scroll como hidden faz. */
+  overflow-x: clip;
 }
 
 body {
@@ -61,6 +65,9 @@ body {
   color: var(--color-primary);
   background: var(--color-bg);
   -webkit-text-size-adjust: 100%;
+  /* Barreira extra: impede que qualquer filho ultrapasse a viewport */
+  max-width: 100%;
+  overflow-x: clip;
 }
 
 ::selection {
@@ -100,13 +107,13 @@ em {
 .container-narrow {
   max-width: var(--container-narrow);
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 var(--page-padding);
 }
 
 .container-wide {
   max-width: var(--container-wide);
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 var(--page-padding);
 }
 
 .kicker {
@@ -174,5 +181,19 @@ em {
   }
   .section-title {
     font-size: 1.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --section-gap: 56px;
+    --page-padding: 16px;
+  }
+  .section-title {
+    font-size: 1.6rem;
+  }
+  .section-subtitle {
+    font-size: 0.9375rem;
+    margin-bottom: 48px;
   }
 }

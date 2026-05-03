@@ -714,7 +714,9 @@ const chartPayload = {
   .evolution {
     max-width: var(--container-wide);
     margin: 0 auto;
-    padding: 0 24px var(--section-gap);
+    padding: 0 var(--page-padding) var(--section-gap);
+    min-width: 0;
+    overflow: hidden;
   }
 
   .evolution-header {
@@ -737,6 +739,7 @@ const chartPayload = {
     border-radius: var(--radius-xl);
     padding: 16px;
     overflow: hidden;
+    min-width: 0;
   }
 
   .chart {

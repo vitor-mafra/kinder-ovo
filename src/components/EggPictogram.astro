@@ -1,13 +1,18 @@
 ---
 import rankings from "../data/rankings.json";
 import episodes from "../data/episodes.json";
+import spotifyMap from "../data/spotify-episodes.json";
 import PanelistAvatar from "./PanelistAvatar.astro";
 import EggIcon from "./EggIcon.astro";
 
 const SHOW_URL = "https://open.spotify.com/show/04bTe3UuVaZVDKV9ORFN4Y";
+const spotifyById = spotifyMap as Record<string, string>;
 
-function spotifySearchUrl(title: string): string {
-  return `https://open.spotify.com/search/${encodeURIComponent(title)}`;
+function spotifyEpisodeUrl(id: number, title: string): string {
+  const sid = spotifyById[String(id)];
+  return sid
+    ? `https://open.spotify.com/episode/${sid}`
+    : `https://open.spotify.com/search/${encodeURIComponent(title)}`;
 }
 
 function formatDate(iso: string): string {
@@ -40,7 +45,7 @@ function episodeRef(e: (typeof episodes)[number]): EpisodeRef {
     title: e.title,
     date: formatDate(e.publishedAt),
     publicFigure: e.publicFigure ?? null,
-    url: spotifySearchUrl(e.title),
+    url: spotifyEpisodeUrl(e.id, e.title),
   };
 }
 
@@ -277,7 +282,8 @@ const nobodyLabel =
   .pictogram {
     max-width: var(--container-wide);
     margin: 0 auto;
-    padding: 0 24px var(--section-gap);
+    padding: 0 var(--page-padding) var(--section-gap);
+    min-width: 0;
   }
 
   .pictogram .section-title {
@@ -294,7 +300,7 @@ const nobodyLabel =
 
   .row {
     display: grid;
-    grid-template-columns: 64px 200px 1fr;
+    grid-template-columns: 64px minmax(0, 200px) 1fr;
     gap: 12px 16px;
     align-items: start;
   }
@@ -518,12 +524,13 @@ const nobodyLabel =
   @media (max-width: 720px) {
     .row,
     .row-empty {
-      grid-template-columns: minmax(84px, 96px) 1fr;
+      grid-template-columns: 72px 1fr;
       gap: 14px;
     }
 
     .row .row-meta {
       grid-column: 2;
+      min-width: 0;
     }
 
     .row .eggs {
@@ -540,6 +547,22 @@ const nobodyLabel =
     .egg-tooltip {
       width: calc(100vw - 32px);
       max-width: 320px;
+    }
+  }
+
+  @media (max-width: 420px) {
+    .pictogram {
+      padding: 0 var(--page-padding) var(--section-gap);
+    }
+
+    .row,
+    .row-empty {
+      grid-template-columns: 56px 1fr;
+      gap: 10px;
+    }
+
+    .pictogram-list {
+      gap: 24px;
     }
   }
 </style>

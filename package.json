@@ -7,7 +7,8 @@
     "dev": "astro dev",
     "hero:png": "node scripts/process-hero-egg.mjs",
     "fix-penguin-bg": "node scripts/fix-penguin-bg.mjs",
-    "build": "npm run hero:png && astro build",
+    "spotify:episodes": "node scripts/fetch-spotify-episodes.mjs",
+    "build": "npm run spotify:episodes && npm run hero:png && astro build",
     "build:fast": "astro build",
     "preview": "astro preview"
   },
