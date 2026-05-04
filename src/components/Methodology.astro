@@ -1,0 +1,461 @@
+---
+// No props needed; all content is static.
+const BLOG_POST_URL = "https://vitormafra.com.br/blog/metodologia-kinder-ovo"; // trocar quando o post existir
+---
+
+<section class="methodology" id="metodologia">
+  <div class="methodology-inner">
+    <header class="methodology-header">
+      <p class="methodology-kicker">Por trás dos números</p>
+      <h2 class="section-title">Como chegamos a esses dados</h2>
+      <p class="section-subtitle">
+        Mais de 500 episódios do Foro de Teresina processados com transcrição
+        automática e extração por modelos de linguagem.
+        <a class="methodology-blog-link" href={BLOG_POST_URL} target="_blank" rel="noopener noreferrer">
+          Leia o post completo no blog
+          <span class="methodology-arrow" aria-hidden="true">↗</span>
+        </a>
+      </p>
+    </header>
+
+    <div class="methodology-steps">
+
+      <!-- Passo 1: Classificação de identidade + participantes -->
+      <div class="mstep">
+        <div class="mstep-icon" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+            <line x1="16" y1="13" x2="8" y2="13"/>
+            <line x1="16" y1="17" x2="8" y2="17"/>
+            <polyline points="10 9 9 9 8 9"/>
+          </svg>
+        </div>
+        <div class="mstep-body">
+          <h3 class="mstep-title">Classificação dos episódios e identificação dos participantes</h3>
+          <p class="mstep-text">
+            O feed RSS do programa contém <strong>519 episódios</strong> no total —
+            mas nem todos são episódios regulares do Foro de Teresina. Para separar
+            o joio do trigo, a pipeline transcreveu os <strong>5 minutos iniciais</strong>
+            de cada episódio com o modelo <strong>gpt-4o-transcribe</strong> e usou
+            um modelo de linguagem para classificá-los em quatro categorias:
+          </p>
+          <ul class="mstep-breakdown">
+            <li><span class="breakdown-count">381</span><span class="breakdown-label">Foro regular</span></li>
+            <li><span class="breakdown-count">43</span><span class="breakdown-label">Foro especial</span></li>
+            <li><span class="breakdown-count">80</span><span class="breakdown-label">Outro podcast no feed</span></li>
+            <li><span class="breakdown-count">15</span><span class="breakdown-label">Promo ou recado</span></li>
+          </ul>
+          <p class="mstep-text mstep-text--secondary">
+            A mesma transcrição de abertura também serviu para identificar os
+            participantes presentes em cada episódio — onde apresentações e créditos
+            costumam ocorrer —, gerando a lista de nomes que mais tarde ancora a
+            etapa de extração do resultado.
+          </p>
+        </div>
+      </div>
+
+      <!-- Passo 2: Recorte e transcrição final -->
+      <div class="mstep">
+        <div class="mstep-icon" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+            <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+            <line x1="12" y1="19" x2="12" y2="23"/>
+            <line x1="8" y1="23" x2="16" y2="23"/>
+          </svg>
+        </div>
+        <div class="mstep-body">
+          <h3 class="mstep-title">Recorte e transcrição dos minutos finais</h3>
+          <p class="mstep-text">
+            Para os 381 episódios regulares, a pipeline usou <code>ffmpeg</code> para
+            extrair os <strong>20 minutos finais</strong> de cada áudio — onde o
+            Kinder Ovo quase sempre acontece — e os enviou à API de transcrição da
+            OpenAI. O modelo utilizado foi o <strong>gpt-4o-transcribe</strong>, com
+            um prompt que antecipa os nomes do elenco fixo para aumentar a precisão em
+            termos específicos do programa.
+          </p>
+        </div>
+      </div>
+
+      <!-- Passo 3: Heurística de detecção -->
+      <div class="mstep">
+        <div class="mstep-icon" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"/>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            <line x1="11" y1="8" x2="11" y2="14"/>
+            <line x1="8" y1="11" x2="14" y2="11"/>
+          </svg>
+        </div>
+        <div class="mstep-body">
+          <h3 class="mstep-title">Heurística de detecção do Kinder Ovo</h3>
+          <p class="mstep-text">
+            A detecção não varre o trecho de uma vez só. A transcrição final é
+            dividida em <strong>blocos de 5 minutos</strong>, que são testados numa ordem
+            pensada para achar o quadro o mais rápido possível:
+            <em>de −10 a −5 min</em>, depois <em>−5 a 0</em>, <em>−15 a −10</em> e,
+            por último, <em>−20 a −15</em>. Assim que um bloco traz um resultado claro
+            de vencedor, a pipeline para. Quando nenhum bloco é conclusivo, o episódio
+            é marcado para revisão manual.
+          </p>
+        </div>
+      </div>
+
+      <!-- Passo 4: Extração estruturada -->
+      <div class="mstep">
+        <div class="mstep-icon" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="16 18 22 12 16 6"/>
+            <polyline points="8 6 2 12 8 18"/>
+          </svg>
+        </div>
+        <div class="mstep-body">
+          <h3 class="mstep-title">Extração estruturada do resultado</h3>
+          <p class="mstep-text">
+            Cada bloco de transcrição é enviado ao modelo de extração junto com o
+            contexto do episódio (título, data, participantes identificados). O modelo
+            retorna um JSON com campos como vencedor, figura pública anunciada no
+            áudio, se houve empate e se o episódio precisa de revisão manual. O modelo
+            principal utilizado nessa etapa foi o <strong>gpt-5.4</strong>, com
+            fallback para <strong>gpt-4o</strong> em lotes de validação.
+          </p>
+        </div>
+      </div>
+
+    </div><!-- /methodology-steps -->
+
+    <!-- Disclaimer -->
+    <aside class="methodology-disclaimer" role="note">
+      <div class="disclaimer-icon" aria-hidden="true">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/>
+          <line x1="12" y1="8" x2="12" y2="12"/>
+          <line x1="12" y1="16" x2="12.01" y2="16"/>
+        </svg>
+      </div>
+      <p class="disclaimer-text">
+        <strong>Nota sobre precisão:</strong> a extração automática pode conter erros
+        pontuais. Apenas os episódios marcados com o ícone de revisão manual foram
+        verificados por um humano; os demais refletem exclusivamente o julgamento do
+        modelo de linguagem. Se você identificar alguma inconsistência, entre em
+        contato.
+        <a href={BLOG_POST_URL} target="_blank" rel="noopener noreferrer" class="disclaimer-link">
+          Saiba mais sobre a metodologia completa&nbsp;↗
+        </a>
+      </p>
+    </aside>
+
+  </div><!-- /methodology-inner -->
+</section>
+
+<style>
+  .methodology {
+    padding: 0 0 var(--section-gap);
+    position: relative;
+  }
+
+  .methodology::before {
+    content: "";
+    display: block;
+    height: 1px;
+    background: var(--color-outline-soft);
+    max-width: var(--container-wide);
+    margin: 0 auto 80px;
+  }
+
+  .methodology-inner {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 var(--page-padding);
+  }
+
+  /* ── Header ── */
+  .methodology-header {
+    text-align: center;
+    margin-bottom: 56px;
+  }
+
+  .methodology-kicker {
+    font-family: var(--font-ui);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--color-egg-chocolate);
+    margin-bottom: 12px;
+  }
+
+  .methodology-header .section-title {
+    margin-bottom: 16px;
+  }
+
+  .methodology-header .section-subtitle {
+    margin-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .methodology-blog-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-family: var(--font-ui);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-egg-chocolate);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(133, 81, 60, 0.35);
+    transition: color 0.15s ease, border-color 0.15s ease;
+  }
+
+  .methodology-blog-link:hover {
+    color: var(--color-egg-yolk);
+    border-color: var(--color-egg-yolk);
+    text-decoration: none;
+  }
+
+  .methodology-arrow {
+    font-size: 11px;
+  }
+
+  /* ── Steps ── */
+  .methodology-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .mstep {
+    display: grid;
+    grid-template-columns: 52px 1fr;
+    gap: 0 20px;
+    padding: 32px 0;
+    border-bottom: 1px solid var(--color-outline-faint);
+    position: relative;
+  }
+
+  .mstep:first-child {
+    border-top: 1px solid var(--color-outline-faint);
+  }
+
+  /* vertical connector line through icons */
+  .mstep::before {
+    content: "";
+    position: absolute;
+    left: 25px;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: var(--color-outline-faint);
+    z-index: 0;
+  }
+
+  .mstep:first-child::before {
+    top: 50%;
+  }
+
+  .mstep:last-child::before {
+    bottom: 50%;
+  }
+
+  .mstep-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: var(--color-bg-alt);
+    border: 1px solid var(--color-outline-soft);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-egg-chocolate);
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+    align-self: flex-start;
+    margin-top: 2px;
+    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  }
+
+  .mstep:hover .mstep-icon {
+    background: rgba(133, 81, 60, 0.08);
+    border-color: rgba(133, 81, 60, 0.35);
+    color: var(--color-primary-deep);
+  }
+
+  .mstep-body {
+    padding-top: 4px;
+  }
+
+  .mstep-title {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: var(--color-primary-deep);
+    margin-bottom: 10px;
+    line-height: 1.3;
+  }
+
+  .mstep-text {
+    font-family: var(--font-body);
+    font-size: 0.9375rem;
+    line-height: 1.75;
+    color: rgba(77, 59, 43, 0.85);
+  }
+
+  .mstep-text--secondary {
+    margin-top: 14px;
+    font-style: italic;
+    color: rgba(77, 59, 43, 0.7);
+  }
+
+  /* Breakdown: 4 episode-type counts */
+  .mstep-breakdown {
+    list-style: none;
+    margin: 16px 0 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px 24px;
+  }
+
+  .mstep-breakdown li {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+  }
+
+  .breakdown-count {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-egg-chocolate);
+    font-feature-settings: "tnum";
+    letter-spacing: -0.02em;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  .breakdown-label {
+    font-family: var(--font-ui);
+    font-size: 12px;
+    font-weight: 500;
+    color: rgba(77, 59, 43, 0.7);
+    line-height: 1.3;
+  }
+
+  .mstep-text code {
+    font-family: 'Courier New', monospace;
+    font-size: 0.8125rem;
+    background: var(--color-surface-high);
+    border: 1px solid var(--color-outline-faint);
+    border-radius: 4px;
+    padding: 0 5px;
+    color: var(--color-primary-deep);
+  }
+
+  .mstep-text em {
+    color: var(--color-primary-deep);
+    font-style: italic;
+  }
+
+  /* ── Disclaimer ── */
+  .methodology-disclaimer {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: 32px 1fr;
+    gap: 0 14px;
+    background: var(--color-surface-low);
+    border: 1px solid var(--color-outline-soft);
+    border-radius: var(--radius-xl);
+    padding: 20px 20px 20px 16px;
+    align-items: flex-start;
+  }
+
+  .disclaimer-icon {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(77, 59, 43, 0.55);
+    flex-shrink: 0;
+    padding-top: 1px;
+  }
+
+  .disclaimer-text {
+    font-family: var(--font-ui);
+    font-size: 13px;
+    line-height: 1.6;
+    color: rgba(77, 59, 43, 0.72);
+    margin: 0;
+  }
+
+  .disclaimer-text strong {
+    color: var(--color-primary-deep);
+    font-weight: 600;
+  }
+
+  .disclaimer-link {
+    display: inline;
+    font-size: 12px;
+    color: var(--color-egg-chocolate);
+    text-decoration: underline;
+    text-decoration-color: rgba(133, 81, 60, 0.35);
+    text-underline-offset: 3px;
+    margin-left: 4px;
+    transition: color 0.15s ease, text-decoration-color 0.15s ease;
+  }
+
+  .disclaimer-link:hover {
+    color: var(--color-egg-yolk);
+    text-decoration-color: var(--color-egg-yolk);
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 600px) {
+    .methodology::before {
+      margin-bottom: 56px;
+    }
+
+    .methodology-header {
+      margin-bottom: 40px;
+    }
+
+    .mstep {
+      grid-template-columns: 44px 1fr;
+      gap: 0 16px;
+      padding: 24px 0;
+    }
+
+    .mstep::before {
+      left: 21px;
+    }
+
+    .mstep-icon {
+      width: 44px;
+      height: 44px;
+    }
+
+    .mstep-title {
+      font-size: 1.05rem;
+    }
+
+    .mstep-text {
+      font-size: 0.9rem;
+    }
+
+    .methodology-disclaimer {
+      grid-template-columns: 1fr;
+      padding: 16px;
+    }
+
+    .disclaimer-icon {
+      display: none;
+    }
+  }
+</style>

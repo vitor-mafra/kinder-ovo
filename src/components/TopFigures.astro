@@ -8,6 +8,8 @@ const spotifyById = spotifyMap as Record<string, string>;
 interface Figure {
   name: string;
   count: number;
+  hitCount?: number;
+  hitRate?: number;
   wikipediaUrl?: string;
   imageUrl?: string;
 }
@@ -17,6 +19,7 @@ interface FigEpisodeRow {
   title: string;
   dateLabel: string;
   spotifyUrl: string;
+  winners: string[];
 }
 
 interface EpisodeRow {
@@ -26,6 +29,7 @@ interface EpisodeRow {
   publishedAt: string | null;
   hasKinderOvo?: boolean;
   publicFigure?: string | null;
+  winners?: string[];
 }
 
 function spotifyEpisodeUrl(id: number, title: string): string {
@@ -68,6 +72,7 @@ function buildFigureEpisodeIndex(eps: EpisodeRow[]): Record<string, FigEpisodeRo
       title: ep.title,
       dateLabel,
       spotifyUrl,
+      winners: ep.winners ?? [],
       sortMs,
     };
 
@@ -86,7 +91,28 @@ function buildFigureEpisodeIndex(eps: EpisodeRow[]): Record<string, FigEpisodeRo
   return out;
 }
 
-const allFigures = figures as Figure[];
+/** Conta quantos episódios onde cada figura aparece tiveram pelo menos um ganhador. */
+function buildFigureHitIndex(eps: EpisodeRow[]): Record<string, number> {
+  const hits: Record<string, number> = {};
+  for (const ep of eps) {
+    if (!ep.hasKinderOvo || !ep.publicFigure?.trim()) continue;
+    const parts = splitPublicFigure(ep.publicFigure);
+    // considera acerto se houve ao menos um winner (excluindo empates sem vencedor)
+    const wasHit = Array.isArray((ep as any).winners) && (ep as any).winners.length > 0;
+    for (const name of parts) {
+      if (wasHit) hits[name] = (hits[name] ?? 0) + 1;
+    }
+  }
+  return hits;
+}
+
+const figureHitIndex = buildFigureHitIndex(episodes as EpisodeRow[]);
+
+const allFigures: Figure[] = (figures as Figure[]).map((f) => {
+  const hitCount = figureHitIndex[f.name] ?? 0;
+  const hitRate = f.count > 0 ? Math.round((hitCount / f.count) * 100) : 0;
+  return { ...f, hitCount, hitRate };
+});
 const INITIAL_SHOWN = 20;
 const top = allFigures.slice(0, INITIAL_SHOWN);
 const totalFigures = allFigures.length;
@@ -138,17 +164,22 @@ const figureEpisodeIndex = buildFigureEpisodeIndex(episodes as EpisodeRow[]);
           <span class="figure-count">
             <strong>{f.count}</strong> {f.count === 1 ? "aparição" : "aparições"}
           </span>
-          {f.wikipediaUrl && (
+          <span class="figure-hit-rate" title={`Acertada em ${f.hitCount} de ${f.count} episódio${f.count === 1 ? "" : "s"}`}>
+            {f.hitRate}% de acerto
+          </span>
+        </div>
+        {f.wikipediaUrl && (
+          <div class="figure-wiki">
             <a
               class="figure-link"
               href={f.wikipediaUrl}
               target="_blank"
               rel="noopener noreferrer"
             >
-              Wikipedia <span aria-hidden="true">↗</span>
+              Wikipédia <span aria-hidden="true">↗</span>
             </a>
-          )}
-        </div>
+          </div>
+        )}
       </article>
     ))}
   </div>
@@ -251,21 +282,33 @@ const figureEpisodeIndex = buildFigureEpisodeIndex(episodes as EpisodeRow[]);
       document.createTextNode(` ${f.count === 1 ? "aparição" : "aparições"}`)
     );
 
+    const hitRate = f.hitRate ?? 0;
+    const hitCount = f.hitCount ?? 0;
+    const hitSpan = document.createElement("span");
+    hitSpan.className = "figure-hit-rate";
+    hitSpan.title = `Acertada em ${hitCount} de ${f.count} episódio${f.count === 1 ? "" : "s"}`;
+    hitSpan.textContent = `${hitRate}% de acerto`;
+
     meta.appendChild(countSpan);
+    meta.appendChild(hitSpan);
+
+    article.appendChild(thumb);
+    article.appendChild(h3);
+    article.appendChild(meta);
 
     if (f.wikipediaUrl) {
+      const wikiDiv = document.createElement("div");
+      wikiDiv.className = "figure-wiki";
       const a = document.createElement("a");
       a.className = "figure-link";
       a.href = f.wikipediaUrl;
       a.target = "_blank";
       a.rel = "noopener noreferrer";
-      a.innerHTML = 'Wikipedia <span aria-hidden="true">↗</span>';
-      meta.appendChild(a);
+      a.innerHTML = 'Wikipédia <span aria-hidden="true">↗</span>';
+      wikiDiv.appendChild(a);
+      article.appendChild(wikiDiv);
     }
 
-    article.appendChild(thumb);
-    article.appendChild(h3);
-    article.appendChild(meta);
     return article;
   }
 
@@ -376,10 +419,41 @@ const figureEpisodeIndex = buildFigureEpisodeIndex(episodes as EpisodeRow[]);
 
         const meta = document.createElement("div");
         meta.className = "fig-tt-item-meta";
+
         const dateSpan = document.createElement("span");
         dateSpan.className = "fig-tt-item-date";
         dateSpan.textContent = ep.dateLabel || "";
         meta.appendChild(dateSpan);
+
+        // Quem acertou
+        const winners = ep.winners || [];
+        if (winners.length > 0) {
+          const winSpan = document.createElement("span");
+          winSpan.className = "fig-tt-winner";
+
+          const crownSvg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+          crownSvg.setAttribute("width", "12");
+          crownSvg.setAttribute("height", "12");
+          crownSvg.setAttribute("viewBox", "0 0 64 64");
+          crownSvg.setAttribute("aria-hidden", "true");
+          crownSvg.style.flexShrink = "0";
+          const crownPath = document.createElementNS("http://www.w3.org/2000/svg", "path");
+          crownPath.setAttribute("fill", "#a87b00");
+          crownPath.setAttribute("d", "M60,4H48c0-2.215-1.789-4-4-4H20c-2.211,0-4,1.785-4,4H4C1.789,4,0,5.785,0,8v8c0,8.836,7.164,16,16,16c0.188,0,0.363-0.051,0.547-0.059C17.984,37.57,22.379,41.973,28,43.43V56h-8c-2.211,0-4,1.785-4,4v4h32v-4c0-2.215-1.789-4-4-4h-8V43.43c5.621-1.457,10.016-5.859,11.453-11.488C47.637,31.949,47.812,32,48,32c8.836,0,16-7.164,16-16V8C64,5.785,62.211,4,60,4z M8,16v-4h8v12C11.582,24,8,20.414,8,16z M56,16c0,4.414-3.582,8-8,8V12h8V16z");
+          crownSvg.appendChild(crownPath);
+
+          winSpan.style.display = "inline-flex";
+          winSpan.style.alignItems = "center";
+          winSpan.style.gap = "4px";
+          winSpan.appendChild(crownSvg);
+          winSpan.appendChild(document.createTextNode(winners.join(" & ")));
+          meta.appendChild(winSpan);
+        } else {
+          const noWin = document.createElement("span");
+          noWin.className = "fig-tt-no-winner";
+          noWin.textContent = "ninguém acertou";
+          meta.appendChild(noWin);
+        }
 
         const link = document.createElement("a");
         link.className = "fig-tt-spotify-btn";
@@ -735,6 +809,28 @@ const figureEpisodeIndex = buildFigureEpisodeIndex(episodes as EpisodeRow[]);
     font-size: 11px;
   }
 
+  .figure-episodes-tooltip :global(.fig-tt-winner) {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-family: var(--font-ui);
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--color-egg-chocolate);
+    background: rgba(235, 184, 61, 0.18);
+    border: 1px solid rgba(235, 184, 61, 0.4);
+    border-radius: 999px;
+    padding: 2px 8px;
+    white-space: nowrap;
+  }
+
+  .figure-episodes-tooltip :global(.fig-tt-no-winner) {
+    font-family: var(--font-ui);
+    font-size: 11px;
+    font-style: italic;
+    color: rgba(77, 59, 43, 0.45);
+  }
+
   .figure-episodes-tooltip :global(.fig-tt-empty) {
     font-family: var(--font-ui);
     font-size: 13px;
@@ -805,10 +901,11 @@ const figureEpisodeIndex = buildFigureEpisodeIndex(episodes as EpisodeRow[]);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 8px;
+    gap: 6px;
     margin-top: auto;
     padding-top: 8px;
     border-top: 1px solid var(--color-outline-faint);
+    flex-wrap: wrap;
   }
 
   .figures-grid :global(.figure-count) {
@@ -817,26 +914,59 @@ const figureEpisodeIndex = buildFigureEpisodeIndex(episodes as EpisodeRow[]);
     color: rgba(77, 59, 43, 0.7);
   }
 
+  .figures-grid :global(.figure-hit-rate) {
+    font-family: var(--font-ui);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--color-egg-chocolate);
+    background: rgba(235, 184, 61, 0.15);
+    border: 1px solid rgba(235, 184, 61, 0.4);
+    border-radius: 999px;
+    padding: 2px 7px;
+    white-space: nowrap;
+    cursor: help;
+  }
+
+  .figures-grid :global(.figure-wiki) {
+    padding-top: 8px;
+    border-top: 1px solid var(--color-outline-faint);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
   .figures-grid :global(.figure-count strong) {
     color: var(--color-primary-deep);
     font-feature-settings: "tnum";
   }
 
   .figures-grid :global(.figure-link) {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: var(--color-egg-chocolate);
+    color: var(--color-bg);
     font-family: var(--font-ui);
     font-size: 11px;
     font-weight: 600;
     letter-spacing: 0.06em;
     text-transform: uppercase;
-    color: var(--color-primary-deep);
+    padding: 6px 14px;
+    border-radius: 999px;
     text-decoration: none;
-    border-bottom: 1px solid transparent;
-    transition: color 0.15s ease, border-color 0.15s ease;
+    transition: background 0.15s ease, color 0.15s ease;
   }
 
   .figures-grid :global(.figure-link:hover) {
-    color: var(--color-egg-yolk);
-    border-bottom-color: var(--color-egg-yolk);
+    background: var(--color-egg-yolk);
+    color: var(--color-egg-chocolate);
+    text-decoration: none;
+  }
+
+  .figures-grid :global(.figure-link:focus-visible) {
+    outline: 2px solid var(--color-egg-yolk);
+    outline-offset: 2px;
   }
 
   @media (max-width: 920px) {

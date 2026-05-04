@@ -1,0 +1,170 @@
+---
+// No props — all content is static.
+---
+
+<section class="disclaimer-section" id="aviso-legal" aria-label="Avisos legais">
+  <div class="disclaimer-inner">
+
+    <p class="disclaimer-eyebrow">Avisos legais</p>
+
+    <div class="disclaimer-grid">
+
+      <div class="disclaimer-card">
+        <div class="disclaimer-card-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+          </svg>
+        </div>
+        <div>
+          <h3 class="disclaimer-card-title">Projeto de fã, sem vínculo oficial</h3>
+          <p class="disclaimer-card-text">
+            Este site é um projeto pessoal e independente, criado por um ouvinte do
+            <em>Foro de Teresina</em> por pura admiração ao programa. Não tem qualquer
+            relação, vínculo ou aprovação da <strong>Revista piauí</strong>, dos
+            jornalistas que compõem o podcast, de suas produtoras ou de quaisquer
+            entidades a eles ligadas. Nenhum conteúdo aqui publicado representa
+            posição oficial do programa ou da revista.
+          </p>
+        </div>
+      </div>
+
+      <div class="disclaimer-card">
+        <div class="disclaimer-card-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+          </svg>
+        </div>
+        <div>
+          <h3 class="disclaimer-card-title">Uso da marca Kinder Ovo®</h3>
+          <p class="disclaimer-card-text">
+            "Kinder Ovo" é uma marca registrada da <strong>Ferrero S.p.A.</strong>
+            O uso do nome neste site é meramente referencial, para identificar o
+            quadro homônimo do podcast, e não implica qualquer relação comercial,
+            patrocínio ou endosso da empresa. Este é um projeto sem fins lucrativos,
+            não comercial e puramente recreativo.
+          </p>
+        </div>
+      </div>
+
+    </div><!-- /disclaimer-grid -->
+  </div>
+</section>
+
+<style>
+  .disclaimer-section {
+    padding: 0 0 var(--section-gap);
+  }
+
+  .disclaimer-inner {
+    max-width: var(--container-wide);
+    margin: 0 auto;
+    padding: 0 var(--page-padding);
+  }
+
+  .disclaimer-eyebrow {
+    font-family: var(--font-ui);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgba(77, 59, 43, 0.45);
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .disclaimer-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    max-width: 840px;
+    margin: 0 auto;
+    border-top: 1px solid var(--color-outline-faint);
+    padding-top: 24px;
+  }
+
+  .disclaimer-card {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    padding: 20px;
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--color-outline-faint);
+    background: var(--color-surface-low);
+  }
+
+  .disclaimer-card-icon {
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(77, 59, 43, 0.4);
+    padding-top: 2px;
+  }
+
+  .disclaimer-card-title {
+    font-family: var(--font-ui);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--color-primary-deep);
+    margin-bottom: 8px;
+    line-height: 1.35;
+  }
+
+  .disclaimer-card-text {
+    font-family: var(--font-ui);
+    font-size: 12px;
+    line-height: 1.65;
+    color: rgba(77, 59, 43, 0.65);
+    margin: 0;
+  }
+
+  .disclaimer-card-text strong {
+    color: rgba(77, 59, 43, 0.8);
+    font-weight: 600;
+  }
+
+  .disclaimer-card-text em {
+    font-style: italic;
+    color: rgba(77, 59, 43, 0.75);
+  }
+
+  .disclaimer-inline-link {
+    display: inline;
+    color: var(--color-egg-chocolate);
+    font-size: 11px;
+    font-weight: 600;
+    text-decoration: underline;
+    text-decoration-color: rgba(133, 81, 60, 0.35);
+    text-underline-offset: 2px;
+    margin-left: 4px;
+    transition: color 0.15s ease, text-decoration-color 0.15s ease;
+  }
+
+  .disclaimer-inline-link:hover {
+    color: var(--color-egg-yolk);
+    text-decoration-color: var(--color-egg-yolk);
+  }
+
+  @media (max-width: 900px) {
+    .disclaimer-grid {
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .disclaimer-card {
+      flex-direction: column;
+      gap: 8px;
+      padding: 16px;
+    }
+
+    .disclaimer-card-icon {
+      display: none;
+    }
+  }
+</style>
