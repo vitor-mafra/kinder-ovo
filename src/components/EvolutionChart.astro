@@ -87,6 +87,10 @@ const chartPayload = {
     ></div>
   </div>
 
+  <p class="mobile-chart-tip">
+    💡 <em>Para melhor visualização deste gráfico, acesse este site em um computador.</em>
+  </p>
+
   <div class="formation-filters">
     <button class="formation-btn active" data-mode="all">História completa</button>
     <button class="formation-btn" data-mode="f1">Formação 1</button>
@@ -780,12 +784,28 @@ const chartPayload = {
     border-color: var(--color-primary-deep);
   }
 
+  .mobile-chart-tip {
+    display: none;
+  }
+
   @media (max-width: 640px) {
     .chart {
       height: 340px;
     }
     .chart-wrap {
       padding: 12px 8px;
+    }
+
+    .mobile-chart-tip {
+      display: block;
+      margin: 12px auto 0;
+      max-width: 360px;
+      text-align: center;
+      font-family: var(--font-body, Georgia, serif);
+      font-size: 13px;
+      color: rgba(77, 59, 43, 0.65);
+      line-height: 1.5;
+      padding: 0 8px;
     }
   }
 </style>
