@@ -1,6 +1,6 @@
 ---
 // No props needed; all content is static.
-const BLOG_POST_URL = "https://vitormafra.com.br/blog/metodologia-kinder-ovo"; // trocar quando o post existir
+const BLOG_POST_URL = "https://vitormafra.com"; // trocar quando o post existir
 ---
 
 <section class="methodology" id="metodologia">
@@ -12,7 +12,7 @@ const BLOG_POST_URL = "https://vitormafra.com.br/blog/metodologia-kinder-ovo"; /
         Mais de 500 episódios do Foro de Teresina processados com transcrição
         automática e extração por modelos de linguagem.
         <a class="methodology-blog-link" href={BLOG_POST_URL} target="_blank" rel="noopener noreferrer">
-          Leia o post completo no blog
+          Leia o post completo no blog (Em breve!)
           <span class="methodology-arrow" aria-hidden="true">↗</span>
         </a>
       </p>
@@ -34,22 +34,22 @@ const BLOG_POST_URL = "https://vitormafra.com.br/blog/metodologia-kinder-ovo"; /
         <div class="mstep-body">
           <h3 class="mstep-title">Classificação dos episódios e identificação dos participantes</h3>
           <p class="mstep-text">
-            O feed RSS do programa contém <strong>519 episódios</strong> no total —
-            mas nem todos são episódios regulares do Foro de Teresina. Para separar
+            Baixamos através do feed RSS do programa todos os <strong>519 episódios</strong> disponíveis.
+            No entanto, nem todos são episódios regulares do Foro de Teresina. Para separar
             o joio do trigo, a pipeline transcreveu os <strong>5 minutos iniciais</strong>
             de cada episódio com o modelo <strong>gpt-4o-transcribe</strong> e usou
             um modelo de linguagem para classificá-los em quatro categorias:
           </p>
           <ul class="mstep-breakdown">
-            <li><span class="breakdown-count">381</span><span class="breakdown-label">Foro regular</span></li>
-            <li><span class="breakdown-count">43</span><span class="breakdown-label">Foro especial</span></li>
-            <li><span class="breakdown-count">80</span><span class="breakdown-label">Outro podcast no feed</span></li>
-            <li><span class="breakdown-count">15</span><span class="breakdown-label">Promo ou recado</span></li>
+            <li><span class="breakdown-count">381</span><span class="breakdown-label">Episódios regulares</span></li>
+            <li><span class="breakdown-count">43</span><span class="breakdown-label">Episódios especiais</span></li>
+            <li><span class="breakdown-count">80</span><span class="breakdown-label">Episódios de outros podcasts no feed</span></li>
+            <li><span class="breakdown-count">15</span><span class="breakdown-label">Recados</span></li>
           </ul>
           <p class="mstep-text mstep-text--secondary">
             A mesma transcrição de abertura também serviu para identificar os
-            participantes presentes em cada episódio — onde apresentações e créditos
-            costumam ocorrer —, gerando a lista de nomes que mais tarde ancora a
+            participantes presentes em cada episódio, onde apresentações e créditos
+            sempre ocorrem, gerando a lista de nomes que mais tarde ancora a
             etapa de extração do resultado.
           </p>
         </div>
@@ -69,8 +69,8 @@ const BLOG_POST_URL = "https://vitormafra.com.br/blog/metodologia-kinder-ovo"; /
           <h3 class="mstep-title">Recorte e transcrição dos minutos finais</h3>
           <p class="mstep-text">
             Para os 381 episódios regulares, a pipeline usou <code>ffmpeg</code> para
-            extrair os <strong>20 minutos finais</strong> de cada áudio — onde o
-            Kinder Ovo quase sempre acontece — e os enviou à API de transcrição da
+            recortar os <strong>20 minutos finais</strong> de cada áudio (onde o
+            Kinder Ovo quase sempre acontece) e os enviou à API de transcrição da
             OpenAI. O modelo utilizado foi o <strong>gpt-4o-transcribe</strong>, com
             um prompt que antecipa os nomes do elenco fixo para aumentar a precisão em
             termos específicos do programa.
@@ -97,7 +97,9 @@ const BLOG_POST_URL = "https://vitormafra.com.br/blog/metodologia-kinder-ovo"; /
             <em>de −10 a −5 min</em>, depois <em>−5 a 0</em>, <em>−15 a −10</em> e,
             por último, <em>−20 a −15</em>. Assim que um bloco traz um resultado claro
             de vencedor, a pipeline para. Quando nenhum bloco é conclusivo, o episódio
-            é marcado para revisão manual.
+            é marcado para revisão manual. Essa heurística, somada a aceleração do áudio
+            em 2x, reduziu em ~12x o custo e o impacto ambiental que teríamos com os
+            modelos de transcrição de áudio fazendo a transcrição completa do episódio.
           </p>
         </div>
       </div>
@@ -116,10 +118,29 @@ const BLOG_POST_URL = "https://vitormafra.com.br/blog/metodologia-kinder-ovo"; /
             Cada bloco de transcrição é enviado ao modelo de extração junto com o
             contexto do episódio (título, data, participantes identificados). O modelo
             retorna um JSON com campos como vencedor, figura pública anunciada no
-            áudio, se houve empate e se o episódio precisa de revisão manual. O modelo
-            principal utilizado nessa etapa foi o <strong>gpt-5.4</strong>, com
-            fallback para <strong>gpt-4o</strong> em lotes de validação.
+            áudio, se houve empate e se o episódio precisa de revisão manual. Por ser
+            uma etapa textual e menos custosa que a transcrição, utilizamos como modelo
+            principal o <strong>gpt-5.4</strong>, que em nossos benchmarks se mostrou
+            o melhor para esse tipo de tarefa.
           </p>
+          <ul class="mstep-breakdown">
+            <li>
+              <span class="breakdown-count breakdown-count--pct">99,2<span class="breakdown-pct">%</span></span>
+              <span class="breakdown-label">Detecção do momento Kinder Ovo</span>
+            </li>
+            <li>
+              <span class="breakdown-count breakdown-count--pct">94,2<span class="breakdown-pct">%</span></span>
+              <span class="breakdown-label">Identificação da figura pública</span>
+            </li>
+            <li>
+              <span class="breakdown-count breakdown-count--pct">86,4<span class="breakdown-pct">%</span></span>
+              <span class="breakdown-label">Identificação do vencedor</span>
+            </li>
+            <li>
+              <span class="breakdown-count breakdown-count--pct">5,9<span class="breakdown-pct">%</span></span>
+              <span class="breakdown-label">Episódios com revisão manual</span>
+            </li>
+          </ul>
         </div>
       </div>
 
@@ -136,9 +157,9 @@ const BLOG_POST_URL = "https://vitormafra.com.br/blog/metodologia-kinder-ovo"; /
       </div>
       <p class="disclaimer-text">
         <strong>Nota sobre precisão:</strong> a extração automática pode conter erros
-        pontuais. Apenas os episódios marcados com o ícone de revisão manual foram
+        pontuais. Apenas os 31 episódios marcados para revisão manual pelo modelo utilizado foram
         verificados por um humano; os demais refletem exclusivamente o julgamento do
-        modelo de linguagem. Se você identificar alguma inconsistência, entre em
+        modelo de linguagem. Se você identificar alguma inconsistência, por favor, entre em
         contato.
         <a href={BLOG_POST_URL} target="_blank" rel="noopener noreferrer" class="disclaimer-link">
           Saiba mais sobre a metodologia completa&nbsp;↗
@@ -338,6 +359,19 @@ const BLOG_POST_URL = "https://vitormafra.com.br/blog/metodologia-kinder-ovo"; /
     letter-spacing: -0.02em;
     line-height: 1;
     flex-shrink: 0;
+  }
+
+  .breakdown-count--pct {
+    font-size: 1.3rem;
+    letter-spacing: -0.01em;
+  }
+
+  .breakdown-pct {
+    font-size: 0.75em;
+    font-weight: 500;
+    letter-spacing: 0;
+    opacity: 0.75;
+    margin-left: 1px;
   }
 
   .breakdown-label {
