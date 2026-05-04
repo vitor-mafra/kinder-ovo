@@ -72,7 +72,7 @@ const chartPayload = {
       <h2 class="section-title">O ranking ao longo do tempo</h2>
       <p class="section-subtitle">
         Acertos acumulados, ano a ano. Toledo abriu vantagem cedo e a manteve.
-        Celso só chegou 2024 mas já está mordendo o pódio.
+        Celso só chegou em 2024 mas já está mordendo o pódio — e a projeção é promissora.
       </p>
     </div>
   </div>
@@ -101,7 +101,7 @@ const chartPayload = {
 
 <script>
   import * as echarts from "echarts/core";
-  import { LineChart, ScatterChart } from "echarts/charts";
+  import { LineChart, ScatterChart, EffectScatterChart } from "echarts/charts";
   import {
     TooltipComponent,
     GridComponent,
@@ -113,6 +113,7 @@ const chartPayload = {
   echarts.use([
     LineChart,
     ScatterChart,
+    EffectScatterChart,
     TooltipComponent,
     GridComponent,
     MarkPointComponent,
@@ -260,7 +261,140 @@ const chartPayload = {
       
       const realLastEpTime = new Date(filteredEps[filteredEps.length - 1].publishedAt).getTime();
       const realLastEpFraction = getFractionalYear(realLastEpTime);
-      
+
+      // ── Linear regression for Celso ─────────────────────────────────────────
+      // Only build the forecast when Celso is among the active participants.
+      let celsoRegressionSeries: any = null;
+      let celsoIntersectionSeries: any = null;
+      let celsoIntersectionYear: number | null = null;
+
+      if (activeParticipants.includes("Celso Rocha de Barros")) {
+        // Gather all (fractionalYear, cumulativeWins) data points for Celso's bench period
+        const celsoRange = PARTICIPATION_RANGES["Celso Rocha de Barros"];
+        const celsoStart = new Date(`${celsoRange.start}T12:00:00Z`).getTime();
+        const celsoEnd = celsoRange.end ? new Date(`${celsoRange.end}T12:00:00Z`).getTime() : Infinity;
+
+        const celsoAllEps = episodes.filter((ep: any) => {
+          const ms = new Date(ep.publishedAt).getTime();
+          return ms >= celsoStart && ms <= celsoEnd;
+        });
+
+        let cumulativeScore = 0;
+        const regPoints: [number, number][] = [];
+        celsoAllEps.forEach((ep: any) => {
+          if (ep.winners && ep.winners.includes("Celso Rocha de Barros")) cumulativeScore++;
+          regPoints.push([getFractionalYear(new Date(ep.publishedAt).getTime()), cumulativeScore]);
+        });
+
+        if (regPoints.length >= 2) {
+          // Rate-based model anchored at origin: y = slope * (x - x0)
+          // where x0 is Celso's first episode and slope = current_wins / elapsed_years.
+          // This ensures the line always starts at y=0 at his first episode, which is
+          // mathematically correct for cumulative data that starts from zero.
+          const x0 = regPoints[0][0];
+          const xLast = regPoints[regPoints.length - 1][0];
+          const yLast = regPoints[regPoints.length - 1][1];
+          const elapsed = xLast - x0;
+          const slope = elapsed > 0 ? yLast / elapsed : 0;
+
+          // Toledo's total wins (the target)
+          const toledoRange = PARTICIPATION_RANGES["José Roberto de Toledo"];
+          const toledoStart = new Date(`${toledoRange.start}T12:00:00Z`).getTime();
+          const toledoEnd = toledoRange.end ? new Date(`${toledoRange.end}T12:00:00Z`).getTime() : Infinity;
+          const toledoTotal = episodes.filter((ep: any) => {
+            const ms = new Date(ep.publishedAt).getTime();
+            return ms >= toledoStart && ms <= toledoEnd && ep.winners && ep.winners.includes("José Roberto de Toledo");
+          }).length;
+
+          // When does Celso's line cross Toledo's total? slope*(x - x0) = toledoTotal
+          if (slope > 0) {
+            celsoIntersectionYear = x0 + toledoTotal / slope;
+          }
+
+          // Build forecast line from Celso's first episode (y=0) to projected crossing
+          const regXStart = x0;
+          const regXEnd = celsoIntersectionYear ? Math.min(celsoIntersectionYear + 0.05, 2029) : 2029;
+          const numPoints = 40;
+          const regressionData: [number, number][] = [];
+          for (let i = 0; i <= numPoints; i++) {
+            const x = regXStart + (i / numPoints) * (regXEnd - regXStart);
+            const y = Math.max(0, slope * (x - x0));
+            regressionData.push([x, parseFloat(y.toFixed(2))]);
+          }
+
+          const celsoColor = COLORS["Celso Rocha de Barros"] ?? "#2980b9";
+
+          celsoRegressionSeries = {
+            name: "__celso_regression",
+            type: "line" as const,
+            data: regressionData,
+            smooth: true,
+            showSymbol: false,
+            lineStyle: {
+              width: 1.8,
+              color: celsoColor,
+              type: [2, 5] as any,
+              opacity: 0.5,
+            },
+            itemStyle: { opacity: 0 },
+            tooltip: { show: false },
+            silent: true,
+            z: 0,
+            animationDuration: reduceMotion ? 0 : 1800,
+            animationEasing: "cubicOut" as const,
+          };
+
+          if (celsoIntersectionYear) {
+            const month = Math.round((celsoIntersectionYear % 1) * 12) + 1;
+            const year = Math.floor(celsoIntersectionYear);
+            const monthNames = ["jan", "fev", "mar", "abr", "mai", "jun", "jul", "ago", "set", "out", "nov", "dez"];
+            const monthLabel = monthNames[(month - 1) % 12];
+
+            celsoIntersectionSeries = {
+              name: "__celso_intersection",
+              type: "scatter" as const,
+              data: [{ value: [celsoIntersectionYear, toledoTotal] }],
+              symbol: "diamond",
+              symbolSize: isMobile ? 8 : 10,
+              itemStyle: {
+                color: celsoColor,
+                borderColor: "#fff",
+                borderWidth: 1.5,
+                opacity: 0.75,
+              },
+              label: {
+                show: !isMobile,
+                position: "top" as const,
+                distance: 6,
+                formatter: () =>
+                  `{tag|Previsão: em ${monthLabel}/${year} Celso alcança o marco de Toledo}`,
+
+                rich: {
+                  tag: {
+                    color: celsoColor,
+                    fontFamily: "var(--font-body, Georgia, serif)",
+                    fontStyle: "italic",
+                    fontWeight: 700,
+                    fontSize: 11.5,
+                    backgroundColor: "rgba(255,248,245,0.92)",
+                    borderRadius: 4,
+                    padding: [3, 6],
+                    shadowBlur: 4,
+                    shadowColor: "rgba(41,128,185,0.15)",
+                  },
+                },
+              },
+              tooltip: { show: false },
+              silent: true,
+              z: 6,
+              animationDuration: reduceMotion ? 0 : 600,
+              animationDelay: reduceMotion ? 0 : 1600,
+            };
+          }
+        }
+      }
+      // ────────────────────────────────────────────────────────────────────────
+
       const chartSeries: any[] = [];
       activeParticipants.forEach((p: string) => {
          const guest = guestSeriesData[p];
@@ -450,10 +584,13 @@ const chartPayload = {
         : [];
 
       const xMin = parseInt(formDef.start.substring(0, 4), 10);
-      let xMax = 2027;
+      let xMax = 2028;
       if (currentMode === "f1" || currentMode === "f2") {
          const fraction = getFractionalYear(endMs);
          xMax = fraction % 1 > 0.85 ? Math.ceil(fraction) : fraction + 0.05;
+      } else if (currentMode === "f3" || currentMode === "all") {
+        // Extend to show the projected crossing point
+        xMax = celsoIntersectionYear ? Math.ceil(celsoIntersectionYear) + 0.5 : 2028;
       }
 
       return {
@@ -556,6 +693,8 @@ const chartPayload = {
         },
         series: [
           invisibleSeries,
+          ...(celsoRegressionSeries ? [celsoRegressionSeries] : []),
+          ...(celsoIntersectionSeries ? [celsoIntersectionSeries] : []),
           ...seriesCfg,
           ...annotationSeries,
         ],
