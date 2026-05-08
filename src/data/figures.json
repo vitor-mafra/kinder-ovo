@@ -2006,5 +2006,13 @@
     "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Senadora_K%C3%A1tia_Abreu_Oficial.jpg/330px-Senadora_K%C3%A1tia_Abreu_Oficial.jpg",
     "wikipediaTitle": "Kátia Abreu",
     "description": "empresária, pecuarista e política brasileira"
+  },
+  {
+    "name": "Augusto Cury",
+    "count": 1,
+    "wikipediaUrl": "https://pt.wikipedia.org/wiki/Augusto_Cury",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Augusto_Cury%2C_escritor_%2828339139296%29.jpg/330px-Augusto_Cury%2C_escritor_%2828339139296%29.jpg",
+    "wikipediaTitle": "Augusto Cury",
+    "description": "Psiquiatra e Escritor brasileiro"
   }
 ]
