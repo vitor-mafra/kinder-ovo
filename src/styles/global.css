@@ -2,12 +2,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,1,0&display=swap');
 
 :root {
-  /* Cocoa & Parchment palette (do protótipo Stitch) */
-  --color-bg: #fff8f5;
-  --color-bg-alt: #f9f2ef;
+  /* Cocoa & pearl cream palette */
+  --color-bg: #f6f0e8;
+  --color-bg-alt: #eee6dc;
   --color-surface: #ffffff;
-  --color-surface-low: #f9f2ef;
-  --color-surface-high: #ede7e4;
+  --color-surface-low: #eee6dc;
+  --color-surface-high: #e3d8cc;
 
   --color-primary: #4d3b2b;
   --color-primary-deep: #352517;
@@ -19,8 +19,10 @@
   /* Destaque / hover dos ovos — dourado um pouco mais claro e “surpresa” */
   --color-egg-yolk: #ebb83d;
   --color-egg-shell: #925e44;
-  /* Pictogramas (ovos preenchidos / chocolate escuro) */
-  --color-egg-chocolate: #85513c;
+  /* Pictogramas (ovos preenchidos / chocolate ao leite mais escuro) */
+  --color-egg-chocolate: #65402f;
+  --color-egg-chocolate-soft: color-mix(in srgb, var(--color-egg-chocolate) 35%, transparent);
+  --color-egg-chocolate-faint: color-mix(in srgb, var(--color-egg-chocolate) 8%, transparent);
 
   --color-outline: #80756d;
   --color-outline-soft: rgba(77, 59, 43, 0.2);
