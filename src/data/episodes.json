@@ -4547,7 +4547,7 @@
     "episodeNumber": null,
     "hasKinderOvo": true,
     "winners": [
-      "Fernando de Barros e Silva"
+      "Ana Clara Costa"
     ],
     "publicFigure": "Ronaldo Caiado",
     "participants": [
@@ -6331,6 +6331,21 @@
       "Fernando de Barros e Silva"
     ],
     "publicFigure": "Álvaro Dias",
+    "participants": [
+      "Fernando de Barros e Silva",
+      "Ana Clara Costa",
+      "Celso Rocha de Barros"
+    ],
+    "isTie": false
+  },
+  {
+    "id": 2619,
+    "title": "As mentiras de Flávio, o respiro de Lula e a volta de Messias",
+    "publishedAt": "2026-05-22T09:57:00-03:00",
+    "episodeNumber": null,
+    "hasKinderOvo": true,
+    "winners": [],
+    "publicFigure": "Cabo Gilberto Silva",
     "participants": [
       "Fernando de Barros e Silva",
       "Ana Clara Costa",
