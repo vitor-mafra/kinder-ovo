@@ -5934,13 +5934,13 @@
     "isTie": false
   },
   {
-    "id": 44,
-    "title": "As facções do crime e o clima quente em Belém",
+    "id": 43,
+    "title": "O terrorismo da direita e boas novas em Belém",
     "publishedAt": "2025-11-25T15:44:00-03:00",
     "episodeNumber": null,
     "hasKinderOvo": true,
     "winners": [
-      "Ana Clara Costa"
+      "Fernando de Barros e Silva"
     ],
     "publicFigure": "Sérgio Moro",
     "participants": [
@@ -5952,13 +5952,13 @@
     "isTie": false
   },
   {
-    "id": 43,
-    "title": "O terrorismo da direita e boas novas em Belém",
+    "id": 44,
+    "title": "As facções do crime e o clima quente em Belém",
     "publishedAt": "2025-11-25T15:44:00-03:00",
     "episodeNumber": null,
     "hasKinderOvo": true,
     "winners": [
-      "Fernando de Barros e Silva"
+      "Ana Clara Costa"
     ],
     "publicFigure": "Sérgio Moro",
     "participants": [
@@ -6350,6 +6350,51 @@
       "Fernando de Barros e Silva",
       "Ana Clara Costa",
       "Celso Rocha de Barros"
+    ],
+    "isTie": false
+  },
+  {
+    "id": 3144,
+    "title": "Terroristas, ladrões e trabalhadores",
+    "publishedAt": "2026-05-29T09:27:00-03:00",
+    "episodeNumber": null,
+    "hasKinderOvo": true,
+    "winners": [],
+    "publicFigure": "Rodrigo Garcia",
+    "participants": [
+      "Fernando de Barros e Silva",
+      "Ana Clara Costa",
+      "Celso Rocha de Barros"
+    ],
+    "isTie": false
+  },
+  {
+    "id": 3143,
+    "title": "O tarifaço no Brasil e o judiciário em Lisboa",
+    "publishedAt": "2026-06-05T09:51:00-03:00",
+    "episodeNumber": null,
+    "hasKinderOvo": true,
+    "winners": [],
+    "publicFigure": "Marco Feliciano",
+    "participants": [
+      "Ana Clara Costa",
+      "Celso Rocha de Barros",
+      "João Batista Júnior"
+    ],
+    "isTie": false
+  },
+  {
+    "id": 3141,
+    "title": "A delação rejeitada, a pesquisa suspensa e a votação contra o aborto legal",
+    "publishedAt": "2026-06-12T09:17:00-03:00",
+    "episodeNumber": null,
+    "hasKinderOvo": true,
+    "winners": [],
+    "publicFigure": "Alexandre Kalil",
+    "participants": [
+      "Ana Clara Costa",
+      "Celso Rocha de Barros",
+      "João Batista Júnior"
     ],
     "isTie": false
   }

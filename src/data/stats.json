@@ -1,8 +1,8 @@
 {
-  "total": 384,
-  "koDetected": 380,
+  "total": 387,
+  "koDetected": 383,
   "winnersFound": 248,
-  "episodesWithoutWinners": 132,
+  "episodesWithoutWinners": 135,
   "figuresFound": 256,
   "noKo": 4
 }
