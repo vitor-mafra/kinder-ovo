@@ -5934,13 +5934,13 @@
     "isTie": false
   },
   {
-    "id": 43,
-    "title": "O terrorismo da direita e boas novas em Belém",
+    "id": 44,
+    "title": "As facções do crime e o clima quente em Belém",
     "publishedAt": "2025-11-25T15:44:00-03:00",
     "episodeNumber": null,
     "hasKinderOvo": true,
     "winners": [
-      "Fernando de Barros e Silva"
+      "Ana Clara Costa"
     ],
     "publicFigure": "Sérgio Moro",
     "participants": [
@@ -5952,13 +5952,13 @@
     "isTie": false
   },
   {
-    "id": 44,
-    "title": "As facções do crime e o clima quente em Belém",
+    "id": 43,
+    "title": "O terrorismo da direita e boas novas em Belém",
     "publishedAt": "2025-11-25T15:44:00-03:00",
     "episodeNumber": null,
     "hasKinderOvo": true,
     "winners": [
-      "Ana Clara Costa"
+      "Fernando de Barros e Silva"
     ],
     "publicFigure": "Sérgio Moro",
     "participants": [
@@ -6386,7 +6386,7 @@
   {
     "id": 3141,
     "title": "A delação rejeitada, a pesquisa suspensa e a votação contra o aborto legal",
-    "publishedAt": "2026-06-12T09:17:00-03:00",
+    "publishedAt": "2026-06-18T16:23:00-03:00",
     "episodeNumber": null,
     "hasKinderOvo": true,
     "winners": [],
@@ -6395,6 +6395,57 @@
       "Ana Clara Costa",
       "Celso Rocha de Barros",
       "João Batista Júnior"
+    ],
+    "isTie": false
+  },
+  {
+    "id": 3669,
+    "title": "A teia de Vorcaro, os bastidores de Trancoso e o xadrez da direita",
+    "publishedAt": "2026-06-19T13:58:00-03:00",
+    "episodeNumber": null,
+    "hasKinderOvo": true,
+    "winners": [
+      "Ana Clara Costa"
+    ],
+    "publicFigure": "Ricardo Salles",
+    "participants": [
+      "Ana Clara Costa",
+      "Celso Rocha de Barros",
+      "João Batista Júnior"
+    ],
+    "isTie": false
+  },
+  {
+    "id": 3668,
+    "title": "A cartada de Michelle, o revés de Flávio e o avanço da direita no continente",
+    "publishedAt": "2026-06-26T09:32:00-03:00",
+    "episodeNumber": null,
+    "hasKinderOvo": true,
+    "winners": [
+      "Ana Clara Costa"
+    ],
+    "publicFigure": "Aldo Rebelo",
+    "participants": [
+      "Fernando de Barros e Silva",
+      "Ana Clara Costa",
+      "Celso Rocha de Barros"
+    ],
+    "isTie": false
+  },
+  {
+    "id": 3667,
+    "title": "A guerra de Flávio e Michelle e os partidos contra as cotas",
+    "publishedAt": "2026-07-03T10:05:00-03:00",
+    "episodeNumber": null,
+    "hasKinderOvo": true,
+    "winners": [
+      "Celso Rocha de Barros"
+    ],
+    "publicFigure": "Bia Kicis",
+    "participants": [
+      "Fernando de Barros e Silva",
+      "Ana Clara Costa",
+      "Celso Rocha de Barros"
     ],
     "isTie": false
   }
