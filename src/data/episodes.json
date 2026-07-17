@@ -5934,13 +5934,13 @@
     "isTie": false
   },
   {
-    "id": 44,
-    "title": "As facções do crime e o clima quente em Belém",
+    "id": 43,
+    "title": "O terrorismo da direita e boas novas em Belém",
     "publishedAt": "2025-11-25T15:44:00-03:00",
     "episodeNumber": null,
     "hasKinderOvo": true,
     "winners": [
-      "Ana Clara Costa"
+      "Fernando de Barros e Silva"
     ],
     "publicFigure": "Sérgio Moro",
     "participants": [
@@ -5952,13 +5952,13 @@
     "isTie": false
   },
   {
-    "id": 43,
-    "title": "O terrorismo da direita e boas novas em Belém",
+    "id": 44,
+    "title": "As facções do crime e o clima quente em Belém",
     "publishedAt": "2025-11-25T15:44:00-03:00",
     "episodeNumber": null,
     "hasKinderOvo": true,
     "winners": [
-      "Fernando de Barros e Silva"
+      "Ana Clara Costa"
     ],
     "publicFigure": "Sérgio Moro",
     "participants": [
@@ -6442,6 +6442,38 @@
       "Celso Rocha de Barros"
     ],
     "publicFigure": "Bia Kicis",
+    "participants": [
+      "Fernando de Barros e Silva",
+      "Ana Clara Costa",
+      "Celso Rocha de Barros"
+    ],
+    "isTie": false
+  },
+  {
+    "id": 4197,
+    "title": "O vexame de Flávio, a devassa no Rio e o fiasco de Trump",
+    "publishedAt": "2026-07-10T09:51:00-03:00",
+    "episodeNumber": null,
+    "hasKinderOvo": true,
+    "winners": [],
+    "publicFigure": "Júlia Zanatta",
+    "participants": [
+      "Fernando de Barros e Silva",
+      "Ana Clara Costa",
+      "Celso Rocha de Barros"
+    ],
+    "isTie": false
+  },
+  {
+    "id": 4196,
+    "title": "O tarifaço, o amigo do Sicário e a confusão mineira",
+    "publishedAt": "2026-07-17T09:30:00-03:00",
+    "episodeNumber": null,
+    "hasKinderOvo": true,
+    "winners": [
+      "Celso Rocha de Barros"
+    ],
+    "publicFigure": "Esperidião Amin",
     "participants": [
       "Fernando de Barros e Silva",
       "Ana Clara Costa",
