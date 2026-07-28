@@ -5975,7 +5975,9 @@
     "publishedAt": "2025-11-28T09:43:00-03:00",
     "episodeNumber": null,
     "hasKinderOvo": true,
-    "winners": [],
+    "winners": [
+      "Celso Rocha de Barros"
+    ],
     "publicFigure": "Renan Santos",
     "participants": [
       "Fernando de Barros e Silva",
