@@ -282,7 +282,11 @@
     "publishedAt": "2018-09-13T16:50:00-03:00",
     "episodeNumber": 18,
     "hasKinderOvo": true,
-    "winners": [],
+    "winners": [
+      "Fernando de Barros e Silva",
+      "José Roberto de Toledo",
+      "Malu Gaspar"
+    ],
     "publicFigure": "José Dirceu",
     "participants": [
       "Fernando de Barros e Silva",
@@ -709,7 +713,10 @@
     "publishedAt": "2019-04-04T16:50:00-03:00",
     "episodeNumber": 45,
     "hasKinderOvo": true,
-    "winners": [],
+    "winners": [
+      "Fernando de Barros e Silva",
+      "José Roberto de Toledo"
+    ],
     "publicFigure": "Geraldo Alckmin",
     "participants": [
       "Fernando de Barros e Silva",
@@ -2940,7 +2947,9 @@
     "publishedAt": "2021-12-03T10:50:00-03:00",
     "episodeNumber": 179,
     "hasKinderOvo": true,
-    "winners": [],
+    "winners": [
+      "José Roberto de Toledo"
+    ],
     "publicFigure": "Aldo Rebelo",
     "participants": [
       "Fernando de Barros e Silva",
@@ -3766,7 +3775,9 @@
     "publishedAt": "2022-11-25T10:47:00-03:00",
     "episodeNumber": 228,
     "hasKinderOvo": true,
-    "winners": [],
+    "winners": [
+      "José Roberto de Toledo"
+    ],
     "publicFigure": "Gilson Machado",
     "participants": [
       "Fernando de Barros e Silva",
@@ -4448,7 +4459,9 @@
     "publishedAt": "2023-09-22T10:40:01-03:00",
     "episodeNumber": 271,
     "hasKinderOvo": true,
-    "winners": [],
+    "winners": [
+      "Thais Bilenky"
+    ],
     "publicFigure": "Paulo Guedes",
     "participants": [
       "Fernando de Barros e Silva",
@@ -4498,7 +4511,10 @@
     "publishedAt": "2023-10-13T10:40:02-03:00",
     "episodeNumber": 274,
     "hasKinderOvo": true,
-    "winners": [],
+    "winners": [
+      "Ana Clara Costa",
+      "José Roberto de Toledo"
+    ],
     "publicFigure": "Alexandre de Moraes",
     "participants": [
       "Fernando de Barros e Silva",
@@ -6101,7 +6117,9 @@
     "publishedAt": "2026-02-06T10:36:00-03:00",
     "episodeNumber": null,
     "hasKinderOvo": true,
-    "winners": [],
+    "winners": [
+      "Celso Rocha de Barros"
+    ],
     "publicFigure": "Janaína Paschoal",
     "participants": [
       "Fernando de Barros e Silva",

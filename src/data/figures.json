@@ -240,20 +240,20 @@
     "description": "político brasileiro"
   },
   {
+    "name": "Geraldo Alckmin",
+    "count": 2,
+    "wikipediaUrl": "https://pt.wikipedia.org/wiki/Geraldo_Alckmin",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Alckmin_2024.jpg/330px-Alckmin_2024.jpg",
+    "wikipediaTitle": "Geraldo Alckmin",
+    "description": "político brasileiro, Vice-presidente do Brasil"
+  },
+  {
     "name": "Anthony Garotinho",
     "count": 2,
     "wikipediaUrl": "https://pt.wikipedia.org/wiki/Anthony_Garotinho",
     "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Deputado_Anthony_Garotinho_entrevistado_em_2011_%28cropped%29.jpg/330px-Deputado_Anthony_Garotinho_entrevistado_em_2011_%28cropped%29.jpg",
     "wikipediaTitle": "Anthony Garotinho",
     "description": "político brasileiro"
-  },
-  {
-    "name": "Arthur do Val",
-    "count": 2,
-    "wikipediaUrl": "https://pt.wikipedia.org/wiki/Arthur_do_Val",
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Arthur_do_Val_%28cropped%29.jpg/330px-Arthur_do_Val_%28cropped%29.jpg",
-    "wikipediaTitle": "Arthur do Val",
-    "description": "ex-deputado estadual de São Paulo (2019–2022) e ativista do Movimento Brasil Livre (MBL)"
   },
   {
     "name": "Boca Aberta",
@@ -272,12 +272,12 @@
     "description": "político brasileiro, ex-vice-presidente do Brasil (2019–2023) e Senador da República pelo estado do Rio Grande do Sul desde 2023"
   },
   {
-    "name": "Geraldo Alckmin",
+    "name": "Arthur do Val",
     "count": 2,
-    "wikipediaUrl": "https://pt.wikipedia.org/wiki/Geraldo_Alckmin",
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Alckmin_2024.jpg/330px-Alckmin_2024.jpg",
-    "wikipediaTitle": "Geraldo Alckmin",
-    "description": "político brasileiro, Vice-presidente do Brasil"
+    "wikipediaUrl": "https://pt.wikipedia.org/wiki/Arthur_do_Val",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Arthur_do_Val_%28cropped%29.jpg/330px-Arthur_do_Val_%28cropped%29.jpg",
+    "wikipediaTitle": "Arthur do Val",
+    "description": "ex-deputado estadual de São Paulo (2019–2022) e ativista do Movimento Brasil Livre (MBL)"
   },
   {
     "name": "Marcelo Crivella",
