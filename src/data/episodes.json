@@ -538,8 +538,10 @@
     "publishedAt": "2019-01-10T16:57:00-02:00",
     "episodeNumber": 34,
     "hasKinderOvo": true,
-    "winners": [],
-    "publicFigure": "Djavan",
+    "winners": [
+      "Malu Gaspar"
+    ],
+    "publicFigure": "Eduardo Bolsonaro",
     "participants": [
       "Fernando de Barros e Silva",
       "José Roberto de Toledo",
@@ -845,14 +847,16 @@
     "publishedAt": "2019-06-06T16:52:00-03:00",
     "episodeNumber": 54,
     "hasKinderOvo": true,
-    "winners": [],
+    "winners": [
+      "Malu Gaspar"
+    ],
     "publicFigure": "Aloizio Mercadante",
     "participants": [
       "Fernando de Barros e Silva",
       "José Roberto de Toledo",
       "Malu Gaspar"
     ],
-    "isTie": true
+    "isTie": false
   },
   {
     "id": 459,
@@ -2981,7 +2985,11 @@
     "publishedAt": "2021-12-17T10:50:00-03:00",
     "episodeNumber": 181,
     "hasKinderOvo": true,
-    "winners": [],
+    "winners": [
+      "Fernando de Barros e Silva",
+      "José Roberto de Toledo",
+      "Thais Bilenky"
+    ],
     "publicFigure": "Eduardo Suplicy",
     "participants": [
       "Fernando de Barros e Silva",
@@ -5048,14 +5056,16 @@
     "publishedAt": "2024-10-04T09:36:00-03:00",
     "episodeNumber": null,
     "hasKinderOvo": true,
-    "winners": [],
+    "winners": [
+      "Fernando de Barros e Silva"
+    ],
     "publicFigure": "Laerte",
     "participants": [
       "Fernando de Barros e Silva",
       "Ana Clara Costa",
       "Celso Rocha de Barros"
     ],
-    "isTie": true
+    "isTie": false
   },
   {
     "id": 101,
