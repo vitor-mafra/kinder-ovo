@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Base pública — Momento Kinder Ovo</title>
+<meta name="description" content="Base de dados aberta do quadro Kinder Ovo do podcast Foro de Teresina: rodadas, vencedores, bancada e figuras públicas.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<style>
+  :root {
+    --bg: #f6f0e8;
+    --surface: #fff;
+    --ink: #4d3b2b;
+    --ink-deep: #352517;
+    --muted: #4e453e;
+    --line: rgba(77, 59, 43, 0.2);
+    --line-faint: rgba(77, 59, 43, 0.08);
+    --accent: #925e44;
+    --yolk: #ebb83d;
+  }
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    line-height: 1.6;
+    padding: 48px 24px 96px;
+  }
+  main { max-width: 720px; margin: 0 auto; }
+  a { color: var(--accent); }
+  .back {
+    font-size: .8125rem; text-decoration: none; color: var(--muted);
+    letter-spacing: .04em; text-transform: uppercase;
+  }
+  .back:hover { color: var(--ink-deep); }
+  h1 {
+    font-family: 'Outfit', sans-serif; font-weight: 800;
+    font-size: clamp(1.75rem, 5vw, 2.5rem); line-height: 1.15;
+    margin: 20px 0 12px; color: var(--ink-deep); letter-spacing: -0.02em;
+  }
+  h2 {
+    font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 1.125rem;
+    margin: 48px 0 12px; color: var(--ink-deep);
+  }
+  .lede { font-size: 1.0625rem; color: var(--muted); }
+  .stats {
+    display: flex; flex-wrap: wrap; gap: 8px 28px;
+    margin: 28px 0; padding: 18px 20px;
+    background: var(--surface); border: 1px solid var(--line-faint);
+    border-radius: .5rem;
+  }
+  .stat b {
+    display: block; font-family: 'Outfit', sans-serif; font-size: 1.5rem;
+    line-height: 1.1; color: var(--ink-deep);
+  }
+  .stat span { font-size: .8125rem; color: var(--muted); }
+  .note {
+    border-left: 3px solid var(--yolk); padding: 2px 0 2px 16px; margin: 20px 0;
+    font-size: .9375rem; color: var(--muted);
+  }
+  .files { list-style: none; margin: 12px 0; }
+  .files li {
+    display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px;
+    padding: 12px 0; border-bottom: 1px solid var(--line-faint);
+  }
+  .files a { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .9375rem; }
+  .files span { font-size: .875rem; color: var(--muted); flex: 1 1 260px; }
+  ol { margin: 12px 0 12px 20px; }
+  ol li { margin-bottom: 12px; font-size: .9375rem; }
+  code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: .875em; background: rgba(77,59,43,.07);
+    padding: .1em .35em; border-radius: .2em;
+  }
+  footer {
+    margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line);
+    font-size: .875rem; color: var(--muted);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #241a12; --surface: #2e2219; --ink: #ece2d6; --ink-deep: #fbf6ef;
+      --muted: #bfae9c; --line: rgba(236,226,214,.22); --line-faint: rgba(236,226,214,.1);
+      --accent: #e3a882;
+    }
+    code { background: rgba(236,226,214,.1); }
+  }
+</style>
+</head>
+<body>
+<main>
+  <a class="back" href="/">← Momento Kinder Ovo</a>
+
+  <h1>Base pública</h1>
+  <p class="lede">
+    O histórico do quadro <strong>Kinder Ovo</strong> do podcast
+    <a href="https://piaui.folha.uol.com.br/foro-de-teresina/">Foro de Teresina</a>,
+    reconstruído episódio a episódio a partir do áudio. Uso livre com crédito.
+  </p>
+
+  <div class="stats">
+    <div class="stat"><b>393</b><span>episódios processados</span></div>
+    <div class="stat"><b>260</b><span>rodadas com bancada e vencedor</span></div>
+    <div class="stat"><b>257</b><span>figuras públicas</span></div>
+    <div class="stat"><b>2018–2026</b><span>cobertura</span></div>
+  </div>
+
+  <h2>Como usar</h2>
+  <p class="note">
+    <strong>Baixe e embuta no seu projeto.</strong> Isto é um snapshot para download,
+    não um endpoint para consumo em produção. A base inteira tem ~66&nbsp;KB comprimida e
+    muda uma vez por semana, então buscar em rede a cada uso só adiciona latência e um
+    ponto de falha. É republicado toda sexta — o campo <code>generatedAt</code> do
+    <code>meta.json</code> diz a idade do snapshot.
+  </p>
+
+  <h2>Arquivos</h2>
+  <ul class="files">
+    <li><a href="meta.json">meta.json</a> <span>Cobertura, método e ressalvas. Leia primeiro.</span></li>
+    <li><a href="rounds.json">rounds.json</a> <span>Uma entrada por rodada. É o arquivo principal.</span></li>
+    <li><a href="panelists.json">panelists.json</a> <span>Ranking da bancada: aparições, vitórias, taxa de vitória, vitórias por ano.</span></li>
+    <li><a href="figures.json">figures.json</a> <span>Figuras públicas que já caíram no quadro, com Wikipédia e foto.</span></li>
+    <li><a href="rounds.csv">rounds.csv</a> <span>Espelho de <code>rounds.json</code>, uma linha por rodada.</span></li>
+    <li><a href="panel_results.csv">panel_results.csv</a> <span>Formato longo: uma linha por rodada × comentarista.</span></li>
+    <li><a href="README.md">README.md</a> <span>Documentação completa dos campos.</span></li>
+  </ul>
+  <p class="note">CSV e JSON têm o mesmo conteúdo — escolha um.</p>
+
+  <h2>Ressalvas que importam</h2>
+  <ol>
+    <li>
+      <strong>A base registra quem venceu a rodada, não o palpite de cada comentarista.</strong>
+      <code>did_not_win</code> quer dizer “não levou aquela rodada”, não necessariamente
+      “errou”. Por isso <code>winRate</code> é taxa de <em>vitória</em>, não de acerto:
+      comparar o acerto de quem joga sozinho com o percentual de quem disputa com mais
+      dois não é maçã com maçã. Comparação rodada a rodada é justa; de percentuais
+      agregados, não.
+    </li>
+    <li>
+      <strong>Nem toda rodada tem vencedor identificado.</strong> Algumas têm o quadro e a
+      figura, mas o programa não deixa claro quem levou. Elas servem de pergunta, não de
+      referência da bancada — filtre por <code>quality.playable</code>.
+    </li>
+    <li>
+      <strong>Extração automática.</strong> Transcrição dos ~20 minutos finais de cada
+      episódio e extração por LLM. A rodada da semana passa por revisão humana; o
+      histórico tem correções pontuais. Use <code>quality.confidence</code> para um corte
+      mais conservador.
+    </li>
+    <li>
+      <strong><code>episodeNumber</code> pode ser nulo</strong> nos episódios recentes, que
+      perderam o <code>#NNN</code> do título. A chave estável é <code>roundId</code>.
+    </li>
+    <li>
+      <strong>Não há timestamp do início do quadro</strong> — sabe-se apenas que está nos
+      ~20 minutos finais do episódio.
+    </li>
+  </ol>
+
+  <footer>
+    Dados: <a href="https://kinderovo.com">Momento Kinder Ovo</a>, por Vitor Mafra.
+    O conteúdo original é do <em>Foro de Teresina</em>, da revista piauí.
+  </footer>
+</main>
+</body>
+</html>
