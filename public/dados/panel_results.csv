@@ -1,0 +1,1262 @@
+round_id,published_at,public_figure,panelist,outcome,playable
+ko-539,2018-05-17T16:16:00-03:00,Ciro Gomes,Fernando de Barros e Silva,did_not_win,true
+ko-539,2018-05-17T16:16:00-03:00,Ciro Gomes,Malu Gaspar,winner,true
+ko-539,2018-05-17T16:16:00-03:00,Ciro Gomes,José Roberto de Toledo,did_not_win,true
+ko-538,2018-05-24T17:00:00-03:00,Henrique Meirelles,Fernando de Barros e Silva,did_not_win,true
+ko-538,2018-05-24T17:00:00-03:00,Henrique Meirelles,Malu Gaspar,winner,true
+ko-538,2018-05-24T17:00:00-03:00,Henrique Meirelles,José Roberto de Toledo,did_not_win,true
+ko-537,2018-05-31T16:07:00-03:00,Marina Silva,Fernando de Barros e Silva,did_not_win,false
+ko-537,2018-05-31T16:07:00-03:00,Marina Silva,José Roberto de Toledo,did_not_win,false
+ko-537,2018-05-31T16:07:00-03:00,Marina Silva,Malu Gaspar,did_not_win,false
+ko-536,2018-06-07T16:22:00-03:00,Dilva Rouseff,Fernando de Barros e Silva,did_not_win,false
+ko-536,2018-06-07T16:22:00-03:00,Dilva Rouseff,José Roberto de Toledo,did_not_win,false
+ko-536,2018-06-07T16:22:00-03:00,Dilva Rouseff,Júlia Dualib,did_not_win,false
+ko-535,2018-06-14T16:45:00-03:00,Márcio França,Fernando de Barros e Silva,did_not_win,true
+ko-535,2018-06-14T16:45:00-03:00,Márcio França,José Roberto de Toledo,did_not_win,true
+ko-535,2018-06-14T16:45:00-03:00,Márcio França,Malu Gaspar,winner,true
+ko-534,2018-06-21T17:24:00-03:00,Sérgio Côrtes,Fernando de Barros e Silva,did_not_win,true
+ko-534,2018-06-21T17:24:00-03:00,Sérgio Côrtes,José Roberto de Toledo,did_not_win,true
+ko-534,2018-06-21T17:24:00-03:00,Sérgio Côrtes,Malu Gaspar,winner,true
+ko-533,2018-06-28T16:49:00-03:00,Michel Temer,Fernando de Barros e Silva,did_not_win,false
+ko-533,2018-06-28T16:49:00-03:00,Michel Temer,José Roberto de Toledo,did_not_win,false
+ko-533,2018-06-28T16:49:00-03:00,Michel Temer,Malu Gaspar,did_not_win,false
+ko-532,2018-07-05T16:50:00-03:00,José Luiz Datena,Fernando de Barros e Silva,did_not_win,true
+ko-532,2018-07-05T16:50:00-03:00,José Luiz Datena,José Roberto de Toledo,winner,true
+ko-532,2018-07-05T16:50:00-03:00,José Luiz Datena,Malu Gaspar,did_not_win,true
+ko-531,2018-07-12T17:04:00-03:00,Flávio Rocha,Fernando de Barros e Silva,did_not_win,true
+ko-531,2018-07-12T17:04:00-03:00,Flávio Rocha,José Roberto de Toledo,did_not_win,true
+ko-531,2018-07-12T17:04:00-03:00,Flávio Rocha,Malu Gaspar,winner,true
+ko-530,2018-07-19T18:49:00-03:00,Janaína Paschoal,Fernando de Barros e Silva,did_not_win,false
+ko-530,2018-07-19T18:49:00-03:00,Janaína Paschoal,José Roberto de Toledo,did_not_win,false
+ko-530,2018-07-19T18:49:00-03:00,Janaína Paschoal,Ana Carolina Evangelista,did_not_win,false
+ko-529,2018-07-26T16:53:00-03:00,Cabo Daciolo,Fernando de Barros e Silva,did_not_win,true
+ko-529,2018-07-26T16:53:00-03:00,Cabo Daciolo,José Roberto de Toledo,did_not_win,true
+ko-529,2018-07-26T16:53:00-03:00,Cabo Daciolo,Malu Gaspar,winner,true
+ko-528,2018-08-02T16:45:00-03:00,Eduardo Paes,Fernando de Barros e Silva,did_not_win,true
+ko-528,2018-08-02T16:45:00-03:00,Eduardo Paes,José Roberto de Toledo,did_not_win,true
+ko-528,2018-08-02T16:45:00-03:00,Eduardo Paes,Malu Gaspar,winner,true
+ko-527,2018-08-09T16:50:00-03:00,Magno Malta,Fernando de Barros e Silva,did_not_win,true
+ko-527,2018-08-09T16:50:00-03:00,Magno Malta,José Roberto de Toledo,did_not_win,true
+ko-527,2018-08-09T16:50:00-03:00,Magno Malta,Malu Gaspar,winner,true
+ko-526,2018-08-16T18:30:00-03:00,Ciro Gomes,Fernando de Barros e Silva,did_not_win,true
+ko-526,2018-08-16T18:30:00-03:00,Ciro Gomes,José Roberto de Toledo,did_not_win,true
+ko-526,2018-08-16T18:30:00-03:00,Ciro Gomes,Malu Gaspar,winner,true
+ko-525,2018-08-23T16:30:00-03:00,Walderice Santos da Conceição (Wal do Açaí),Malu Gaspar,did_not_win,false
+ko-525,2018-08-23T16:30:00-03:00,Walderice Santos da Conceição (Wal do Açaí),José Roberto de Toledo,did_not_win,false
+ko-525,2018-08-23T16:30:00-03:00,Walderice Santos da Conceição (Wal do Açaí),Carol Pires,did_not_win,false
+ko-524,2018-08-30T16:40:00-03:00,Aécio Neves,Fernando de Barros e Silva,did_not_win,true
+ko-524,2018-08-30T16:40:00-03:00,Aécio Neves,José Roberto de Toledo,did_not_win,true
+ko-524,2018-08-30T16:40:00-03:00,Aécio Neves,Malu Gaspar,winner,true
+ko-523,2018-09-07T02:14:00-03:00,,Fernando de Barros e Silva,did_not_win,false
+ko-523,2018-09-07T02:14:00-03:00,,José Roberto de Toledo,did_not_win,false
+ko-523,2018-09-07T02:14:00-03:00,,Malu Gaspar,did_not_win,false
+ko-522,2018-09-13T16:50:00-03:00,José Dirceu,Fernando de Barros e Silva,winner,true
+ko-522,2018-09-13T16:50:00-03:00,José Dirceu,José Roberto de Toledo,winner,true
+ko-522,2018-09-13T16:50:00-03:00,José Dirceu,Malu Gaspar,winner,true
+ko-521,2018-09-20T16:50:00-03:00,Kim Kataguiri,Fernando de Barros e Silva,did_not_win,false
+ko-521,2018-09-20T16:50:00-03:00,Kim Kataguiri,José Roberto de Toledo,did_not_win,false
+ko-521,2018-09-20T16:50:00-03:00,Kim Kataguiri,Malu Gaspar,did_not_win,false
+ko-520,2018-09-27T16:50:00-03:00,Valdir Maranhão,Fernando de Barros e Silva,did_not_win,false
+ko-520,2018-09-27T16:50:00-03:00,Valdir Maranhão,José Roberto de Toledo,did_not_win,false
+ko-520,2018-09-27T16:50:00-03:00,Valdir Maranhão,Malu Gaspar,did_not_win,false
+ko-519,2018-10-04T16:50:00-03:00,Jaques Wagner,Fernando de Barros e Silva,did_not_win,true
+ko-519,2018-10-04T16:50:00-03:00,Jaques Wagner,José Roberto de Toledo,did_not_win,true
+ko-519,2018-10-04T16:50:00-03:00,Jaques Wagner,Malu Gaspar,winner,true
+ko-507,2018-10-11T16:59:00-03:00,Marta Suplicy,Fernando de Barros e Silva,did_not_win,false
+ko-507,2018-10-11T16:59:00-03:00,Marta Suplicy,José Roberto de Toledo,did_not_win,false
+ko-507,2018-10-11T16:59:00-03:00,Marta Suplicy,Malu Gaspar,did_not_win,false
+ko-506,2018-10-18T16:50:00-03:00,Luciano Hang,Fernando de Barros e Silva,did_not_win,false
+ko-506,2018-10-18T16:50:00-03:00,Luciano Hang,Malu Gaspar,did_not_win,false
+ko-506,2018-10-18T16:50:00-03:00,Luciano Hang,José Roberto de Toledo,did_not_win,false
+ko-505,2018-10-25T17:27:00-03:00,Washington Quaquá,Fernando de Barros e Silva,did_not_win,true
+ko-505,2018-10-25T17:27:00-03:00,Washington Quaquá,José Roberto de Toledo,did_not_win,true
+ko-505,2018-10-25T17:27:00-03:00,Washington Quaquá,Malu Gaspar,winner,true
+ko-493,2018-11-01T16:50:00-03:00,Wilson Witzel,Fernando de Barros e Silva,winner,true
+ko-493,2018-11-01T16:50:00-03:00,Wilson Witzel,José Roberto de Toledo,did_not_win,true
+ko-493,2018-11-01T16:50:00-03:00,Wilson Witzel,Malu Gaspar,did_not_win,true
+ko-492,2018-11-08T16:56:00-02:00,Eike Batista,Fernando de Barros e Silva,did_not_win,true
+ko-492,2018-11-08T16:56:00-02:00,Eike Batista,Malu Gaspar,winner,true
+ko-492,2018-11-08T16:56:00-02:00,Eike Batista,José Roberto de Toledo,did_not_win,true
+ko-491,2018-11-15T17:21:00-02:00,Otoni de Paula,Fernando de Barros e Silva,did_not_win,false
+ko-491,2018-11-15T17:21:00-02:00,Otoni de Paula,José Roberto de Toledo,did_not_win,false
+ko-491,2018-11-15T17:21:00-02:00,Otoni de Paula,Malu Gaspar,did_not_win,false
+ko-490,2018-11-22T16:34:00-02:00,Leonardo Boff,Fernando de Barros e Silva,did_not_win,false
+ko-490,2018-11-22T16:34:00-02:00,Leonardo Boff,José Roberto de Toledo,did_not_win,false
+ko-490,2018-11-22T16:34:00-02:00,Leonardo Boff,Consuelo Diegues,did_not_win,false
+ko-489,2018-11-29T16:47:00-02:00,Edson Lobão,Fernando de Barros e Silva,did_not_win,false
+ko-489,2018-11-29T16:47:00-02:00,Edson Lobão,José Roberto de Toledo,did_not_win,false
+ko-489,2018-11-29T16:47:00-02:00,Edson Lobão,Malu Gaspar,did_not_win,false
+ko-487,2018-12-06T16:51:00-02:00,Hélio Negão,Fernando de Barros e Silva,did_not_win,true
+ko-487,2018-12-06T16:51:00-02:00,Hélio Negão,José Roberto de Toledo,did_not_win,true
+ko-487,2018-12-06T16:51:00-02:00,Hélio Negão,Malu Gaspar,winner,true
+ko-486,2018-12-13T17:07:00-02:00,Flávio Dino,Fernando de Barros e Silva,did_not_win,false
+ko-486,2018-12-13T17:07:00-02:00,Flávio Dino,José Roberto de Toledo,did_not_win,false
+ko-486,2018-12-13T17:07:00-02:00,Flávio Dino,Malu Gaspar,did_not_win,false
+ko-485,2018-12-20T16:55:00-02:00,Sérgio Moro,Fernando de Barros e Silva,did_not_win,true
+ko-485,2018-12-20T16:55:00-02:00,Sérgio Moro,Malu Gaspar,winner,true
+ko-485,2018-12-20T16:55:00-02:00,Sérgio Moro,Consuelo Diegues,did_not_win,true
+ko-484,2019-01-03T16:46:00-02:00,Djavan,Fernando de Barros e Silva,did_not_win,false
+ko-484,2019-01-03T16:46:00-02:00,Djavan,José Roberto de Toledo,did_not_win,false
+ko-484,2019-01-03T16:46:00-02:00,Djavan,Malu Gaspar,did_not_win,false
+ko-483,2019-01-10T16:57:00-02:00,Eduardo Bolsonaro,Fernando de Barros e Silva,did_not_win,true
+ko-483,2019-01-10T16:57:00-02:00,Eduardo Bolsonaro,José Roberto de Toledo,did_not_win,true
+ko-483,2019-01-10T16:57:00-02:00,Eduardo Bolsonaro,Malu Gaspar,winner,true
+ko-482,2019-01-17T16:48:00-02:00,Marco Feliciano,Fernando de Barros e Silva,did_not_win,false
+ko-482,2019-01-17T16:48:00-02:00,Marco Feliciano,José Roberto de Toledo,did_not_win,false
+ko-482,2019-01-17T16:48:00-02:00,Marco Feliciano,Malu Gaspar,did_not_win,false
+ko-481,2019-01-24T16:45:00-02:00,Marcos Rocha,Fernando de Barros e Silva,did_not_win,false
+ko-481,2019-01-24T16:45:00-02:00,Marcos Rocha,José Roberto de Toledo,did_not_win,false
+ko-481,2019-01-24T16:45:00-02:00,Marcos Rocha,Malu Gaspar,did_not_win,false
+ko-480,2019-01-31T17:00:00-02:00,Roberto Requião,Fernando de Barros e Silva,did_not_win,true
+ko-480,2019-01-31T17:00:00-02:00,Roberto Requião,José Roberto de Toledo,winner,true
+ko-480,2019-01-31T17:00:00-02:00,Roberto Requião,Consuelo Diegues,did_not_win,true
+ko-479,2019-02-07T16:50:00-02:00,Bia Kicis,Fernando de Barros e Silva,did_not_win,false
+ko-479,2019-02-07T16:50:00-02:00,Bia Kicis,José Roberto de Toledo,did_not_win,false
+ko-479,2019-02-07T16:50:00-02:00,Bia Kicis,Malu Gaspar,did_not_win,false
+ko-478,2019-02-14T17:49:00-02:00,Magno Malta,Fernando de Barros e Silva,did_not_win,true
+ko-478,2019-02-14T17:49:00-02:00,Magno Malta,Malu Gaspar,winner,true
+ko-478,2019-02-14T17:49:00-02:00,Magno Malta,José Roberto de Toledo,did_not_win,true
+ko-477,2019-02-21T16:50:00-03:00,Carlos Bolsonaro,Fernando de Barros e Silva,winner,true
+ko-477,2019-02-21T16:50:00-03:00,Carlos Bolsonaro,José Roberto de Toledo,did_not_win,true
+ko-477,2019-02-21T16:50:00-03:00,Carlos Bolsonaro,Malu Gaspar,did_not_win,true
+ko-476,2019-02-28T16:49:00-03:00,Luiz Carlos Heinze,Fernando de Barros e Silva,did_not_win,false
+ko-476,2019-02-28T16:49:00-03:00,Luiz Carlos Heinze,Malu Gaspar,did_not_win,false
+ko-476,2019-02-28T16:49:00-03:00,Luiz Carlos Heinze,José Roberto de Toledo,did_not_win,false
+ko-475,2019-03-14T16:30:00-03:00,Carlos Roberto Massa,Fernando de Barros e Silva,did_not_win,false
+ko-475,2019-03-14T16:30:00-03:00,Carlos Roberto Massa,José Roberto de Toledo,did_not_win,false
+ko-475,2019-03-14T16:30:00-03:00,Carlos Roberto Massa,Malu Gaspar,did_not_win,false
+ko-474,2019-03-21T16:50:00-03:00,Major Olímpio,Fernando de Barros e Silva,did_not_win,true
+ko-474,2019-03-21T16:50:00-03:00,Major Olímpio,José Roberto de Toledo,did_not_win,true
+ko-474,2019-03-21T16:50:00-03:00,Major Olímpio,Malu Gaspar,winner,true
+ko-472,2019-03-28T16:50:00-03:00,Jandira Feghali,Fernando de Barros e Silva,did_not_win,true
+ko-472,2019-03-28T16:50:00-03:00,Jandira Feghali,José Roberto de Toledo,did_not_win,true
+ko-472,2019-03-28T16:50:00-03:00,Jandira Feghali,Malu Gaspar,winner,true
+ko-471,2019-04-04T16:50:00-03:00,Geraldo Alckmin,Fernando de Barros e Silva,winner,true
+ko-471,2019-04-04T16:50:00-03:00,Geraldo Alckmin,Malu Gaspar,did_not_win,true
+ko-471,2019-04-04T16:50:00-03:00,Geraldo Alckmin,José Roberto de Toledo,winner,true
+ko-470,2019-04-11T16:45:00-03:00,Wallace Costa Landim,Fernando de Barros e Silva,did_not_win,false
+ko-470,2019-04-11T16:45:00-03:00,Wallace Costa Landim,Malu Gaspar,did_not_win,false
+ko-470,2019-04-11T16:45:00-03:00,Wallace Costa Landim,José Roberto de Toledo,did_not_win,false
+ko-469,2019-04-18T16:38:00-03:00,Jorge Kajuru,Fernando de Barros e Silva,did_not_win,true
+ko-469,2019-04-18T16:38:00-03:00,Jorge Kajuru,Malu Gaspar,winner,true
+ko-469,2019-04-18T16:38:00-03:00,Jorge Kajuru,José Roberto de Toledo,did_not_win,true
+ko-469,2019-04-18T16:38:00-03:00,Jorge Kajuru,Rodrigo,did_not_win,true
+ko-468,2019-04-25T16:45:00-03:00,Álvaro Dias,Fernando de Barros e Silva,did_not_win,true
+ko-468,2019-04-25T16:45:00-03:00,Álvaro Dias,Malu Gaspar,did_not_win,true
+ko-468,2019-04-25T16:45:00-03:00,Álvaro Dias,José Roberto de Toledo,winner,true
+ko-467,2019-05-02T16:51:00-03:00,Paulo Guedes,Fernando de Barros e Silva,did_not_win,true
+ko-467,2019-05-02T16:51:00-03:00,Paulo Guedes,José Roberto de Toledo,did_not_win,true
+ko-467,2019-05-02T16:51:00-03:00,Paulo Guedes,Malu Gaspar,winner,true
+ko-466,2019-05-09T16:45:00-03:00,,Fernando de Barros e Silva,did_not_win,false
+ko-466,2019-05-09T16:45:00-03:00,,Malu Gaspar,did_not_win,false
+ko-466,2019-05-09T16:45:00-03:00,,José Roberto de Toledo,did_not_win,false
+ko-464,2019-05-16T16:45:00-03:00,Boca Aberta,Fernando de Barros e Silva,did_not_win,true
+ko-464,2019-05-16T16:45:00-03:00,Boca Aberta,Malu Gaspar,did_not_win,true
+ko-464,2019-05-16T16:45:00-03:00,Boca Aberta,José Roberto de Toledo,winner,true
+ko-461,2019-05-30T16:45:00-03:00,Carlos Lupi,Fernando de Barros e Silva,did_not_win,false
+ko-461,2019-05-30T16:45:00-03:00,Carlos Lupi,José Roberto de Toledo,did_not_win,false
+ko-461,2019-05-30T16:45:00-03:00,Carlos Lupi,Thais Bilenky,did_not_win,false
+ko-460,2019-06-06T16:52:00-03:00,Aloizio Mercadante,Fernando de Barros e Silva,did_not_win,true
+ko-460,2019-06-06T16:52:00-03:00,Aloizio Mercadante,José Roberto de Toledo,did_not_win,true
+ko-460,2019-06-06T16:52:00-03:00,Aloizio Mercadante,Malu Gaspar,winner,true
+ko-459,2019-06-13T16:57:00-03:00,Fred Costa,Fernando de Barros e Silva,winner,true
+ko-459,2019-06-13T16:57:00-03:00,Fred Costa,Malu Gaspar,did_not_win,true
+ko-459,2019-06-13T16:57:00-03:00,Fred Costa,Thais Bilenky,did_not_win,true
+ko-459,2019-06-13T16:57:00-03:00,Fred Costa,Bernardo Esteves,did_not_win,true
+ko-458,2019-06-20T16:45:00-03:00,Pedro Paulo Carvalho,Fernando de Barros e Silva,did_not_win,true
+ko-458,2019-06-20T16:45:00-03:00,Pedro Paulo Carvalho,José Roberto de Toledo,did_not_win,true
+ko-458,2019-06-20T16:45:00-03:00,Pedro Paulo Carvalho,Malu Gaspar,winner,true
+ko-457,2019-06-27T17:00:00-03:00,Romeu Zema,Fernando de Barros e Silva,winner,true
+ko-457,2019-06-27T17:00:00-03:00,Romeu Zema,José Roberto de Toledo,did_not_win,true
+ko-457,2019-06-27T17:00:00-03:00,Romeu Zema,Malu Gaspar,did_not_win,true
+ko-456,2019-07-04T16:45:00-03:00,Rodrigo Amorim,Fernando de Barros e Silva,did_not_win,true
+ko-456,2019-07-04T16:45:00-03:00,Rodrigo Amorim,José Roberto de Toledo,did_not_win,true
+ko-456,2019-07-04T16:45:00-03:00,Rodrigo Amorim,Thais Bilenky,winner,true
+ko-455,2019-07-11T16:45:00-03:00,Cabo Daciolo,Fernando de Barros e Silva,winner,true
+ko-455,2019-07-11T16:45:00-03:00,Cabo Daciolo,José Roberto de Toledo,did_not_win,true
+ko-455,2019-07-11T16:45:00-03:00,Cabo Daciolo,Consuelo Diegues,did_not_win,true
+ko-454,2019-07-18T16:45:00-03:00,Carla Zambelli,Fernando de Barros e Silva,did_not_win,true
+ko-454,2019-07-18T16:45:00-03:00,Carla Zambelli,José Roberto de Toledo,did_not_win,true
+ko-454,2019-07-18T16:45:00-03:00,Carla Zambelli,Thais Bilenky,winner,true
+ko-453,2019-07-25T16:45:00-03:00,Silvio Santos,Fernando de Barros e Silva,did_not_win,false
+ko-453,2019-07-25T16:45:00-03:00,Silvio Santos,José Roberto de Toledo,did_not_win,false
+ko-453,2019-07-25T16:45:00-03:00,Silvio Santos,Thais Bilenky,did_not_win,false
+ko-452,2019-08-01T16:45:00-03:00,Alexandre Garcia,Fernando de Barros e Silva,did_not_win,true
+ko-452,2019-08-01T16:45:00-03:00,Alexandre Garcia,Malu Gaspar,winner,true
+ko-452,2019-08-01T16:45:00-03:00,Alexandre Garcia,José Roberto de Toledo,did_not_win,true
+ko-452,2019-08-01T16:45:00-03:00,Alexandre Garcia,Bernardo Esteves,did_not_win,true
+ko-451,2019-08-08T16:45:00-03:00,Luiz Henrique Mandetta,Fernando de Barros e Silva,did_not_win,true
+ko-451,2019-08-08T16:45:00-03:00,Luiz Henrique Mandetta,José Roberto de Toledo,winner,true
+ko-451,2019-08-08T16:45:00-03:00,Luiz Henrique Mandetta,Malu Gaspar,did_not_win,true
+ko-450,2019-08-15T16:45:00-03:00,Rui Costa,Fernando de Barros e Silva,did_not_win,true
+ko-450,2019-08-15T16:45:00-03:00,Rui Costa,José Roberto de Toledo,winner,true
+ko-450,2019-08-15T16:45:00-03:00,Rui Costa,Malu Gaspar,did_not_win,true
+ko-448,2019-08-22T16:48:00-03:00,Renan Filho,Fernando de Barros e Silva,did_not_win,true
+ko-448,2019-08-22T16:48:00-03:00,Renan Filho,José Roberto de Toledo,winner,true
+ko-448,2019-08-22T16:48:00-03:00,Renan Filho,Malu Gaspar,winner,true
+ko-447,2019-08-29T16:45:00-03:00,Gretchen,Fernando de Barros e Silva,did_not_win,false
+ko-447,2019-08-29T16:45:00-03:00,Gretchen,Malu Gaspar,did_not_win,false
+ko-447,2019-08-29T16:45:00-03:00,Gretchen,José Roberto de Toledo,did_not_win,false
+ko-446,2019-09-05T16:45:00-03:00,Chris Tonietto,Fernando de Barros e Silva,did_not_win,false
+ko-446,2019-09-05T16:45:00-03:00,Chris Tonietto,José Roberto de Toledo,did_not_win,false
+ko-446,2019-09-05T16:45:00-03:00,Chris Tonietto,Malu Gaspar,did_not_win,false
+ko-445,2019-09-12T16:57:00-03:00,Delcídio do Amaral,Fernando de Barros e Silva,did_not_win,true
+ko-445,2019-09-12T16:57:00-03:00,Delcídio do Amaral,Malu Gaspar,winner,true
+ko-445,2019-09-12T16:57:00-03:00,Delcídio do Amaral,José Roberto de Toledo,did_not_win,true
+ko-444,2019-09-19T16:45:00-03:00,Nelson Barbudo,Fernando de Barros e Silva,did_not_win,false
+ko-444,2019-09-19T16:45:00-03:00,Nelson Barbudo,José Roberto de Toledo,did_not_win,false
+ko-444,2019-09-19T16:45:00-03:00,Nelson Barbudo,Malu Gaspar,did_not_win,false
+ko-442,2019-09-26T16:45:00-03:00,Paulo Pimenta,Fernando de Barros e Silva,did_not_win,false
+ko-442,2019-09-26T16:45:00-03:00,Paulo Pimenta,José Roberto de Toledo,did_not_win,false
+ko-442,2019-09-26T16:45:00-03:00,Paulo Pimenta,Malu Gaspar,did_not_win,false
+ko-441,2019-10-03T16:45:00-03:00,Joice Hasselmann,Fernando de Barros e Silva,did_not_win,false
+ko-441,2019-10-03T16:45:00-03:00,Joice Hasselmann,Malu Gaspar,did_not_win,false
+ko-441,2019-10-03T16:45:00-03:00,Joice Hasselmann,José Roberto de Toledo,did_not_win,false
+ko-439,2019-10-10T16:45:00-03:00,João Pedro Stedile,Malu Gaspar,did_not_win,false
+ko-439,2019-10-10T16:45:00-03:00,João Pedro Stedile,José Roberto de Toledo,did_not_win,false
+ko-439,2019-10-10T16:45:00-03:00,João Pedro Stedile,Thais Bilenky,did_not_win,false
+ko-438,2019-10-17T16:46:00-03:00,Felipe Francischini,Malu Gaspar,did_not_win,true
+ko-438,2019-10-17T16:46:00-03:00,Felipe Francischini,José Roberto de Toledo,winner,true
+ko-438,2019-10-17T16:46:00-03:00,Felipe Francischini,Rafael Cariello,did_not_win,true
+ko-438,2019-10-17T16:46:00-03:00,Felipe Francischini,Thais Bilenky,did_not_win,true
+ko-438,2019-10-17T16:46:00-03:00,Felipe Francischini,Bernardo Esteves,did_not_win,true
+ko-437,2019-10-24T16:45:00-03:00,Abraham Weintraub,José Roberto de Toledo,did_not_win,true
+ko-437,2019-10-24T16:45:00-03:00,Abraham Weintraub,Malu Gaspar,winner,true
+ko-437,2019-10-24T16:45:00-03:00,Abraham Weintraub,Thais Bilenky,did_not_win,true
+ko-437,2019-10-24T16:45:00-03:00,Abraham Weintraub,Fábio Victor,did_not_win,true
+ko-436,2019-10-31T16:45:00-03:00,Roberto Jefferson,Malu Gaspar,did_not_win,false
+ko-436,2019-10-31T16:45:00-03:00,Roberto Jefferson,José Roberto de Toledo,did_not_win,false
+ko-436,2019-10-31T16:45:00-03:00,Roberto Jefferson,Alain de Abreu,did_not_win,false
+ko-436,2019-10-31T16:45:00-03:00,Roberto Jefferson,Fábio Victor,did_not_win,false
+ko-436,2019-10-31T16:45:00-03:00,Roberto Jefferson,Bernardo Esteves,did_not_win,false
+ko-435,2019-11-07T16:49:00-03:00,Alexandre Kalil,Malu Gaspar,did_not_win,true
+ko-435,2019-11-07T16:49:00-03:00,Alexandre Kalil,José Roberto de Toledo,did_not_win,true
+ko-435,2019-11-07T16:49:00-03:00,Alexandre Kalil,Thais Bilenky,winner,true
+ko-434,2019-11-14T16:45:00-03:00,Henrique Meirelles,Fernando de Barros e Silva,did_not_win,false
+ko-434,2019-11-14T16:45:00-03:00,Henrique Meirelles,Malu Gaspar,did_not_win,false
+ko-434,2019-11-14T16:45:00-03:00,Henrique Meirelles,José Roberto de Toledo,did_not_win,false
+ko-433,2019-11-21T16:45:00-03:00,Antonio Anastasia,Fernando de Barros e Silva,did_not_win,true
+ko-433,2019-11-21T16:45:00-03:00,Antonio Anastasia,Malu Gaspar,winner,true
+ko-433,2019-11-21T16:45:00-03:00,Antonio Anastasia,José Roberto de Toledo,did_not_win,true
+ko-432,2019-11-28T16:52:00-03:00,Marcelo Álvaro Antônio,Fernando de Barros e Silva,did_not_win,false
+ko-432,2019-11-28T16:52:00-03:00,Marcelo Álvaro Antônio,Malu Gaspar,did_not_win,false
+ko-432,2019-11-28T16:52:00-03:00,Marcelo Álvaro Antônio,José Roberto de Toledo,did_not_win,false
+ko-431,2019-12-05T16:45:00-03:00,,Fernando de Barros e Silva,did_not_win,false
+ko-431,2019-12-05T16:45:00-03:00,,Malu Gaspar,did_not_win,false
+ko-431,2019-12-05T16:45:00-03:00,,José Roberto de Toledo,did_not_win,false
+ko-430,2019-12-12T16:45:00-03:00,Selma Arruda,Fernando de Barros e Silva,did_not_win,true
+ko-430,2019-12-12T16:45:00-03:00,Selma Arruda,Malu Gaspar,winner,true
+ko-430,2019-12-12T16:45:00-03:00,Selma Arruda,Thais Bilenky,did_not_win,true
+ko-429,2019-12-19T16:45:00-03:00,Sargento Isidório,Malu Gaspar,did_not_win,false
+ko-429,2019-12-19T16:45:00-03:00,Sargento Isidório,Thais Bilenky,did_not_win,false
+ko-429,2019-12-19T16:45:00-03:00,Sargento Isidório,Bernardo Esteves,did_not_win,false
+ko-428,2020-01-09T16:50:00-03:00,Sargento Fahur,Fernando de Barros e Silva,did_not_win,false
+ko-428,2020-01-09T16:50:00-03:00,Sargento Fahur,José Roberto de Toledo,did_not_win,false
+ko-428,2020-01-09T16:50:00-03:00,Sargento Fahur,Malu Gaspar,did_not_win,false
+ko-427,2020-01-16T17:54:00-03:00,Damares Alves,Fernando de Barros e Silva,did_not_win,true
+ko-427,2020-01-16T17:54:00-03:00,Damares Alves,Malu Gaspar,winner,true
+ko-427,2020-01-16T17:54:00-03:00,Damares Alves,José Roberto de Toledo,did_not_win,true
+ko-426,2020-01-23T16:50:00-03:00,Anthony Garotinho,Fernando de Barros e Silva,winner,true
+ko-426,2020-01-23T16:50:00-03:00,Anthony Garotinho,José Roberto de Toledo,did_not_win,true
+ko-426,2020-01-23T16:50:00-03:00,Anthony Garotinho,Thais Bilenky,did_not_win,true
+ko-425,2020-01-30T16:50:00-03:00,Márcia Fernandes,Fernando de Barros e Silva,did_not_win,false
+ko-425,2020-01-30T16:50:00-03:00,Márcia Fernandes,Malu Gaspar,did_not_win,false
+ko-425,2020-01-30T16:50:00-03:00,Márcia Fernandes,José Roberto de Toledo,did_not_win,false
+ko-424,2020-02-06T16:40:00-03:00,Allan dos Santos,Fernando de Barros e Silva,did_not_win,true
+ko-424,2020-02-06T16:40:00-03:00,Allan dos Santos,José Roberto de Toledo,did_not_win,true
+ko-424,2020-02-06T16:40:00-03:00,Allan dos Santos,Bernardo Esteves,winner,true
+ko-424,2020-02-06T16:40:00-03:00,Allan dos Santos,Thais Bilenky,did_not_win,true
+ko-422,2020-02-13T17:16:00-03:00,Luiz Fernando Pezão,Fernando de Barros e Silva,did_not_win,true
+ko-422,2020-02-13T17:16:00-03:00,Luiz Fernando Pezão,José Roberto de Toledo,winner,true
+ko-422,2020-02-13T17:16:00-03:00,Luiz Fernando Pezão,Alain de Abreu,did_not_win,true
+ko-422,2020-02-13T17:16:00-03:00,Luiz Fernando Pezão,Thais Bilenky,did_not_win,true
+ko-421,2020-02-20T17:00:00-03:00,Capitão Augusto,Fernando de Barros e Silva,did_not_win,false
+ko-421,2020-02-20T17:00:00-03:00,Capitão Augusto,José Roberto de Toledo,did_not_win,false
+ko-421,2020-02-20T17:00:00-03:00,Capitão Augusto,Thais Bilenky,did_not_win,false
+ko-420,2020-03-05T16:50:00-03:00,Marcelo Crivella,Fernando de Barros e Silva,winner,true
+ko-420,2020-03-05T16:50:00-03:00,Marcelo Crivella,José Roberto de Toledo,did_not_win,true
+ko-420,2020-03-05T16:50:00-03:00,Marcelo Crivella,Thais Bilenky,did_not_win,true
+ko-418,2020-03-12T16:49:00-03:00,Márcio Labre,Fernando de Barros e Silva,did_not_win,false
+ko-418,2020-03-12T16:49:00-03:00,Márcio Labre,José Roberto de Toledo,did_not_win,false
+ko-418,2020-03-12T16:49:00-03:00,Márcio Labre,Bernardo Esteves,did_not_win,false
+ko-418,2020-03-12T16:49:00-03:00,Márcio Labre,Thais Bilenky,did_not_win,false
+ko-417,2020-03-19T16:45:00-03:00,Eduardo Paes,Fernando de Barros e Silva,did_not_win,true
+ko-417,2020-03-19T16:45:00-03:00,Eduardo Paes,José Roberto de Toledo,did_not_win,true
+ko-417,2020-03-19T16:45:00-03:00,Eduardo Paes,Thais Bilenky,did_not_win,true
+ko-417,2020-03-19T16:45:00-03:00,Eduardo Paes,Bernardo Esteves,winner,true
+ko-416,2020-03-26T17:09:00-03:00,Kátia Abreu,Fernando de Barros e Silva,did_not_win,true
+ko-416,2020-03-26T17:09:00-03:00,Kátia Abreu,José Roberto de Toledo,winner,true
+ko-416,2020-03-26T17:09:00-03:00,Kátia Abreu,Bernardo Esteves,did_not_win,true
+ko-416,2020-03-26T17:09:00-03:00,Kátia Abreu,Thais Bilenky,did_not_win,true
+ko-415,2020-04-02T17:07:00-03:00,Gustavo Schmidt,Fernando de Barros e Silva,winner,true
+ko-415,2020-04-02T17:07:00-03:00,Gustavo Schmidt,Malu Gaspar,did_not_win,true
+ko-415,2020-04-02T17:07:00-03:00,Gustavo Schmidt,José Roberto de Toledo,did_not_win,true
+ko-415,2020-04-02T17:07:00-03:00,Gustavo Schmidt,Bernardo Esteves,did_not_win,true
+ko-411,2020-04-09T16:50:00-03:00,Delegado Valdir,Fernando de Barros e Silva,did_not_win,false
+ko-411,2020-04-09T16:50:00-03:00,Delegado Valdir,José Roberto de Toledo,did_not_win,false
+ko-411,2020-04-09T16:50:00-03:00,Delegado Valdir,Malu Gaspar,did_not_win,false
+ko-411,2020-04-09T16:50:00-03:00,Delegado Valdir,Bernardo Esteves,did_not_win,false
+ko-408,2020-04-16T16:31:00-03:00,Dante Henrique Mantovani,Fernando de Barros e Silva,winner,true
+ko-408,2020-04-16T16:31:00-03:00,Dante Henrique Mantovani,José Roberto de Toledo,did_not_win,true
+ko-408,2020-04-16T16:31:00-03:00,Dante Henrique Mantovani,Malu Gaspar,winner,true
+ko-408,2020-04-16T16:31:00-03:00,Dante Henrique Mantovani,Bernardo Esteves,did_not_win,true
+ko-405,2020-04-23T17:30:00-03:00,Cid Gomes,Fernando de Barros e Silva,did_not_win,true
+ko-405,2020-04-23T17:30:00-03:00,Cid Gomes,José Roberto de Toledo,winner,true
+ko-405,2020-04-23T17:30:00-03:00,Cid Gomes,Malu Gaspar,winner,true
+ko-405,2020-04-23T17:30:00-03:00,Cid Gomes,Bernardo Esteves,did_not_win,true
+ko-401,2020-04-30T16:50:00-03:00,Luiz Lima,Fernando de Barros e Silva,did_not_win,false
+ko-401,2020-04-30T16:50:00-03:00,Luiz Lima,José Roberto de Toledo,did_not_win,false
+ko-401,2020-04-30T16:50:00-03:00,Luiz Lima,Malu Gaspar,did_not_win,false
+ko-401,2020-04-30T16:50:00-03:00,Luiz Lima,Bernardo Esteves,did_not_win,false
+ko-398,2020-05-07T16:50:00-03:00,Otto Alencar,Fernando de Barros e Silva,did_not_win,true
+ko-398,2020-05-07T16:50:00-03:00,Otto Alencar,José Roberto de Toledo,did_not_win,true
+ko-398,2020-05-07T16:50:00-03:00,Otto Alencar,Malu Gaspar,winner,true
+ko-398,2020-05-07T16:50:00-03:00,Otto Alencar,Bernardo Esteves,did_not_win,true
+ko-395,2020-05-14T16:50:00-03:00,Fernando Collor de Mello,Fernando de Barros e Silva,did_not_win,true
+ko-395,2020-05-14T16:50:00-03:00,Fernando Collor de Mello,Malu Gaspar,did_not_win,true
+ko-395,2020-05-14T16:50:00-03:00,Fernando Collor de Mello,José Roberto de Toledo,winner,true
+ko-395,2020-05-14T16:50:00-03:00,Fernando Collor de Mello,Bernardo Esteves,did_not_win,true
+ko-388,2020-05-22T10:55:00-03:00,Rafael Greca,Fernando de Barros e Silva,winner,true
+ko-388,2020-05-22T10:55:00-03:00,Rafael Greca,Malu Gaspar,did_not_win,true
+ko-388,2020-05-22T10:55:00-03:00,Rafael Greca,José Roberto de Toledo,did_not_win,true
+ko-388,2020-05-22T10:55:00-03:00,Rafael Greca,Bernardo Esteves,did_not_win,true
+ko-384,2020-05-29T11:16:00-03:00,Anitta,Fernando de Barros e Silva,did_not_win,true
+ko-384,2020-05-29T11:16:00-03:00,Anitta,Malu Gaspar,winner,true
+ko-384,2020-05-29T11:16:00-03:00,Anitta,José Roberto de Toledo,did_not_win,true
+ko-384,2020-05-29T11:16:00-03:00,Anitta,Bernardo Esteves,did_not_win,true
+ko-381,2020-06-05T10:55:00-03:00,Janaína Paschoal,Fernando de Barros e Silva,did_not_win,true
+ko-381,2020-06-05T10:55:00-03:00,Janaína Paschoal,Malu Gaspar,winner,true
+ko-381,2020-06-05T10:55:00-03:00,Janaína Paschoal,José Roberto de Toledo,did_not_win,true
+ko-381,2020-06-05T10:55:00-03:00,Janaína Paschoal,Bernardo Esteves,did_not_win,true
+ko-378,2020-06-12T10:55:00-03:00,Carlos Minc,Fernando de Barros e Silva,did_not_win,true
+ko-378,2020-06-12T10:55:00-03:00,Carlos Minc,Malu Gaspar,winner,true
+ko-378,2020-06-12T10:55:00-03:00,Carlos Minc,José Roberto de Toledo,did_not_win,true
+ko-378,2020-06-12T10:55:00-03:00,Carlos Minc,Bernardo Esteves,did_not_win,true
+ko-375,2020-06-19T10:55:00-03:00,Narcisa Tamborindeguy,Fernando de Barros e Silva,did_not_win,false
+ko-375,2020-06-19T10:55:00-03:00,Narcisa Tamborindeguy,Malu Gaspar,did_not_win,false
+ko-375,2020-06-19T10:55:00-03:00,Narcisa Tamborindeguy,José Roberto de Toledo,did_not_win,false
+ko-375,2020-06-19T10:55:00-03:00,Narcisa Tamborindeguy,Bernardo Esteves,did_not_win,false
+ko-372,2020-06-26T10:55:00-03:00,Carla Zambelli,Fernando de Barros e Silva,winner,true
+ko-372,2020-06-26T10:55:00-03:00,Carla Zambelli,Malu Gaspar,did_not_win,true
+ko-372,2020-06-26T10:55:00-03:00,Carla Zambelli,José Roberto de Toledo,did_not_win,true
+ko-372,2020-06-26T10:55:00-03:00,Carla Zambelli,Bernardo Esteves,did_not_win,true
+ko-369,2020-07-03T11:04:00-03:00,Paulo Marinho,Fernando de Barros e Silva,did_not_win,true
+ko-369,2020-07-03T11:04:00-03:00,Paulo Marinho,José Roberto de Toledo,winner,true
+ko-369,2020-07-03T11:04:00-03:00,Paulo Marinho,Malu Gaspar,did_not_win,true
+ko-369,2020-07-03T11:04:00-03:00,Paulo Marinho,Bernardo Esteves,did_not_win,true
+ko-366,2020-07-10T10:50:00-03:00,Antônio Carlos de Almeida Castro,Fernando de Barros e Silva,did_not_win,true
+ko-366,2020-07-10T10:50:00-03:00,Antônio Carlos de Almeida Castro,José Roberto de Toledo,did_not_win,true
+ko-366,2020-07-10T10:50:00-03:00,Antônio Carlos de Almeida Castro,Malu Gaspar,winner,true
+ko-366,2020-07-10T10:50:00-03:00,Antônio Carlos de Almeida Castro,Bernardo Esteves,did_not_win,true
+ko-363,2020-07-17T10:50:00-03:00,Renan Santos,Fernando de Barros e Silva,did_not_win,true
+ko-363,2020-07-17T10:50:00-03:00,Renan Santos,José Roberto de Toledo,did_not_win,true
+ko-363,2020-07-17T10:50:00-03:00,Renan Santos,Bernardo Esteves,winner,true
+ko-363,2020-07-17T10:50:00-03:00,Renan Santos,Malu Gaspar,did_not_win,true
+ko-360,2020-07-24T10:56:00-03:00,,Fernando de Barros e Silva,did_not_win,false
+ko-360,2020-07-24T10:56:00-03:00,,José Roberto de Toledo,did_not_win,false
+ko-360,2020-07-24T10:56:00-03:00,,Malu Gaspar,did_not_win,false
+ko-360,2020-07-24T10:56:00-03:00,,Bernardo Esteves,winner,false
+ko-357,2020-07-31T11:31:00-03:00,Márcio França,Fernando de Barros e Silva,did_not_win,false
+ko-357,2020-07-31T11:31:00-03:00,Márcio França,José Roberto de Toledo,did_not_win,false
+ko-357,2020-07-31T11:31:00-03:00,Márcio França,Malu Gaspar,did_not_win,false
+ko-357,2020-07-31T11:31:00-03:00,Márcio França,Bernardo Esteves,did_not_win,false
+ko-354,2020-08-07T10:50:00-03:00,Márcio França,Fernando de Barros e Silva,did_not_win,false
+ko-354,2020-08-07T10:50:00-03:00,Márcio França,José Roberto de Toledo,did_not_win,false
+ko-354,2020-08-07T10:50:00-03:00,Márcio França,Malu Gaspar,did_not_win,false
+ko-354,2020-08-07T10:50:00-03:00,Márcio França,Bernardo Esteves,did_not_win,false
+ko-351,2020-08-14T11:00:00-03:00,,Fernando de Barros e Silva,did_not_win,false
+ko-351,2020-08-14T11:00:00-03:00,,Malu Gaspar,did_not_win,false
+ko-351,2020-08-14T11:00:00-03:00,,José Roberto de Toledo,did_not_win,false
+ko-351,2020-08-14T11:00:00-03:00,,Bernardo Esteves,did_not_win,false
+ko-348,2020-08-21T11:00:00-03:00,Flávio Dino,Fernando de Barros e Silva,did_not_win,true
+ko-348,2020-08-21T11:00:00-03:00,Flávio Dino,José Roberto de Toledo,did_not_win,true
+ko-348,2020-08-21T11:00:00-03:00,Flávio Dino,Malu Gaspar,winner,true
+ko-345,2020-08-28T10:56:00-03:00,Salim Matar,Fernando de Barros e Silva,did_not_win,true
+ko-345,2020-08-28T10:56:00-03:00,Salim Matar,Malu Gaspar,did_not_win,true
+ko-345,2020-08-28T10:56:00-03:00,Salim Matar,José Roberto de Toledo,winner,true
+ko-345,2020-08-28T10:56:00-03:00,Salim Matar,Bernardo Esteves,did_not_win,true
+ko-343,2020-09-04T10:29:00-03:00,Cabo Daciolo,Fernando de Barros e Silva,did_not_win,true
+ko-343,2020-09-04T10:29:00-03:00,Cabo Daciolo,Malu Gaspar,did_not_win,true
+ko-343,2020-09-04T10:29:00-03:00,Cabo Daciolo,José Roberto de Toledo,did_not_win,true
+ko-343,2020-09-04T10:29:00-03:00,Cabo Daciolo,Bernardo Esteves,winner,true
+ko-339,2020-09-11T11:00:00-03:00,Cabo Daciolo,Fernando de Barros e Silva,did_not_win,false
+ko-339,2020-09-11T11:00:00-03:00,Cabo Daciolo,Malu Gaspar,did_not_win,false
+ko-339,2020-09-11T11:00:00-03:00,Cabo Daciolo,José Roberto de Toledo,did_not_win,false
+ko-339,2020-09-11T11:00:00-03:00,Cabo Daciolo,Bernardo Esteves,did_not_win,false
+ko-335,2020-09-18T11:00:00-03:00,Roberto Jefferson,Fernando de Barros e Silva,did_not_win,true
+ko-335,2020-09-18T11:00:00-03:00,Roberto Jefferson,José Roberto de Toledo,did_not_win,true
+ko-335,2020-09-18T11:00:00-03:00,Roberto Jefferson,Bernardo Esteves,did_not_win,true
+ko-335,2020-09-18T11:00:00-03:00,Roberto Jefferson,Malu Gaspar,winner,true
+ko-333,2020-09-25T11:00:00-03:00,Delúbio Soares,Fernando de Barros e Silva,did_not_win,false
+ko-333,2020-09-25T11:00:00-03:00,Delúbio Soares,José Roberto de Toledo,did_not_win,false
+ko-333,2020-09-25T11:00:00-03:00,Delúbio Soares,Malu Gaspar,did_not_win,false
+ko-333,2020-09-25T11:00:00-03:00,Delúbio Soares,Bernardo Esteves,did_not_win,false
+ko-330,2020-10-02T10:50:00-03:00,João Gordo,Fernando de Barros e Silva,did_not_win,true
+ko-330,2020-10-02T10:50:00-03:00,João Gordo,José Roberto de Toledo,winner,true
+ko-330,2020-10-02T10:50:00-03:00,João Gordo,Malu Gaspar,did_not_win,true
+ko-330,2020-10-02T10:50:00-03:00,João Gordo,Bernardo Esteves,did_not_win,true
+ko-328,2020-10-09T10:51:00-03:00,Telmário Mota,Fernando de Barros e Silva,did_not_win,false
+ko-328,2020-10-09T10:51:00-03:00,Telmário Mota,José Roberto de Toledo,did_not_win,false
+ko-328,2020-10-09T10:51:00-03:00,Telmário Mota,Malu Gaspar,did_not_win,false
+ko-327,2020-10-16T11:00:29-03:00,Arthur Weintraub,Fernando de Barros e Silva,did_not_win,true
+ko-327,2020-10-16T11:00:29-03:00,Arthur Weintraub,Malu Gaspar,winner,true
+ko-327,2020-10-16T11:00:29-03:00,Arthur Weintraub,José Roberto de Toledo,did_not_win,true
+ko-326,2020-10-23T10:35:00-03:00,Ênio Tatto,Fernando de Barros e Silva,did_not_win,false
+ko-326,2020-10-23T10:35:00-03:00,Ênio Tatto,José Roberto de Toledo,did_not_win,false
+ko-326,2020-10-23T10:35:00-03:00,Ênio Tatto,Malu Gaspar,did_not_win,false
+ko-324,2020-10-30T11:00:00-03:00,Cidinha Campos,Fernando de Barros e Silva,did_not_win,true
+ko-324,2020-10-30T11:00:00-03:00,Cidinha Campos,Bernardo Esteves,did_not_win,true
+ko-324,2020-10-30T11:00:00-03:00,Cidinha Campos,Malu Gaspar,winner,true
+ko-324,2020-10-30T11:00:00-03:00,Cidinha Campos,José Roberto de Toledo,did_not_win,true
+ko-323,2020-11-06T10:50:00-03:00,Waldir Luiz Ferraz,Fernando de Barros e Silva,did_not_win,false
+ko-323,2020-11-06T10:50:00-03:00,Waldir Luiz Ferraz,José Roberto de Toledo,did_not_win,false
+ko-323,2020-11-06T10:50:00-03:00,Waldir Luiz Ferraz,Malu Gaspar,did_not_win,false
+ko-321,2020-11-13T11:11:00-03:00,Levi Fidelix,Fernando de Barros e Silva,did_not_win,true
+ko-321,2020-11-13T11:11:00-03:00,Levi Fidelix,Malu Gaspar,did_not_win,true
+ko-321,2020-11-13T11:11:00-03:00,Levi Fidelix,José Roberto de Toledo,winner,true
+ko-321,2020-11-13T11:11:00-03:00,Levi Fidelix,Thais Bilenky,did_not_win,true
+ko-316,2020-11-20T10:47:00-03:00,Gilson Machado,Fernando de Barros e Silva,did_not_win,false
+ko-316,2020-11-20T10:47:00-03:00,Gilson Machado,José Roberto de Toledo,did_not_win,false
+ko-316,2020-11-20T10:47:00-03:00,Gilson Machado,Malu Gaspar,did_not_win,false
+ko-316,2020-11-20T10:47:00-03:00,Gilson Machado,Thais Bilenky,did_not_win,false
+ko-316,2020-11-20T10:47:00-03:00,Gilson Machado,Bernardo Esteves,did_not_win,false
+ko-315,2020-11-27T11:00:00-03:00,Roberto Requião,Fernando de Barros e Silva,did_not_win,true
+ko-315,2020-11-27T11:00:00-03:00,Roberto Requião,Malu Gaspar,did_not_win,true
+ko-315,2020-11-27T11:00:00-03:00,Roberto Requião,José Roberto de Toledo,winner,true
+ko-311,2020-12-04T10:36:00-03:00,Pompeu de Matos,Fernando de Barros e Silva,did_not_win,false
+ko-311,2020-12-04T10:36:00-03:00,Pompeu de Matos,José Roberto de Toledo,did_not_win,false
+ko-311,2020-12-04T10:36:00-03:00,Pompeu de Matos,Malu Gaspar,did_not_win,false
+ko-310,2020-12-11T10:39:00-03:00,José Genoino,Fernando de Barros e Silva,winner,true
+ko-310,2020-12-11T10:39:00-03:00,José Genoino,Malu Gaspar,winner,true
+ko-310,2020-12-11T10:39:00-03:00,José Genoino,José Roberto de Toledo,did_not_win,true
+ko-309,2020-12-18T11:00:00-03:00,Carlos Marum,Fernando de Barros e Silva,did_not_win,false
+ko-309,2020-12-18T11:00:00-03:00,Carlos Marum,José Roberto de Toledo,did_not_win,false
+ko-309,2020-12-18T11:00:00-03:00,Carlos Marum,Malu Gaspar,did_not_win,false
+ko-308,2021-01-08T11:00:00-03:00,André Janones,Fernando de Barros e Silva,did_not_win,true
+ko-308,2021-01-08T11:00:00-03:00,André Janones,José Roberto de Toledo,winner,true
+ko-308,2021-01-08T11:00:00-03:00,André Janones,Malu Gaspar,did_not_win,true
+ko-307,2021-01-15T10:38:00-03:00,Bibo Nunes,Fernando de Barros e Silva,did_not_win,true
+ko-307,2021-01-15T10:38:00-03:00,Bibo Nunes,Malu Gaspar,winner,true
+ko-307,2021-01-15T10:38:00-03:00,Bibo Nunes,Thais Bilenky,did_not_win,true
+ko-307,2021-01-15T10:38:00-03:00,Bibo Nunes,Bernardo Esteves,did_not_win,true
+ko-306,2021-01-22T11:00:00-03:00,Alexandre Frota,Fernando de Barros e Silva,winner,true
+ko-306,2021-01-22T11:00:00-03:00,Alexandre Frota,José Roberto de Toledo,winner,true
+ko-306,2021-01-22T11:00:00-03:00,Alexandre Frota,Thais Bilenky,winner,true
+ko-306,2021-01-22T11:00:00-03:00,Alexandre Frota,Bernardo Mello Franco,winner,true
+ko-305,2021-01-29T10:40:00-03:00,Boca Aberta,Fernando de Barros e Silva,did_not_win,true
+ko-305,2021-01-29T10:40:00-03:00,Boca Aberta,José Roberto de Toledo,winner,true
+ko-305,2021-01-29T10:40:00-03:00,Boca Aberta,Malu Gaspar,did_not_win,true
+ko-305,2021-01-29T10:40:00-03:00,Boca Aberta,Bernardo Esteves,did_not_win,true
+ko-305,2021-01-29T10:40:00-03:00,Boca Aberta,Thais Bilenky,did_not_win,true
+ko-304,2021-02-05T10:30:00-03:00,Supla,Fernando de Barros e Silva,winner,true
+ko-304,2021-02-05T10:30:00-03:00,Supla,Thais Bilenky,did_not_win,true
+ko-304,2021-02-05T10:30:00-03:00,Supla,José Roberto de Toledo,did_not_win,true
+ko-304,2021-02-05T10:30:00-03:00,Supla,Bernardo Esteves,did_not_win,true
+ko-303,2021-02-12T10:57:00-03:00,Eduardo Bolsonaro,Fernando de Barros e Silva,did_not_win,true
+ko-303,2021-02-12T10:57:00-03:00,Eduardo Bolsonaro,José Roberto de Toledo,did_not_win,true
+ko-303,2021-02-12T10:57:00-03:00,Eduardo Bolsonaro,Thais Bilenky,winner,true
+ko-303,2021-02-12T10:57:00-03:00,Eduardo Bolsonaro,Bernardo Esteves,did_not_win,true
+ko-301,2021-02-19T11:00:00-03:00,Julian Lemos,Fernando de Barros e Silva,did_not_win,true
+ko-301,2021-02-19T11:00:00-03:00,Julian Lemos,José Roberto de Toledo,winner,true
+ko-301,2021-02-19T11:00:00-03:00,Julian Lemos,Thais Bilenky,did_not_win,true
+ko-301,2021-02-19T11:00:00-03:00,Julian Lemos,Bernardo Esteves,did_not_win,true
+ko-299,2021-02-26T11:00:00-03:00,Cris Tonieto,Fernando de Barros e Silva,did_not_win,false
+ko-299,2021-02-26T11:00:00-03:00,Cris Tonieto,José Roberto de Toledo,did_not_win,false
+ko-299,2021-02-26T11:00:00-03:00,Cris Tonieto,Thais Bilenky,did_not_win,false
+ko-299,2021-02-26T11:00:00-03:00,Cris Tonieto,Bernardo Esteves,did_not_win,false
+ko-297,2021-03-05T11:00:00-03:00,Fernando Collor de Mello,Fernando de Barros e Silva,did_not_win,true
+ko-297,2021-03-05T11:00:00-03:00,Fernando Collor de Mello,José Roberto de Toledo,winner,true
+ko-297,2021-03-05T11:00:00-03:00,Fernando Collor de Mello,Thais Bilenky,did_not_win,true
+ko-294,2021-03-12T11:00:00-03:00,Fernando Henrique Cardoso,Fernando de Barros e Silva,winner,true
+ko-294,2021-03-12T11:00:00-03:00,Fernando Henrique Cardoso,José Roberto de Toledo,winner,true
+ko-294,2021-03-12T11:00:00-03:00,Fernando Henrique Cardoso,Thais Bilenky,did_not_win,true
+ko-293,2021-03-19T10:36:00-03:00,,Fernando de Barros e Silva,did_not_win,false
+ko-293,2021-03-19T10:36:00-03:00,,José Roberto de Toledo,winner,false
+ko-293,2021-03-19T10:36:00-03:00,,Thais Bilenky,did_not_win,false
+ko-291,2021-03-26T10:35:00-03:00,Gustavo Franco,Fernando de Barros e Silva,did_not_win,false
+ko-291,2021-03-26T10:35:00-03:00,Gustavo Franco,José Roberto de Toledo,did_not_win,false
+ko-291,2021-03-26T10:35:00-03:00,Gustavo Franco,Thais Bilenky,did_not_win,false
+ko-290,2021-04-02T10:30:00-03:00,Cristiane Brasil,Fernando de Barros e Silva,did_not_win,true
+ko-290,2021-04-02T10:30:00-03:00,Cristiane Brasil,José Roberto de Toledo,did_not_win,true
+ko-290,2021-04-02T10:30:00-03:00,Cristiane Brasil,Thais Bilenky,winner,true
+ko-289,2021-04-09T10:45:00-03:00,Tasso Jereissati,Fernando de Barros e Silva,did_not_win,true
+ko-289,2021-04-09T10:45:00-03:00,Tasso Jereissati,José Roberto de Toledo,winner,true
+ko-289,2021-04-09T10:45:00-03:00,Tasso Jereissati,Thais Bilenky,did_not_win,true
+ko-288,2021-04-16T10:18:00-03:00,Michelle Bolsonaro,Fernando de Barros e Silva,did_not_win,false
+ko-288,2021-04-16T10:18:00-03:00,Michelle Bolsonaro,José Roberto de Toledo,did_not_win,false
+ko-288,2021-04-16T10:18:00-03:00,Michelle Bolsonaro,Thais Bilenky,did_not_win,false
+ko-287,2021-04-23T10:18:00-03:00,Magno Malta,Fernando de Barros e Silva,did_not_win,false
+ko-287,2021-04-23T10:18:00-03:00,Magno Malta,José Roberto de Toledo,did_not_win,false
+ko-287,2021-04-23T10:18:00-03:00,Magno Malta,Thais Bilenky,did_not_win,false
+ko-286,2021-04-30T11:03:00-03:00,Acelino Popó Freitas,Fernando de Barros e Silva,did_not_win,true
+ko-286,2021-04-30T11:03:00-03:00,Acelino Popó Freitas,José Roberto de Toledo,winner,true
+ko-286,2021-04-30T11:03:00-03:00,Acelino Popó Freitas,Thais Bilenky,did_not_win,true
+ko-285,2021-05-07T10:21:00-03:00,Fábio Porchat,Fernando de Barros e Silva,winner,true
+ko-285,2021-05-07T10:21:00-03:00,Fábio Porchat,José Roberto de Toledo,did_not_win,true
+ko-285,2021-05-07T10:21:00-03:00,Fábio Porchat,Thaís Oyama,did_not_win,true
+ko-284,2021-05-14T10:26:00-03:00,Fernando Bezerra Coelho,Fernando de Barros e Silva,did_not_win,true
+ko-284,2021-05-14T10:26:00-03:00,Fernando Bezerra Coelho,José Roberto de Toledo,winner,true
+ko-284,2021-05-14T10:26:00-03:00,Fernando Bezerra Coelho,Thais Bilenky,did_not_win,true
+ko-283,2021-05-21T10:29:00-03:00,Joyce Hasselmann,Fernando de Barros e Silva,did_not_win,true
+ko-283,2021-05-21T10:29:00-03:00,Joyce Hasselmann,José Roberto de Toledo,did_not_win,true
+ko-283,2021-05-21T10:29:00-03:00,Joyce Hasselmann,Thais Bilenky,winner,true
+ko-282,2021-05-28T10:25:00-03:00,Eduardo Cunha,Fernando de Barros e Silva,did_not_win,false
+ko-282,2021-05-28T10:25:00-03:00,Eduardo Cunha,José Roberto de Toledo,did_not_win,false
+ko-282,2021-05-28T10:25:00-03:00,Eduardo Cunha,Thais Bilenky,did_not_win,false
+ko-281,2021-06-04T10:13:00-03:00,Roberto Jefferson,Fernando de Barros e Silva,did_not_win,false
+ko-281,2021-06-04T10:13:00-03:00,Roberto Jefferson,José Roberto de Toledo,did_not_win,false
+ko-281,2021-06-04T10:13:00-03:00,Roberto Jefferson,Thais Bilenky,did_not_win,false
+ko-280,2021-06-11T10:37:00-03:00,Luciano Huck,Fernando de Barros e Silva,did_not_win,true
+ko-280,2021-06-11T10:37:00-03:00,Luciano Huck,José Roberto de Toledo,winner,true
+ko-280,2021-06-11T10:37:00-03:00,Luciano Huck,Thais Bilenky,did_not_win,true
+ko-279,2021-06-18T10:28:00-03:00,Joel Santana,Fernando de Barros e Silva,did_not_win,false
+ko-279,2021-06-18T10:28:00-03:00,Joel Santana,José Roberto de Toledo,did_not_win,false
+ko-279,2021-06-18T10:28:00-03:00,Joel Santana,Thaís Oyama,did_not_win,false
+ko-278,2021-06-25T10:22:00-03:00,Drauzio Varela,Fernando de Barros e Silva,did_not_win,true
+ko-278,2021-06-25T10:22:00-03:00,Drauzio Varela,José Roberto de Toledo,did_not_win,true
+ko-278,2021-06-25T10:22:00-03:00,Drauzio Varela,Thais Bilenky,winner,true
+ko-276,2021-07-02T10:30:00-03:00,Tereza Cristina,Fernando de Barros e Silva,did_not_win,true
+ko-276,2021-07-02T10:30:00-03:00,Tereza Cristina,José Roberto de Toledo,winner,true
+ko-276,2021-07-02T10:30:00-03:00,Tereza Cristina,Thaís Oyama,did_not_win,true
+ko-275,2021-07-09T10:30:00-03:00,Luiz Henrique Mandetta,Fernando de Barros e Silva,winner,true
+ko-275,2021-07-09T10:30:00-03:00,Luiz Henrique Mandetta,José Roberto de Toledo,did_not_win,true
+ko-275,2021-07-09T10:30:00-03:00,Luiz Henrique Mandetta,Thais Bilenky,did_not_win,true
+ko-274,2021-07-16T10:27:00-03:00,Marco Feliciano,Fernando de Barros e Silva,did_not_win,true
+ko-274,2021-07-16T10:27:00-03:00,Marco Feliciano,José Roberto de Toledo,did_not_win,true
+ko-274,2021-07-16T10:27:00-03:00,Marco Feliciano,Thais Bilenky,winner,true
+ko-273,2021-07-23T10:11:00-03:00,Luciano Hang,Fernando de Barros e Silva,winner,true
+ko-273,2021-07-23T10:11:00-03:00,Luciano Hang,José Roberto de Toledo,did_not_win,true
+ko-273,2021-07-23T10:11:00-03:00,Luciano Hang,Thais Bilenky,did_not_win,true
+ko-272,2021-07-30T10:31:00-03:00,Abraham Weintraub,Fernando de Barros e Silva,winner,true
+ko-272,2021-07-30T10:31:00-03:00,Abraham Weintraub,José Roberto de Toledo,winner,true
+ko-272,2021-07-30T10:31:00-03:00,Abraham Weintraub,Thais Bilenky,winner,true
+ko-271,2021-08-06T10:33:00-03:00,Lobão,Fernando de Barros e Silva,did_not_win,true
+ko-271,2021-08-06T10:33:00-03:00,Lobão,José Roberto de Toledo,did_not_win,true
+ko-271,2021-08-06T10:33:00-03:00,Lobão,Thais Bilenky,winner,true
+ko-270,2021-08-13T10:38:00-03:00,Luiz Henrique Mandetta,Fernando de Barros e Silva,did_not_win,true
+ko-270,2021-08-13T10:38:00-03:00,Luiz Henrique Mandetta,José Roberto de Toledo,did_not_win,true
+ko-270,2021-08-13T10:38:00-03:00,Luiz Henrique Mandetta,Thais Bilenky,winner,true
+ko-269,2021-08-20T10:36:00-03:00,Gilberto Kassab,Fernando de Barros e Silva,did_not_win,true
+ko-269,2021-08-20T10:36:00-03:00,Gilberto Kassab,José Roberto de Toledo,did_not_win,true
+ko-269,2021-08-20T10:36:00-03:00,Gilberto Kassab,Ana Clara Costa,winner,true
+ko-268,2021-08-27T10:35:00-03:00,Roberto Justus,Fernando de Barros e Silva,did_not_win,true
+ko-268,2021-08-27T10:35:00-03:00,Roberto Justus,José Roberto de Toledo,winner,true
+ko-268,2021-08-27T10:35:00-03:00,Roberto Justus,Ana Clara Costa,did_not_win,true
+ko-267,2021-09-03T10:32:00-03:00,Marcos Pontes,Fernando de Barros e Silva,did_not_win,true
+ko-267,2021-09-03T10:32:00-03:00,Marcos Pontes,José Roberto de Toledo,winner,true
+ko-267,2021-09-03T10:32:00-03:00,Marcos Pontes,Ana Clara Costa,did_not_win,true
+ko-266,2021-09-10T10:34:13-03:00,Bia Kicis,Fernando de Barros e Silva,did_not_win,true
+ko-266,2021-09-10T10:34:13-03:00,Bia Kicis,José Roberto de Toledo,winner,true
+ko-266,2021-09-10T10:34:13-03:00,Bia Kicis,Ana Clara Costa,did_not_win,true
+ko-265,2021-09-17T10:26:00-03:00,Paulo Skaf,Fernando de Barros e Silva,did_not_win,false
+ko-265,2021-09-17T10:26:00-03:00,Paulo Skaf,José Roberto de Toledo,did_not_win,false
+ko-265,2021-09-17T10:26:00-03:00,Paulo Skaf,Ana Clara Costa,did_not_win,false
+ko-264,2021-09-24T10:25:00-03:00,Mário Frias,Fernando de Barros e Silva,did_not_win,false
+ko-264,2021-09-24T10:25:00-03:00,Mário Frias,José Roberto de Toledo,did_not_win,false
+ko-264,2021-09-24T10:25:00-03:00,Mário Frias,Thais Bilenky,did_not_win,false
+ko-263,2021-10-01T10:20:00-03:00,Sérgio Malandro,Fernando de Barros e Silva,did_not_win,true
+ko-263,2021-10-01T10:20:00-03:00,Sérgio Malandro,José Roberto de Toledo,winner,true
+ko-263,2021-10-01T10:20:00-03:00,Sérgio Malandro,Thais Bilenky,did_not_win,true
+ko-262,2021-10-08T10:36:23-03:00,Frederique Wassef,Fernando de Barros e Silva,did_not_win,false
+ko-262,2021-10-08T10:36:23-03:00,Frederique Wassef,José Roberto de Toledo,did_not_win,false
+ko-262,2021-10-08T10:36:23-03:00,Frederique Wassef,Thais Bilenky,did_not_win,false
+ko-261,2021-10-15T10:25:00-03:00,Barbara Gancia,Fernando de Barros e Silva,did_not_win,false
+ko-261,2021-10-15T10:25:00-03:00,Barbara Gancia,José Roberto de Toledo,did_not_win,false
+ko-261,2021-10-15T10:25:00-03:00,Barbara Gancia,Thais Bilenky,did_not_win,false
+ko-260,2021-10-22T09:42:00-03:00,,Fernando de Barros e Silva,did_not_win,false
+ko-260,2021-10-22T09:42:00-03:00,,José Roberto de Toledo,did_not_win,false
+ko-260,2021-10-22T09:42:00-03:00,,Thais Bilenky,did_not_win,false
+ko-259,2021-10-29T09:25:00-03:00,Wagner Moura,Fernando de Barros e Silva,did_not_win,true
+ko-259,2021-10-29T09:25:00-03:00,Wagner Moura,José Roberto de Toledo,did_not_win,true
+ko-259,2021-10-29T09:25:00-03:00,Wagner Moura,Thaís Oyama,winner,true
+ko-259,2021-10-29T09:25:00-03:00,Wagner Moura,Bernardo Esteves,did_not_win,true
+ko-258,2021-11-05T10:43:00-03:00,Romeu Zema,Fernando de Barros e Silva,did_not_win,true
+ko-258,2021-11-05T10:43:00-03:00,Romeu Zema,José Roberto de Toledo,did_not_win,true
+ko-258,2021-11-05T10:43:00-03:00,Romeu Zema,Thais Bilenky,winner,true
+ko-258,2021-11-05T10:43:00-03:00,Romeu Zema,Bernardo Esteves,did_not_win,true
+ko-257,2021-11-12T10:50:00-03:00,Aécio Neves,Fernando de Barros e Silva,did_not_win,true
+ko-257,2021-11-12T10:50:00-03:00,Aécio Neves,José Roberto de Toledo,did_not_win,true
+ko-257,2021-11-12T10:50:00-03:00,Aécio Neves,Thais Bilenky,winner,true
+ko-257,2021-11-12T10:50:00-03:00,Aécio Neves,Bernardo Esteves,did_not_win,true
+ko-256,2021-11-19T10:50:00-03:00,Joaquim Leite,Fernando de Barros e Silva,did_not_win,true
+ko-256,2021-11-19T10:50:00-03:00,Joaquim Leite,José Roberto de Toledo,winner,true
+ko-256,2021-11-19T10:50:00-03:00,Joaquim Leite,Thais Bilenky,did_not_win,true
+ko-254,2021-11-26T10:50:00-03:00,Anitta,Fernando de Barros e Silva,winner,true
+ko-254,2021-11-26T10:50:00-03:00,Anitta,José Roberto de Toledo,did_not_win,true
+ko-254,2021-11-26T10:50:00-03:00,Anitta,Thais Bilenky,did_not_win,true
+ko-252,2021-12-03T10:50:00-03:00,Aldo Rebelo,Fernando de Barros e Silva,did_not_win,true
+ko-252,2021-12-03T10:50:00-03:00,Aldo Rebelo,José Roberto de Toledo,winner,true
+ko-252,2021-12-03T10:50:00-03:00,Aldo Rebelo,Thaís Oyama,did_not_win,true
+ko-250,2021-12-10T10:50:00-03:00,General Santos Cruz,Fernando de Barros e Silva,did_not_win,true
+ko-250,2021-12-10T10:50:00-03:00,General Santos Cruz,José Roberto de Toledo,did_not_win,true
+ko-250,2021-12-10T10:50:00-03:00,General Santos Cruz,Thais Bilenky,winner,true
+ko-248,2021-12-17T10:50:00-03:00,Eduardo Suplicy,Fernando de Barros e Silva,winner,true
+ko-248,2021-12-17T10:50:00-03:00,Eduardo Suplicy,José Roberto de Toledo,winner,true
+ko-248,2021-12-17T10:50:00-03:00,Eduardo Suplicy,Thais Bilenky,winner,true
+ko-246,2022-01-07T10:50:00-03:00,Bia Kicis,José Roberto de Toledo,did_not_win,true
+ko-246,2022-01-07T10:50:00-03:00,Bia Kicis,Thais Bilenky,winner,true
+ko-246,2022-01-07T10:50:00-03:00,Bia Kicis,Ana Clara Costa,did_not_win,true
+ko-245,2022-01-14T10:50:00-03:00,Anthony Garotinho,José Roberto de Toledo,did_not_win,false
+ko-245,2022-01-14T10:50:00-03:00,Anthony Garotinho,Thais Bilenky,did_not_win,false
+ko-245,2022-01-14T10:50:00-03:00,Anthony Garotinho,Ana Clara Costa,did_not_win,false
+ko-244,2022-01-21T10:50:00-03:00,Leda Nagle,Fernando de Barros e Silva,did_not_win,true
+ko-244,2022-01-21T10:50:00-03:00,Leda Nagle,José Roberto de Toledo,did_not_win,true
+ko-244,2022-01-21T10:50:00-03:00,Leda Nagle,Thais Bilenky,winner,true
+ko-243,2022-01-28T10:50:00-03:00,Ciro Nogueira,Fernando de Barros e Silva,did_not_win,true
+ko-243,2022-01-28T10:50:00-03:00,Ciro Nogueira,José Roberto de Toledo,did_not_win,true
+ko-243,2022-01-28T10:50:00-03:00,Ciro Nogueira,Thais Bilenky,winner,true
+ko-242,2022-02-04T10:50:00-03:00,Lucélia Santos,Fernando de Barros e Silva,did_not_win,true
+ko-242,2022-02-04T10:50:00-03:00,Lucélia Santos,José Roberto de Toledo,winner,true
+ko-242,2022-02-04T10:50:00-03:00,Lucélia Santos,Thais Bilenky,did_not_win,true
+ko-241,2022-02-11T10:50:00-03:00,Álvaro Dias,Fernando de Barros e Silva,winner,true
+ko-241,2022-02-11T10:50:00-03:00,Álvaro Dias,José Roberto de Toledo,winner,true
+ko-241,2022-02-11T10:50:00-03:00,Álvaro Dias,Thais Bilenky,did_not_win,true
+ko-240,2022-02-18T10:50:00-03:00,Tarcísio Gomes de Freitas,Fernando de Barros e Silva,did_not_win,true
+ko-240,2022-02-18T10:50:00-03:00,Tarcísio Gomes de Freitas,José Roberto de Toledo,winner,true
+ko-240,2022-02-18T10:50:00-03:00,Tarcísio Gomes de Freitas,Thais Bilenky,did_not_win,true
+ko-239,2022-02-25T10:50:00-03:00,João Roma,Fernando de Barros e Silva,did_not_win,false
+ko-239,2022-02-25T10:50:00-03:00,João Roma,José Roberto de Toledo,did_not_win,false
+ko-239,2022-02-25T10:50:00-03:00,João Roma,Thais Bilenky,did_not_win,false
+ko-238,2022-03-04T10:50:00-03:00,Bia Doria,Fernando de Barros e Silva,did_not_win,true
+ko-238,2022-03-04T10:50:00-03:00,Bia Doria,Thais Bilenky,winner,true
+ko-238,2022-03-04T10:50:00-03:00,Bia Doria,Ana Clara Costa,did_not_win,true
+ko-237,2022-03-11T10:50:00-03:00,Sérgio Reis,Fernando de Barros e Silva,did_not_win,false
+ko-237,2022-03-11T10:50:00-03:00,Sérgio Reis,Thais Bilenky,did_not_win,false
+ko-236,2022-03-18T10:50:00-03:00,Rui Falcão,Fernando de Barros e Silva,did_not_win,true
+ko-236,2022-03-18T10:50:00-03:00,Rui Falcão,Thais Bilenky,winner,true
+ko-236,2022-03-18T10:50:00-03:00,Rui Falcão,Ana Clara Costa,did_not_win,true
+ko-235,2022-03-25T10:50:00-03:00,Fabrício Queiroz,Fernando de Barros e Silva,did_not_win,true
+ko-235,2022-03-25T10:50:00-03:00,Fabrício Queiroz,Thais Bilenky,did_not_win,true
+ko-235,2022-03-25T10:50:00-03:00,Fabrício Queiroz,Ana Clara Costa,winner,true
+ko-234,2022-04-01T10:50:00-03:00,Cláudio Castro,Fernando de Barros e Silva,did_not_win,false
+ko-234,2022-04-01T10:50:00-03:00,Cláudio Castro,Thais Bilenky,did_not_win,false
+ko-234,2022-04-01T10:50:00-03:00,Cláudio Castro,Ana Clara Costa,did_not_win,false
+ko-233,2022-04-08T10:50:00-03:00,Rodrigo Maia,Fernando de Barros e Silva,did_not_win,true
+ko-233,2022-04-08T10:50:00-03:00,Rodrigo Maia,José Roberto de Toledo,did_not_win,true
+ko-233,2022-04-08T10:50:00-03:00,Rodrigo Maia,Thais Bilenky,winner,true
+ko-232,2022-04-15T09:53:07-03:00,Luiz Henrique Mandetta,Fernando de Barros e Silva,did_not_win,true
+ko-232,2022-04-15T09:53:07-03:00,Luiz Henrique Mandetta,José Roberto de Toledo,winner,true
+ko-232,2022-04-15T09:53:07-03:00,Luiz Henrique Mandetta,Thais Bilenky,did_not_win,true
+ko-231,2022-04-22T10:50:00-03:00,Gregório do Vivier,Fernando de Barros e Silva,winner,true
+ko-231,2022-04-22T10:50:00-03:00,Gregório do Vivier,José Roberto de Toledo,did_not_win,true
+ko-231,2022-04-22T10:50:00-03:00,Gregório do Vivier,Thais Bilenky,did_not_win,true
+ko-230,2022-04-29T10:50:00-03:00,Michelle Bolsonaro,Fernando de Barros e Silva,winner,true
+ko-230,2022-04-29T10:50:00-03:00,Michelle Bolsonaro,José Roberto de Toledo,did_not_win,true
+ko-230,2022-04-29T10:50:00-03:00,Michelle Bolsonaro,Thais Bilenky,did_not_win,true
+ko-229,2022-05-06T10:50:00-03:00,Heloísa Helena,Fernando de Barros e Silva,did_not_win,false
+ko-229,2022-05-06T10:50:00-03:00,Heloísa Helena,José Roberto de Toledo,did_not_win,false
+ko-229,2022-05-06T10:50:00-03:00,Heloísa Helena,Thais Bilenky,did_not_win,false
+ko-228,2022-05-13T10:50:00-03:00,Rodrigo Garcia,Fernando de Barros e Silva,winner,true
+ko-228,2022-05-13T10:50:00-03:00,Rodrigo Garcia,José Roberto de Toledo,did_not_win,true
+ko-228,2022-05-13T10:50:00-03:00,Rodrigo Garcia,Thais Bilenky,did_not_win,true
+ko-227,2022-05-20T10:50:00-03:00,Pastor Henrique Vieira,Fernando de Barros e Silva,did_not_win,false
+ko-227,2022-05-20T10:50:00-03:00,Pastor Henrique Vieira,José Roberto de Toledo,did_not_win,false
+ko-227,2022-05-20T10:50:00-03:00,Pastor Henrique Vieira,Ana Clara Costa,did_not_win,false
+ko-226,2022-05-27T10:50:00-03:00,Fabiano Guimarães,Fernando de Barros e Silva,did_not_win,true
+ko-226,2022-05-27T10:50:00-03:00,Fabiano Guimarães,José Roberto de Toledo,did_not_win,true
+ko-226,2022-05-27T10:50:00-03:00,Fabiano Guimarães,Ana Clara Costa,winner,true
+ko-225,2022-06-03T10:50:00-03:00,Eduardo Cunha,Fernando de Barros e Silva,did_not_win,false
+ko-225,2022-06-03T10:50:00-03:00,Eduardo Cunha,José Roberto de Toledo,did_not_win,false
+ko-225,2022-06-03T10:50:00-03:00,Eduardo Cunha,Thais Bilenky,did_not_win,false
+ko-224,2022-06-10T10:50:00-03:00,Tiago Leifert,Fernando de Barros e Silva,did_not_win,false
+ko-224,2022-06-10T10:50:00-03:00,Tiago Leifert,José Roberto de Toledo,did_not_win,false
+ko-224,2022-06-10T10:50:00-03:00,Tiago Leifert,Thais Bilenky,did_not_win,false
+ko-223,2022-06-17T10:50:00-03:00,Renan Bolsonaro,Fernando de Barros e Silva,did_not_win,false
+ko-223,2022-06-17T10:50:00-03:00,Renan Bolsonaro,José Roberto de Toledo,did_not_win,false
+ko-223,2022-06-17T10:50:00-03:00,Renan Bolsonaro,Thais Bilenky,did_not_win,false
+ko-222,2022-06-24T12:22:00-03:00,Supla,Fernando de Barros e Silva,did_not_win,true
+ko-222,2022-06-24T12:22:00-03:00,Supla,José Roberto de Toledo,did_not_win,true
+ko-222,2022-06-24T12:22:00-03:00,Supla,Thais Bilenky,winner,true
+ko-221,2022-07-01T10:50:00-03:00,Frederick Wassef,Fernando de Barros e Silva,did_not_win,false
+ko-221,2022-07-01T10:50:00-03:00,Frederick Wassef,José Roberto de Toledo,did_not_win,false
+ko-221,2022-07-01T10:50:00-03:00,Frederick Wassef,Thais Bilenky,did_not_win,false
+ko-220,2022-07-08T10:50:00-03:00,Marcelo Crivella,Fernando de Barros e Silva,winner,true
+ko-220,2022-07-08T10:50:00-03:00,Marcelo Crivella,José Roberto de Toledo,did_not_win,true
+ko-220,2022-07-08T10:50:00-03:00,Marcelo Crivella,Thais Bilenky,did_not_win,true
+ko-219,2022-07-15T10:50:00-03:00,Bia Kicis,Fernando de Barros e Silva,did_not_win,false
+ko-219,2022-07-15T10:50:00-03:00,Bia Kicis,José Roberto de Toledo,did_not_win,false
+ko-219,2022-07-15T10:50:00-03:00,Bia Kicis,Thais Bilenky,did_not_win,false
+ko-218,2022-07-22T10:43:00-03:00,Rogério Marinho,Fernando de Barros e Silva,did_not_win,false
+ko-218,2022-07-22T10:43:00-03:00,Rogério Marinho,José Roberto de Toledo,did_not_win,false
+ko-218,2022-07-22T10:43:00-03:00,Rogério Marinho,Thais Bilenky,did_not_win,false
+ko-217,2022-07-29T10:50:00-03:00,Janaína Paschoal,Fernando de Barros e Silva,did_not_win,true
+ko-217,2022-07-29T10:50:00-03:00,Janaína Paschoal,José Roberto de Toledo,did_not_win,true
+ko-217,2022-07-29T10:50:00-03:00,Janaína Paschoal,Thais Bilenky,winner,true
+ko-216,2022-08-05T10:50:00-03:00,Tom Zé,Fernando de Barros e Silva,did_not_win,true
+ko-216,2022-08-05T10:50:00-03:00,Tom Zé,José Roberto de Toledo,winner,true
+ko-216,2022-08-05T10:50:00-03:00,Tom Zé,Thais Bilenky,did_not_win,true
+ko-214,2022-08-12T10:06:00-03:00,Luiz Felipe de Orleans e Bragança,Fernando de Barros e Silva,did_not_win,true
+ko-214,2022-08-12T10:06:00-03:00,Luiz Felipe de Orleans e Bragança,José Roberto de Toledo,did_not_win,true
+ko-214,2022-08-12T10:06:00-03:00,Luiz Felipe de Orleans e Bragança,Thais Bilenky,winner,true
+ko-213,2022-08-19T10:50:00-03:00,Rosângela Moro,Fernando de Barros e Silva,did_not_win,true
+ko-213,2022-08-19T10:50:00-03:00,Rosângela Moro,José Roberto de Toledo,did_not_win,true
+ko-213,2022-08-19T10:50:00-03:00,Rosângela Moro,Thais Bilenky,winner,true
+ko-212,2022-08-26T10:50:00-03:00,Fernando Collor de Mello,Fernando de Barros e Silva,did_not_win,true
+ko-212,2022-08-26T10:50:00-03:00,Fernando Collor de Mello,José Roberto de Toledo,winner,true
+ko-212,2022-08-26T10:50:00-03:00,Fernando Collor de Mello,Thais Bilenky,did_not_win,true
+ko-211,2022-09-03T15:43:00-03:00,Marco Aurélio Mello,Fernando de Barros e Silva,winner,true
+ko-211,2022-09-03T15:43:00-03:00,Marco Aurélio Mello,José Roberto de Toledo,winner,true
+ko-211,2022-09-03T15:43:00-03:00,Marco Aurélio Mello,Thais Bilenky,did_not_win,true
+ko-210,2022-09-03T17:32:00-03:00,Marco Aurélio Mello,Fernando de Barros e Silva,winner,true
+ko-210,2022-09-03T17:32:00-03:00,Marco Aurélio Mello,José Roberto de Toledo,winner,true
+ko-210,2022-09-03T17:32:00-03:00,Marco Aurélio Mello,Thais Bilenky,did_not_win,true
+ko-209,2022-09-09T10:50:00-03:00,Luiz Felipe Dávila,Fernando de Barros e Silva,winner,true
+ko-209,2022-09-09T10:50:00-03:00,Luiz Felipe Dávila,José Roberto de Toledo,did_not_win,true
+ko-209,2022-09-09T10:50:00-03:00,Luiz Felipe Dávila,Thais Bilenky,winner,true
+ko-208,2022-09-16T10:50:00-03:00,Sérgio Etchegoyen,Fernando de Barros e Silva,did_not_win,true
+ko-208,2022-09-16T10:50:00-03:00,Sérgio Etchegoyen,José Roberto de Toledo,did_not_win,true
+ko-208,2022-09-16T10:50:00-03:00,Sérgio Etchegoyen,Thais Bilenky,winner,true
+ko-207,2022-09-23T10:50:00-03:00,Márcio França,Fernando de Barros e Silva,did_not_win,false
+ko-207,2022-09-23T10:50:00-03:00,Márcio França,José Roberto de Toledo,did_not_win,false
+ko-207,2022-09-23T10:50:00-03:00,Márcio França,Thais Bilenky,did_not_win,false
+ko-206,2022-09-30T10:50:00-03:00,Felipe Neto,Fernando de Barros e Silva,did_not_win,true
+ko-206,2022-09-30T10:50:00-03:00,Felipe Neto,José Roberto de Toledo,did_not_win,true
+ko-206,2022-09-30T10:50:00-03:00,Felipe Neto,Thais Bilenky,winner,true
+ko-205,2022-10-07T10:50:00-03:00,Arthur do Val,Fernando de Barros e Silva,did_not_win,true
+ko-205,2022-10-07T10:50:00-03:00,Arthur do Val,José Roberto de Toledo,winner,true
+ko-205,2022-10-07T10:50:00-03:00,Arthur do Val,Thais Bilenky,did_not_win,true
+ko-204,2022-10-14T10:50:00-03:00,Nikolas Ferreira,Fernando de Barros e Silva,did_not_win,true
+ko-204,2022-10-14T10:50:00-03:00,Nikolas Ferreira,José Roberto de Toledo,winner,true
+ko-204,2022-10-14T10:50:00-03:00,Nikolas Ferreira,Thais Bilenky,winner,true
+ko-203,2022-10-21T10:50:00-03:00,Braga Netto,Fernando de Barros e Silva,did_not_win,true
+ko-203,2022-10-21T10:50:00-03:00,Braga Netto,José Roberto de Toledo,winner,true
+ko-203,2022-10-21T10:50:00-03:00,Braga Netto,Thais Bilenky,did_not_win,true
+ko-202,2022-10-28T10:45:00-03:00,Leonardo (cantor),Fernando de Barros e Silva,did_not_win,true
+ko-202,2022-10-28T10:45:00-03:00,Leonardo (cantor),José Roberto de Toledo,winner,true
+ko-202,2022-10-28T10:45:00-03:00,Leonardo (cantor),Thais Bilenky,did_not_win,true
+ko-200,2022-11-04T10:45:00-03:00,Denise Fraga,Fernando de Barros e Silva,did_not_win,true
+ko-200,2022-11-04T10:45:00-03:00,Denise Fraga,José Roberto de Toledo,winner,true
+ko-200,2022-11-04T10:45:00-03:00,Denise Fraga,Thais Bilenky,did_not_win,true
+ko-199,2022-11-11T10:45:00-03:00,Carlos Lupi,Fernando de Barros e Silva,did_not_win,true
+ko-199,2022-11-11T10:45:00-03:00,Carlos Lupi,José Roberto de Toledo,winner,true
+ko-199,2022-11-11T10:45:00-03:00,Carlos Lupi,Thais Bilenky,did_not_win,true
+ko-197,2022-11-18T10:47:27-03:00,André Janones,Fernando de Barros e Silva,did_not_win,true
+ko-197,2022-11-18T10:47:27-03:00,André Janones,José Roberto de Toledo,winner,true
+ko-197,2022-11-18T10:47:27-03:00,André Janones,Thais Bilenky,winner,true
+ko-197,2022-11-18T10:47:27-03:00,André Janones,Bernardo Esteves,did_not_win,true
+ko-196,2022-11-25T10:47:00-03:00,Gilson Machado,Fernando de Barros e Silva,did_not_win,true
+ko-196,2022-11-25T10:47:00-03:00,Gilson Machado,José Roberto de Toledo,winner,true
+ko-196,2022-11-25T10:47:00-03:00,Gilson Machado,Thais Bilenky,did_not_win,true
+ko-195,2022-12-02T10:45:00-03:00,Walter Casagrande,Fernando de Barros e Silva,did_not_win,true
+ko-195,2022-12-02T10:45:00-03:00,Walter Casagrande,José Roberto de Toledo,did_not_win,true
+ko-195,2022-12-02T10:45:00-03:00,Walter Casagrande,Thais Bilenky,winner,true
+ko-194,2022-12-09T10:43:00-03:00,Aécio Neves,Fernando de Barros e Silva,did_not_win,true
+ko-194,2022-12-09T10:43:00-03:00,Aécio Neves,José Roberto de Toledo,winner,true
+ko-194,2022-12-09T10:43:00-03:00,Aécio Neves,Thais Bilenky,did_not_win,true
+ko-193,2022-12-16T10:43:00-03:00,,Fernando de Barros e Silva,did_not_win,false
+ko-193,2022-12-16T10:43:00-03:00,,José Roberto de Toledo,did_not_win,false
+ko-193,2022-12-16T10:43:00-03:00,,Thais Bilenky,did_not_win,false
+ko-192,2022-12-23T10:43:00-03:00,Felipe Dávila,Fernando de Barros e Silva,winner,true
+ko-192,2022-12-23T10:43:00-03:00,Felipe Dávila,Thais Bilenky,did_not_win,true
+ko-192,2022-12-23T10:43:00-03:00,Felipe Dávila,Ana Clara Costa,did_not_win,true
+ko-190,2023-01-06T10:43:00-03:00,Ernesto Araújo,Fernando de Barros e Silva,did_not_win,true
+ko-190,2023-01-06T10:43:00-03:00,Ernesto Araújo,José Roberto de Toledo,winner,true
+ko-190,2023-01-06T10:43:00-03:00,Ernesto Araújo,Thais Bilenky,did_not_win,true
+ko-188,2023-01-13T10:43:00-03:00,Silvio Almeida,Fernando de Barros e Silva,did_not_win,true
+ko-188,2023-01-13T10:43:00-03:00,Silvio Almeida,José Roberto de Toledo,did_not_win,true
+ko-188,2023-01-13T10:43:00-03:00,Silvio Almeida,Marina Dias,winner,true
+ko-188,2023-01-13T10:43:00-03:00,Silvio Almeida,Samira Bueno,did_not_win,true
+ko-188,2023-01-13T10:43:00-03:00,Silvio Almeida,Lira Neto,did_not_win,true
+ko-187,2023-01-20T10:43:00-03:00,Soraya Thronicke,Fernando de Barros e Silva,did_not_win,true
+ko-187,2023-01-20T10:43:00-03:00,Soraya Thronicke,José Roberto de Toledo,winner,true
+ko-187,2023-01-20T10:43:00-03:00,Soraya Thronicke,Bernardo Mello Franco,did_not_win,true
+ko-187,2023-01-20T10:43:00-03:00,Soraya Thronicke,Natália Viana,did_not_win,true
+ko-187,2023-01-20T10:43:00-03:00,Soraya Thronicke,Marcos Nobre,did_not_win,true
+ko-186,2023-01-27T10:43:00-03:00,Ivete Sangalo,Fernando de Barros e Silva,did_not_win,true
+ko-186,2023-01-27T10:43:00-03:00,Ivete Sangalo,José Roberto de Toledo,did_not_win,true
+ko-186,2023-01-27T10:43:00-03:00,Ivete Sangalo,Thais Bilenky,winner,true
+ko-185,2023-02-03T10:43:00-03:00,Antônio Carlos Magalhães Neto,Fernando de Barros e Silva,did_not_win,true
+ko-185,2023-02-03T10:43:00-03:00,Antônio Carlos Magalhães Neto,José Roberto de Toledo,did_not_win,true
+ko-185,2023-02-03T10:43:00-03:00,Antônio Carlos Magalhães Neto,Thais Bilenky,winner,true
+ko-185,2023-02-03T10:43:00-03:00,Antônio Carlos Magalhães Neto,Braulio Borges,did_not_win,true
+ko-184,2023-02-10T10:43:00-03:00,Kim Kataguiri,José Roberto de Toledo,did_not_win,true
+ko-184,2023-02-10T10:43:00-03:00,Kim Kataguiri,Thais Bilenky,did_not_win,true
+ko-184,2023-02-10T10:43:00-03:00,Kim Kataguiri,Ana Clara Costa,winner,true
+ko-184,2023-02-10T10:43:00-03:00,Kim Kataguiri,Luciano Ramalho,did_not_win,true
+ko-183,2023-02-17T10:43:00-03:00,André de Paula,José Roberto de Toledo,did_not_win,true
+ko-183,2023-02-17T10:43:00-03:00,André de Paula,Thais Bilenky,did_not_win,true
+ko-183,2023-02-17T10:43:00-03:00,André de Paula,Ana Clara Costa,winner,true
+ko-182,2023-02-24T10:43:00-03:00,Magno Malta,Thais Bilenky,did_not_win,false
+ko-182,2023-02-24T10:43:00-03:00,Magno Malta,José Roberto de Toledo,did_not_win,false
+ko-182,2023-02-24T10:43:00-03:00,Magno Malta,Ana Clara Costa,did_not_win,false
+ko-182,2023-02-24T10:43:00-03:00,Magno Malta,Marcelo Rubens Paiva,did_not_win,false
+ko-181,2023-03-03T10:50:00-03:00,Carla Zambelli,Fernando de Barros e Silva,did_not_win,true
+ko-181,2023-03-03T10:50:00-03:00,Carla Zambelli,José Roberto de Toledo,did_not_win,true
+ko-181,2023-03-03T10:50:00-03:00,Carla Zambelli,Thais Bilenky,winner,true
+ko-180,2023-03-10T10:43:38-03:00,Sérgio Cabral,Fernando de Barros e Silva,winner,true
+ko-180,2023-03-10T10:43:38-03:00,Sérgio Cabral,José Roberto de Toledo,did_not_win,true
+ko-180,2023-03-10T10:43:38-03:00,Sérgio Cabral,Thais Bilenky,did_not_win,true
+ko-179,2023-03-17T10:45:00-03:00,Alberto Fraga,Fernando de Barros e Silva,did_not_win,false
+ko-179,2023-03-17T10:45:00-03:00,Alberto Fraga,José Roberto de Toledo,did_not_win,false
+ko-179,2023-03-17T10:45:00-03:00,Alberto Fraga,Thais Bilenky,did_not_win,false
+ko-178,2023-03-24T10:45:01-03:00,Tarcísio de Freitas,Fernando de Barros e Silva,winner,true
+ko-178,2023-03-24T10:45:01-03:00,Tarcísio de Freitas,José Roberto de Toledo,did_not_win,true
+ko-178,2023-03-24T10:45:01-03:00,Tarcísio de Freitas,Thais Bilenky,did_not_win,true
+ko-177,2023-03-31T10:45:00-03:00,,Fernando de Barros e Silva,did_not_win,false
+ko-177,2023-03-31T10:45:00-03:00,,José Roberto de Toledo,winner,false
+ko-177,2023-03-31T10:45:00-03:00,,Thaís Oyama,did_not_win,false
+ko-176,2023-04-07T10:45:01-03:00,Ciro Nogueira,Fernando de Barros e Silva,did_not_win,true
+ko-176,2023-04-07T10:45:01-03:00,Ciro Nogueira,José Roberto de Toledo,did_not_win,true
+ko-176,2023-04-07T10:45:01-03:00,Ciro Nogueira,Thais Bilenky,winner,true
+ko-175,2023-04-14T10:45:01-03:00,José Dirceu,Fernando de Barros e Silva,did_not_win,true
+ko-175,2023-04-14T10:45:01-03:00,José Dirceu,José Roberto de Toledo,did_not_win,true
+ko-175,2023-04-14T10:45:01-03:00,José Dirceu,Thais Bilenky,winner,true
+ko-174,2023-04-21T10:45:01-03:00,Guilherme Boulos,Fernando de Barros e Silva,did_not_win,false
+ko-174,2023-04-21T10:45:01-03:00,Guilherme Boulos,José Roberto de Toledo,did_not_win,false
+ko-174,2023-04-21T10:45:01-03:00,Guilherme Boulos,Thais Bilenky,did_not_win,false
+ko-173,2023-04-28T10:45:01-03:00,João Dória,Fernando de Barros e Silva,did_not_win,true
+ko-173,2023-04-28T10:45:01-03:00,João Dória,José Roberto de Toledo,did_not_win,true
+ko-173,2023-04-28T10:45:01-03:00,João Dória,Thais Bilenky,winner,true
+ko-172,2023-05-05T10:07:25-03:00,Valdemar Costa Neto,Fernando de Barros e Silva,did_not_win,true
+ko-172,2023-05-05T10:07:25-03:00,Valdemar Costa Neto,José Roberto de Toledo,did_not_win,true
+ko-172,2023-05-05T10:07:25-03:00,Valdemar Costa Neto,Thais Bilenky,winner,true
+ko-171,2023-05-12T10:45:01-03:00,Tom Zé,Fernando de Barros e Silva,did_not_win,true
+ko-171,2023-05-12T10:45:01-03:00,Tom Zé,José Roberto de Toledo,winner,true
+ko-171,2023-05-12T10:45:01-03:00,Tom Zé,Thais Bilenky,did_not_win,true
+ko-169,2023-05-26T10:45:02-03:00,Hamilton Mourão,Fernando de Barros e Silva,did_not_win,true
+ko-169,2023-05-26T10:45:02-03:00,Hamilton Mourão,José Roberto de Toledo,did_not_win,true
+ko-169,2023-05-26T10:45:02-03:00,Hamilton Mourão,Thais Bilenky,winner,true
+ko-168,2023-06-02T10:45:01-03:00,Damares Alves,Fernando de Barros e Silva,did_not_win,true
+ko-168,2023-06-02T10:45:01-03:00,Damares Alves,José Roberto de Toledo,did_not_win,true
+ko-168,2023-06-02T10:45:01-03:00,Damares Alves,Thais Bilenky,winner,true
+ko-167,2023-06-09T10:45:01-03:00,,Fernando de Barros e Silva,did_not_win,false
+ko-167,2023-06-09T10:45:01-03:00,,José Roberto de Toledo,did_not_win,false
+ko-167,2023-06-09T10:45:01-03:00,,Thais Bilenky,winner,false
+ko-166,2023-06-16T10:45:00-03:00,Marcelo Queiroga,Fernando de Barros e Silva,did_not_win,false
+ko-166,2023-06-16T10:45:00-03:00,Marcelo Queiroga,José Roberto de Toledo,did_not_win,false
+ko-166,2023-06-16T10:45:00-03:00,Marcelo Queiroga,Thais Bilenky,did_not_win,false
+ko-165,2023-06-23T10:55:01-03:00,Erika Hilton,Fernando de Barros e Silva,winner,true
+ko-165,2023-06-23T10:55:01-03:00,Erika Hilton,José Roberto de Toledo,did_not_win,true
+ko-165,2023-06-23T10:55:01-03:00,Erika Hilton,Thais Bilenky,did_not_win,true
+ko-164,2023-06-30T11:00:02-03:00,Luana Piovani,Fernando de Barros e Silva,did_not_win,false
+ko-164,2023-06-30T11:00:02-03:00,Luana Piovani,José Roberto de Toledo,did_not_win,false
+ko-164,2023-06-30T11:00:02-03:00,Luana Piovani,Thais Bilenky,did_not_win,false
+ko-163,2023-07-07T10:45:02-03:00,Janja,Fernando de Barros e Silva,did_not_win,true
+ko-163,2023-07-07T10:45:02-03:00,Janja,José Roberto de Toledo,did_not_win,true
+ko-163,2023-07-07T10:45:02-03:00,Janja,Thais Bilenky,winner,true
+ko-162,2023-07-14T10:45:02-03:00,Beto Richa,Fernando de Barros e Silva,did_not_win,false
+ko-162,2023-07-14T10:45:02-03:00,Beto Richa,José Roberto de Toledo,did_not_win,false
+ko-162,2023-07-14T10:45:02-03:00,Beto Richa,Thais Bilenky,did_not_win,false
+ko-161,2023-07-21T10:45:01-03:00,Rogério Marinho,Fernando de Barros e Silva,did_not_win,true
+ko-161,2023-07-21T10:45:01-03:00,Rogério Marinho,José Roberto de Toledo,winner,true
+ko-161,2023-07-21T10:45:01-03:00,Rogério Marinho,Thais Bilenky,did_not_win,true
+ko-159,2023-07-28T10:45:02-03:00,Hamilton Mourão,Fernando de Barros e Silva,did_not_win,false
+ko-159,2023-07-28T10:45:02-03:00,Hamilton Mourão,José Roberto de Toledo,did_not_win,false
+ko-159,2023-07-28T10:45:02-03:00,Hamilton Mourão,Thais Bilenky,did_not_win,false
+ko-157,2023-08-04T10:45:00-03:00,Baleia Rossi,Fernando de Barros e Silva,did_not_win,false
+ko-157,2023-08-04T10:45:00-03:00,Baleia Rossi,José Roberto de Toledo,did_not_win,false
+ko-157,2023-08-04T10:45:00-03:00,Baleia Rossi,Thais Bilenky,did_not_win,false
+ko-155,2023-08-11T10:45:01-03:00,Sâmia Bonfim,Fernando de Barros e Silva,winner,true
+ko-155,2023-08-11T10:45:01-03:00,Sâmia Bonfim,José Roberto de Toledo,did_not_win,true
+ko-155,2023-08-11T10:45:01-03:00,Sâmia Bonfim,Thais Bilenky,did_not_win,true
+ko-153,2023-08-18T10:45:02-03:00,Ronaldo Caiado,Fernando de Barros e Silva,did_not_win,true
+ko-153,2023-08-18T10:45:02-03:00,Ronaldo Caiado,José Roberto de Toledo,winner,true
+ko-153,2023-08-18T10:45:02-03:00,Ronaldo Caiado,Thais Bilenky,did_not_win,true
+ko-151,2023-08-25T10:45:02-03:00,Paulo Guedes,Fernando de Barros e Silva,did_not_win,true
+ko-151,2023-08-25T10:45:02-03:00,Paulo Guedes,José Roberto de Toledo,winner,true
+ko-151,2023-08-25T10:45:02-03:00,Paulo Guedes,Thais Bilenky,did_not_win,true
+ko-149,2023-09-01T10:45:02-03:00,Juliette,Fernando de Barros e Silva,did_not_win,true
+ko-149,2023-09-01T10:45:02-03:00,Juliette,José Roberto de Toledo,winner,true
+ko-149,2023-09-01T10:45:02-03:00,Juliette,Thais Bilenky,did_not_win,true
+ko-147,2023-09-08T10:40:01-03:00,Aécio Neves,Fernando de Barros e Silva,did_not_win,false
+ko-147,2023-09-08T10:40:01-03:00,Aécio Neves,José Roberto de Toledo,did_not_win,false
+ko-147,2023-09-08T10:40:01-03:00,Aécio Neves,Thais Bilenky,did_not_win,false
+ko-146,2023-09-15T10:40:02-03:00,Paulo Pimenta,Fernando de Barros e Silva,did_not_win,true
+ko-146,2023-09-15T10:40:02-03:00,Paulo Pimenta,Thais Bilenky,did_not_win,true
+ko-146,2023-09-15T10:40:02-03:00,Paulo Pimenta,Luigi Maza,winner,true
+ko-145,2023-09-22T10:40:01-03:00,Paulo Guedes,Fernando de Barros e Silva,did_not_win,true
+ko-145,2023-09-22T10:40:01-03:00,Paulo Guedes,Thais Bilenky,winner,true
+ko-145,2023-09-22T10:40:01-03:00,Paulo Guedes,Ana Clara Costa,did_not_win,true
+ko-145,2023-09-22T10:40:01-03:00,Paulo Guedes,Marcos Nobre,did_not_win,true
+ko-144,2023-09-29T10:40:02-03:00,João Dória,Fernando de Barros e Silva,did_not_win,true
+ko-144,2023-09-29T10:40:02-03:00,João Dória,José Roberto de Toledo,did_not_win,true
+ko-144,2023-09-29T10:40:02-03:00,João Dória,Thais Bilenky,winner,true
+ko-143,2023-10-06T10:40:02-03:00,Roberto Campos Neto,Fernando de Barros e Silva,did_not_win,true
+ko-143,2023-10-06T10:40:02-03:00,Roberto Campos Neto,José Roberto de Toledo,did_not_win,true
+ko-143,2023-10-06T10:40:02-03:00,Roberto Campos Neto,Thais Bilenky,winner,true
+ko-142,2023-10-13T10:40:02-03:00,Alexandre de Moraes,Fernando de Barros e Silva,did_not_win,true
+ko-142,2023-10-13T10:40:02-03:00,Alexandre de Moraes,José Roberto de Toledo,winner,true
+ko-142,2023-10-13T10:40:02-03:00,Alexandre de Moraes,Ana Clara Costa,winner,true
+ko-141,2023-10-20T10:45:00-03:00,Felipe Neto,Fernando de Barros e Silva,winner,true
+ko-141,2023-10-20T10:45:00-03:00,Felipe Neto,José Roberto de Toledo,did_not_win,true
+ko-141,2023-10-20T10:45:00-03:00,Felipe Neto,Thais Bilenky,did_not_win,true
+ko-140,2023-10-27T09:43:15-03:00,Beth Mendes,Fernando de Barros e Silva,did_not_win,false
+ko-140,2023-10-27T09:43:15-03:00,Beth Mendes,José Roberto de Toledo,did_not_win,false
+ko-140,2023-10-27T09:43:15-03:00,Beth Mendes,Ana Clara Costa,did_not_win,false
+ko-140,2023-10-27T09:43:15-03:00,Beth Mendes,Thais Bilenky,did_not_win,false
+ko-138,2024-03-15T10:45:00-03:00,Ronaldo Caiado,Fernando de Barros e Silva,did_not_win,true
+ko-138,2024-03-15T10:45:00-03:00,Ronaldo Caiado,Ana Clara Costa,winner,true
+ko-138,2024-03-15T10:45:00-03:00,Ronaldo Caiado,Celso Rocha de Barros,did_not_win,true
+ko-137,2024-03-22T10:45:00-03:00,Luciano Bivar,Fernando de Barros e Silva,did_not_win,true
+ko-137,2024-03-22T10:45:00-03:00,Luciano Bivar,Ana Clara Costa,did_not_win,true
+ko-137,2024-03-22T10:45:00-03:00,Luciano Bivar,Celso Rocha de Barros,winner,true
+ko-135,2024-03-29T10:45:00-03:00,Kim Kataguiri,Fernando de Barros e Silva,did_not_win,true
+ko-135,2024-03-29T10:45:00-03:00,Kim Kataguiri,Ana Clara Costa,did_not_win,true
+ko-135,2024-03-29T10:45:00-03:00,Kim Kataguiri,Celso Rocha de Barros,winner,true
+ko-134,2024-04-05T10:40:00-03:00,Ciro Nogueira,Fernando de Barros e Silva,did_not_win,true
+ko-134,2024-04-05T10:40:00-03:00,Ciro Nogueira,Ana Clara Costa,winner,true
+ko-134,2024-04-05T10:40:00-03:00,Ciro Nogueira,Celso Rocha de Barros,did_not_win,true
+ko-133,2024-04-12T10:40:00-03:00,Jorge Kajuru,Fernando de Barros e Silva,winner,true
+ko-133,2024-04-12T10:40:00-03:00,Jorge Kajuru,Ana Clara Costa,did_not_win,true
+ko-133,2024-04-12T10:40:00-03:00,Jorge Kajuru,Celso Rocha de Barros,did_not_win,true
+ko-132,2024-04-19T10:40:00-03:00,Jorge Kajuru,Fernando de Barros e Silva,did_not_win,true
+ko-132,2024-04-19T10:40:00-03:00,Jorge Kajuru,Ana Clara Costa,did_not_win,true
+ko-132,2024-04-19T10:40:00-03:00,Jorge Kajuru,Celso Rocha de Barros,winner,true
+ko-131,2024-04-26T10:40:00-03:00,Armínio Fraga,Fernando de Barros e Silva,did_not_win,true
+ko-131,2024-04-26T10:40:00-03:00,Armínio Fraga,Ana Clara Costa,did_not_win,true
+ko-131,2024-04-26T10:40:00-03:00,Armínio Fraga,Celso Rocha de Barros,winner,true
+ko-131,2024-04-26T10:40:00-03:00,Armínio Fraga,Bernardo Esteves,did_not_win,true
+ko-130,2024-05-03T10:40:00-03:00,Edson Lobão,Fernando de Barros e Silva,did_not_win,true
+ko-130,2024-05-03T10:40:00-03:00,Edson Lobão,Ana Clara Costa,did_not_win,true
+ko-130,2024-05-03T10:40:00-03:00,Edson Lobão,Celso Rocha de Barros,winner,true
+ko-129,2024-05-10T10:40:00-03:00,Antônio Garotinho,Fernando de Barros e Silva,did_not_win,false
+ko-129,2024-05-10T10:40:00-03:00,Antônio Garotinho,Ana Clara Costa,did_not_win,false
+ko-129,2024-05-10T10:40:00-03:00,Antônio Garotinho,Celso Rocha de Barros,did_not_win,false
+ko-129,2024-05-10T10:40:00-03:00,Antônio Garotinho,Bernardo Esteves,did_not_win,false
+ko-127,2024-05-17T10:40:00-03:00,José Múcio,Fernando de Barros e Silva,did_not_win,true
+ko-127,2024-05-17T10:40:00-03:00,José Múcio,Ana Clara Costa,winner,true
+ko-127,2024-05-17T10:40:00-03:00,José Múcio,Celso Rocha de Barros,did_not_win,true
+ko-125,2024-05-24T10:40:00-03:00,Joyce Hasselmann,Fernando de Barros e Silva,did_not_win,false
+ko-125,2024-05-24T10:40:00-03:00,Joyce Hasselmann,Ana Clara Costa,did_not_win,false
+ko-125,2024-05-24T10:40:00-03:00,Joyce Hasselmann,Celso Rocha de Barros,did_not_win,false
+ko-123,2024-05-31T10:46:00-03:00,Aldo Rebelo,Fernando de Barros e Silva,did_not_win,true
+ko-123,2024-05-31T10:46:00-03:00,Aldo Rebelo,Ana Clara Costa,did_not_win,true
+ko-123,2024-05-31T10:46:00-03:00,Aldo Rebelo,Celso Rocha de Barros,winner,true
+ko-121,2024-06-07T10:45:00-03:00,Geraldo Alckmin,Fernando de Barros e Silva,did_not_win,false
+ko-121,2024-06-07T10:45:00-03:00,Geraldo Alckmin,Celso Rocha de Barros,did_not_win,false
+ko-121,2024-06-07T10:45:00-03:00,Geraldo Alckmin,Ana Clara Costa,did_not_win,false
+ko-119,2024-06-14T10:45:00-03:00,Roberto Justus,Fernando de Barros e Silva,did_not_win,true
+ko-119,2024-06-14T10:45:00-03:00,Roberto Justus,Celso Rocha de Barros,winner,true
+ko-119,2024-06-14T10:45:00-03:00,Roberto Justus,Marina Dias,did_not_win,true
+ko-119,2024-06-14T10:45:00-03:00,Roberto Justus,Marcos Nobre,did_not_win,true
+ko-117,2024-06-21T11:00:00-03:00,Onyx Lorenzoni,Fernando de Barros e Silva,did_not_win,false
+ko-117,2024-06-21T11:00:00-03:00,Onyx Lorenzoni,Celso Rocha de Barros,did_not_win,false
+ko-117,2024-06-21T11:00:00-03:00,Onyx Lorenzoni,Ana Clara Costa,did_not_win,false
+ko-116,2024-06-28T10:45:00-03:00,Damares Alves,Fernando de Barros e Silva,did_not_win,true
+ko-116,2024-06-28T10:45:00-03:00,Damares Alves,Ana Clara Costa,winner,true
+ko-116,2024-06-28T10:45:00-03:00,Damares Alves,Celso Rocha de Barros,did_not_win,true
+ko-116,2024-06-28T10:45:00-03:00,Damares Alves,Bernardo Esteves,did_not_win,true
+ko-115,2024-07-05T10:40:00-03:00,Omar Aziz,Fernando de Barros e Silva,did_not_win,true
+ko-115,2024-07-05T10:40:00-03:00,Omar Aziz,Ana Clara Costa,did_not_win,true
+ko-115,2024-07-05T10:40:00-03:00,Omar Aziz,Celso Rocha de Barros,winner,true
+ko-114,2024-07-12T10:00:00-03:00,Ratinho Júnior,Fernando de Barros e Silva,did_not_win,false
+ko-114,2024-07-12T10:00:00-03:00,Ratinho Júnior,Celso Rocha de Barros,did_not_win,false
+ko-114,2024-07-12T10:00:00-03:00,Ratinho Júnior,Ana Clara Costa,did_not_win,false
+ko-113,2024-07-19T09:42:00-03:00,Ciro Nogueira,Fernando de Barros e Silva,did_not_win,true
+ko-113,2024-07-19T09:42:00-03:00,Ciro Nogueira,Ana Clara Costa,did_not_win,true
+ko-113,2024-07-19T09:42:00-03:00,Ciro Nogueira,Celso Rocha de Barros,winner,true
+ko-112,2024-07-26T10:14:00-03:00,Eike Batista,Fernando de Barros e Silva,did_not_win,false
+ko-112,2024-07-26T10:14:00-03:00,Eike Batista,Ana Clara Costa,did_not_win,false
+ko-112,2024-07-26T10:14:00-03:00,Eike Batista,Celso Rocha de Barros,did_not_win,false
+ko-111,2024-08-02T09:34:00-03:00,Frederico Assef,Fernando de Barros e Silva,did_not_win,true
+ko-111,2024-08-02T09:34:00-03:00,Frederico Assef,Ana Clara Costa,did_not_win,true
+ko-111,2024-08-02T09:34:00-03:00,Frederico Assef,Celso Rocha de Barros,winner,true
+ko-110,2024-08-09T10:30:00-03:00,Rogério Marinho,Fernando de Barros e Silva,winner,true
+ko-110,2024-08-09T10:30:00-03:00,Rogério Marinho,Ana Clara Costa,did_not_win,true
+ko-110,2024-08-09T10:30:00-03:00,Rogério Marinho,Celso Rocha de Barros,did_not_win,true
+ko-109,2024-08-16T10:19:58-03:00,Nelson Jobim,Fernando de Barros e Silva,did_not_win,false
+ko-109,2024-08-16T10:19:58-03:00,Nelson Jobim,Celso Rocha de Barros,did_not_win,false
+ko-109,2024-08-16T10:19:58-03:00,Nelson Jobim,Marina Dias,did_not_win,false
+ko-108,2024-08-23T09:14:00-03:00,Marcel Van Hatten,Fernando de Barros e Silva,did_not_win,true
+ko-108,2024-08-23T09:14:00-03:00,Marcel Van Hatten,Ana Clara Costa,did_not_win,true
+ko-108,2024-08-23T09:14:00-03:00,Marcel Van Hatten,Celso Rocha de Barros,winner,true
+ko-108,2024-08-23T09:14:00-03:00,Marcel Van Hatten,Breno Pires,did_not_win,true
+ko-107,2024-08-30T09:55:00-03:00,Rodrigo Maia,Fernando de Barros e Silva,did_not_win,true
+ko-107,2024-08-30T09:55:00-03:00,Rodrigo Maia,Ana Clara Costa,did_not_win,true
+ko-107,2024-08-30T09:55:00-03:00,Rodrigo Maia,Celso Rocha de Barros,winner,true
+ko-107,2024-08-30T09:55:00-03:00,Rodrigo Maia,Bernardo Esteves,did_not_win,true
+ko-106,2024-09-06T09:34:34-03:00,Luciano Huck,Fernando de Barros e Silva,did_not_win,true
+ko-106,2024-09-06T09:34:34-03:00,Luciano Huck,Ana Clara Costa,winner,true
+ko-106,2024-09-06T09:34:34-03:00,Luciano Huck,Celso Rocha de Barros,did_not_win,true
+ko-105,2024-09-13T09:24:34-03:00,Eduardo Cunha,Fernando de Barros e Silva,did_not_win,true
+ko-105,2024-09-13T09:24:34-03:00,Eduardo Cunha,Ana Clara Costa,did_not_win,true
+ko-105,2024-09-13T09:24:34-03:00,Eduardo Cunha,Celso Rocha de Barros,winner,true
+ko-105,2024-09-13T09:24:34-03:00,Eduardo Cunha,Bernardo Esteves,did_not_win,true
+ko-104,2024-09-20T09:34:00-03:00,Jorginho Mello,Fernando de Barros e Silva,did_not_win,true
+ko-104,2024-09-20T09:34:00-03:00,Jorginho Mello,Ana Clara Costa,winner,true
+ko-104,2024-09-20T09:34:00-03:00,Jorginho Mello,Celso Rocha de Barros,did_not_win,true
+ko-103,2024-09-27T09:47:00-03:00,Caio Coppola,Fernando de Barros e Silva,did_not_win,true
+ko-103,2024-09-27T09:47:00-03:00,Caio Coppola,Celso Rocha de Barros,winner,true
+ko-103,2024-09-27T09:47:00-03:00,Caio Coppola,Ana Clara Costa,did_not_win,true
+ko-102,2024-10-04T09:36:00-03:00,Laerte,Fernando de Barros e Silva,winner,true
+ko-102,2024-10-04T09:36:00-03:00,Laerte,Ana Clara Costa,did_not_win,true
+ko-102,2024-10-04T09:36:00-03:00,Laerte,Celso Rocha de Barros,did_not_win,true
+ko-101,2024-10-11T09:51:27-03:00,José Dirceu,Fernando de Barros e Silva,did_not_win,true
+ko-101,2024-10-11T09:51:27-03:00,José Dirceu,Ana Clara Costa,did_not_win,true
+ko-101,2024-10-11T09:51:27-03:00,José Dirceu,Celso Rocha de Barros,winner,true
+ko-100,2024-10-18T09:42:00-03:00,José Múcio,Fernando de Barros e Silva,did_not_win,true
+ko-100,2024-10-18T09:42:00-03:00,José Múcio,Ana Clara Costa,did_not_win,true
+ko-100,2024-10-18T09:42:00-03:00,José Múcio,Celso Rocha de Barros,winner,true
+ko-99,2024-10-25T09:41:00-03:00,Valdemar Costa Neves,Fernando de Barros e Silva,did_not_win,true
+ko-99,2024-10-25T09:41:00-03:00,Valdemar Costa Neves,Ana Clara Costa,did_not_win,true
+ko-99,2024-10-25T09:41:00-03:00,Valdemar Costa Neves,Celso Rocha de Barros,winner,true
+ko-98,2024-11-01T09:28:00-03:00,Jader Barbalho,Fernando de Barros e Silva,did_not_win,false
+ko-98,2024-11-01T09:28:00-03:00,Jader Barbalho,Ana Clara Costa,did_not_win,false
+ko-98,2024-11-01T09:28:00-03:00,Jader Barbalho,Marina Dias,did_not_win,false
+ko-97,2024-11-08T09:26:00-03:00,Valdemar Costa Neto,Fernando de Barros e Silva,did_not_win,false
+ko-97,2024-11-08T09:26:00-03:00,Valdemar Costa Neto,Ana Clara Costa,did_not_win,false
+ko-97,2024-11-08T09:26:00-03:00,Valdemar Costa Neto,Marina Dias,did_not_win,false
+ko-96,2024-11-15T09:38:00-03:00,,Fernando de Barros e Silva,did_not_win,false
+ko-96,2024-11-15T09:38:00-03:00,,Ana Clara Costa,did_not_win,false
+ko-96,2024-11-15T09:38:00-03:00,,Celso Rocha de Barros,did_not_win,false
+ko-95,2024-11-22T09:57:00-03:00,Eduardo Paes,Fernando de Barros e Silva,did_not_win,true
+ko-95,2024-11-22T09:57:00-03:00,Eduardo Paes,Ana Clara Costa,winner,true
+ko-95,2024-11-22T09:57:00-03:00,Eduardo Paes,Celso Rocha de Barros,did_not_win,true
+ko-94,2024-11-29T10:18:00-03:00,Ricardo Salles,Fernando de Barros e Silva,did_not_win,true
+ko-94,2024-11-29T10:18:00-03:00,Ricardo Salles,Ana Clara Costa,winner,true
+ko-94,2024-11-29T10:18:00-03:00,Ricardo Salles,Celso Rocha de Barros,did_not_win,true
+ko-93,2024-12-06T10:22:00-03:00,Rogério Marinho,Fernando de Barros e Silva,did_not_win,true
+ko-93,2024-12-06T10:22:00-03:00,Rogério Marinho,Ana Clara Costa,winner,true
+ko-93,2024-12-06T10:22:00-03:00,Rogério Marinho,Celso Rocha de Barros,did_not_win,true
+ko-92,2024-12-13T10:03:00-03:00,Sérgio Moro,Fernando de Barros e Silva,did_not_win,true
+ko-92,2024-12-13T10:03:00-03:00,Sérgio Moro,Ana Clara Costa,winner,true
+ko-92,2024-12-13T10:03:00-03:00,Sérgio Moro,Celso Rocha de Barros,did_not_win,true
+ko-91,2024-12-20T09:48:35-03:00,Ângelo Coronel,Fernando de Barros e Silva,did_not_win,false
+ko-91,2024-12-20T09:48:35-03:00,Ângelo Coronel,Ana Clara Costa,did_not_win,false
+ko-91,2024-12-20T09:48:35-03:00,Ângelo Coronel,Celso Rocha de Barros,did_not_win,false
+ko-88,2025-01-17T10:30:00-03:00,Alexandre Padilha,Fernando de Barros e Silva,did_not_win,false
+ko-88,2025-01-17T10:30:00-03:00,Alexandre Padilha,Ana Clara Costa,did_not_win,false
+ko-88,2025-01-17T10:30:00-03:00,Alexandre Padilha,Celso Rocha de Barros,did_not_win,false
+ko-88,2025-01-17T10:30:00-03:00,Alexandre Padilha,João Batista Júnior,did_not_win,false
+ko-87,2025-01-24T09:24:00-03:00,Marcos Pontes,Fernando de Barros e Silva,did_not_win,false
+ko-87,2025-01-24T09:24:00-03:00,Marcos Pontes,Ana Clara Costa,did_not_win,false
+ko-87,2025-01-24T09:24:00-03:00,Marcos Pontes,Celso Rocha de Barros,did_not_win,false
+ko-86,2025-01-31T09:40:00-03:00,Simone Tebet,Fernando de Barros e Silva,winner,true
+ko-86,2025-01-31T09:40:00-03:00,Simone Tebet,Ana Clara Costa,did_not_win,true
+ko-86,2025-01-31T09:40:00-03:00,Simone Tebet,Celso Rocha de Barros,did_not_win,true
+ko-85,2025-02-07T09:21:00-03:00,Ciro Nogueira,Fernando de Barros e Silva,did_not_win,true
+ko-85,2025-02-07T09:21:00-03:00,Ciro Nogueira,Ana Clara Costa,winner,true
+ko-85,2025-02-07T09:21:00-03:00,Ciro Nogueira,Marina Dias,did_not_win,true
+ko-84,2025-02-14T09:30:00-03:00,Jilmar Tatto,Fernando de Barros e Silva,did_not_win,true
+ko-84,2025-02-14T09:30:00-03:00,Jilmar Tatto,Ana Clara Costa,winner,true
+ko-84,2025-02-14T09:30:00-03:00,Jilmar Tatto,Celso Rocha de Barros,did_not_win,true
+ko-83,2025-02-21T09:56:00-03:00,Eduardo Pazuello,Fernando de Barros e Silva,did_not_win,false
+ko-83,2025-02-21T09:56:00-03:00,Eduardo Pazuello,Ana Clara Costa,did_not_win,false
+ko-83,2025-02-21T09:56:00-03:00,Eduardo Pazuello,Celso Rocha de Barros,did_not_win,false
+ko-82,2025-02-28T09:58:26-03:00,José Sarney,Fernando de Barros e Silva,did_not_win,true
+ko-82,2025-02-28T09:58:26-03:00,José Sarney,Ana Clara Costa,winner,true
+ko-82,2025-02-28T09:58:26-03:00,José Sarney,Celso Rocha de Barros,did_not_win,true
+ko-81,2025-03-07T09:58:00-03:00,Marconi Perillo,Fernando de Barros e Silva,did_not_win,true
+ko-81,2025-03-07T09:58:00-03:00,Marconi Perillo,Ana Clara Costa,winner,true
+ko-81,2025-03-07T09:58:00-03:00,Marconi Perillo,Celso Rocha de Barros,did_not_win,true
+ko-80,2025-03-14T10:46:00-03:00,,Fernando de Barros e Silva,did_not_win,false
+ko-80,2025-03-14T10:46:00-03:00,,Celso Rocha de Barros,did_not_win,false
+ko-80,2025-03-14T10:46:00-03:00,,Marina Dias,winner,false
+ko-79,2025-03-21T10:06:00-03:00,Silas Malafaia,Fernando de Barros e Silva,did_not_win,true
+ko-79,2025-03-21T10:06:00-03:00,Silas Malafaia,Celso Rocha de Barros,winner,true
+ko-79,2025-03-21T10:06:00-03:00,Silas Malafaia,Marina Dias,did_not_win,true
+ko-78,2025-03-30T14:30:00-03:00,Celso Amorim,Fernando de Barros e Silva,did_not_win,false
+ko-78,2025-03-30T14:30:00-03:00,Celso Amorim,Celso Rocha de Barros,did_not_win,false
+ko-78,2025-03-30T14:30:00-03:00,Celso Amorim,Marina Dias,did_not_win,false
+ko-77,2025-04-04T10:37:00-03:00,Helder Barbalho,Fernando de Barros e Silva,did_not_win,false
+ko-77,2025-04-04T10:37:00-03:00,Helder Barbalho,Marina Dias,did_not_win,false
+ko-77,2025-04-04T10:37:00-03:00,Helder Barbalho,Samuel Pessoa,did_not_win,false
+ko-77,2025-04-04T10:37:00-03:00,Helder Barbalho,Conrado Hübner Mendes,did_not_win,false
+ko-77,2025-04-04T10:37:00-03:00,Helder Barbalho,Samira Bueno,did_not_win,false
+ko-76,2025-04-11T09:39:00-03:00,Magno Malta,Fernando de Barros e Silva,did_not_win,true
+ko-76,2025-04-11T09:39:00-03:00,Magno Malta,Ana Clara Costa,did_not_win,true
+ko-76,2025-04-11T09:39:00-03:00,Magno Malta,Celso Rocha de Barros,winner,true
+ko-76,2025-04-11T09:39:00-03:00,Magno Malta,Alain de Abreu,did_not_win,true
+ko-75,2025-04-18T09:23:00-03:00,Rui Falcão,Fernando de Barros e Silva,did_not_win,true
+ko-75,2025-04-18T09:23:00-03:00,Rui Falcão,Ana Clara Costa,did_not_win,true
+ko-75,2025-04-18T09:23:00-03:00,Rui Falcão,Celso Rocha de Barros,winner,true
+ko-74,2025-04-25T09:54:00-03:00,Jaques Wagner,Fernando de Barros e Silva,did_not_win,true
+ko-74,2025-04-25T09:54:00-03:00,Jaques Wagner,Ana Clara Costa,did_not_win,true
+ko-74,2025-04-25T09:54:00-03:00,Jaques Wagner,Celso Rocha de Barros,winner,true
+ko-73,2025-05-02T09:38:00-03:00,André de Paula,Fernando de Barros e Silva,did_not_win,false
+ko-73,2025-05-02T09:38:00-03:00,André de Paula,Ana Clara Costa,did_not_win,false
+ko-73,2025-05-02T09:38:00-03:00,André de Paula,Celso Rocha de Barros,did_not_win,false
+ko-72,2025-05-09T10:14:00-03:00,Aldo Rebelo,Fernando de Barros e Silva,did_not_win,false
+ko-72,2025-05-09T10:14:00-03:00,Aldo Rebelo,Ana Clara Costa,did_not_win,false
+ko-72,2025-05-09T10:14:00-03:00,Aldo Rebelo,Celso Rocha de Barros,did_not_win,false
+ko-71,2025-05-16T09:41:00-03:00,Aécio Neves,Fernando de Barros e Silva,winner,true
+ko-71,2025-05-16T09:41:00-03:00,Aécio Neves,Celso Rocha de Barros,did_not_win,true
+ko-71,2025-05-16T09:41:00-03:00,Aécio Neves,Ana Clara Costa,did_not_win,true
+ko-70,2025-05-23T09:59:00-03:00,Davi Alcolumbre,Fernando de Barros e Silva,did_not_win,false
+ko-70,2025-05-23T09:59:00-03:00,Davi Alcolumbre,Ana Clara Costa,did_not_win,false
+ko-70,2025-05-23T09:59:00-03:00,Davi Alcolumbre,Celso Rocha de Barros,did_not_win,false
+ko-69,2025-05-30T10:24:00-03:00,Pastor Sargento Isidório,Fernando de Barros e Silva,did_not_win,true
+ko-69,2025-05-30T10:24:00-03:00,Pastor Sargento Isidório,Celso Rocha de Barros,winner,true
+ko-69,2025-05-30T10:24:00-03:00,Pastor Sargento Isidório,Ana Clara Costa,did_not_win,true
+ko-69,2025-05-30T10:24:00-03:00,Pastor Sargento Isidório,João Batista Júnior,did_not_win,true
+ko-68,2025-06-06T09:33:00-03:00,Eduardo Cunha,Fernando de Barros e Silva,did_not_win,true
+ko-68,2025-06-06T09:33:00-03:00,Eduardo Cunha,Ana Clara Costa,did_not_win,true
+ko-68,2025-06-06T09:33:00-03:00,Eduardo Cunha,Celso Rocha de Barros,winner,true
+ko-67,2025-06-13T09:44:00-03:00,Gil do Vigor,Fernando de Barros e Silva,did_not_win,true
+ko-67,2025-06-13T09:44:00-03:00,Gil do Vigor,Celso Rocha de Barros,did_not_win,true
+ko-67,2025-06-13T09:44:00-03:00,Gil do Vigor,Ana Clara Costa,winner,true
+ko-66,2025-06-20T09:05:00-03:00,Alexandre Frota,Fernando de Barros e Silva,did_not_win,true
+ko-66,2025-06-20T09:05:00-03:00,Alexandre Frota,Celso Rocha de Barros,winner,true
+ko-66,2025-06-20T09:05:00-03:00,Alexandre Frota,Ana Clara Costa,did_not_win,true
+ko-65,2025-06-27T09:52:00-03:00,Marcelo Bretas,Fernando de Barros e Silva,did_not_win,true
+ko-65,2025-06-27T09:52:00-03:00,Marcelo Bretas,Celso Rocha de Barros,winner,true
+ko-65,2025-06-27T09:52:00-03:00,Marcelo Bretas,Ana Clara Costa,did_not_win,true
+ko-64,2025-07-04T10:55:00-03:00,Michel Temer,Fernando de Barros e Silva,did_not_win,true
+ko-64,2025-07-04T10:55:00-03:00,Michel Temer,Celso Rocha de Barros,did_not_win,true
+ko-64,2025-07-04T10:55:00-03:00,Michel Temer,Ana Clara Costa,winner,true
+ko-63,2025-07-11T10:18:00-03:00,Nelson Jobim,Fernando de Barros e Silva,did_not_win,true
+ko-63,2025-07-11T10:18:00-03:00,Nelson Jobim,Celso Rocha de Barros,winner,true
+ko-63,2025-07-11T10:18:00-03:00,Nelson Jobim,Ana Clara Costa,did_not_win,true
+ko-63,2025-07-11T10:18:00-03:00,Nelson Jobim,João Batista Júnior,did_not_win,true
+ko-62,2025-07-18T10:08:00-03:00,Eduardo Cunha,Fernando de Barros e Silva,did_not_win,true
+ko-62,2025-07-18T10:08:00-03:00,Eduardo Cunha,Celso Rocha de Barros,did_not_win,true
+ko-62,2025-07-18T10:08:00-03:00,Eduardo Cunha,Ana Clara Costa,winner,true
+ko-61,2025-07-25T13:45:00-03:00,Magno Malta,Fernando de Barros e Silva,did_not_win,true
+ko-61,2025-07-25T13:45:00-03:00,Magno Malta,Celso Rocha de Barros,winner,true
+ko-61,2025-07-25T13:45:00-03:00,Magno Malta,Ana Clara Costa,did_not_win,true
+ko-60,2025-08-01T09:28:00-03:00,Sostenes Cavalcante,Fernando de Barros e Silva,did_not_win,true
+ko-60,2025-08-01T09:28:00-03:00,Sostenes Cavalcante,Celso Rocha de Barros,did_not_win,true
+ko-60,2025-08-01T09:28:00-03:00,Sostenes Cavalcante,Ana Clara Costa,winner,true
+ko-59,2025-08-08T09:50:00-03:00,Guilherme Boulos,Fernando de Barros e Silva,did_not_win,true
+ko-59,2025-08-08T09:50:00-03:00,Guilherme Boulos,Celso Rocha de Barros,winner,true
+ko-59,2025-08-08T09:50:00-03:00,Guilherme Boulos,Ana Clara Costa,did_not_win,true
+ko-58,2025-08-15T10:03:00-03:00,Damares Alves,Fernando de Barros e Silva,did_not_win,false
+ko-58,2025-08-15T10:03:00-03:00,Damares Alves,Celso Rocha de Barros,did_not_win,false
+ko-58,2025-08-15T10:03:00-03:00,Damares Alves,Ana Clara Costa,did_not_win,false
+ko-57,2025-08-23T12:31:00-03:00,Ratinho Júnior,Fernando de Barros e Silva,did_not_win,true
+ko-57,2025-08-23T12:31:00-03:00,Ratinho Júnior,Celso Rocha de Barros,winner,true
+ko-57,2025-08-23T12:31:00-03:00,Ratinho Júnior,Marina Dias,did_not_win,true
+ko-57,2025-08-23T12:31:00-03:00,Ratinho Júnior,Bernardo Esteves,did_not_win,true
+ko-56,2025-08-29T09:33:00-03:00,Cláudio Castro,Fernando de Barros e Silva,did_not_win,true
+ko-56,2025-08-29T09:33:00-03:00,Cláudio Castro,Celso Rocha de Barros,did_not_win,true
+ko-56,2025-08-29T09:33:00-03:00,Cláudio Castro,Ana Clara Costa,winner,true
+ko-55,2025-09-05T10:21:00-03:00,Cristiane Brasil,Fernando de Barros e Silva,did_not_win,true
+ko-55,2025-09-05T10:21:00-03:00,Cristiane Brasil,Celso Rocha de Barros,did_not_win,true
+ko-55,2025-09-05T10:21:00-03:00,Cristiane Brasil,Ana Clara Costa,winner,true
+ko-53,2025-09-12T10:15:00-03:00,Hélio Lopes,Fernando de Barros e Silva,did_not_win,false
+ko-53,2025-09-12T10:15:00-03:00,Hélio Lopes,Ana Clara Costa,did_not_win,false
+ko-53,2025-09-12T10:15:00-03:00,Hélio Lopes,Celso Rocha de Barros,did_not_win,false
+ko-52,2025-09-19T09:36:00-03:00,Roberto Justus,Fernando de Barros e Silva,did_not_win,false
+ko-52,2025-09-19T09:36:00-03:00,Roberto Justus,Celso Rocha de Barros,did_not_win,false
+ko-52,2025-09-19T09:36:00-03:00,Roberto Justus,Ana Clara Costa,did_not_win,false
+ko-52,2025-09-19T09:36:00-03:00,Roberto Justus,João Batista Júnior,did_not_win,false
+ko-51,2025-09-26T09:50:00-03:00,Marcos Pereira,Fernando de Barros e Silva,did_not_win,true
+ko-51,2025-09-26T09:50:00-03:00,Marcos Pereira,Ana Clara Costa,did_not_win,true
+ko-51,2025-09-26T09:50:00-03:00,Marcos Pereira,Celso Rocha de Barros,winner,true
+ko-50,2025-10-03T09:46:00-03:00,Júlia Zanatta,Fernando de Barros e Silva,did_not_win,true
+ko-50,2025-10-03T09:46:00-03:00,Júlia Zanatta,Ana Clara Costa,winner,true
+ko-50,2025-10-03T09:46:00-03:00,Júlia Zanatta,Celso Rocha de Barros,did_not_win,true
+ko-49,2025-10-10T09:57:00-03:00,Fabiano Contarato,Fernando de Barros e Silva,did_not_win,false
+ko-49,2025-10-10T09:57:00-03:00,Fabiano Contarato,Ana Clara Costa,did_not_win,false
+ko-49,2025-10-10T09:57:00-03:00,Fabiano Contarato,Celso Rocha de Barros,did_not_win,false
+ko-48,2025-10-17T10:43:00-03:00,Ricardo Nunes,Fernando de Barros e Silva,did_not_win,true
+ko-48,2025-10-17T10:43:00-03:00,Ricardo Nunes,Celso Rocha de Barros,did_not_win,true
+ko-48,2025-10-17T10:43:00-03:00,Ricardo Nunes,Ana Clara Costa,winner,true
+ko-47,2025-10-24T10:13:00-03:00,Rogério Corrêa,Fernando de Barros e Silva,did_not_win,false
+ko-47,2025-10-24T10:13:00-03:00,Rogério Corrêa,Ana Clara Costa,did_not_win,false
+ko-47,2025-10-24T10:13:00-03:00,Rogério Corrêa,Celso Rocha de Barros,did_not_win,false
+ko-47,2025-10-24T10:13:00-03:00,Rogério Corrêa,Bernardo Esteves,did_not_win,false
+ko-46,2025-10-31T09:40:00-03:00,Paulo Gonê,Fernando de Barros e Silva,did_not_win,true
+ko-46,2025-10-31T09:40:00-03:00,Paulo Gonê,Ana Clara Costa,did_not_win,true
+ko-46,2025-10-31T09:40:00-03:00,Paulo Gonê,Celso Rocha de Barros,winner,true
+ko-45,2025-11-07T10:43:00-03:00,Marcos Duval,Fernando de Barros e Silva,did_not_win,false
+ko-45,2025-11-07T10:43:00-03:00,Marcos Duval,Ana Clara Costa,did_not_win,false
+ko-45,2025-11-07T10:43:00-03:00,Marcos Duval,Celso Rocha de Barros,did_not_win,false
+ko-45,2025-11-07T10:43:00-03:00,Marcos Duval,Bernardo Esteves,did_not_win,false
+ko-43,2025-11-25T15:44:00-03:00,Sérgio Moro,Fernando de Barros e Silva,winner,true
+ko-43,2025-11-25T15:44:00-03:00,Sérgio Moro,Ana Clara Costa,did_not_win,true
+ko-43,2025-11-25T15:44:00-03:00,Sérgio Moro,Celso Rocha de Barros,did_not_win,true
+ko-43,2025-11-25T15:44:00-03:00,Sérgio Moro,Bernardo Esteves,did_not_win,true
+ko-44,2025-11-25T15:44:00-03:00,Sérgio Moro,Fernando de Barros e Silva,did_not_win,true
+ko-44,2025-11-25T15:44:00-03:00,Sérgio Moro,Ana Clara Costa,winner,true
+ko-44,2025-11-25T15:44:00-03:00,Sérgio Moro,Celso Rocha de Barros,did_not_win,true
+ko-44,2025-11-25T15:44:00-03:00,Sérgio Moro,Bernardo Esteves,did_not_win,true
+ko-42,2025-11-28T09:43:00-03:00,Renan Santos,Fernando de Barros e Silva,did_not_win,true
+ko-42,2025-11-28T09:43:00-03:00,Renan Santos,Ana Clara Costa,did_not_win,true
+ko-42,2025-11-28T09:43:00-03:00,Renan Santos,Celso Rocha de Barros,winner,true
+ko-41,2025-12-05T10:04:00-03:00,Guilherme Derriti,Fernando de Barros e Silva,did_not_win,true
+ko-41,2025-12-05T10:04:00-03:00,Guilherme Derriti,Ana Clara Costa,did_not_win,true
+ko-41,2025-12-05T10:04:00-03:00,Guilherme Derriti,Celso Rocha de Barros,winner,true
+ko-40,2025-12-12T09:42:00-03:00,Wilson Witzel,Fernando de Barros e Silva,did_not_win,true
+ko-40,2025-12-12T09:42:00-03:00,Wilson Witzel,Ana Clara Costa,did_not_win,true
+ko-40,2025-12-12T09:42:00-03:00,Wilson Witzel,Celso Rocha de Barros,winner,true
+ko-39,2025-12-19T09:40:00-03:00,Júlio Lopes,Fernando de Barros e Silva,did_not_win,false
+ko-39,2025-12-19T09:40:00-03:00,Júlio Lopes,Ana Clara Costa,did_not_win,false
+ko-39,2025-12-19T09:40:00-03:00,Júlio Lopes,Celso Rocha de Barros,did_not_win,false
+ko-37,2026-01-09T09:07:00-03:00,Gustavo Gayer,Fernando de Barros e Silva,did_not_win,false
+ko-37,2026-01-09T09:07:00-03:00,Gustavo Gayer,Ana Clara Costa,did_not_win,false
+ko-37,2026-01-09T09:07:00-03:00,Gustavo Gayer,Celso Rocha de Barros,did_not_win,false
+ko-36,2026-01-16T09:08:00-03:00,Eduardo Girão,Fernando de Barros e Silva,did_not_win,false
+ko-36,2026-01-16T09:08:00-03:00,Eduardo Girão,Ana Clara Costa,did_not_win,false
+ko-36,2026-01-16T09:08:00-03:00,Eduardo Girão,Celso Rocha de Barros,did_not_win,false
+ko-35,2026-01-23T09:46:00-03:00,Onyx Lorenzoni,Fernando de Barros e Silva,did_not_win,false
+ko-35,2026-01-23T09:46:00-03:00,Onyx Lorenzoni,Ana Clara Costa,did_not_win,false
+ko-35,2026-01-23T09:46:00-03:00,Onyx Lorenzoni,Celso Rocha de Barros,did_not_win,false
+ko-34,2026-01-30T09:23:00-03:00,,Fernando de Barros e Silva,did_not_win,false
+ko-34,2026-01-30T09:23:00-03:00,,Ana Clara Costa,did_not_win,false
+ko-34,2026-01-30T09:23:00-03:00,,Celso Rocha de Barros,did_not_win,false
+ko-33,2026-02-06T10:36:00-03:00,Janaína Paschoal,Fernando de Barros e Silva,did_not_win,true
+ko-33,2026-02-06T10:36:00-03:00,Janaína Paschoal,Ana Clara Costa,did_not_win,true
+ko-33,2026-02-06T10:36:00-03:00,Janaína Paschoal,Celso Rocha de Barros,winner,true
+ko-32,2026-02-13T10:37:00-03:00,Ciro Gomes,Fernando de Barros e Silva,winner,true
+ko-32,2026-02-13T10:37:00-03:00,Ciro Gomes,Ana Clara Costa,did_not_win,true
+ko-32,2026-02-13T10:37:00-03:00,Ciro Gomes,Celso Rocha de Barros,did_not_win,true
+ko-31,2026-02-20T09:42:00-03:00,André Esteves,Fernando de Barros e Silva,did_not_win,true
+ko-31,2026-02-20T09:42:00-03:00,André Esteves,Ana Clara Costa,winner,true
+ko-31,2026-02-20T09:42:00-03:00,André Esteves,Celso Rocha de Barros,did_not_win,true
+ko-10,2026-03-03T14:38:00-03:00,José Roberto Arruda,Fernando de Barros e Silva,did_not_win,false
+ko-10,2026-03-03T14:38:00-03:00,José Roberto Arruda,Ana Clara Costa,did_not_win,false
+ko-10,2026-03-03T14:38:00-03:00,José Roberto Arruda,Celso Rocha de Barros,did_not_win,false
+ko-9,2026-03-06T15:25:00-03:00,Romero Jucá,Fernando de Barros e Silva,did_not_win,false
+ko-9,2026-03-06T15:25:00-03:00,Romero Jucá,Ana Clara Costa,did_not_win,false
+ko-9,2026-03-06T15:25:00-03:00,Romero Jucá,Celso Rocha de Barros,did_not_win,false
+ko-8,2026-03-13T09:30:00-03:00,Carlos Jordy,Fernando de Barros e Silva,did_not_win,true
+ko-8,2026-03-13T09:30:00-03:00,Carlos Jordy,Ana Clara Costa,did_not_win,true
+ko-8,2026-03-13T09:30:00-03:00,Carlos Jordy,Celso Rocha de Barros,winner,true
+ko-7,2026-03-20T09:20:00-03:00,Ciro Nogueira,Fernando de Barros e Silva,winner,true
+ko-7,2026-03-20T09:20:00-03:00,Ciro Nogueira,Ana Clara Costa,did_not_win,true
+ko-7,2026-03-20T09:20:00-03:00,Ciro Nogueira,Celso Rocha de Barros,did_not_win,true
+ko-6,2026-03-27T10:21:00-03:00,Paulo Skaff,Fernando de Barros e Silva,did_not_win,true
+ko-6,2026-03-27T10:21:00-03:00,Paulo Skaff,Ana Clara Costa,winner,true
+ko-6,2026-03-27T10:21:00-03:00,Paulo Skaff,Celso Rocha de Barros,did_not_win,true
+ko-5,2026-04-03T09:27:00-03:00,Alexandre Ramagem,Fernando de Barros e Silva,did_not_win,false
+ko-5,2026-04-03T09:27:00-03:00,Alexandre Ramagem,Ana Clara Costa,did_not_win,false
+ko-5,2026-04-03T09:27:00-03:00,Alexandre Ramagem,Celso Rocha de Barros,did_not_win,false
+ko-4,2026-04-10T10:04:00-03:00,Arthur do Val,Fernando de Barros e Silva,did_not_win,true
+ko-4,2026-04-10T10:04:00-03:00,Arthur do Val,Celso Rocha de Barros,winner,true
+ko-4,2026-04-10T10:04:00-03:00,Arthur do Val,Ana Clara Costa,did_not_win,true
+ko-3,2026-04-17T10:07:00-03:00,Pablo Marçal,Fernando de Barros e Silva,winner,true
+ko-3,2026-04-17T10:07:00-03:00,Pablo Marçal,Ana Clara Costa,did_not_win,true
+ko-3,2026-04-17T10:07:00-03:00,Pablo Marçal,Celso Rocha de Barros,did_not_win,true
+ko-2,2026-04-24T10:17:00-03:00,Aécio Neves,Fernando de Barros e Silva,did_not_win,true
+ko-2,2026-04-24T10:17:00-03:00,Aécio Neves,Ana Clara Costa,winner,true
+ko-2,2026-04-24T10:17:00-03:00,Aécio Neves,Celso Rocha de Barros,did_not_win,true
+ko-1,2026-05-01T10:37:00-03:00,Otoni de Paula,Fernando de Barros e Silva,did_not_win,true
+ko-1,2026-05-01T10:37:00-03:00,Otoni de Paula,Ana Clara Costa,did_not_win,true
+ko-1,2026-05-01T10:37:00-03:00,Otoni de Paula,Celso Rocha de Barros,winner,true
+ko-1578,2026-05-08T10:20:00-03:00,Augusto Cury,Fernando de Barros e Silva,did_not_win,false
+ko-1578,2026-05-08T10:20:00-03:00,Augusto Cury,Ana Clara Costa,did_not_win,false
+ko-1578,2026-05-08T10:20:00-03:00,Augusto Cury,Celso Rocha de Barros,did_not_win,false
+ko-2098,2026-05-15T09:30:00-03:00,Álvaro Dias,Fernando de Barros e Silva,winner,true
+ko-2098,2026-05-15T09:30:00-03:00,Álvaro Dias,Ana Clara Costa,did_not_win,true
+ko-2098,2026-05-15T09:30:00-03:00,Álvaro Dias,Celso Rocha de Barros,did_not_win,true
+ko-2619,2026-05-22T09:57:00-03:00,Cabo Gilberto Silva,Fernando de Barros e Silva,did_not_win,false
+ko-2619,2026-05-22T09:57:00-03:00,Cabo Gilberto Silva,Ana Clara Costa,did_not_win,false
+ko-2619,2026-05-22T09:57:00-03:00,Cabo Gilberto Silva,Celso Rocha de Barros,did_not_win,false
+ko-3144,2026-05-29T09:27:00-03:00,Rodrigo Garcia,Fernando de Barros e Silva,did_not_win,false
+ko-3144,2026-05-29T09:27:00-03:00,Rodrigo Garcia,Ana Clara Costa,did_not_win,false
+ko-3144,2026-05-29T09:27:00-03:00,Rodrigo Garcia,Celso Rocha de Barros,did_not_win,false
+ko-3143,2026-06-05T09:51:00-03:00,Marco Feliciano,Ana Clara Costa,did_not_win,false
+ko-3143,2026-06-05T09:51:00-03:00,Marco Feliciano,Celso Rocha de Barros,did_not_win,false
+ko-3143,2026-06-05T09:51:00-03:00,Marco Feliciano,João Batista Júnior,did_not_win,false
+ko-3141,2026-06-18T16:23:00-03:00,Alexandre Kalil,Ana Clara Costa,did_not_win,false
+ko-3141,2026-06-18T16:23:00-03:00,Alexandre Kalil,Celso Rocha de Barros,did_not_win,false
+ko-3141,2026-06-18T16:23:00-03:00,Alexandre Kalil,João Batista Júnior,did_not_win,false
+ko-3669,2026-06-19T13:58:00-03:00,Ricardo Salles,Ana Clara Costa,winner,true
+ko-3669,2026-06-19T13:58:00-03:00,Ricardo Salles,Celso Rocha de Barros,did_not_win,true
+ko-3669,2026-06-19T13:58:00-03:00,Ricardo Salles,João Batista Júnior,did_not_win,true
+ko-3668,2026-06-26T09:32:00-03:00,Aldo Rebelo,Fernando de Barros e Silva,did_not_win,true
+ko-3668,2026-06-26T09:32:00-03:00,Aldo Rebelo,Ana Clara Costa,winner,true
+ko-3668,2026-06-26T09:32:00-03:00,Aldo Rebelo,Celso Rocha de Barros,did_not_win,true
+ko-3667,2026-07-03T10:05:00-03:00,Bia Kicis,Fernando de Barros e Silva,did_not_win,true
+ko-3667,2026-07-03T10:05:00-03:00,Bia Kicis,Ana Clara Costa,did_not_win,true
+ko-3667,2026-07-03T10:05:00-03:00,Bia Kicis,Celso Rocha de Barros,winner,true
+ko-4197,2026-07-10T09:51:00-03:00,Júlia Zanatta,Fernando de Barros e Silva,did_not_win,false
+ko-4197,2026-07-10T09:51:00-03:00,Júlia Zanatta,Ana Clara Costa,did_not_win,false
+ko-4197,2026-07-10T09:51:00-03:00,Júlia Zanatta,Celso Rocha de Barros,did_not_win,false
+ko-4196,2026-07-17T09:30:00-03:00,Esperidião Amin,Fernando de Barros e Silva,did_not_win,true
+ko-4196,2026-07-17T09:30:00-03:00,Esperidião Amin,Ana Clara Costa,did_not_win,true
+ko-4196,2026-07-17T09:30:00-03:00,Esperidião Amin,Celso Rocha de Barros,winner,true
+ko-4727,2026-07-24T09:35:00-03:00,Eduardo Girão,Fernando de Barros e Silva,did_not_win,true
+ko-4727,2026-07-24T09:35:00-03:00,Eduardo Girão,Ana Clara Costa,did_not_win,true
+ko-4727,2026-07-24T09:35:00-03:00,Eduardo Girão,Celso Rocha de Barros,winner,true

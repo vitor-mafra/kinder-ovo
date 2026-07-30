@@ -1,0 +1,45 @@
+{
+  "dataset": "momento-kinder-ovo",
+  "datasetVersion": "1.0",
+  "generatedAt": "2026-07-29T19:38:11.220783+00:00",
+  "downloadUrl": "https://kinderovo.com/dados",
+  "usage": "Snapshot para download. Baixe e embuta na sua infra — não faça fetch em produção: são ~66 KB comprimidos, mudam uma vez por semana, e o GitHub Pages que serve estes arquivos não é CDN de terceiro. Republicado toda sexta; confira `generatedAt` para saber a idade do snapshot.",
+  "license": "Uso livre com crédito.",
+  "credit": {
+    "text": "Dados: Momento Kinder Ovo — kinderovo.com, por Vitor Mafra",
+    "url": "https://kinderovo.com"
+  },
+  "source": {
+    "podcast": "Foro de Teresina",
+    "publisher": "revista piauí",
+    "rssFeed": "https://feeds.megaphone.fm/NPP2619427256",
+    "spotifyShow": "https://open.spotify.com/show/04bTe3UuVaZVDKV9ORFN4Y"
+  },
+  "method": "Os 20 minutos finais de cada episódio são transcritos (Whisper/gpt-4o-transcribe) e passados por um LLM que extrai vencedor, bancada presente e figura pública. Episódios novos entram semanalmente e o vencedor da semana é revisado por humano antes de publicar.",
+  "coverage": {
+    "episodesProcessed": 393,
+    "episodesWithKinderOvo": 389,
+    "roundsWithPublicFigure": 380,
+    "roundsWithWinner": 265,
+    "playableRounds": 260,
+    "distinctPublicFigures": 257,
+    "panelists": 30,
+    "firstEpisodeAt": "2018-05-17T16:16:00-03:00",
+    "lastEpisodeAt": "2026-07-24T09:35:00-03:00"
+  },
+  "downloads": {
+    "rounds": "https://kinderovo.com/dados/rounds.json",
+    "panelists": "https://kinderovo.com/dados/panelists.json",
+    "figures": "https://kinderovo.com/dados/figures.json",
+    "roundsCsv": "https://kinderovo.com/dados/rounds.csv",
+    "panelResultsCsv": "https://kinderovo.com/dados/panel_results.csv"
+  },
+  "caveats": [
+    "A base registra QUEM VENCEU a rodada, não o palpite de cada comentarista. `outcome: did_not_win` significa 'não levou a rodada', não necessariamente 'errou' — alguém pode ter acertado depois do vencedor.",
+    "Por isso `winRate` do painelista é taxa de VITÓRIA, não taxa de acerto. Para comparar jogador x bancada, prefira comparar rodada a rodada.",
+    "124 rodadas têm Kinder Ovo detectado mas vencedor não identificado pela extração (áudio ambíguo, apelidos, empate implícito). Elas continuam jogáveis quando têm figura pública, mas não servem de referência da bancada — filtre por `quality.playable`.",
+    "Extração automática por LLM: revisão humana cobre a rodada da semana e correções pontuais do histórico. Use `quality.confidence` se quiser um corte mais conservador.",
+    "Episódios recentes não trazem mais o `#NNN` no título, então `episodeNumber` pode vir nulo. A chave estável é `roundId`/`episodeId`.",
+    "Não há timestamp de início do quadro: sabe-se apenas que o Kinder Ovo está nos ~20 minutos finais do episódio."
+  ]
+}
