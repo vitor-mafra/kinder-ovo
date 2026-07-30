@@ -96,4 +96,4 @@ JSON se for direto pro front.
 
 ## Crédito
 
-Dados: [Momento Kinder Ovo](https://kinderovo.com), por Vitor Mafra. Uso livre com crédito.
+Dados: [Momento Kinder Ovo](https://kinderovo.com), por Vitor Mafra. Uso livre.

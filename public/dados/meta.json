@@ -1,10 +1,10 @@
 {
   "dataset": "momento-kinder-ovo",
   "datasetVersion": "1.0",
-  "generatedAt": "2026-07-29T19:38:11.220783+00:00",
+  "generatedAt": "2026-07-30T18:14:27.569760+00:00",
   "downloadUrl": "https://kinderovo.com/dados",
   "usage": "Snapshot para download. Baixe e embuta na sua infra — não faça fetch em produção: são ~66 KB comprimidos, mudam uma vez por semana, e o GitHub Pages que serve estes arquivos não é CDN de terceiro. Republicado toda sexta; confira `generatedAt` para saber a idade do snapshot.",
-  "license": "Uso livre com crédito.",
+  "license": "Uso livre.",
   "credit": {
     "text": "Dados: Momento Kinder Ovo — kinderovo.com, por Vitor Mafra",
     "url": "https://kinderovo.com"
