@@ -1637,7 +1637,11 @@
   },
   {
     "name": "Esperidião Amin",
-    "count": 1
+    "count": 1,
+    "wikipediaUrl": "https://pt.wikipedia.org/wiki/Esperidi%C3%A3o_Amin",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Senador_Esperidi%C3%A3o_Amin.jpg/330px-Senador_Esperidi%C3%A3o_Amin.jpg",
+    "wikipediaTitle": "Esperidião Amin",
+    "description": "Senador por Santa Catarina"
   },
   {
     "name": "Márcia Fernandes",
@@ -1697,7 +1701,11 @@
   },
   {
     "name": "Deltan Dallagnol",
-    "count": 1
+    "count": 1,
+    "wikipediaUrl": "https://pt.wikipedia.org/wiki/Deltan_Dallagnol",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Discuss%C3%A3o_e_vota%C3%A7%C3%A3o_de_propostas._Dep._Deltan_Dallagnol_%28PODE_-_PR%29_%28cropped%29.jpg/330px-Discuss%C3%A3o_e_vota%C3%A7%C3%A3o_de_propostas._Dep._Deltan_Dallagnol_%28PODE_-_PR%29_%28cropped%29.jpg",
+    "wikipediaTitle": "Deltan Dallagnol",
+    "description": "jurista brasileiro, ex-procurador da Lava Jato"
   },
   {
     "name": "Julian Lemos",
