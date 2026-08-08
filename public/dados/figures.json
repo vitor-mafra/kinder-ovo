@@ -8,14 +8,6 @@
     "description": "político brasileiro e Senador da República (2003–2019; 2023–presente)"
   },
   {
-    "name": "Aécio Neves",
-    "count": 6,
-    "wikipediaUrl": "https://pt.wikipedia.org/wiki/A%C3%A9cio_Neves",
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/A%C3%A9cio_Neves_em_2023_%28cropped%29.jpg/330px-A%C3%A9cio_Neves_em_2023_%28cropped%29.jpg",
-    "wikipediaTitle": "Aécio Neves",
-    "description": "economista, político brasileiro e ex-Governador de Minas Gerais"
-  },
-  {
     "name": "Ciro Nogueira",
     "count": 6,
     "wikipediaUrl": "https://pt.wikipedia.org/wiki/Ciro_Nogueira",
@@ -24,12 +16,12 @@
     "description": "político brasileiro, 53° ministro-chefe da Casa Civil do Brasil"
   },
   {
-    "name": "Eduardo Cunha",
-    "count": 5,
-    "wikipediaUrl": "https://pt.wikipedia.org/wiki/Eduardo_Cunha",
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Eduardo_Cunha_em_1%C2%BA_de_junho_de_2015.jpg/330px-Eduardo_Cunha_em_1%C2%BA_de_junho_de_2015.jpg",
-    "wikipediaTitle": "Eduardo Cunha",
-    "description": "economista, político brasileiro e 53° presidente da Câmara dos Deputados"
+    "name": "Aécio Neves",
+    "count": 6,
+    "wikipediaUrl": "https://pt.wikipedia.org/wiki/A%C3%A9cio_Neves",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/A%C3%A9cio_Neves_em_2023_%28cropped%29.jpg/330px-A%C3%A9cio_Neves_em_2023_%28cropped%29.jpg",
+    "wikipediaTitle": "Aécio Neves",
+    "description": "economista, político brasileiro e ex-Governador de Minas Gerais"
   },
   {
     "name": "Bia Kicis",
@@ -40,20 +32,12 @@
     "description": "política brasileira"
   },
   {
-    "name": "Cabo Daciolo",
-    "count": 4,
-    "wikipediaUrl": "https://pt.wikipedia.org/wiki/Cabo_Daciolo",
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Deputados_cabo_Daciolo_%28PSOL-RJ%29_e_Marcos_Reategui_%28PSC-AP%29_participam_do_programa_Brasil_em_Debate_%28cropped%29.jpg/330px-Deputados_cabo_Daciolo_%28PSOL-RJ%29_e_Marcos_Reategui_%28PSC-AP%29_participam_do_programa_Brasil_em_Debate_%28cropped%29.jpg",
-    "wikipediaTitle": "Cabo Daciolo",
-    "description": "bombeiro militar, político brasileiro e ex-deputado federal do Brasil (2015–2019)"
-  },
-  {
-    "name": "Damares Alves",
-    "count": 4,
-    "wikipediaUrl": "https://pt.wikipedia.org/wiki/Damares_Alves",
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Senadores_da_57%C2%AA_Legislatura_%2852688507962%29.jpg/330px-Senadores_da_57%C2%AA_Legislatura_%2852688507962%29.jpg",
-    "wikipediaTitle": "Damares Alves",
-    "description": "advogada, pastora evangélica e política brasileira"
+    "name": "Eduardo Cunha",
+    "count": 5,
+    "wikipediaUrl": "https://pt.wikipedia.org/wiki/Eduardo_Cunha",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Eduardo_Cunha_em_1%C2%BA_de_junho_de_2015.jpg/330px-Eduardo_Cunha_em_1%C2%BA_de_junho_de_2015.jpg",
+    "wikipediaTitle": "Eduardo Cunha",
+    "description": "economista, político brasileiro e 53° presidente da Câmara dos Deputados"
   },
   {
     "name": "Rogério Marinho",
@@ -72,6 +56,14 @@
     "description": "médico ortopedista e político brasileiro, 47º ministro da Saúde do Brasil"
   },
   {
+    "name": "Damares Alves",
+    "count": 4,
+    "wikipediaUrl": "https://pt.wikipedia.org/wiki/Damares_Alves",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Senadores_da_57%C2%AA_Legislatura_%2852688507962%29.jpg/330px-Senadores_da_57%C2%AA_Legislatura_%2852688507962%29.jpg",
+    "wikipediaTitle": "Damares Alves",
+    "description": "advogada, pastora evangélica e política brasileira"
+  },
+  {
     "name": "Aldo Rebelo",
     "count": 4,
     "wikipediaUrl": "https://pt.wikipedia.org/wiki/Aldo_Rebelo",
@@ -80,12 +72,12 @@
     "description": "jornalista e político brasileiro"
   },
   {
-    "name": "Márcio França",
+    "name": "Cabo Daciolo",
     "count": 4,
-    "wikipediaUrl": "https://pt.wikipedia.org/wiki/M%C3%A1rcio_Fran%C3%A7a",
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Ordem_do_Ipiranga_-_M%C3%A1rcio_Fran%C3%A7a.jpg/330px-Ordem_do_Ipiranga_-_M%C3%A1rcio_Fran%C3%A7a.jpg",
-    "wikipediaTitle": "Márcio França",
-    "description": "político brasileiro, ex-governador de São Paulo"
+    "wikipediaUrl": "https://pt.wikipedia.org/wiki/Cabo_Daciolo",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Deputados_cabo_Daciolo_%28PSOL-RJ%29_e_Marcos_Reategui_%28PSC-AP%29_participam_do_programa_Brasil_em_Debate_%28cropped%29.jpg/330px-Deputados_cabo_Daciolo_%28PSOL-RJ%29_e_Marcos_Reategui_%28PSC-AP%29_participam_do_programa_Brasil_em_Debate_%28cropped%29.jpg",
+    "wikipediaTitle": "Cabo Daciolo",
+    "description": "bombeiro militar, político brasileiro e ex-deputado federal do Brasil (2015–2019)"
   },
   {
     "name": "Janaína Paschoal",
@@ -96,76 +88,20 @@
     "description": "jurista e política brasileira"
   },
   {
+    "name": "Márcio França",
+    "count": 4,
+    "wikipediaUrl": "https://pt.wikipedia.org/wiki/M%C3%A1rcio_Fran%C3%A7a",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Ordem_do_Ipiranga_-_M%C3%A1rcio_Fran%C3%A7a.jpg/330px-Ordem_do_Ipiranga_-_M%C3%A1rcio_Fran%C3%A7a.jpg",
+    "wikipediaTitle": "Márcio França",
+    "description": "político brasileiro, ex-governador de São Paulo"
+  },
+  {
     "name": "Sérgio Moro",
     "count": 4,
     "wikipediaUrl": "https://pt.wikipedia.org/wiki/Sergio_Moro",
     "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Senador_da_Rep%C3%BAblica_S%C3%A9rgio_Moro.jpg/330px-Senador_da_Rep%C3%BAblica_S%C3%A9rgio_Moro.jpg",
     "wikipediaTitle": "Sergio Moro",
     "description": "político brasileiro"
-  },
-  {
-    "name": "José Dirceu",
-    "count": 3,
-    "wikipediaUrl": "https://pt.wikipedia.org/wiki/Jos%C3%A9_Dirceu",
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Jos%C3%A9_Dirceu.jpg/330px-Jos%C3%A9_Dirceu.jpg",
-    "wikipediaTitle": "José Dirceu",
-    "description": "político e advogado brasileiro"
-  },
-  {
-    "name": "Fernando Collor de Mello",
-    "count": 3,
-    "wikipediaUrl": "https://pt.wikipedia.org/wiki/Fernando_Collor",
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Fernandocolloroficial_%282%29.jpg/330px-Fernandocolloroficial_%282%29.jpg",
-    "wikipediaTitle": "Fernando Collor",
-    "description": "32.º presidente do Brasil (1990–1992)"
-  },
-  {
-    "name": "Jorge Kajuru",
-    "count": 3,
-    "wikipediaUrl": "https://pt.wikipedia.org/wiki/Jorge_Kajuru",
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Senador_Jorge_Kajuru.jpg/330px-Senador_Jorge_Kajuru.jpg",
-    "wikipediaTitle": "Jorge Kajuru",
-    "description": "jornalista e político brasileiro"
-  },
-  {
-    "name": "Carla Zambelli",
-    "count": 3,
-    "wikipediaUrl": "https://pt.wikipedia.org/wiki/Carla_Zambelli",
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/2019_Audi%C3%AAncia_com_a_Deputada_Carla_Zambelli_PSL-SP_-_46655133654_%28cropped%29.jpg/330px-2019_Audi%C3%AAncia_com_a_Deputada_Carla_Zambelli_PSL-SP_-_46655133654_%28cropped%29.jpg",
-    "wikipediaTitle": "Carla Zambelli",
-    "description": "politica brasileira"
-  },
-  {
-    "name": "Kim Kataguiri",
-    "count": 3,
-    "wikipediaUrl": "https://pt.wikipedia.org/wiki/Kim_Kataguiri",
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/CCJ_-_Comiss%C3%A3o_de_Constitui%C3%A7%C3%A3o%2C_Justi%C3%A7a_e_Cidadania_-_45921653432_%28cropped%29.jpg/330px-CCJ_-_Comiss%C3%A3o_de_Constitui%C3%A7%C3%A3o%2C_Justi%C3%A7a_e_Cidadania_-_45921653432_%28cropped%29.jpg",
-    "wikipediaTitle": "Kim Kataguiri",
-    "description": "Deputado federal do Brasil desde 2019"
-  },
-  {
-    "name": "Ciro Gomes",
-    "count": 3,
-    "wikipediaUrl": "https://pt.wikipedia.org/wiki/Ciro_Gomes",
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Presidente_Ciro_Gomes.png/330px-Presidente_Ciro_Gomes.png",
-    "wikipediaTitle": "Ciro Gomes",
-    "description": "político brasileiro, ex-governador do Ceará"
-  },
-  {
-    "name": "Roberto Jefferson",
-    "count": 3,
-    "wikipediaUrl": "https://pt.wikipedia.org/wiki/Roberto_Jefferson",
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Roberto_Jefferson.jpg/330px-Roberto_Jefferson.jpg",
-    "wikipediaTitle": "Roberto Jefferson",
-    "description": "político brasileiro"
-  },
-  {
-    "name": "Paulo Guedes",
-    "count": 3,
-    "wikipediaUrl": "https://pt.wikipedia.org/wiki/Paulo_Guedes",
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Jair_Bolsonaro_e_Paulo_Guedes_em_solenidade_%28cropped%29.jpg/330px-Jair_Bolsonaro_e_Paulo_Guedes_em_solenidade_%28cropped%29.jpg",
-    "wikipediaTitle": "Paulo Guedes",
-    "description": "economista brasileiro e ex-ministro da economia do Brasil (2019–2023)"
   },
   {
     "name": "Eduardo Paes",
@@ -184,12 +120,28 @@
     "description": "pastor evangélico e político brasileiro"
   },
   {
-    "name": "Roberto Justus",
+    "name": "Kim Kataguiri",
     "count": 3,
-    "wikipediaUrl": "https://pt.wikipedia.org/wiki/Roberto_Justus",
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/2024-09-05_Inaugura%C3%A7%C3%A3o_da_F%C3%A1brica_Lightwall_Rio_Claro%2C_09_%28Roberto_Justus%29.jpg/330px-2024-09-05_Inaugura%C3%A7%C3%A3o_da_F%C3%A1brica_Lightwall_Rio_Claro%2C_09_%28Roberto_Justus%29.jpg",
-    "wikipediaTitle": "Roberto Justus",
-    "description": "empresário, administrador, investidor, publicitário e apresentador de televisão brasileiro"
+    "wikipediaUrl": "https://pt.wikipedia.org/wiki/Kim_Kataguiri",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/CCJ_-_Comiss%C3%A3o_de_Constitui%C3%A7%C3%A3o%2C_Justi%C3%A7a_e_Cidadania_-_45921653432_%28cropped%29.jpg/330px-CCJ_-_Comiss%C3%A3o_de_Constitui%C3%A7%C3%A3o%2C_Justi%C3%A7a_e_Cidadania_-_45921653432_%28cropped%29.jpg",
+    "wikipediaTitle": "Kim Kataguiri",
+    "description": "Deputado federal do Brasil desde 2019"
+  },
+  {
+    "name": "Carla Zambelli",
+    "count": 3,
+    "wikipediaUrl": "https://pt.wikipedia.org/wiki/Carla_Zambelli",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/2019_Audi%C3%AAncia_com_a_Deputada_Carla_Zambelli_PSL-SP_-_46655133654_%28cropped%29.jpg/330px-2019_Audi%C3%AAncia_com_a_Deputada_Carla_Zambelli_PSL-SP_-_46655133654_%28cropped%29.jpg",
+    "wikipediaTitle": "Carla Zambelli",
+    "description": "politica brasileira"
+  },
+  {
+    "name": "José Dirceu",
+    "count": 3,
+    "wikipediaUrl": "https://pt.wikipedia.org/wiki/Jos%C3%A9_Dirceu",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Jos%C3%A9_Dirceu.jpg/330px-Jos%C3%A9_Dirceu.jpg",
+    "wikipediaTitle": "José Dirceu",
+    "description": "político e advogado brasileiro"
   },
   {
     "name": "Álvaro Dias",
@@ -200,6 +152,54 @@
     "description": "político brasileiro, ex-deputado federal do Brasil e ex-governador do Estado do Paraná"
   },
   {
+    "name": "Fernando Collor de Mello",
+    "count": 3,
+    "wikipediaUrl": "https://pt.wikipedia.org/wiki/Fernando_Collor",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Fernandocolloroficial_%282%29.jpg/330px-Fernandocolloroficial_%282%29.jpg",
+    "wikipediaTitle": "Fernando Collor",
+    "description": "32.º presidente do Brasil (1990–1992)"
+  },
+  {
+    "name": "Ciro Gomes",
+    "count": 3,
+    "wikipediaUrl": "https://pt.wikipedia.org/wiki/Ciro_Gomes",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Presidente_Ciro_Gomes.png/330px-Presidente_Ciro_Gomes.png",
+    "wikipediaTitle": "Ciro Gomes",
+    "description": "político brasileiro, ex-governador do Ceará"
+  },
+  {
+    "name": "Paulo Guedes",
+    "count": 3,
+    "wikipediaUrl": "https://pt.wikipedia.org/wiki/Paulo_Guedes",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Jair_Bolsonaro_e_Paulo_Guedes_em_solenidade_%28cropped%29.jpg/330px-Jair_Bolsonaro_e_Paulo_Guedes_em_solenidade_%28cropped%29.jpg",
+    "wikipediaTitle": "Paulo Guedes",
+    "description": "economista brasileiro e ex-ministro da economia do Brasil (2019–2023)"
+  },
+  {
+    "name": "Roberto Justus",
+    "count": 3,
+    "wikipediaUrl": "https://pt.wikipedia.org/wiki/Roberto_Justus",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/2024-09-05_Inaugura%C3%A7%C3%A3o_da_F%C3%A1brica_Lightwall_Rio_Claro%2C_09_%28Roberto_Justus%29.jpg/330px-2024-09-05_Inaugura%C3%A7%C3%A3o_da_F%C3%A1brica_Lightwall_Rio_Claro%2C_09_%28Roberto_Justus%29.jpg",
+    "wikipediaTitle": "Roberto Justus",
+    "description": "empresário, administrador, investidor, publicitário e apresentador de televisão brasileiro"
+  },
+  {
+    "name": "Jorge Kajuru",
+    "count": 3,
+    "wikipediaUrl": "https://pt.wikipedia.org/wiki/Jorge_Kajuru",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Senador_Jorge_Kajuru.jpg/330px-Senador_Jorge_Kajuru.jpg",
+    "wikipediaTitle": "Jorge Kajuru",
+    "description": "jornalista e político brasileiro"
+  },
+  {
+    "name": "Roberto Jefferson",
+    "count": 3,
+    "wikipediaUrl": "https://pt.wikipedia.org/wiki/Roberto_Jefferson",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Roberto_Jefferson.jpg/330px-Roberto_Jefferson.jpg",
+    "wikipediaTitle": "Roberto Jefferson",
+    "description": "político brasileiro"
+  },
+  {
     "name": "João Dória",
     "count": 3,
     "wikipediaUrl": "https://pt.wikipedia.org/wiki/Jo%C3%A3o_Doria",
@@ -208,12 +208,12 @@
     "description": "empresário e político brasileiro, ex-governador de São Paulo"
   },
   {
-    "name": "Nelson Jobim",
+    "name": "Paulo Pimenta",
     "count": 2,
-    "wikipediaUrl": "https://pt.wikipedia.org/wiki/Nelson_Jobim",
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Presjobim.jpg/330px-Presjobim.jpg",
-    "wikipediaTitle": "Nelson Jobim",
-    "description": "jurista, político e empresário brasileiro, ex-ministro do Supremo Tribunal Federal"
+    "wikipediaUrl": "https://pt.wikipedia.org/wiki/Paulo_Pimenta",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/01.01.2023_-_Posse_de_Paulo_Pimenta%2C_Ministro_de_Estado_da_SECOM_%2852626632859%29_%28cropped%29.jpg/330px-01.01.2023_-_Posse_de_Paulo_Pimenta%2C_Ministro_de_Estado_da_SECOM_%2852626632859%29_%28cropped%29.jpg",
+    "wikipediaTitle": "Paulo Pimenta",
+    "description": "político brasileiro"
   },
   {
     "name": "Renan Santos",
@@ -222,14 +222,6 @@
     "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/2026-01-11_Renan_Santos_%2855036684938%29_%283x4%29.jpg/330px-2026-01-11_Renan_Santos_%2855036684938%29_%283x4%29.jpg",
     "wikipediaTitle": "Renan Santos",
     "description": "fundador do Movimento Brasil Livre (MBL), ativista político brasileiro e 1.º presidente do Partido Missão"
-  },
-  {
-    "name": "Paulo Pimenta",
-    "count": 2,
-    "wikipediaUrl": "https://pt.wikipedia.org/wiki/Paulo_Pimenta",
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/01.01.2023_-_Posse_de_Paulo_Pimenta%2C_Ministro_de_Estado_da_SECOM_%2852626632859%29_%28cropped%29.jpg/330px-01.01.2023_-_Posse_de_Paulo_Pimenta%2C_Ministro_de_Estado_da_SECOM_%2852626632859%29_%28cropped%29.jpg",
-    "wikipediaTitle": "Paulo Pimenta",
-    "description": "político brasileiro"
   },
   {
     "name": "Geraldo Alckmin",
@@ -248,6 +240,14 @@
     "description": "político brasileiro"
   },
   {
+    "name": "Luciano Huck",
+    "count": 2,
+    "wikipediaUrl": "https://pt.wikipedia.org/wiki/Luciano_Huck",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Luciano_Huck_in_April_2019.jpg/330px-Luciano_Huck_in_April_2019.jpg",
+    "wikipediaTitle": "Luciano Huck",
+    "description": "apresentador de televisão brasileiro"
+  },
+  {
     "name": "Boca Aberta",
     "count": 2,
     "wikipediaUrl": "https://pt.wikipedia.org/wiki/Boca_Aberta",
@@ -262,14 +262,6 @@
     "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Hamilton_Mour%C3%A3o.jpg/330px-Hamilton_Mour%C3%A3o.jpg",
     "wikipediaTitle": "Hamilton Mourão",
     "description": "político brasileiro, ex-vice-presidente do Brasil (2019–2023) e Senador da República pelo estado do Rio Grande do Sul desde 2023"
-  },
-  {
-    "name": "Flávio Dino",
-    "count": 2,
-    "wikipediaUrl": "https://pt.wikipedia.org/wiki/Fl%C3%A1vio_Dino",
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Fl%C3%A1vio_Dino_no_voto_da_A%C3%A7%C3%A3o_Penal_%28AP%29_2668_%28cropped%29.jpg/330px-Fl%C3%A1vio_Dino_no_voto_da_A%C3%A7%C3%A3o_Penal_%28AP%29_2668_%28cropped%29.jpg",
-    "wikipediaTitle": "Flávio Dino",
-    "description": "magistrado, professor, jurista, ex-advogado, ex-político brasileiro e Ministro do Supremo Tribunal Federal"
   },
   {
     "name": "Marcelo Crivella",
@@ -312,14 +304,6 @@
     "description": "magistrado brasileiro, Ex-Ministro do Supremo Tribunal Federal"
   },
   {
-    "name": "Eike Batista",
-    "count": 2,
-    "wikipediaUrl": "https://pt.wikipedia.org/wiki/Eike_Batista",
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/EIKE_BATISTA_%28crop%29.jpg/330px-EIKE_BATISTA_%28crop%29.jpg",
-    "wikipediaTitle": "Eike Batista",
-    "description": "Empresário teuto-brasileiro"
-  },
-  {
     "name": "Marcos Pontes",
     "count": 2,
     "wikipediaUrl": "https://pt.wikipedia.org/wiki/Marcos_Pontes",
@@ -328,12 +312,20 @@
     "description": "engenheiro, astronauta e político brasileiro"
   },
   {
-    "name": "Luciano Huck",
+    "name": "Eike Batista",
     "count": 2,
-    "wikipediaUrl": "https://pt.wikipedia.org/wiki/Luciano_Huck",
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Luciano_Huck_in_April_2019.jpg/330px-Luciano_Huck_in_April_2019.jpg",
-    "wikipediaTitle": "Luciano Huck",
-    "description": "apresentador de televisão brasileiro"
+    "wikipediaUrl": "https://pt.wikipedia.org/wiki/Eike_Batista",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/EIKE_BATISTA_%28crop%29.jpg/330px-EIKE_BATISTA_%28crop%29.jpg",
+    "wikipediaTitle": "Eike Batista",
+    "description": "Empresário teuto-brasileiro"
+  },
+  {
+    "name": "Henrique Meirelles",
+    "count": 2,
+    "wikipediaUrl": "https://pt.wikipedia.org/wiki/Henrique_Meirelles",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Foto_oficial_de_Henrique_Meirelles%2C_secret%C3%A1rio_de_Fazenda%2C_Planejamento_e_Gest%C3%A3o_do_estado_de_S%C3%A3o_Paulo.jpg/330px-Foto_oficial_de_Henrique_Meirelles%2C_secret%C3%A1rio_de_Fazenda%2C_Planejamento_e_Gest%C3%A3o_do_estado_de_S%C3%A3o_Paulo.jpg",
+    "wikipediaTitle": "Henrique Meirelles",
+    "description": "político e empresário brasileiro"
   },
   {
     "name": "Luciano Hang",
@@ -352,12 +344,12 @@
     "description": "cantora, atriz e empresária brasileira"
   },
   {
-    "name": "Henrique Meirelles",
+    "name": "Supla",
     "count": 2,
-    "wikipediaUrl": "https://pt.wikipedia.org/wiki/Henrique_Meirelles",
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Foto_oficial_de_Henrique_Meirelles%2C_secret%C3%A1rio_de_Fazenda%2C_Planejamento_e_Gest%C3%A3o_do_estado_de_S%C3%A3o_Paulo.jpg/330px-Foto_oficial_de_Henrique_Meirelles%2C_secret%C3%A1rio_de_Fazenda%2C_Planejamento_e_Gest%C3%A3o_do_estado_de_S%C3%A3o_Paulo.jpg",
-    "wikipediaTitle": "Henrique Meirelles",
-    "description": "político e empresário brasileiro"
+    "wikipediaUrl": "https://pt.wikipedia.org/wiki/Supla",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Supla.png/330px-Supla.png",
+    "wikipediaTitle": "Supla",
+    "description": "cantor e apresentador brasileiro"
   },
   {
     "name": "Onyx Lorenzoni",
@@ -376,20 +368,12 @@
     "description": "advogado, empresário, jornalista e político brasileiro"
   },
   {
-    "name": "Supla",
+    "name": "Roberto Requião",
     "count": 2,
-    "wikipediaUrl": "https://pt.wikipedia.org/wiki/Supla",
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Supla.png/330px-Supla.png",
-    "wikipediaTitle": "Supla",
-    "description": "cantor e apresentador brasileiro"
-  },
-  {
-    "name": "Ratinho Júnior",
-    "count": 2,
-    "wikipediaUrl": "https://pt.wikipedia.org/wiki/Ratinho_J%C3%BAnior",
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Ratinho_J%C3%BAnior_as_governor_of_Paran%C3%A1%2C_January_2023_%28cropped%29.jpg/330px-Ratinho_J%C3%BAnior_as_governor_of_Paran%C3%A1%2C_January_2023_%28cropped%29.jpg",
-    "wikipediaTitle": "Ratinho Júnior",
-    "description": "Governador do estado do Paraná"
+    "wikipediaUrl": "https://pt.wikipedia.org/wiki/Roberto_Requi%C3%A3o",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Foto_oficial_de_Roberto_Requi%C3%A3o.jpg/330px-Foto_oficial_de_Roberto_Requi%C3%A3o.jpg",
+    "wikipediaTitle": "Roberto Requião",
+    "description": "Político brasileiro"
   },
   {
     "name": "José Múcio",
@@ -398,6 +382,14 @@
     "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Foto_Oficial_do_Senhor_Ministro_da_Defesa_Jos%C3%A9_M%C3%BAcio_Monteiro_Filho_%2852624967260%29.jpg/330px-Foto_Oficial_do_Senhor_Ministro_da_Defesa_Jos%C3%A9_M%C3%BAcio_Monteiro_Filho_%2852624967260%29.jpg",
     "wikipediaTitle": "José Múcio",
     "description": "político brasileiro, Ministro da defesa do Brasil"
+  },
+  {
+    "name": "Ratinho Júnior",
+    "count": 2,
+    "wikipediaUrl": "https://pt.wikipedia.org/wiki/Ratinho_J%C3%BAnior",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Ratinho_J%C3%BAnior_as_governor_of_Paran%C3%A1%2C_January_2023_%28cropped%29.jpg/330px-Ratinho_J%C3%BAnior_as_governor_of_Paran%C3%A1%2C_January_2023_%28cropped%29.jpg",
+    "wikipediaTitle": "Ratinho Júnior",
+    "description": "Governador do estado do Paraná"
   },
   {
     "name": "Eduardo Bolsonaro",
@@ -416,12 +408,20 @@
     "description": "empresário e político brasileiro, ex-governador de Minas Gerais"
   },
   {
-    "name": "Arthur do Val",
+    "name": "Jaques Wagner",
     "count": 2,
-    "wikipediaUrl": "https://pt.wikipedia.org/wiki/Arthur_do_Val",
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Arthur_do_Val_%28cropped%29.jpg/330px-Arthur_do_Val_%28cropped%29.jpg",
-    "wikipediaTitle": "Arthur do Val",
-    "description": "ex-deputado estadual de São Paulo (2019–2022) e ativista do Movimento Brasil Livre (MBL)"
+    "wikipediaUrl": "https://pt.wikipedia.org/wiki/Jaques_Wagner",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Foto_oficial_de_Jaques_Wagner.jpg/330px-Foto_oficial_de_Jaques_Wagner.jpg",
+    "wikipediaTitle": "Jaques Wagner",
+    "description": "industriário, sindicalista e político brasileiro, governador e senador pelo Estado da Bahia"
+  },
+  {
+    "name": "Flávio Dino",
+    "count": 2,
+    "wikipediaUrl": "https://pt.wikipedia.org/wiki/Fl%C3%A1vio_Dino",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Fl%C3%A1vio_Dino_no_voto_da_A%C3%A7%C3%A3o_Penal_%28AP%29_2668_%28cropped%29.jpg/330px-Fl%C3%A1vio_Dino_no_voto_da_A%C3%A7%C3%A3o_Penal_%28AP%29_2668_%28cropped%29.jpg",
+    "wikipediaTitle": "Flávio Dino",
+    "description": "magistrado, professor, jurista, ex-advogado, ex-político brasileiro e Ministro do Supremo Tribunal Federal"
   },
   {
     "name": "Júlia Zanatta",
@@ -432,12 +432,12 @@
     "description": null
   },
   {
-    "name": "Jaques Wagner",
+    "name": "Rodrigo Maia",
     "count": 2,
-    "wikipediaUrl": "https://pt.wikipedia.org/wiki/Jaques_Wagner",
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Foto_oficial_de_Jaques_Wagner.jpg/330px-Foto_oficial_de_Jaques_Wagner.jpg",
-    "wikipediaTitle": "Jaques Wagner",
-    "description": "industriário, sindicalista e político brasileiro, governador e senador pelo Estado da Bahia"
+    "wikipediaUrl": "https://pt.wikipedia.org/wiki/Rodrigo_Maia",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Audi%C3%AAncia_com_o_Presidente_da_C%C3%A2mara_dos_Deputados%2C_Rodrigo_Maia_-_48836600688_%28cropped%29.jpg/330px-Audi%C3%AAncia_com_o_Presidente_da_C%C3%A2mara_dos_Deputados%2C_Rodrigo_Maia_-_48836600688_%28cropped%29.jpg",
+    "wikipediaTitle": "Rodrigo Maia",
+    "description": "político brasileiro; 111º presidente da Câmara dos Deputados do Brasil (2016–2021)"
   },
   {
     "name": "Gilson Machado",
@@ -448,20 +448,12 @@
     "description": "político brasileiro"
   },
   {
-    "name": "Rodrigo Maia",
+    "name": "Wilson Witzel",
     "count": 2,
-    "wikipediaUrl": "https://pt.wikipedia.org/wiki/Rodrigo_Maia",
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Audi%C3%AAncia_com_o_Presidente_da_C%C3%A2mara_dos_Deputados%2C_Rodrigo_Maia_-_48836600688_%28cropped%29.jpg/330px-Audi%C3%AAncia_com_o_Presidente_da_C%C3%A2mara_dos_Deputados%2C_Rodrigo_Maia_-_48836600688_%28cropped%29.jpg",
-    "wikipediaTitle": "Rodrigo Maia",
-    "description": "político brasileiro; 111º presidente da Câmara dos Deputados do Brasil (2016–2021)"
-  },
-  {
-    "name": "Roberto Requião",
-    "count": 2,
-    "wikipediaUrl": "https://pt.wikipedia.org/wiki/Roberto_Requi%C3%A3o",
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Foto_oficial_de_Roberto_Requi%C3%A3o.jpg/330px-Foto_oficial_de_Roberto_Requi%C3%A3o.jpg",
-    "wikipediaTitle": "Roberto Requião",
-    "description": "Político brasileiro"
+    "wikipediaUrl": "https://pt.wikipedia.org/wiki/Wilson_Witzel",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Wilson_Witzel_com_faixa_de_Governador_2_%28cropped%29.jpg/330px-Wilson_Witzel_com_faixa_de_Governador_2_%28cropped%29.jpg",
+    "wikipediaTitle": "Wilson Witzel",
+    "description": "jurista e político brasileiro, ex-governador do Rio de Janeiro (2019–2021)"
   },
   {
     "name": "Rui Falcão",
@@ -472,20 +464,20 @@
     "description": "jornalista e político brasileiro"
   },
   {
+    "name": "André de Paula",
+    "count": 2,
+    "wikipediaUrl": "https://pt.wikipedia.org/wiki/Andr%C3%A9_de_Paula",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/01.01.2023_-_Posse_de_Andr%C3%A9_de_Paula%2C_Ministro_de_Estado_da_Pesca_e_Aquicultura_%2852625774842%29_%28cropped%29.jpg/330px-01.01.2023_-_Posse_de_Andr%C3%A9_de_Paula%2C_Ministro_de_Estado_da_Pesca_e_Aquicultura_%2852625774842%29_%28cropped%29.jpg",
+    "wikipediaTitle": "André de Paula",
+    "description": null
+  },
+  {
     "name": "Carlos Lupi",
     "count": 2,
     "wikipediaUrl": "https://pt.wikipedia.org/wiki/Carlos_Lupi",
     "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/01.01.2023_-_Posse_de_Carlos_Lupi%2C_Ministro_de_Estado_da_Previd%C3%AAncia_Social_%2852625793002%29_%28cropped%29.jpg/330px-01.01.2023_-_Posse_de_Carlos_Lupi%2C_Ministro_de_Estado_da_Previd%C3%AAncia_Social_%2852625793002%29_%28cropped%29.jpg",
     "wikipediaTitle": "Carlos Lupi",
     "description": "político brasileiro; ministro da Previdência Social do Brasil (2023–2025)"
-  },
-  {
-    "name": "Wilson Witzel",
-    "count": 2,
-    "wikipediaUrl": "https://pt.wikipedia.org/wiki/Wilson_Witzel",
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Wilson_Witzel_com_faixa_de_Governador_2_%28cropped%29.jpg/330px-Wilson_Witzel_com_faixa_de_Governador_2_%28cropped%29.jpg",
-    "wikipediaTitle": "Wilson Witzel",
-    "description": "jurista e político brasileiro, ex-governador do Rio de Janeiro (2019–2021)"
   },
   {
     "name": "Ronaldo Caiado",
@@ -536,14 +528,6 @@
     "description": "político brasileiro"
   },
   {
-    "name": "André de Paula",
-    "count": 2,
-    "wikipediaUrl": "https://pt.wikipedia.org/wiki/Andr%C3%A9_de_Paula",
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/01.01.2023_-_Posse_de_Andr%C3%A9_de_Paula%2C_Ministro_de_Estado_da_Pesca_e_Aquicultura_%2852625774842%29_%28cropped%29.jpg/330px-01.01.2023_-_Posse_de_Andr%C3%A9_de_Paula%2C_Ministro_de_Estado_da_Pesca_e_Aquicultura_%2852625774842%29_%28cropped%29.jpg",
-    "wikipediaTitle": "André de Paula",
-    "description": null
-  },
-  {
     "name": "Michelle Bolsonaro",
     "count": 2,
     "wikipediaUrl": "https://pt.wikipedia.org/wiki/Michelle_Bolsonaro",
@@ -560,20 +544,20 @@
     "description": "empresário e político brasileiro, ex-Prefeito de Belo Horizonte"
   },
   {
+    "name": "André Janones",
+    "count": 2,
+    "wikipediaUrl": "https://pt.wikipedia.org/wiki/Andr%C3%A9_Janones",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/92/AndreJanones1.jpg",
+    "wikipediaTitle": "André Janones",
+    "description": "político brasileiro e Deputado federal do Brasil desde 2019"
+  },
+  {
     "name": "Otoni de Paula",
     "count": 2,
     "wikipediaUrl": "https://pt.wikipedia.org/wiki/Otoni_de_Paula",
     "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Deputado_Otoni_de_Paula_%28cropped%29.jpg/330px-Deputado_Otoni_de_Paula_%28cropped%29.jpg",
     "wikipediaTitle": "Otoni de Paula",
     "description": "político brasileiro, Vereador da Cidade do Rio de Janeiro (2017–2019) e Deputado federal do Brasil desde 2019"
-  },
-  {
-    "name": "Valdemar Costa Neto",
-    "count": 2,
-    "wikipediaUrl": "https://pt.wikipedia.org/wiki/Valdemar_Costa_Neto",
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Foto_da_Conven%C3%A7%C3%A3o_do_PL_%28cropped2%29.jpg/330px-Foto_da_Conven%C3%A7%C3%A3o_do_PL_%28cropped2%29.jpg",
-    "wikipediaTitle": "Valdemar Costa Neto",
-    "description": "Presidente nacional do Partido Liberal, ex-deputado federal"
   },
   {
     "name": "Cristiane Brasil",
@@ -584,6 +568,14 @@
     "description": "advogada e política brasileira"
   },
   {
+    "name": "Valdemar Costa Neto",
+    "count": 2,
+    "wikipediaUrl": "https://pt.wikipedia.org/wiki/Valdemar_Costa_Neto",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Foto_da_Conven%C3%A7%C3%A3o_do_PL_%28cropped2%29.jpg/330px-Foto_da_Conven%C3%A7%C3%A3o_do_PL_%28cropped2%29.jpg",
+    "wikipediaTitle": "Valdemar Costa Neto",
+    "description": "Presidente nacional do Partido Liberal, ex-deputado federal"
+  },
+  {
     "name": "Michel Temer",
     "count": 2,
     "wikipediaUrl": "https://pt.wikipedia.org/wiki/Michel_Temer",
@@ -592,12 +584,20 @@
     "description": "37.º presidente do Brasil (2016–2019)"
   },
   {
-    "name": "André Janones",
+    "name": "Nelson Jobim",
     "count": 2,
-    "wikipediaUrl": "https://pt.wikipedia.org/wiki/Andr%C3%A9_Janones",
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/92/AndreJanones1.jpg",
-    "wikipediaTitle": "André Janones",
-    "description": "político brasileiro e Deputado federal do Brasil desde 2019"
+    "wikipediaUrl": "https://pt.wikipedia.org/wiki/Nelson_Jobim",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Presjobim.jpg/330px-Presjobim.jpg",
+    "wikipediaTitle": "Nelson Jobim",
+    "description": "jurista, político e empresário brasileiro, ex-ministro do Supremo Tribunal Federal"
+  },
+  {
+    "name": "Arthur do Val",
+    "count": 2,
+    "wikipediaUrl": "https://pt.wikipedia.org/wiki/Arthur_do_Val",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Arthur_do_Val_%28cropped%29.jpg/330px-Arthur_do_Val_%28cropped%29.jpg",
+    "wikipediaTitle": "Arthur do Val",
+    "description": "ex-deputado estadual de São Paulo (2019–2022) e ativista do Movimento Brasil Livre (MBL)"
   },
   {
     "name": "Cláudio Castro",
@@ -614,6 +614,14 @@
     "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Senador_Eduardo_Gir%C3%A3o.jpg/330px-Senador_Eduardo_Gir%C3%A3o.jpg",
     "wikipediaTitle": "Eduardo Girão",
     "description": "político brasileiro e Senador da República pelo estado do Ceará desde 2019"
+  },
+  {
+    "name": "Tarcísio Gomes de Freitas",
+    "count": 1,
+    "wikipediaUrl": "https://pt.wikipedia.org/wiki/Tarc%C3%ADsio_de_Freitas",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Governador_do_Estado_de_S%C3%A3o_Paulo%2C_Tarc%C3%ADsio_de_Freitas_-_Foto_Oficial_%28cropped%29.jpg/330px-Governador_do_Estado_de_S%C3%A3o_Paulo%2C_Tarc%C3%ADsio_de_Freitas_-_Foto_Oficial_%28cropped%29.jpg",
+    "wikipediaTitle": "Tarcísio de Freitas",
+    "description": "militar, engenheiro e político brasileiro; atual governador do estado de São Paulo"
   },
   {
     "name": "Cid Gomes",
@@ -1042,6 +1050,14 @@
     "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Juliette_%28Jun_2024%29_%28cropped%29.png/330px-Juliette_%28Jun_2024%29_%28cropped%29.png",
     "wikipediaTitle": "Juliette",
     "description": "advogada, maquiadora, cantora, apresentadora, influenciadora digital e empresária brasileira"
+  },
+  {
+    "name": "Franklin Martins",
+    "count": 1,
+    "wikipediaUrl": "https://pt.wikipedia.org/wiki/Franklin_Martins",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/FranklinMartins2008.jpg/330px-FranklinMartins2008.jpg?utm_source=pt.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "wikipediaTitle": "Franklin Martins",
+    "description": "jornalista brasileiro"
   },
   {
     "name": "Sâmia Bonfim",
@@ -1629,7 +1645,11 @@
   },
   {
     "name": "Esperidião Amin",
-    "count": 1
+    "count": 1,
+    "wikipediaUrl": "https://pt.wikipedia.org/wiki/Esperidi%C3%A3o_Amin",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Senador_Esperidi%C3%A3o_Amin.jpg/330px-Senador_Esperidi%C3%A3o_Amin.jpg",
+    "wikipediaTitle": "Esperidião Amin",
+    "description": "Senador por Santa Catarina"
   },
   {
     "name": "Márcia Fernandes",
@@ -1686,6 +1706,14 @@
     "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Foto_Oficial_%285958772460%29.jpg/330px-Foto_Oficial_%285958772460%29.jpg",
     "wikipediaTitle": "Marconi Perillo",
     "description": "político brasileiro, 75.º,  77.º governador de Goiás e atual 16.º Presidente Nacional do Partido da Social Democracia Brasileira (PSDB) desde 2023"
+  },
+  {
+    "name": "Deltan Dallagnol",
+    "count": 1,
+    "wikipediaUrl": "https://pt.wikipedia.org/wiki/Deltan_Dallagnol",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Discuss%C3%A3o_e_vota%C3%A7%C3%A3o_de_propostas._Dep._Deltan_Dallagnol_%28PODE_-_PR%29_%28cropped%29.jpg/330px-Discuss%C3%A3o_e_vota%C3%A7%C3%A3o_de_propostas._Dep._Deltan_Dallagnol_%28PODE_-_PR%29_%28cropped%29.jpg",
+    "wikipediaTitle": "Deltan Dallagnol",
+    "description": "jurista brasileiro, ex-procurador da Lava Jato"
   },
   {
     "name": "Julian Lemos",
@@ -2018,13 +2046,5 @@
     "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a8/Drauzio_Varella_%28cropped%29.png",
     "wikipediaTitle": "Drauzio Varella",
     "description": "médico oncologista, cientista e escritor brasileiro"
-  },
-  {
-    "name": "Tarcísio Gomes de Freitas",
-    "count": 1,
-    "wikipediaUrl": "https://pt.wikipedia.org/wiki/Tarc%C3%ADsio_de_Freitas",
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Governador_do_Estado_de_S%C3%A3o_Paulo%2C_Tarc%C3%ADsio_de_Freitas_-_Foto_Oficial_%28cropped%29.jpg/330px-Governador_do_Estado_de_S%C3%A3o_Paulo%2C_Tarc%C3%ADsio_de_Freitas_-_Foto_Oficial_%28cropped%29.jpg",
-    "wikipediaTitle": "Tarcísio de Freitas",
-    "description": "militar, engenheiro e político brasileiro; atual governador do estado de São Paulo"
   }
 ]

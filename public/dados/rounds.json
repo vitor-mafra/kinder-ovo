@@ -1,7 +1,7 @@
 {
   "meta": {
     "datasetVersion": "1.0",
-    "generatedAt": "2026-07-30T18:14:27.569760+00:00",
+    "generatedAt": "2026-08-08T17:53:07.332223+00:00",
     "credit": {
       "text": "Dados: Momento Kinder Ovo — kinderovo.com, por Vitor Mafra",
       "url": "https://kinderovo.com"
@@ -22402,9 +22402,9 @@
         "publicFigures": [
           {
             "name": "Esperidião Amin",
-            "wikipediaUrl": null,
-            "imageUrl": null,
-            "description": null
+            "wikipediaUrl": "https://pt.wikipedia.org/wiki/Esperidi%C3%A3o_Amin",
+            "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Senador_Esperidi%C3%A3o_Amin.jpg/330px-Senador_Esperidi%C3%A3o_Amin.jpg",
+            "description": "Senador por Santa Catarina"
           }
         ]
       },
@@ -22496,6 +22496,118 @@
         "hasWinner": true,
         "hasPublicFigure": true,
         "playable": true,
+        "extractionModel": "gpt-5.4",
+        "transcriptionModel": "gpt-4o-transcribe"
+      }
+    },
+    {
+      "roundId": "ko-5259",
+      "episodeId": 5259,
+      "episodeNumber": null,
+      "title": "A insensatez de Milei, o caos em Minas e o juiz no Paraná",
+      "publishedAt": "2026-07-31T16:57:00-03:00",
+      "durationSeconds": 3824,
+      "audioUrl": "https://traffic.megaphone.fm/EDITORAALVINEGRALTDAREVISTAPIAU6976482775.mp3",
+      "spotifyEpisodeId": null,
+      "spotifyUrl": null,
+      "hasKinderOvo": true,
+      "answer": {
+        "publicFigure": "Deltan Dallagnol",
+        "publicFigures": [
+          {
+            "name": "Deltan Dallagnol",
+            "wikipediaUrl": "https://pt.wikipedia.org/wiki/Deltan_Dallagnol",
+            "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Discuss%C3%A3o_e_vota%C3%A7%C3%A3o_de_propostas._Dep._Deltan_Dallagnol_%28PODE_-_PR%29_%28cropped%29.jpg/330px-Discuss%C3%A3o_e_vota%C3%A7%C3%A3o_de_propostas._Dep._Deltan_Dallagnol_%28PODE_-_PR%29_%28cropped%29.jpg",
+            "description": "jurista brasileiro, ex-procurador da Lava Jato"
+          }
+        ]
+      },
+      "panel": {
+        "participants": [
+          "Fernando de Barros e Silva",
+          "Ana Clara Costa",
+          "Celso Rocha de Barros"
+        ],
+        "winners": [
+          "Celso Rocha de Barros"
+        ],
+        "isTie": false,
+        "noWinnerRecorded": false,
+        "results": [
+          {
+            "name": "Fernando de Barros e Silva",
+            "outcome": "did_not_win"
+          },
+          {
+            "name": "Ana Clara Costa",
+            "outcome": "did_not_win"
+          },
+          {
+            "name": "Celso Rocha de Barros",
+            "outcome": "winner"
+          }
+        ]
+      },
+      "quality": {
+        "confidence": 0.95,
+        "hasWinner": true,
+        "hasPublicFigure": true,
+        "playable": true,
+        "extractionModel": "gpt-5.4",
+        "transcriptionModel": "gpt-4o-transcribe"
+      }
+    },
+    {
+      "roundId": "ko-5793",
+      "episodeId": 5793,
+      "episodeNumber": null,
+      "title": "O vice bichado de Flávio, o Marcola de Lula e o novo golpe de Trump",
+      "publishedAt": "2026-08-07T09:56:00-03:00",
+      "durationSeconds": 4298,
+      "audioUrl": "https://traffic.megaphone.fm/EDITORAALVINEGRALTDAREVISTAPIAU5393348295.mp3",
+      "spotifyEpisodeId": null,
+      "spotifyUrl": null,
+      "hasKinderOvo": true,
+      "answer": {
+        "publicFigure": "Franklin Martins",
+        "publicFigures": [
+          {
+            "name": "Franklin Martins",
+            "wikipediaUrl": "https://pt.wikipedia.org/wiki/Franklin_Martins",
+            "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/FranklinMartins2008.jpg/330px-FranklinMartins2008.jpg?utm_source=pt.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+            "description": "jornalista brasileiro"
+          }
+        ]
+      },
+      "panel": {
+        "participants": [
+          "Fernando de Barros e Silva",
+          "Ana Clara Costa",
+          "Celso Rocha de Barros"
+        ],
+        "winners": [],
+        "isTie": false,
+        "noWinnerRecorded": true,
+        "results": [
+          {
+            "name": "Fernando de Barros e Silva",
+            "outcome": "did_not_win"
+          },
+          {
+            "name": "Ana Clara Costa",
+            "outcome": "did_not_win"
+          },
+          {
+            "name": "Celso Rocha de Barros",
+            "outcome": "did_not_win"
+          }
+        ]
+      },
+      "quality": {
+        "confidence": 0.97,
+        "hasWinner": false,
+        "hasPublicFigure": true,
+        "playable": false,
         "extractionModel": "gpt-5.4",
         "transcriptionModel": "gpt-4o-transcribe"
       }

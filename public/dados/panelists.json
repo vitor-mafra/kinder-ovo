@@ -1,7 +1,7 @@
 {
   "meta": {
     "datasetVersion": "1.0",
-    "generatedAt": "2026-07-30T18:14:27.569760+00:00",
+    "generatedAt": "2026-08-08T17:53:07.332223+00:00",
     "credit": {
       "text": "Dados: Momento Kinder Ovo — kinderovo.com, por Vitor Mafra",
       "url": "https://kinderovo.com"
@@ -27,11 +27,11 @@
     },
     {
       "name": "Fernando de Barros e Silva",
-      "appearances": 374,
+      "appearances": 376,
       "wins": 47,
       "isMainPanelist": true,
       "firstRoundAt": "2018-05-17T16:16:00-03:00",
-      "lastRoundAt": "2026-07-24T09:35:00-03:00",
+      "lastRoundAt": "2026-08-07T09:56:00-03:00",
       "winsByYear": {
         "2018": 2,
         "2019": 5,
@@ -43,7 +43,7 @@
         "2025": 3,
         "2026": 4
       },
-      "winRate": 12.6
+      "winRate": 12.5
     },
     {
       "name": "Thais Bilenky",
@@ -77,25 +77,25 @@
     },
     {
       "name": "Celso Rocha de Barros",
-      "appearances": 115,
-      "wins": 41,
+      "appearances": 117,
+      "wins": 42,
       "isMainPanelist": true,
       "firstRoundAt": "2024-03-15T10:45:00-03:00",
-      "lastRoundAt": "2026-07-24T09:35:00-03:00",
+      "lastRoundAt": "2026-08-07T09:56:00-03:00",
       "winsByYear": {
         "2024": 17,
         "2025": 17,
-        "2026": 7
+        "2026": 8
       },
-      "winRate": 35.7
+      "winRate": 35.9
     },
     {
       "name": "Ana Clara Costa",
-      "appearances": 132,
+      "appearances": 134,
       "wins": 34,
       "isMainPanelist": true,
       "firstRoundAt": "2021-08-20T10:36:00-03:00",
-      "lastRoundAt": "2026-07-24T09:35:00-03:00",
+      "lastRoundAt": "2026-08-07T09:56:00-03:00",
       "winsByYear": {
         "2021": 1,
         "2022": 2,
@@ -104,7 +104,7 @@
         "2025": 13,
         "2026": 5
       },
-      "winRate": 25.8
+      "winRate": 25.4
     },
     {
       "name": "Bernardo Esteves",
