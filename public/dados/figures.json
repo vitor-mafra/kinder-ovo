@@ -1293,7 +1293,11 @@
   },
   {
     "name": "Tabata Amaral",
-    "count": 1
+    "count": 1,
+    "wikipediaUrl": "https://pt.wikipedia.org/wiki/Tabata_Amaral",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Deputada_Tabata_Amaral_1%C2%BA_07_2026_-_Foto_Chico_Ferreira_%2855368148587%29.jpg/330px-Deputada_Tabata_Amaral_1%C2%BA_07_2026_-_Foto_Chico_Ferreira_%2855368148587%29.jpg?utm_source=pt.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "wikipediaTitle": "Tabata Amaral",
+    "description": "cientista política, ativista pela educação e deputada federal e ex-primeira-dama do Recife"
   },
   {
     "name": "Renan Filho",

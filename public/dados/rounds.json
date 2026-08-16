@@ -1,7 +1,7 @@
 {
   "meta": {
     "datasetVersion": "1.0",
-    "generatedAt": "2026-08-16T22:19:46.122707+00:00",
+    "generatedAt": "2026-08-16T22:29:55.768697+00:00",
     "credit": {
       "text": "Dados: Momento Kinder Ovo — kinderovo.com, por Vitor Mafra",
       "url": "https://kinderovo.com"
@@ -22628,9 +22628,9 @@
         "publicFigures": [
           {
             "name": "Tabata Amaral",
-            "wikipediaUrl": null,
-            "imageUrl": null,
-            "description": null
+            "wikipediaUrl": "https://pt.wikipedia.org/wiki/Tabata_Amaral",
+            "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Deputada_Tabata_Amaral_1%C2%BA_07_2026_-_Foto_Chico_Ferreira_%2855368148587%29.jpg/330px-Deputada_Tabata_Amaral_1%C2%BA_07_2026_-_Foto_Chico_Ferreira_%2855368148587%29.jpg?utm_source=pt.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+            "description": "cientista política, ativista pela educação e deputada federal e ex-primeira-dama do Recife"
           }
         ]
       },

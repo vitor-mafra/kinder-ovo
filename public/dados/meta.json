@@ -1,7 +1,7 @@
 {
   "dataset": "momento-kinder-ovo",
   "datasetVersion": "1.0",
-  "generatedAt": "2026-08-16T22:19:46.122707+00:00",
+  "generatedAt": "2026-08-16T22:29:55.768697+00:00",
   "downloadUrl": "https://kinderovo.com/dados",
   "usage": "Snapshot para download. Baixe e embuta na sua infra — não faça fetch em produção: são ~66 KB comprimidos, mudam uma vez por semana, e o GitHub Pages que serve estes arquivos não é CDN de terceiro. Republicado toda sexta; confira `generatedAt` para saber a idade do snapshot.",
   "license": "Uso livre.",
