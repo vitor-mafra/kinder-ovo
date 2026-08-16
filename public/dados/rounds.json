@@ -1,7 +1,7 @@
 {
   "meta": {
     "datasetVersion": "1.0",
-    "generatedAt": "2026-08-08T17:53:07.332223+00:00",
+    "generatedAt": "2026-08-16T22:19:46.122707+00:00",
     "credit": {
       "text": "Dados: Momento Kinder Ovo — kinderovo.com, por Vitor Mafra",
       "url": "https://kinderovo.com"
@@ -22608,6 +22608,63 @@
         "hasWinner": false,
         "hasPublicFigure": true,
         "playable": false,
+        "extractionModel": "gpt-5.4",
+        "transcriptionModel": "gpt-4o-transcribe"
+      }
+    },
+    {
+      "roundId": "ko-6329",
+      "episodeId": 6329,
+      "episodeNumber": null,
+      "title": "As dúvidas sobre Gaspar, as astúcias do centrão e o teatro eleitoral",
+      "publishedAt": "2026-08-14T10:25:00-03:00",
+      "durationSeconds": 4150,
+      "audioUrl": "https://traffic.megaphone.fm/EDITORAALVINEGRALTDAREVISTAPIAU3775109360.mp3",
+      "spotifyEpisodeId": null,
+      "spotifyUrl": null,
+      "hasKinderOvo": true,
+      "answer": {
+        "publicFigure": "Tabata Amaral",
+        "publicFigures": [
+          {
+            "name": "Tabata Amaral",
+            "wikipediaUrl": null,
+            "imageUrl": null,
+            "description": null
+          }
+        ]
+      },
+      "panel": {
+        "participants": [
+          "Fernando de Barros e Silva",
+          "Celso Rocha de Barros",
+          "João Batista Júnior"
+        ],
+        "winners": [
+          "Celso Rocha de Barros"
+        ],
+        "isTie": false,
+        "noWinnerRecorded": false,
+        "results": [
+          {
+            "name": "Fernando de Barros e Silva",
+            "outcome": "did_not_win"
+          },
+          {
+            "name": "Celso Rocha de Barros",
+            "outcome": "winner"
+          },
+          {
+            "name": "João Batista Júnior",
+            "outcome": "did_not_win"
+          }
+        ]
+      },
+      "quality": {
+        "confidence": 0.98,
+        "hasWinner": true,
+        "hasPublicFigure": true,
+        "playable": true,
         "extractionModel": "gpt-5.4",
         "transcriptionModel": "gpt-4o-transcribe"
       }
