@@ -1905,7 +1905,11 @@
   },
   {
     "name": "André Marinho",
-    "count": 1
+    "count": 1,
+    "wikipediaUrl": "https://pt.wikipedia.org/wiki/Andr%C3%A9_Marinho_(humorista)",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/AndreMarinho_0408.jpg/330px-AndreMarinho_0408.jpg?utm_source=pt.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "wikipediaTitle": "André Marinho (humorista)",
+    "description": null
   },
   {
     "name": "Flávio Rocha",
