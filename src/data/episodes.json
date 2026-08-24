@@ -5960,13 +5960,13 @@
     "isTie": false
   },
   {
-    "id": 43,
-    "title": "O terrorismo da direita e boas novas em Belém",
+    "id": 44,
+    "title": "As facções do crime e o clima quente em Belém",
     "publishedAt": "2025-11-25T15:44:00-03:00",
     "episodeNumber": null,
     "hasKinderOvo": true,
     "winners": [
-      "Fernando de Barros e Silva"
+      "Ana Clara Costa"
     ],
     "publicFigure": "Sérgio Moro",
     "participants": [
@@ -5978,13 +5978,13 @@
     "isTie": false
   },
   {
-    "id": 44,
-    "title": "As facções do crime e o clima quente em Belém",
+    "id": 43,
+    "title": "O terrorismo da direita e boas novas em Belém",
     "publishedAt": "2025-11-25T15:44:00-03:00",
     "episodeNumber": null,
     "hasKinderOvo": true,
     "winners": [
-      "Ana Clara Costa"
+      "Fernando de Barros e Silva"
     ],
     "publicFigure": "Sérgio Moro",
     "participants": [
@@ -6570,6 +6570,23 @@
       "Celso Rocha de Barros"
     ],
     "publicFigure": "Tabata Amaral",
+    "participants": [
+      "Fernando de Barros e Silva",
+      "Celso Rocha de Barros",
+      "João Batista Júnior"
+    ],
+    "isTie": false
+  },
+  {
+    "id": 6867,
+    "title": "A estreia de Flavio, a campanha de Lula e o avanço do feminicídio",
+    "publishedAt": "2026-08-21T10:07:00-03:00",
+    "episodeNumber": null,
+    "hasKinderOvo": true,
+    "winners": [
+      "Celso Rocha de Barros"
+    ],
+    "publicFigure": "André Marinho",
     "participants": [
       "Fernando de Barros e Silva",
       "Celso Rocha de Barros",

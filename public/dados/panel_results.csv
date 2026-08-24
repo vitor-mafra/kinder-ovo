@@ -1153,14 +1153,14 @@ ko-45,2025-11-07T10:43:00-03:00,Marcos Duval,Fernando de Barros e Silva,did_not_
 ko-45,2025-11-07T10:43:00-03:00,Marcos Duval,Ana Clara Costa,did_not_win,false
 ko-45,2025-11-07T10:43:00-03:00,Marcos Duval,Celso Rocha de Barros,did_not_win,false
 ko-45,2025-11-07T10:43:00-03:00,Marcos Duval,Bernardo Esteves,did_not_win,false
-ko-43,2025-11-25T15:44:00-03:00,Sérgio Moro,Fernando de Barros e Silva,winner,true
-ko-43,2025-11-25T15:44:00-03:00,Sérgio Moro,Ana Clara Costa,did_not_win,true
-ko-43,2025-11-25T15:44:00-03:00,Sérgio Moro,Celso Rocha de Barros,did_not_win,true
-ko-43,2025-11-25T15:44:00-03:00,Sérgio Moro,Bernardo Esteves,did_not_win,true
 ko-44,2025-11-25T15:44:00-03:00,Sérgio Moro,Fernando de Barros e Silva,did_not_win,true
 ko-44,2025-11-25T15:44:00-03:00,Sérgio Moro,Ana Clara Costa,winner,true
 ko-44,2025-11-25T15:44:00-03:00,Sérgio Moro,Celso Rocha de Barros,did_not_win,true
 ko-44,2025-11-25T15:44:00-03:00,Sérgio Moro,Bernardo Esteves,did_not_win,true
+ko-43,2025-11-25T15:44:00-03:00,Sérgio Moro,Fernando de Barros e Silva,winner,true
+ko-43,2025-11-25T15:44:00-03:00,Sérgio Moro,Ana Clara Costa,did_not_win,true
+ko-43,2025-11-25T15:44:00-03:00,Sérgio Moro,Celso Rocha de Barros,did_not_win,true
+ko-43,2025-11-25T15:44:00-03:00,Sérgio Moro,Bernardo Esteves,did_not_win,true
 ko-42,2025-11-28T09:43:00-03:00,Renan Santos,Fernando de Barros e Silva,did_not_win,true
 ko-42,2025-11-28T09:43:00-03:00,Renan Santos,Ana Clara Costa,did_not_win,true
 ko-42,2025-11-28T09:43:00-03:00,Renan Santos,Celso Rocha de Barros,winner,true
@@ -1269,3 +1269,6 @@ ko-5793,2026-08-07T09:56:00-03:00,Franklin Martins,Celso Rocha de Barros,did_not
 ko-6329,2026-08-14T10:25:00-03:00,Tabata Amaral,Fernando de Barros e Silva,did_not_win,true
 ko-6329,2026-08-14T10:25:00-03:00,Tabata Amaral,Celso Rocha de Barros,winner,true
 ko-6329,2026-08-14T10:25:00-03:00,Tabata Amaral,João Batista Júnior,did_not_win,true
+ko-6867,2026-08-21T10:07:00-03:00,André Marinho,Fernando de Barros e Silva,did_not_win,true
+ko-6867,2026-08-21T10:07:00-03:00,André Marinho,Celso Rocha de Barros,winner,true
+ko-6867,2026-08-21T10:07:00-03:00,André Marinho,João Batista Júnior,did_not_win,true

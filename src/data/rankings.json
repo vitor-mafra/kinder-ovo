@@ -8,10 +8,10 @@
   },
   {
     "name": "Fernando de Barros e Silva",
-    "appearances": 377,
+    "appearances": 378,
     "wins": 47,
     "isMainPanelist": true,
-    "winRate": 12.5
+    "winRate": 12.4
   },
   {
     "name": "Thais Bilenky",
@@ -21,18 +21,18 @@
     "winRate": 31.5
   },
   {
+    "name": "Celso Rocha de Barros",
+    "appearances": 119,
+    "wins": 44,
+    "isMainPanelist": true,
+    "winRate": 37.0
+  },
+  {
     "name": "Malu Gaspar",
     "appearances": 114,
     "wins": 44,
     "isMainPanelist": true,
     "winRate": 38.6
-  },
-  {
-    "name": "Celso Rocha de Barros",
-    "appearances": 118,
-    "wins": 43,
-    "isMainPanelist": true,
-    "winRate": 36.4
   },
   {
     "name": "Ana Clara Costa",
@@ -204,7 +204,7 @@
   },
   {
     "name": "João Batista Júnior",
-    "appearances": 8,
+    "appearances": 9,
     "wins": 0,
     "isMainPanelist": false,
     "winRate": 0.0
