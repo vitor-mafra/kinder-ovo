@@ -1,7 +1,7 @@
 {
   "dataset": "momento-kinder-ovo",
   "datasetVersion": "1.0",
-  "generatedAt": "2026-08-24T13:16:30.143479+00:00",
+  "generatedAt": "2026-08-31T20:36:46.483122+00:00",
   "downloadUrl": "https://kinderovo.com/dados",
   "usage": "Snapshot para download. Baixe e embuta na sua infra — não faça fetch em produção: são ~66 KB comprimidos, mudam uma vez por semana, e o GitHub Pages que serve estes arquivos não é CDN de terceiro. Republicado toda sexta; confira `generatedAt` para saber a idade do snapshot.",
   "license": "Uso livre.",
@@ -17,15 +17,15 @@
   },
   "method": "Os 20 minutos finais de cada episódio são transcritos (Whisper/gpt-4o-transcribe) e passados por um LLM que extrai vencedor, bancada presente e figura pública. Episódios novos entram semanalmente e o vencedor da semana é revisado por humano antes de publicar.",
   "coverage": {
-    "episodesProcessed": 397,
-    "episodesWithKinderOvo": 393,
-    "roundsWithPublicFigure": 384,
-    "roundsWithWinner": 268,
-    "playableRounds": 263,
+    "episodesProcessed": 398,
+    "episodesWithKinderOvo": 394,
+    "roundsWithPublicFigure": 385,
+    "roundsWithWinner": 269,
+    "playableRounds": 264,
     "distinctPublicFigures": 261,
     "panelists": 30,
     "firstEpisodeAt": "2018-05-17T16:16:00-03:00",
-    "lastEpisodeAt": "2026-08-21T10:07:00-03:00"
+    "lastEpisodeAt": "2026-08-28T09:32:00-03:00"
   },
   "downloads": {
     "rounds": "https://kinderovo.com/dados/rounds.json",
