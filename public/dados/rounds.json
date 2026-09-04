@@ -1,7 +1,7 @@
 {
   "meta": {
     "datasetVersion": "1.0",
-    "generatedAt": "2026-08-31T20:36:46.483122+00:00",
+    "generatedAt": "2026-09-04T18:19:11.767957+00:00",
     "credit": {
       "text": "Dados: Momento Kinder Ovo — kinderovo.com, por Vitor Mafra",
       "url": "https://kinderovo.com"
@@ -22784,6 +22784,66 @@
         "hasWinner": true,
         "hasPublicFigure": true,
         "playable": true,
+        "extractionModel": "gpt-5.4",
+        "transcriptionModel": "gpt-4o-transcribe"
+      }
+    },
+    {
+      "roundId": "ko-7949",
+      "episodeId": 7949,
+      "episodeNumber": null,
+      "title": "O Master, a eleição e a guerra no STF",
+      "publishedAt": "2026-09-04T09:15:00-03:00",
+      "durationSeconds": 4586,
+      "audioUrl": "https://traffic.megaphone.fm/EDITORAALVINEGRALTDAREVISTAPIAU6858190587.mp3",
+      "spotifyEpisodeId": null,
+      "spotifyUrl": null,
+      "hasKinderOvo": true,
+      "answer": {
+        "publicFigure": "José Roberto Arruda",
+        "publicFigures": [
+          {
+            "name": "José Roberto Arruda",
+            "wikipediaUrl": "https://pt.wikipedia.org/wiki/Jos%C3%A9_Roberto_Arruda",
+            "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Joserobertoarruda2006.jpg/330px-Joserobertoarruda2006.jpg",
+            "description": "político brasileiro"
+          }
+        ]
+      },
+      "panel": {
+        "participants": [
+          "Fernando de Barros e Silva",
+          "Ana Clara Costa",
+          "Celso Rocha de Barros",
+          "Breno Pires"
+        ],
+        "winners": [],
+        "isTie": false,
+        "noWinnerRecorded": true,
+        "results": [
+          {
+            "name": "Fernando de Barros e Silva",
+            "outcome": "did_not_win"
+          },
+          {
+            "name": "Ana Clara Costa",
+            "outcome": "did_not_win"
+          },
+          {
+            "name": "Celso Rocha de Barros",
+            "outcome": "did_not_win"
+          },
+          {
+            "name": "Breno Pires",
+            "outcome": "did_not_win"
+          }
+        ]
+      },
+      "quality": {
+        "confidence": 0.97,
+        "hasWinner": false,
+        "hasPublicFigure": true,
+        "playable": false,
         "extractionModel": "gpt-5.4",
         "transcriptionModel": "gpt-4o-transcribe"
       }

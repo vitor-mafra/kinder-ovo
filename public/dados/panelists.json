@@ -1,7 +1,7 @@
 {
   "meta": {
     "datasetVersion": "1.0",
-    "generatedAt": "2026-08-31T20:36:46.483122+00:00",
+    "generatedAt": "2026-09-04T18:19:11.767957+00:00",
     "credit": {
       "text": "Dados: Momento Kinder Ovo — kinderovo.com, por Vitor Mafra",
       "url": "https://kinderovo.com"
@@ -27,11 +27,11 @@
     },
     {
       "name": "Fernando de Barros e Silva",
-      "appearances": 379,
+      "appearances": 380,
       "wins": 48,
       "isMainPanelist": true,
       "firstRoundAt": "2018-05-17T16:16:00-03:00",
-      "lastRoundAt": "2026-08-28T09:32:00-03:00",
+      "lastRoundAt": "2026-09-04T09:15:00-03:00",
       "winsByYear": {
         "2018": 2,
         "2019": 5,
@@ -43,7 +43,7 @@
         "2025": 3,
         "2026": 5
       },
-      "winRate": 12.7
+      "winRate": 12.6
     },
     {
       "name": "Thais Bilenky",
@@ -77,25 +77,25 @@
     },
     {
       "name": "Celso Rocha de Barros",
-      "appearances": 120,
+      "appearances": 121,
       "wins": 44,
       "isMainPanelist": true,
       "firstRoundAt": "2024-03-15T10:45:00-03:00",
-      "lastRoundAt": "2026-08-28T09:32:00-03:00",
+      "lastRoundAt": "2026-09-04T09:15:00-03:00",
       "winsByYear": {
         "2024": 17,
         "2025": 17,
         "2026": 10
       },
-      "winRate": 36.7
+      "winRate": 36.4
     },
     {
       "name": "Ana Clara Costa",
-      "appearances": 135,
+      "appearances": 136,
       "wins": 34,
       "isMainPanelist": true,
       "firstRoundAt": "2021-08-20T10:36:00-03:00",
-      "lastRoundAt": "2026-08-28T09:32:00-03:00",
+      "lastRoundAt": "2026-09-04T09:15:00-03:00",
       "winsByYear": {
         "2021": 1,
         "2022": 2,
@@ -104,7 +104,7 @@
         "2025": 13,
         "2026": 5
       },
-      "winRate": 25.2
+      "winRate": 25.0
     },
     {
       "name": "Bernardo Esteves",
@@ -319,11 +319,11 @@
     },
     {
       "name": "Breno Pires",
-      "appearances": 1,
+      "appearances": 2,
       "wins": 0,
       "isMainPanelist": false,
       "firstRoundAt": "2024-08-23T09:14:00-03:00",
-      "lastRoundAt": "2024-08-23T09:14:00-03:00",
+      "lastRoundAt": "2026-09-04T09:15:00-03:00",
       "winsByYear": {},
       "winRate": 0.0
     },
