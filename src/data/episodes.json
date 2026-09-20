@@ -5960,13 +5960,13 @@
     "isTie": false
   },
   {
-    "id": 44,
-    "title": "As facções do crime e o clima quente em Belém",
+    "id": 43,
+    "title": "O terrorismo da direita e boas novas em Belém",
     "publishedAt": "2025-11-25T15:44:00-03:00",
     "episodeNumber": null,
     "hasKinderOvo": true,
     "winners": [
-      "Ana Clara Costa"
+      "Fernando de Barros e Silva"
     ],
     "publicFigure": "Sérgio Moro",
     "participants": [
@@ -5978,13 +5978,13 @@
     "isTie": false
   },
   {
-    "id": 43,
-    "title": "O terrorismo da direita e boas novas em Belém",
+    "id": 44,
+    "title": "As facções do crime e o clima quente em Belém",
     "publishedAt": "2025-11-25T15:44:00-03:00",
     "episodeNumber": null,
     "hasKinderOvo": true,
     "winners": [
-      "Fernando de Barros e Silva"
+      "Ana Clara Costa"
     ],
     "publicFigure": "Sérgio Moro",
     "participants": [
@@ -6625,6 +6625,38 @@
       "Ana Clara Costa",
       "Celso Rocha de Barros",
       "Breno Pires"
+    ],
+    "isTie": false
+  },
+  {
+    "id": 8494,
+    "title": "A hemorragia no STF, a odisseia em Dark Horse e pesquisa nas eleições",
+    "publishedAt": "2026-09-11T09:26:00-03:00",
+    "episodeNumber": null,
+    "hasKinderOvo": true,
+    "winners": [
+      "Celso Rocha de Barros"
+    ],
+    "publicFigure": "Hamilton Mourão",
+    "participants": [
+      "Fernando de Barros e Silva",
+      "Ana Clara Costa",
+      "Celso Rocha de Barros"
+    ],
+    "isTie": false
+  },
+  {
+    "id": 8493,
+    "title": "Com STF, com Dark Horse, com tudo",
+    "publishedAt": "2026-09-18T09:47:00-03:00",
+    "episodeNumber": null,
+    "hasKinderOvo": true,
+    "winners": [],
+    "publicFigure": "José Múcio",
+    "participants": [
+      "Fernando de Barros e Silva",
+      "Ana Clara Costa",
+      "Celso Rocha de Barros"
     ],
     "isTie": false
   }
