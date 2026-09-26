@@ -1,7 +1,7 @@
 {
   "meta": {
     "datasetVersion": "1.0",
-    "generatedAt": "2026-09-20T17:52:42.582204+00:00",
+    "generatedAt": "2026-09-26T00:59:04.994891+00:00",
     "credit": {
       "text": "Dados: Momento Kinder Ovo — kinderovo.com, por Vitor Mafra",
       "url": "https://kinderovo.com"
@@ -22956,6 +22956,63 @@
         "hasWinner": false,
         "hasPublicFigure": true,
         "playable": false,
+        "extractionModel": "gpt-5.4",
+        "transcriptionModel": "gpt-4o-transcribe"
+      }
+    },
+    {
+      "roundId": "ko-9039",
+      "episodeId": 9039,
+      "episodeNumber": null,
+      "title": "Lula na ONU, a turma do KN e o Peixe de Flávio Bolsonaro",
+      "publishedAt": "2026-09-25T11:18:00-03:00",
+      "durationSeconds": 4536,
+      "audioUrl": "https://traffic.megaphone.fm/EDITORAALVINEGRALTDAREVISTAPIAU4078749853.mp3",
+      "spotifyEpisodeId": null,
+      "spotifyUrl": null,
+      "hasKinderOvo": true,
+      "answer": {
+        "publicFigure": "Cristina Graeml",
+        "publicFigures": [
+          {
+            "name": "Cristina Graeml",
+            "wikipediaUrl": null,
+            "imageUrl": null,
+            "description": null
+          }
+        ]
+      },
+      "panel": {
+        "participants": [
+          "Fernando de Barros e Silva",
+          "Ana Clara Costa",
+          "Celso Rocha de Barros"
+        ],
+        "winners": [
+          "Ana Clara Costa"
+        ],
+        "isTie": false,
+        "noWinnerRecorded": false,
+        "results": [
+          {
+            "name": "Fernando de Barros e Silva",
+            "outcome": "did_not_win"
+          },
+          {
+            "name": "Ana Clara Costa",
+            "outcome": "winner"
+          },
+          {
+            "name": "Celso Rocha de Barros",
+            "outcome": "did_not_win"
+          }
+        ]
+      },
+      "quality": {
+        "confidence": 0.98,
+        "hasWinner": true,
+        "hasPublicFigure": true,
+        "playable": true,
         "extractionModel": "gpt-5.4",
         "transcriptionModel": "gpt-4o-transcribe"
       }
