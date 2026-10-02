@@ -5960,13 +5960,13 @@
     "isTie": false
   },
   {
-    "id": 43,
-    "title": "O terrorismo da direita e boas novas em Belém",
+    "id": 44,
+    "title": "As facções do crime e o clima quente em Belém",
     "publishedAt": "2025-11-25T15:44:00-03:00",
     "episodeNumber": null,
     "hasKinderOvo": true,
     "winners": [
-      "Fernando de Barros e Silva"
+      "Ana Clara Costa"
     ],
     "publicFigure": "Sérgio Moro",
     "participants": [
@@ -5978,13 +5978,13 @@
     "isTie": false
   },
   {
-    "id": 44,
-    "title": "As facções do crime e o clima quente em Belém",
+    "id": 43,
+    "title": "O terrorismo da direita e boas novas em Belém",
     "publishedAt": "2025-11-25T15:44:00-03:00",
     "episodeNumber": null,
     "hasKinderOvo": true,
     "winners": [
-      "Ana Clara Costa"
+      "Fernando de Barros e Silva"
     ],
     "publicFigure": "Sérgio Moro",
     "participants": [
@@ -6670,6 +6670,23 @@
       "Ana Clara Costa"
     ],
     "publicFigure": "Cristina Graeml",
+    "participants": [
+      "Fernando de Barros e Silva",
+      "Ana Clara Costa",
+      "Celso Rocha de Barros"
+    ],
+    "isTie": false
+  },
+  {
+    "id": 9586,
+    "title": "Lula x Flávio: o que está em jogo na reta final",
+    "publishedAt": "2026-10-02T09:17:00-03:00",
+    "episodeNumber": null,
+    "hasKinderOvo": true,
+    "winners": [
+      "Celso Rocha de Barros"
+    ],
+    "publicFigure": "Cleitinho Azevedo",
     "participants": [
       "Fernando de Barros e Silva",
       "Ana Clara Costa",

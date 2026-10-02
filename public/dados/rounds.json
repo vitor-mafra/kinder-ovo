@@ -1,7 +1,7 @@
 {
   "meta": {
     "datasetVersion": "1.0",
-    "generatedAt": "2026-09-26T00:59:04.994891+00:00",
+    "generatedAt": "2026-10-02T18:12:22.836977+00:00",
     "credit": {
       "text": "Dados: Momento Kinder Ovo — kinderovo.com, por Vitor Mafra",
       "url": "https://kinderovo.com"
@@ -20531,68 +20531,6 @@
       }
     },
     {
-      "roundId": "ko-43",
-      "episodeId": 43,
-      "episodeNumber": null,
-      "title": "O terrorismo da direita e boas novas em Belém",
-      "publishedAt": "2025-11-25T15:44:00-03:00",
-      "durationSeconds": 3942,
-      "audioUrl": "https://traffic.megaphone.fm/EDITORAALVINEGRALTDAREVISTAPIAU2834116842.mp3?updated=1763126740",
-      "spotifyEpisodeId": null,
-      "spotifyUrl": null,
-      "hasKinderOvo": true,
-      "answer": {
-        "publicFigure": "Sérgio Moro",
-        "publicFigures": [
-          {
-            "name": "Sérgio Moro",
-            "wikipediaUrl": "https://pt.wikipedia.org/wiki/Sergio_Moro",
-            "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Senador_da_Rep%C3%BAblica_S%C3%A9rgio_Moro.jpg/330px-Senador_da_Rep%C3%BAblica_S%C3%A9rgio_Moro.jpg",
-            "description": "político brasileiro"
-          }
-        ]
-      },
-      "panel": {
-        "participants": [
-          "Fernando de Barros e Silva",
-          "Ana Clara Costa",
-          "Celso Rocha de Barros",
-          "Bernardo Esteves"
-        ],
-        "winners": [
-          "Fernando de Barros e Silva"
-        ],
-        "isTie": false,
-        "noWinnerRecorded": false,
-        "results": [
-          {
-            "name": "Fernando de Barros e Silva",
-            "outcome": "winner"
-          },
-          {
-            "name": "Ana Clara Costa",
-            "outcome": "did_not_win"
-          },
-          {
-            "name": "Celso Rocha de Barros",
-            "outcome": "did_not_win"
-          },
-          {
-            "name": "Bernardo Esteves",
-            "outcome": "did_not_win"
-          }
-        ]
-      },
-      "quality": {
-        "confidence": 0.94,
-        "hasWinner": true,
-        "hasPublicFigure": true,
-        "playable": true,
-        "extractionModel": "gpt-5.4",
-        "transcriptionModel": "gpt-4o-transcribe"
-      }
-    },
-    {
       "roundId": "ko-44",
       "episodeId": 44,
       "episodeNumber": null,
@@ -20647,6 +20585,68 @@
       },
       "quality": {
         "confidence": 0.97,
+        "hasWinner": true,
+        "hasPublicFigure": true,
+        "playable": true,
+        "extractionModel": "gpt-5.4",
+        "transcriptionModel": "gpt-4o-transcribe"
+      }
+    },
+    {
+      "roundId": "ko-43",
+      "episodeId": 43,
+      "episodeNumber": null,
+      "title": "O terrorismo da direita e boas novas em Belém",
+      "publishedAt": "2025-11-25T15:44:00-03:00",
+      "durationSeconds": 3942,
+      "audioUrl": "https://traffic.megaphone.fm/EDITORAALVINEGRALTDAREVISTAPIAU2834116842.mp3?updated=1763126740",
+      "spotifyEpisodeId": null,
+      "spotifyUrl": null,
+      "hasKinderOvo": true,
+      "answer": {
+        "publicFigure": "Sérgio Moro",
+        "publicFigures": [
+          {
+            "name": "Sérgio Moro",
+            "wikipediaUrl": "https://pt.wikipedia.org/wiki/Sergio_Moro",
+            "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Senador_da_Rep%C3%BAblica_S%C3%A9rgio_Moro.jpg/330px-Senador_da_Rep%C3%BAblica_S%C3%A9rgio_Moro.jpg",
+            "description": "político brasileiro"
+          }
+        ]
+      },
+      "panel": {
+        "participants": [
+          "Fernando de Barros e Silva",
+          "Ana Clara Costa",
+          "Celso Rocha de Barros",
+          "Bernardo Esteves"
+        ],
+        "winners": [
+          "Fernando de Barros e Silva"
+        ],
+        "isTie": false,
+        "noWinnerRecorded": false,
+        "results": [
+          {
+            "name": "Fernando de Barros e Silva",
+            "outcome": "winner"
+          },
+          {
+            "name": "Ana Clara Costa",
+            "outcome": "did_not_win"
+          },
+          {
+            "name": "Celso Rocha de Barros",
+            "outcome": "did_not_win"
+          },
+          {
+            "name": "Bernardo Esteves",
+            "outcome": "did_not_win"
+          }
+        ]
+      },
+      "quality": {
+        "confidence": 0.94,
         "hasWinner": true,
         "hasPublicFigure": true,
         "playable": true,
@@ -22976,9 +22976,9 @@
         "publicFigures": [
           {
             "name": "Cristina Graeml",
-            "wikipediaUrl": null,
-            "imageUrl": null,
-            "description": null
+            "wikipediaUrl": "https://pt.wikipedia.org/wiki/Cristina_Graeml",
+            "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1c/Cristina_Graeml_%28foto_oficial_para_o_TSE%29_-_2024.jpg?utm_source=pt.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+            "description": "jornalista e política brasileira"
           }
         ]
       },
@@ -23010,6 +23010,63 @@
       },
       "quality": {
         "confidence": 0.98,
+        "hasWinner": true,
+        "hasPublicFigure": true,
+        "playable": true,
+        "extractionModel": "gpt-5.4",
+        "transcriptionModel": "gpt-4o-transcribe"
+      }
+    },
+    {
+      "roundId": "ko-9586",
+      "episodeId": 9586,
+      "episodeNumber": null,
+      "title": "Lula x Flávio: o que está em jogo na reta final",
+      "publishedAt": "2026-10-02T09:17:00-03:00",
+      "durationSeconds": 4977,
+      "audioUrl": "https://traffic.megaphone.fm/EDITORAALVINEGRALTDAREVISTAPIAU6426433215.mp3",
+      "spotifyEpisodeId": null,
+      "spotifyUrl": null,
+      "hasKinderOvo": true,
+      "answer": {
+        "publicFigure": "Cleitinho Azevedo",
+        "publicFigures": [
+          {
+            "name": "Cleitinho Azevedo",
+            "wikipediaUrl": null,
+            "imageUrl": null,
+            "description": null
+          }
+        ]
+      },
+      "panel": {
+        "participants": [
+          "Fernando de Barros e Silva",
+          "Ana Clara Costa",
+          "Celso Rocha de Barros"
+        ],
+        "winners": [
+          "Celso Rocha de Barros"
+        ],
+        "isTie": false,
+        "noWinnerRecorded": false,
+        "results": [
+          {
+            "name": "Fernando de Barros e Silva",
+            "outcome": "did_not_win"
+          },
+          {
+            "name": "Ana Clara Costa",
+            "outcome": "did_not_win"
+          },
+          {
+            "name": "Celso Rocha de Barros",
+            "outcome": "winner"
+          }
+        ]
+      },
+      "quality": {
+        "confidence": 0.83,
         "hasWinner": true,
         "hasPublicFigure": true,
         "playable": true,

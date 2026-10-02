@@ -1153,14 +1153,14 @@ ko-45,2025-11-07T10:43:00-03:00,Marcos Duval,Fernando de Barros e Silva,did_not_
 ko-45,2025-11-07T10:43:00-03:00,Marcos Duval,Ana Clara Costa,did_not_win,false
 ko-45,2025-11-07T10:43:00-03:00,Marcos Duval,Celso Rocha de Barros,did_not_win,false
 ko-45,2025-11-07T10:43:00-03:00,Marcos Duval,Bernardo Esteves,did_not_win,false
-ko-43,2025-11-25T15:44:00-03:00,Sérgio Moro,Fernando de Barros e Silva,winner,true
-ko-43,2025-11-25T15:44:00-03:00,Sérgio Moro,Ana Clara Costa,did_not_win,true
-ko-43,2025-11-25T15:44:00-03:00,Sérgio Moro,Celso Rocha de Barros,did_not_win,true
-ko-43,2025-11-25T15:44:00-03:00,Sérgio Moro,Bernardo Esteves,did_not_win,true
 ko-44,2025-11-25T15:44:00-03:00,Sérgio Moro,Fernando de Barros e Silva,did_not_win,true
 ko-44,2025-11-25T15:44:00-03:00,Sérgio Moro,Ana Clara Costa,winner,true
 ko-44,2025-11-25T15:44:00-03:00,Sérgio Moro,Celso Rocha de Barros,did_not_win,true
 ko-44,2025-11-25T15:44:00-03:00,Sérgio Moro,Bernardo Esteves,did_not_win,true
+ko-43,2025-11-25T15:44:00-03:00,Sérgio Moro,Fernando de Barros e Silva,winner,true
+ko-43,2025-11-25T15:44:00-03:00,Sérgio Moro,Ana Clara Costa,did_not_win,true
+ko-43,2025-11-25T15:44:00-03:00,Sérgio Moro,Celso Rocha de Barros,did_not_win,true
+ko-43,2025-11-25T15:44:00-03:00,Sérgio Moro,Bernardo Esteves,did_not_win,true
 ko-42,2025-11-28T09:43:00-03:00,Renan Santos,Fernando de Barros e Silva,did_not_win,true
 ko-42,2025-11-28T09:43:00-03:00,Renan Santos,Ana Clara Costa,did_not_win,true
 ko-42,2025-11-28T09:43:00-03:00,Renan Santos,Celso Rocha de Barros,winner,true
@@ -1289,3 +1289,6 @@ ko-8493,2026-09-18T09:47:00-03:00,José Múcio,Celso Rocha de Barros,did_not_win
 ko-9039,2026-09-25T11:18:00-03:00,Cristina Graeml,Fernando de Barros e Silva,did_not_win,true
 ko-9039,2026-09-25T11:18:00-03:00,Cristina Graeml,Ana Clara Costa,winner,true
 ko-9039,2026-09-25T11:18:00-03:00,Cristina Graeml,Celso Rocha de Barros,did_not_win,true
+ko-9586,2026-10-02T09:17:00-03:00,Cleitinho Azevedo,Fernando de Barros e Silva,did_not_win,true
+ko-9586,2026-10-02T09:17:00-03:00,Cleitinho Azevedo,Ana Clara Costa,did_not_win,true
+ko-9586,2026-10-02T09:17:00-03:00,Cleitinho Azevedo,Celso Rocha de Barros,winner,true
