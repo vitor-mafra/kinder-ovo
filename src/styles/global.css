@@ -1,48 +1,33 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Fredoka:wght@500;600;700&family=Inter:wght@400;500;600;700&family=Noto+Serif:ital,wght@0,400;0,600;1,400&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,1,0&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caprasimo&family=Alegreya:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;0,800;1,400&display=swap');
 
 :root {
-  /* Cocoa & pearl cream palette */
-  --color-bg: #f6f0e8;
-  --color-bg-alt: #eee6dc;
-  --color-surface: #ffffff;
-  --color-surface-low: #eee6dc;
-  --color-surface-high: #e3d8cc;
+  /* O creme de sempre no fundo da página inteira, tinta de chocolate,
+     e o amarelo da cápsula só como destaque pontual. */
+  --paper: #f6f0e8;
+  --milk: #ebe2d4;
+  --milk-deep: #e2d6c5;
+  --ink: #2a1810;
+  --ink-2: #6a5145;
+  --ink-3: #9a8578;
+  --rule: #ddd0c0;
+  --choc: #5e3b29;
+  --choc-deep: #3a2218;
+  --yolk: #ffc629;
+  --yolk-deep: #f2b300;
 
-  --color-primary: #4d3b2b;
-  --color-primary-deep: #352517;
-  --color-on-primary: #ffffff;
+  /* nomes antigos, ainda usados em trechos soltos */
+  --color-bg: var(--paper);
+  --color-egg-yolk: var(--yolk);
+  --color-egg-chocolate: var(--choc);
 
-  --color-secondary: #725a43;
-  --color-on-surface-variant: #4e453e;
+  --font-display: 'Caprasimo', 'Cooper Black', Georgia, serif;
+  --font-body: 'Alegreya', Georgia, serif;
+  --font-ui: 'Alegreya Sans', 'Trebuchet MS', sans-serif;
 
-  /* Destaque / hover dos ovos — dourado um pouco mais claro e “surpresa” */
-  --color-egg-yolk: #ebb83d;
-  --color-egg-shell: #925e44;
-  /* Pictogramas (ovos preenchidos / chocolate ao leite mais escuro) */
-  --color-egg-chocolate: #65402f;
-  --color-egg-chocolate-soft: color-mix(in srgb, var(--color-egg-chocolate) 35%, transparent);
-  --color-egg-chocolate-faint: color-mix(in srgb, var(--color-egg-chocolate) 8%, transparent);
-
-  --color-outline: #80756d;
-  --color-outline-soft: rgba(77, 59, 43, 0.2);
-  --color-outline-faint: rgba(77, 59, 43, 0.08);
-
-  --font-display: 'Outfit', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-hero-display: 'Fredoka', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-body: 'Noto Serif', Georgia, serif;
-  --font-ui: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-
-  --container-narrow: 640px;
-  --container-wide: 1100px;
-
-  --radius-sm: 0.125rem;
-  --radius-md: 0.25rem;
-  --radius-lg: 0.5rem;
-  --radius-xl: 0.75rem;
-
-  --section-gap: 120px;
-  --page-padding: 24px;
+  --wrap: 1120px;
+  --prose: 39rem;
+  --pad: clamp(18px, 4vw, 40px);
+  --gap-section: clamp(72px, 11vw, 136px);
 }
 
 *, *::before, *::after {
@@ -52,120 +37,176 @@
 }
 
 html {
-  font-size: 16px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* clip é mais robusto que hidden no Safari iOS — previne o mini-scroll
-     sem criar um novo contexto de scroll como hidden faz. */
+  -webkit-text-size-adjust: 100%;
   overflow-x: clip;
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
 }
 
 body {
   font-family: var(--font-body);
-  font-size: 16px;
-  line-height: 1.6;
-  color: var(--color-primary);
-  background: var(--color-bg);
-  -webkit-text-size-adjust: 100%;
-  /* Barreira extra: impede que qualquer filho ultrapasse a viewport */
+  font-size: 1.1875rem;
+  line-height: 1.55;
+  font-variant-numeric: lining-nums;
+  color: var(--ink);
+  background: var(--paper);
   max-width: 100%;
   overflow-x: clip;
 }
 
 ::selection {
-  background: var(--color-primary);
-  color: var(--color-bg);
+  background: var(--yolk);
+  color: var(--ink);
 }
 
 a {
-  color: var(--color-primary);
+  color: inherit;
   text-decoration: underline;
-  text-decoration-color: var(--color-outline-soft);
-  text-underline-offset: 3px;
-  transition: color 0.15s ease, text-decoration-color 0.15s ease;
+  text-decoration-thickness: 1px;
+  text-decoration-color: color-mix(in srgb, currentColor 45%, transparent);
+  text-underline-offset: 0.18em;
 }
 
 a:hover {
-  color: var(--color-egg-yolk);
-  text-decoration-color: var(--color-egg-yolk);
+  text-decoration-thickness: 2px;
+  text-decoration-color: var(--yolk-deep);
 }
 
-h1, h2, h3, h4 {
+:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+}
+
+h1, h2, h3 {
   font-family: var(--font-display);
-  color: var(--color-primary-deep);
-  line-height: 1.2;
-  font-weight: 600;
-  letter-spacing: -0.015em;
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.05;
+  text-wrap: balance;
 }
 
-strong {
-  color: var(--color-primary-deep);
-  font-weight: 600;
-}
+strong { font-weight: 700; }
 
-em {
-  font-style: italic;
-}
+img { max-width: 100%; }
 
-.container-narrow {
-  max-width: var(--container-narrow);
+.wrap {
+  max-width: var(--wrap);
   margin: 0 auto;
-  padding: 0 var(--page-padding);
+  padding: 0 var(--pad);
 }
 
-.container-wide {
-  max-width: var(--container-wide);
-  margin: 0 auto;
-  padding: 0 var(--page-padding);
+.sec {
+  padding-top: var(--gap-section);
 }
 
-.kicker {
+.sec-title {
+  font-size: clamp(2rem, 4.6vw, 3.25rem);
+  letter-spacing: -0.01em;
+  max-width: 18ch;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.sec-lede {
+  max-width: var(--prose);
+  margin: 0.9em auto 0;
+  text-align: center;
+  text-wrap: pretty;
+  color: var(--ink);
+}
+
+.sec-lede + .sec-lede { margin-top: 0.7em; }
+
+.note {
   font-family: var(--font-ui);
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--color-primary);
+  font-size: 0.9375rem;
+  line-height: 1.45;
+  color: var(--ink-2);
 }
 
-.material-symbols-outlined {
-  font-family: 'Material Symbols Outlined';
-  font-weight: normal;
-  font-style: normal;
-  line-height: 1;
-  letter-spacing: normal;
-  text-transform: none;
-  display: inline-block;
-  white-space: nowrap;
-  word-wrap: normal;
-  direction: ltr;
-  font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-  -webkit-font-feature-settings: 'liga';
-  -webkit-font-smoothing: antialiased;
+/* ── Ovos ───────────────────────────────────────────────
+   O ovo é a unidade de medida do site: um ovo, um episódio. */
+.egg {
+  --egg: var(--choc);
+  appearance: none;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  width: 18px;
+  height: 23px;
+  flex: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
-.section-gap {
-  padding-bottom: var(--section-gap);
+.egg::before {
+  content: "";
+  width: 13px;
+  height: 17px;
+  border-radius: 50% 50% 50% 50% / 62% 62% 38% 38%;
+  background: var(--egg);
+  transition: transform 0.1s ease;
 }
 
-.section-title {
-  font-family: var(--font-display);
-  font-size: 2.5rem;
-  font-weight: 600;
-  line-height: 1.15;
-  letter-spacing: -0.02em;
-  color: var(--color-primary-deep);
-  text-align: center;
-  margin-bottom: 12px;
+.egg--hollow::before {
+  background: transparent;
+  border: 1.5px dashed var(--ink-3);
 }
 
-.section-subtitle {
-  font-family: var(--font-body);
+.egg:hover::before,
+.egg:focus-visible::before,
+.egg.is-on::before {
+  transform: translateY(-3px) scale(1.18);
+  box-shadow: 0 0 0 2px var(--paper), 0 0 0 4px var(--ink);
+}
+
+.egg--hollow:hover::before,
+.egg--hollow:focus-visible::before,
+.egg--hollow.is-on::before {
+  border-color: var(--ink);
+}
+
+.egg:focus-visible { outline: none; }
+
+/* segmentos (filtros dos gráficos) */
+.seg {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 4px 22px;
+  font-family: var(--font-ui);
   font-size: 1rem;
-  color: rgba(77, 59, 43, 0.7);
-  text-align: center;
-  max-width: 540px;
-  margin: 0 auto 64px;
+}
+
+.seg button {
+  appearance: none;
+  background: none;
+  border: 0;
+  border-bottom: 3px solid transparent;
+  padding: 4px 0;
+  cursor: pointer;
+  color: var(--ink-2);
+  font-weight: 500;
+}
+
+.seg button:hover { color: var(--ink); }
+
+.seg button[aria-pressed="true"] {
+  color: var(--ink);
+  font-weight: 700;
+  border-bottom-color: var(--yolk);
 }
 
 .sr-only {
@@ -179,25 +220,9 @@ em {
   border: 0;
 }
 
-@media (max-width: 768px) {
-  :root {
-    --section-gap: 72px;
-  }
-  .section-title {
-    font-size: 1.75rem;
-  }
-}
+@media (max-width: 640px) {
+  body { font-size: 1.125rem; }
 
-@media (max-width: 480px) {
-  :root {
-    --section-gap: 56px;
-    --page-padding: 16px;
-  }
-  .section-title {
-    font-size: 1.6rem;
-  }
-  .section-subtitle {
-    font-size: 0.9375rem;
-    margin-bottom: 48px;
-  }
+  .egg { width: 22px; height: 27px; }
+  .egg::before { width: 15px; height: 19px; }
 }

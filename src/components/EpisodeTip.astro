@@ -1,0 +1,155 @@
+---
+// Um único balão para todos os ovos da página.
+// Qualquer elemento com data-ep="<índice em EPS>" abre o episódio correspondente.
+import { EPS_CLIENT, SHOW_URL } from "../lib/data";
+---
+
+<div id="ep-tip" class="ep-tip" role="dialog" aria-live="polite" hidden>
+  <p class="ep-tip-who" id="ep-tip-who"></p>
+  <p class="ep-tip-title" id="ep-tip-title"></p>
+  <p class="ep-tip-meta" id="ep-tip-meta"></p>
+  <a class="ep-tip-link" id="ep-tip-link" href={SHOW_URL} target="_blank" rel="noopener">Ouvir no Spotify</a>
+</div>
+
+<script type="application/json" id="ep-data" set:html={JSON.stringify(EPS_CLIENT)} />
+
+<script>
+  interface EpC { n: number | null; t: string; d: string; f: string | null; w: string[]; u: string }
+
+  const tip = document.getElementById("ep-tip")!;
+  const who = document.getElementById("ep-tip-who")!;
+  const title = document.getElementById("ep-tip-title")!;
+  const meta = document.getElementById("ep-tip-meta")!;
+  const link = document.getElementById("ep-tip-link") as HTMLAnchorElement;
+  const eps: EpC[] = JSON.parse(document.getElementById("ep-data")!.textContent || "[]");
+
+  let active: HTMLElement | null = null;
+  let pinned = false;
+
+  function joinNames(names: string[]): string {
+    if (names.length <= 1) return names.join("");
+    return `${names.slice(0, -1).join(", ")} e ${names[names.length - 1]}`;
+  }
+
+  function show(el: HTMLElement) {
+    const ep = eps[Number(el.dataset.ep)];
+    if (!ep) return;
+
+    who.textContent = ep.w.length
+      ? `${joinNames(ep.w)} ${ep.w.length > 1 ? "acertaram" : "acertou"}`
+      : "Ninguém acertou";
+    who.classList.toggle("is-hit", ep.w.length > 0);
+    title.textContent = ep.t;
+    meta.textContent = ep.f ? `${ep.d}. A voz era de ${ep.f}.` : `${ep.d}.`;
+    link.href = ep.u;
+
+    tip.hidden = false;
+    const r = el.getBoundingClientRect();
+    const t = tip.getBoundingClientRect();
+    const m = 10;
+    let left = r.left + r.width / 2 - t.width / 2;
+    left = Math.max(m, Math.min(window.innerWidth - t.width - m, left));
+    let top = r.top - t.height - 10;
+    if (top < m) top = r.bottom + 10;
+    tip.style.left = `${left + window.scrollX}px`;
+    tip.style.top = `${top + window.scrollY}px`;
+
+    if (active && active !== el) active.classList.remove("is-on");
+    el.classList.add("is-on");
+    active = el;
+  }
+
+  function hide() {
+    tip.hidden = true;
+    active?.classList.remove("is-on");
+    active = null;
+    pinned = false;
+  }
+
+  const target = (e: Event) => (e.target as HTMLElement).closest?.<HTMLElement>("[data-ep]") ?? null;
+
+  // Os ovinhos das figurinhas (data-nopin) só mostram o balão no hover: o clique é da figurinha,
+  // e com o painel dela aberto quem responde é a lista de episódios.
+  const quiet = (el: HTMLElement) => !!el.closest(".fig.is-open");
+
+  document.addEventListener("mouseover", (e) => {
+    if (pinned) return;
+    const el = target(e);
+    if (el && quiet(el)) hide();
+    else if (el) show(el);
+    else if (!(e.target as HTMLElement).closest?.("#ep-tip")) hide();
+  });
+
+  document.addEventListener("focusin", (e) => {
+    const el = target(e);
+    if (el && !pinned) show(el);
+  });
+
+  document.addEventListener("click", (e) => {
+    const el = target(e);
+    if (el?.hasAttribute("data-nopin")) return hide();
+    if (el) {
+      if (pinned && active === el) return hide();
+      show(el);
+      pinned = true;
+      return;
+    }
+    if (!(e.target as HTMLElement).closest?.("#ep-tip")) hide();
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") hide();
+  });
+
+  window.addEventListener("scroll", () => { if (!pinned) hide(); }, { passive: true });
+  window.addEventListener("resize", hide);
+</script>
+
+<style>
+  .ep-tip {
+    position: absolute;
+    z-index: 200;
+    width: min(300px, calc(100vw - 20px));
+    background: var(--paper);
+    border: 1.5px solid var(--ink);
+    border-radius: 10px;
+    padding: 12px 14px 13px;
+    box-shadow: 0 10px 28px rgba(42, 24, 16, 0.18);
+    font-family: var(--font-ui);
+    font-size: 0.9375rem;
+    line-height: 1.35;
+    color: var(--ink);
+  }
+
+  .ep-tip[hidden] { display: none; }
+
+  .ep-tip-who {
+    font-weight: 800;
+    width: fit-content;
+  }
+
+  /* quem acertou vem marcado no amarelo dourado, como marca-texto */
+  .ep-tip-who.is-hit {
+    background: var(--yolk);
+    padding: 1px 7px 2px;
+    margin-left: -7px;
+    border-radius: 4px;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+  }
+
+  .ep-tip-title {
+    font-family: var(--font-body);
+    font-size: 1.0625rem;
+    line-height: 1.25;
+    margin: 4px 0 6px;
+  }
+
+  .ep-tip-meta { color: var(--ink-2); }
+
+  .ep-tip-link {
+    display: inline-block;
+    margin-top: 8px;
+    font-weight: 700;
+  }
+</style>

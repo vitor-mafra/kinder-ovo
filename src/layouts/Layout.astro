@@ -1,4 +1,6 @@
 ---
+import "../styles/global.css";
+
 interface Props {
   title: string;
   description?: string;
@@ -22,6 +24,7 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
+    <meta name="theme-color" content="#f6f0e8" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
@@ -32,148 +35,139 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={socialImageURL} />
     <link rel="icon" type="image/svg+xml" href={`${base}/favicon.svg`} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <title>{title}</title>
   </head>
   <body>
-    <main>
+    <main id="topo">
       <slot />
     </main>
 
     <footer class="footer">
-      <div class="footer-inner">
-
-        <div class="footer-top">
-          <a href="#" class="footer-back-btn" aria-label="Voltar ao início da página">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <polyline points="18 15 12 9 6 15"/>
-            </svg>
-            Voltar ao início
-          </a>
+      <div class="wrap footer-grid">
+        <div class="footer-about">
+          <p class="footer-name">Momento Kinder Ovo</p>
+          <p>Feito por <a href="https://vitormafra.com">Vitor Mafra</a>, ouvinte do Foro.</p>
+          <p class="footer-data">
+            Dados abertos.
+            <a href={`${base}/dados/`}>Baixe a base completa</a>
+          </p>
+          <p class="footer-license">
+            <span class="copyleft" aria-hidden="true">©</span> Copyleft 2026,
+            <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.pt" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>
+          </p>
+          <p class="footer-top"><a href="#topo">Voltar ao início</a></p>
         </div>
 
-        <div class="footer-bottom">
-          <span class="footer-brand-name">Momento Kinder Ovo</span>
-          <span class="footer-copyleft">
-            <span class="copyleft-symbol" aria-label="Copyleft" title="Copyleft">©</span>
-            Copyleft 2026 Vitor Mafra ·
-            <a
-              href="https://creativecommons.org/licenses/by-sa/4.0/deed.pt"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="footer-license-link"
-            >CC BY-SA 4.0</a>
-          </span>
+        <div class="footer-legal" id="aviso-legal">
+          <div>
+            <h2>Projeto de fã, sem vínculo oficial</h2>
+            <p>
+              Este site é um projeto pessoal e independente, criado por um ouvinte do
+              <em>Foro de Teresina</em> por pura admiração ao programa. Não tem qualquer
+              relação, vínculo ou aprovação da revista piauí, dos jornalistas que
+              compõem o podcast, de suas produtoras ou de quaisquer entidades a eles
+              ligadas. Nenhum conteúdo aqui publicado representa posição oficial do
+              programa ou da revista.
+            </p>
+          </div>
+          <div>
+            <h2>Uso da marca Kinder Ovo®</h2>
+            <p>
+              “Kinder Ovo” é uma marca registrada da Ferrero S.p.A. O uso do nome
+              neste site é meramente referencial, para identificar o quadro homônimo
+              do podcast, e não implica qualquer relação comercial, patrocínio ou
+              endosso da empresa. Este é um projeto sem fins lucrativos, não comercial
+              e puramente recreativo.
+            </p>
+          </div>
         </div>
-
       </div>
     </footer>
 
-    <style is:global>
-      @import "../styles/global.css";
-    </style>
-
     <style>
       .footer {
-        background: var(--color-surface-low);
-        border-top: 1px solid var(--color-outline-soft);
-        margin-top: 96px;
-        color: rgba(77, 59, 43, 0.8);
-      }
-
-      .footer-inner {
-        max-width: var(--container-wide);
-        margin: 0 auto;
-        padding: 40px var(--page-padding) 36px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 28px;
-      }
-
-      /* ── Back to top button ── */
-      .footer-back-btn {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
+        margin-top: var(--gap-section);
+        border-top: 2px solid var(--ink);
+        color: var(--ink);
+        padding: clamp(40px, 6vw, 64px) 0 clamp(40px, 6vw, 64px);
         font-family: var(--font-ui);
-        font-size: 13px;
-        font-weight: 600;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        color: var(--color-primary-deep);
-        text-decoration: none;
-        border: 1px solid var(--color-outline-soft);
-        border-radius: 999px;
-        padding: 10px 22px;
-        background: var(--color-surface);
-        transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease, transform 0.18s ease;
+        font-size: 1rem;
+        line-height: 1.5;
       }
 
-      .footer-back-btn:hover {
-        background: var(--color-egg-chocolate);
-        border-color: var(--color-egg-chocolate);
-        color: var(--color-bg);
-        text-decoration: none;
-        transform: translateY(-2px);
-      }
-
-      .footer-back-btn svg {
-        transition: transform 0.18s ease;
-      }
-
-      .footer-back-btn:hover svg {
-        transform: translateY(-2px);
-      }
-
-      /* ── Bottom row ── */
-      .footer-bottom {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 6px;
+      .footer-grid {
+        display: grid;
+        gap: 36px;
+        justify-items: center;
         text-align: center;
       }
 
-      .footer-brand-name {
-        font-family: var(--font-hero-display);
-        font-size: 1.75rem;
+      .footer-name {
+        font-family: var(--font-display);
+        font-size: 2rem;
+        line-height: 1;
+        margin-bottom: 10px;
+      }
+
+      .footer-about p { max-width: 36ch; margin-inline: auto; }
+
+      .footer-data {
         font-weight: 700;
-        letter-spacing: -0.01em;
-        text-transform: none;
-        color: var(--color-primary-deep);
+        margin: 22px auto 24px !important;
       }
 
-      .footer-copyleft {
-        font-family: var(--font-body);
+      .footer-data a {
+        display: block;
+        width: fit-content;
+        margin: 8px auto 0;
+        background: var(--yolk);
+        font-size: 1.125rem;
+        padding: 7px 16px 8px;
+        border-radius: 6px;
+        text-decoration: none;
+      }
+
+      .footer-license,
+      .footer-top {
         font-size: 0.9375rem;
-        font-weight: 400;
-        color: rgba(77, 59, 43, 0.5);
-        letter-spacing: 0;
+        color: var(--ink-2);
       }
 
-      .copyleft-symbol {
+      .footer-about .footer-top { margin-top: 4px; }
+
+      .footer-data a:hover { background: var(--yolk-deep); }
+
+      .copyleft {
         display: inline-block;
         transform: scaleX(-1);
-        font-style: normal;
-      }
-      .footer-license-link {
-        color: rgba(77, 59, 43, 0.65);
-        text-decoration: underline;
-        text-decoration-color: rgba(77, 59, 43, 0.25);
-        text-underline-offset: 2px;
-        transition: color 0.15s ease;
       }
 
-      .footer-license-link:hover {
-        color: var(--color-egg-chocolate);
-        text-decoration-color: var(--color-egg-chocolate);
+      .footer-legal {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 28px 32px;
+        font-size: 0.875rem;
+        line-height: 1.5;
+        color: var(--ink-2);
+        max-width: 840px;
+        text-align: left;
+        padding-top: 28px;
+        border-top: 1px solid var(--rule);
       }
 
-      @media (max-width: 480px) {
-        .footer-inner {
-          gap: 24px;
-          padding: 32px var(--page-padding) 28px;
-        }
+      .footer-legal h2 {
+        font-family: var(--font-ui);
+        font-size: 0.875rem;
+        font-weight: 700;
+        line-height: 1.3;
+        color: var(--ink);
+        margin-bottom: 6px;
+      }
+
+      @media (max-width: 560px) {
+        .footer-legal { grid-template-columns: 1fr; }
       }
     </style>
   </body>

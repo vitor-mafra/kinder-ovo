@@ -1,0 +1,762 @@
+---
+import figuresRaw from "../data/figures.json";
+import { EPS } from "../lib/data";
+
+interface FigureRaw {
+  name: string;
+  count: number;
+  wikipediaUrl?: string;
+  imageUrl?: string;
+  description?: string;
+}
+
+/** Em quais episódios (índices de EPS) cada figura foi a voz surpresa. */
+const epsByFigure: Record<string, number[]> = {};
+for (const e of EPS) {
+  for (const name of e.figures) {
+    const arr = (epsByFigure[name] ??= []);
+    if (!arr.includes(e.i)) arr.push(e.i);
+  }
+}
+
+const figures = (figuresRaw as FigureRaw[]).map((f, i) => {
+  const eps = epsByFigure[f.name] ?? [];
+  return {
+    no: i + 1,
+    name: f.name,
+    count: f.count,
+    img: f.imageUrl ?? null,
+    wiki: f.wikipediaUrl ?? null,
+    desc: f.description ?? null,
+    eps,
+    /** 1 = alguém acertou, 0 = ninguém; na ordem dos episódios */
+    hits: eps.map((i) => (EPS[i].winners.length > 0 ? 1 : 0)),
+  };
+});
+
+const INITIAL = 20;
+const top = figures.slice(0, INITIAL);
+const total = figures.length;
+const pages = Math.ceil(total / INITIAL);
+
+const initials = (name: string) =>
+  name.split(" ").map((p) => p[0]).slice(0, 2).join("").toUpperCase();
+
+function summary(f: (typeof figures)[number]): string {
+  const hits = f.hits.reduce((a: number, b) => a + b, 0);
+  const n = f.hits.length || f.count;
+  const times = n === 1 ? "1 vez" : `${n} vezes`;
+  if (hits === 0) return `${times}, nenhum acerto`;
+  if (hits === n) return n === 1 ? `${times}, acertada` : `${times}, sempre acertada`;
+  return `${times}, ${hits} ${hits === 1 ? "acerto" : "acertos"}`;
+}
+---
+
+<section class="sec album" id="figurinhas">
+  <div class="album-page">
+    <div class="wrap">
+      <h2 class="sec-title">Figurinhas carimbadas</h2>
+      <p class="sec-lede">
+        As surpresas que mais saíram do ovo. Embaixo de cada figurinha, um ovo para cada vez
+        que ela apareceu: cheio quando alguém da bancada acertou, vazio quando ninguém reconheceu.
+        Clique numa figurinha para ver os episódios. Passe as páginas para ver o álbum inteiro.
+      </p>
+
+      <div class="album-search">
+        <label for="fig-search">Procurar uma voz entre as {total}</label>
+        <input id="fig-search" type="search" autocomplete="off" spellcheck="false" placeholder="Por exemplo, Damares" />
+        <p class="note" id="fig-status" role="status" aria-live="polite"></p>
+      </div>
+
+      <div class="album-pager" data-pager>
+        <button type="button" data-dir="-1" aria-label="Página anterior do álbum" disabled>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 5 8 12 15 19" /></svg>
+          Anteriores
+        </button>
+        <p class="album-pager-where" data-where>Página 1 de {pages}, figurinhas 1 a {INITIAL}</p>
+        <button type="button" data-dir="1" aria-label="Próxima página do álbum">
+          Próximas
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 5 16 12 9 19" /></svg>
+        </button>
+      </div>
+
+      <ul class="album-grid" id="fig-grid">
+        {top.map((f) => (
+          <li>
+            <button type="button" class="fig" data-fig={f.no - 1} aria-label={`${f.name}: ${summary(f)}. Ver episódios`}>
+              <span class="fig-sticker">
+                {f.img ? (
+                  <img src={f.img} alt="" loading="lazy" />
+                ) : (
+                  <span class="fig-blank" aria-hidden="true">{initials(f.name)}</span>
+                )}
+                <span class="fig-no">{f.no}</span>
+                <span class="fig-name">{f.name}</span>
+              </span>
+              <span class="fig-eggs" aria-hidden="true">
+                {f.hits.map((h, k) => <i class={h ? "" : "o"} data-ep={f.eps[k]} data-k={k} data-nopin />)}
+              </span>
+              <span class="fig-sum">{summary(f)}</span>
+            </button>
+          </li>
+        ))}
+      </ul>
+
+      <div class="album-pager" data-pager data-bottom>
+        <button type="button" data-dir="-1" aria-label="Página anterior do álbum" disabled>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 5 8 12 15 19" /></svg>
+          Anteriores
+        </button>
+        <p class="album-pager-where" data-where>Página 1 de {pages}, figurinhas 1 a {INITIAL}</p>
+        <button type="button" data-dir="1" aria-label="Próxima página do álbum">
+          Próximas
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 5 16 12 9 19" /></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="fig-pop" id="fig-pop" role="dialog" aria-labelledby="fig-pop-name" hidden>
+    <button type="button" class="fig-pop-close" id="fig-pop-close" aria-label="Fechar">×</button>
+    <h3 id="fig-pop-name"></h3>
+    <p class="fig-pop-desc" id="fig-pop-desc"></p>
+    <ol class="fig-pop-list" id="fig-pop-list"></ol>
+    <p class="fig-pop-wiki"><a id="fig-pop-wiki" target="_blank" rel="noopener noreferrer">Verbete na Wikipédia</a></p>
+  </div>
+
+  <script type="application/json" id="fig-data" set:html={JSON.stringify(figures)} />
+</section>
+
+<script>
+  interface Fig { no: number; name: string; count: number; img: string | null; wiki: string | null; desc: string | null; eps: number[]; hits: number[] }
+  interface EpC { n: number | null; t: string; d: string; f: string | null; w: string[]; u: string }
+
+  const grid = document.getElementById("fig-grid");
+  const input = document.getElementById("fig-search") as HTMLInputElement | null;
+  const status = document.getElementById("fig-status");
+  const pagers = document.querySelectorAll<HTMLElement>("[data-pager]");
+  const pop = document.getElementById("fig-pop");
+
+  if (grid && input && status && pagers.length && pop) {
+    const figs: Fig[] = JSON.parse(document.getElementById("fig-data")!.textContent || "[]");
+    const eps: EpC[] = JSON.parse(document.getElementById("ep-data")?.textContent || "[]");
+    const PER_PAGE = grid.children.length;
+    const PAGES = Math.ceil(figs.length / PER_PAGE);
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let page = 0;
+    let turning = false;
+
+    const norm = (s: string) =>
+      s.normalize("NFD").replace(/\p{M}/gu, "").toLowerCase().replace(/[^a-z0-9\s]/g, " ").replace(/\s+/g, " ").trim();
+    const matches = (name: string, q: string) => {
+      const n = norm(name);
+      return n.includes(q) || q.split(" ").filter((t) => t.length >= 2).every((t) => n.includes(t));
+    };
+
+    function summary(f: Fig): string {
+      const hits = f.hits.reduce((a, b) => a + b, 0);
+      const n = f.hits.length || f.count;
+      const times = n === 1 ? "1 vez" : `${n} vezes`;
+      if (hits === 0) return `${times}, nenhum acerto`;
+      if (hits === n) return n === 1 ? `${times}, acertada` : `${times}, sempre acertada`;
+      return `${times}, ${hits} ${hits === 1 ? "acerto" : "acertos"}`;
+    }
+
+    function card(f: Fig): HTMLLIElement {
+      const li = document.createElement("li");
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "fig";
+      btn.dataset.fig = String(f.no - 1);
+      btn.setAttribute("aria-label", `${f.name}: ${summary(f)}. Ver episódios`);
+
+      const sticker = document.createElement("span");
+      sticker.className = "fig-sticker";
+      if (f.img) {
+        const img = document.createElement("img");
+        img.src = f.img;
+        img.alt = "";
+        img.loading = "lazy";
+        sticker.append(img);
+      } else {
+        const blank = document.createElement("span");
+        blank.className = "fig-blank";
+        blank.textContent = f.name.split(" ").map((p) => p[0]).slice(0, 2).join("").toUpperCase();
+        sticker.append(blank);
+      }
+      const no = document.createElement("span");
+      no.className = "fig-no";
+      no.textContent = String(f.no);
+      const name = document.createElement("span");
+      name.className = "fig-name";
+      name.textContent = f.name;
+      sticker.append(no, name);
+
+      const eggs = document.createElement("span");
+      eggs.className = "fig-eggs";
+      eggs.setAttribute("aria-hidden", "true");
+      f.hits.forEach((h, k) => {
+        const i = document.createElement("i");
+        if (!h) i.className = "o";
+        i.dataset.ep = String(f.eps[k]);
+        i.dataset.k = String(k);
+        i.setAttribute("data-nopin", "");
+        eggs.append(i);
+      });
+
+      const sum = document.createElement("span");
+      sum.className = "fig-sum";
+      sum.textContent = summary(f);
+
+      btn.append(sticker, eggs, sum);
+      li.append(btn);
+      return li;
+    }
+
+    function render() {
+      const q = norm(input!.value);
+      let list: Fig[];
+      if (q) {
+        list = figs.filter((f) => matches(f.name, q));
+        status!.textContent = list.length === 0
+          ? "Essa voz ainda não saiu de nenhum ovo. Tente outro nome."
+          : `${list.length} ${list.length === 1 ? "figurinha encontrada" : "figurinhas encontradas"}.`;
+      } else {
+        list = figs.slice(page * PER_PAGE, (page + 1) * PER_PAGE);
+        status!.textContent = "";
+      }
+      grid!.replaceChildren(...list.map(card));
+      const from = page * PER_PAGE + 1;
+      const to = Math.min(figs.length, (page + 1) * PER_PAGE);
+      pagers.forEach((pg) => {
+        pg.hidden = !!q;
+        pg.querySelector("[data-where]")!.textContent = `Página ${page + 1} de ${PAGES}, figurinhas ${from} a ${to}`;
+        pg.querySelector<HTMLButtonElement>('[data-dir="-1"]')!.disabled = page === 0;
+        pg.querySelector<HTMLButtonElement>('[data-dir="1"]')!.disabled = page === PAGES - 1;
+      });
+    }
+
+    /* Virar a página: as figurinhas saem deslizando para um lado e as novas entram pelo outro. */
+    const cols = () => getComputedStyle(grid!).gridTemplateColumns.split(" ").length;
+    function slide(dir: number, entering: boolean) {
+      const n = cols();
+      const items = Array.from(grid!.children) as HTMLElement[];
+      const anims = items.map((li, i) => {
+        const col = i % n;
+        const order = dir > 0 ? col : n - 1 - col;
+        const off = `${(entering ? dir : -dir) * 90}px`;
+        return li.animate(
+          entering
+            ? [{ transform: `translateX(${off})`, opacity: 0 }, { transform: "none", opacity: 1 }]
+            : [{ transform: "none", opacity: 1 }, { transform: `translateX(${off})`, opacity: 0 }],
+          { duration: 240, delay: order * 35, easing: entering ? "cubic-bezier(.2,.7,.2,1)" : "ease-in", fill: "both" }
+        );
+      });
+      return Promise.all(anims.map((a) => a.finished)).then(() => {
+        if (entering) anims.forEach((a) => a.cancel());
+      });
+    }
+
+    async function turn(dir: number, scrollToTop = false) {
+      const next = page + dir;
+      if (turning || next < 0 || next >= PAGES || norm(input!.value)) return;
+      turning = true;
+      close();
+      if (!reduce) {
+        grid!.style.minHeight = `${grid!.offsetHeight}px`;
+        await slide(dir, false);
+      }
+      page = next;
+      render();
+      if (scrollToTop) document.querySelector(".album-search")?.scrollIntoView({ block: "start", behavior: reduce ? "auto" : "smooth" });
+      if (!reduce) {
+        await slide(dir, true);
+        grid!.style.minHeight = "";
+      }
+      turning = false;
+    }
+
+    pagers.forEach((pg) => {
+      pg.querySelectorAll<HTMLButtonElement>("button").forEach((btn) => {
+        btn.addEventListener("click", () => turn(Number(btn.dataset.dir), pg.hasAttribute("data-bottom")));
+      });
+    });
+
+    // no celular, arrastar o álbum para o lado também vira a página
+    let touchX = 0, touchY = 0;
+    grid.addEventListener("touchstart", (e) => {
+      touchX = e.touches[0].clientX;
+      touchY = e.touches[0].clientY;
+    }, { passive: true });
+    grid.addEventListener("touchend", (e) => {
+      const dx = e.changedTouches[0].clientX - touchX;
+      const dy = e.changedTouches[0].clientY - touchY;
+      if (Math.abs(dx) > 70 && Math.abs(dx) > Math.abs(dy) * 1.5) turn(dx < 0 ? 1 : -1);
+    }, { passive: true });
+
+    let timer: number | undefined;
+    input.addEventListener("input", () => {
+      window.clearTimeout(timer);
+      timer = window.setTimeout(render, 140);
+    });
+
+    /* ── painel com os episódios de uma figurinha ── */
+    const popName = document.getElementById("fig-pop-name")!;
+    const popDesc = document.getElementById("fig-pop-desc")!;
+    const popList = document.getElementById("fig-pop-list")!;
+    const popWiki = document.getElementById("fig-pop-wiki") as HTMLAnchorElement;
+    let opener: HTMLElement | null = null;
+
+    const joinNames = (names: string[]) =>
+      names.length <= 1 ? names.join("") : `${names.slice(0, -1).join(", ")} e ${names[names.length - 1]}`;
+
+    function place() {
+      if (!opener) return;
+      if (window.innerWidth <= 640) {
+        pop!.style.left = "";
+        pop!.style.top = "";
+        return;
+      }
+      const r = opener.getBoundingClientRect();
+      const w = pop!.offsetWidth, h = pop!.offsetHeight, m = 12;
+      let left = r.right + 14;
+      if (left + w > window.innerWidth - m) left = r.left - 14 - w;
+      if (left < m) left = Math.max(m, Math.min(window.innerWidth - w - m, r.left));
+      const top = Math.max(m, Math.min(window.innerHeight - h - m, r.top));
+      pop!.style.left = `${left}px`;
+      pop!.style.top = `${top}px`;
+    }
+
+    function open(btn: HTMLElement) {
+      const f = figs[Number(btn.dataset.fig)];
+      if (!f) return;
+      opener?.classList.remove("is-open");
+      opener = btn;
+      btn.classList.add("is-open");
+
+      popName.textContent = f.name;
+      popDesc.textContent = f.desc ? f.desc.charAt(0).toUpperCase() + f.desc.slice(1) : "";
+      popDesc.hidden = !f.desc;
+      popList.replaceChildren(
+        ...f.eps.map((i, k) => {
+          const ep = eps[i];
+          const li = document.createElement("li");
+          li.dataset.k = String(k);
+          const when = document.createElement("span");
+          when.className = "fig-pop-when";
+          when.textContent = ep.d;
+          const a = document.createElement("a");
+          a.href = ep.u;
+          a.target = "_blank";
+          a.rel = "noopener noreferrer";
+          a.textContent = ep.t;
+          const who = document.createElement("span");
+          who.className = ep.w.length ? "fig-pop-who" : "fig-pop-who fig-pop-who--none";
+          who.textContent = ep.w.length
+            ? `${joinNames(ep.w)} ${ep.w.length > 1 ? "acertaram" : "acertou"}`
+            : "Ninguém acertou";
+          li.append(when, a, who);
+          return li;
+        })
+      );
+      popWiki.parentElement!.hidden = !f.wiki;
+      if (f.wiki) popWiki.href = f.wiki;
+
+      pop!.hidden = false;
+      pop!.scrollTop = 0;
+      place();
+    }
+
+    function close() {
+      pop!.hidden = true;
+      opener?.classList.remove("is-open");
+      opener = null;
+    }
+
+    /* Com o painel aberto, ovinho e episódio se acendem juntos:
+       passar o mouse num ovo pinta de dourado o episódio dele na lista, e vice-versa. */
+    function link(k: string | null, scroll: boolean) {
+      popList.querySelectorAll<HTMLElement>("li").forEach((li) => {
+        const on = li.dataset.k === k;
+        li.classList.toggle("is-lit", on);
+        if (on && scroll) {
+          // rola só o painel (nunca a página) até o episódio aparecer
+          const top = li.offsetTop, bottom = top + li.offsetHeight;
+          if (top < pop!.scrollTop) pop!.scrollTop = top - 8;
+          else if (bottom > pop!.scrollTop + pop!.clientHeight) pop!.scrollTop = bottom - pop!.clientHeight + 8;
+        }
+      });
+      opener?.querySelectorAll<HTMLElement>(".fig-eggs i").forEach((egg) => {
+        egg.classList.toggle("is-lit", egg.dataset.k === k);
+      });
+    }
+    grid.addEventListener("mouseover", (e) => {
+      const egg = (e.target as HTMLElement).closest<HTMLElement>(".fig.is-open .fig-eggs i");
+      link(egg?.dataset.k ?? null, true);
+    });
+    grid.addEventListener("mouseleave", () => link(null, false));
+    popList.addEventListener("mouseover", (e) => {
+      const li = (e.target as HTMLElement).closest<HTMLElement>("li");
+      link(li?.dataset.k ?? null, false);
+    });
+    popList.addEventListener("mouseleave", () => link(null, false));
+
+    grid.addEventListener("click", (e) => {
+      const btn = (e.target as HTMLElement).closest<HTMLElement>(".fig");
+      if (!btn) return;
+      e.stopPropagation();
+      if (opener === btn) close();
+      else open(btn);
+    });
+    document.getElementById("fig-pop-close")!.addEventListener("click", () => {
+      const back = opener;
+      close();
+      back?.focus();
+    });
+    document.addEventListener("click", (e) => {
+      if (pop.hidden) return;
+      if ((e.target as HTMLElement).closest("#fig-pop")) return;
+      close();
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && !pop.hidden) {
+        const back = opener;
+        close();
+        back?.focus();
+      }
+    });
+    window.addEventListener("scroll", () => { if (!pop.hidden) place(); }, { passive: true });
+    window.addEventListener("resize", () => { if (!pop.hidden) place(); });
+  }
+</script>
+
+<style>
+  .album-search {
+    margin: 28px auto 0;
+    max-width: 26rem;
+    font-family: var(--font-ui);
+    text-align: center;
+  }
+
+  .album-search label {
+    display: block;
+    font-weight: 700;
+    font-size: 1rem;
+    margin-bottom: 6px;
+  }
+
+  .album-search input {
+    width: 100%;
+    height: 48px;
+    padding: 0 14px;
+    font: inherit;
+    font-size: 1.0625rem;
+    color: var(--ink);
+    background: #fff;
+    border: 1.5px solid var(--ink);
+    border-radius: 8px;
+  }
+
+  .album-search input::placeholder { color: var(--ink-3); }
+
+  .album-search .note { margin-top: 8px; min-height: 1.45em; }
+
+  .album-grid {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 36px clamp(16px, 2.6vw, 32px);
+    margin-top: 24px;
+  }
+
+  .album-grid :global(.fig) {
+    appearance: none;
+    background: none;
+    border: 0;
+    cursor: pointer;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font-family: var(--font-ui);
+    color: var(--ink);
+  }
+
+  /* a figurinha: foto com margem branca e tarja com o nome, levemente torta como se colada à mão */
+  .album-grid :global(.fig-sticker) {
+    position: relative;
+    width: 100%;
+    background: #fff;
+    padding: 6px 6px 0;
+    border-radius: 4px;
+    box-shadow: 0 1px 0 rgba(42, 24, 16, 0.14), 0 6px 14px -6px rgba(42, 24, 16, 0.35);
+    transform: rotate(var(--tilt, 0deg));
+    transition: transform 0.15s ease;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .album-grid :global(li:nth-child(4n + 1)) { --tilt: -1.4deg; }
+  .album-grid :global(li:nth-child(4n + 2)) { --tilt: 0.9deg; }
+  .album-grid :global(li:nth-child(4n + 3)) { --tilt: -0.5deg; }
+  .album-grid :global(li:nth-child(4n + 4)) { --tilt: 1.6deg; }
+
+  .album-grid :global(.fig:hover .fig-sticker),
+  .album-grid :global(.fig:focus-visible .fig-sticker),
+  .album-grid :global(.fig.is-open .fig-sticker) {
+    transform: rotate(0deg) translateY(-4px);
+  }
+
+  .album-grid :global(.fig.is-open .fig-sticker) {
+    box-shadow: 0 0 0 2px var(--ink), 0 6px 14px -6px rgba(42, 24, 16, 0.35);
+  }
+
+  .album-grid :global(.fig-sticker img),
+  .album-grid :global(.fig-blank) {
+    flex: none;
+    width: 100%;
+    aspect-ratio: 5 / 6;
+    height: auto;
+    object-fit: cover;
+    object-position: center 22%;
+    background: var(--milk-deep);
+    border-radius: 2px 2px 0 0;
+  }
+
+  .album-grid :global(.fig-blank) {
+    display: grid;
+    place-items: center;
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    color: var(--ink-3);
+  }
+
+  .album-grid :global(.fig-no) {
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    min-width: 30px;
+    padding: 2px 7px 3px;
+    background: var(--yolk);
+    font-family: var(--font-display);
+    font-size: 1.0625rem;
+    line-height: 1.2;
+    border-radius: 2px 0 8px 0;
+  }
+
+  .album-grid :global(.fig-name) {
+    display: grid;
+    place-items: center;
+    min-height: 2.9em;
+    padding: 4px 2px 5px;
+    font-weight: 800;
+    font-size: 1rem;
+    line-height: 1.12;
+    text-wrap: balance;
+  }
+
+  .album-grid :global(.fig-eggs) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px;
+    margin-top: 14px;
+  }
+
+  .album-grid :global(.fig-eggs i) {
+    width: 11px;
+    height: 14px;
+    border-radius: 50% 50% 50% 50% / 62% 62% 38% 38%;
+    background: var(--choc);
+  }
+
+  .album-grid :global(.fig-eggs i) {
+    transition: transform 0.1s ease;
+  }
+
+  /* mesmo gesto dos ovos do placar: o ovo cresce e ganha um anel */
+  .album-grid :global(.fig-eggs i:hover),
+  .album-grid :global(.fig-eggs i.is-on),
+  .album-grid :global(.fig-eggs i.is-lit) {
+    transform: translateY(-2px) scale(1.45);
+    box-shadow: 0 0 0 2px var(--paper), 0 0 0 3.5px var(--ink);
+  }
+
+  .album-grid :global(.fig-eggs i.is-lit:not(.o)) { background: var(--yolk-deep); }
+
+  .album-grid :global(.fig-eggs i.o) {
+    background: none;
+    border: 1.5px dashed var(--ink-3);
+  }
+
+  .album-grid :global(.fig-sum) {
+    margin-top: 5px;
+    font-size: 0.9375rem;
+    line-height: 1.25;
+    color: var(--ink-2);
+  }
+
+  .album-pager {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px 22px;
+    margin-top: 14px;
+    font-family: var(--font-ui);
+    font-size: 1.0625rem;
+  }
+
+  .album-pager[hidden] { display: none; }
+
+  .album-pager[data-bottom] { margin-top: 40px; }
+
+  .album-pager button {
+    appearance: none;
+    background: none;
+    border: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    height: 44px;
+    padding: 0 6px;
+    font-weight: 800;
+    cursor: pointer;
+    border-bottom: 3px solid var(--yolk);
+    border-radius: 0;
+  }
+
+  .album-pager button:hover:not(:disabled) { border-bottom-color: var(--ink); }
+
+  .album-pager button:disabled {
+    color: var(--ink-3);
+    border-bottom-color: transparent;
+    cursor: default;
+  }
+
+  .album-pager-where {
+    color: var(--ink-2);
+    font-variant-numeric: lining-nums tabular-nums;
+    min-width: 17em;
+    text-align: center;
+  }
+
+  /* ── painel de episódios ── */
+  .fig-pop {
+    position: fixed;
+    z-index: 300;
+    width: 340px;
+    max-height: min(480px, calc(100vh - 24px));
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    background: var(--paper);
+    border: 1.5px solid var(--ink);
+    border-radius: 10px;
+    padding: 16px 18px 16px;
+    box-shadow: 0 14px 36px rgba(42, 24, 16, 0.24);
+    font-family: var(--font-ui);
+    font-size: 0.9375rem;
+    line-height: 1.35;
+  }
+
+  .fig-pop[hidden] { display: none; }
+
+  .fig-pop h3 {
+    font-size: 1.5rem;
+    padding-right: 32px;
+  }
+
+  .fig-pop-desc {
+    color: var(--ink-2);
+    margin-top: 4px;
+  }
+
+  .fig-pop-close {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    width: 40px;
+    height: 40px;
+    appearance: none;
+    background: none;
+    border: 0;
+    font-size: 1.75rem;
+    line-height: 1;
+    cursor: pointer;
+  }
+
+  .fig-pop-list {
+    list-style: none;
+    margin-top: 12px;
+    border-top: 2px solid var(--ink);
+  }
+
+  .fig-pop-list :global(li) {
+    display: grid;
+    padding: 9px 8px 10px;
+    margin: 0 -8px;
+    border-bottom: 1px solid var(--rule);
+    border-radius: 6px;
+  }
+
+  .fig-pop-list :global(li.is-lit) {
+    background: var(--yolk);
+    border-bottom-color: transparent;
+    animation: fig-lit 0.45s ease-out;
+  }
+
+  .fig-pop-list :global(li.is-lit .fig-pop-when),
+  .fig-pop-list :global(li.is-lit .fig-pop-who--none) { color: var(--ink); }
+
+  @keyframes fig-lit {
+    0% { background: #fff3c4; }
+    45% { background: var(--yolk-deep); }
+    100% { background: var(--yolk); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .fig-pop-list :global(li.is-lit) { animation: none; }
+  }
+
+  .fig-pop-list :global(.fig-pop-when) { color: var(--ink-2); font-size: 0.875rem; }
+
+  .fig-pop-list :global(a) {
+    font-family: var(--font-body);
+    font-size: 1.0625rem;
+    line-height: 1.25;
+    margin: 1px 0 3px;
+  }
+
+  .fig-pop-list :global(.fig-pop-who) { font-weight: 700; }
+  .fig-pop-list :global(.fig-pop-who--none) { font-weight: 400; color: var(--ink-2); }
+
+  .fig-pop-wiki { margin-top: 12px; }
+
+  @media (max-width: 980px) {
+    .album-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  }
+
+  @media (max-width: 720px) {
+    .album-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  }
+
+  @media (max-width: 640px) {
+    .fig-pop {
+      left: 0;
+      right: 0;
+      bottom: 0;
+      top: auto;
+      width: auto;
+      max-height: 70vh;
+      border-radius: 14px 14px 0 0;
+      border-width: 1.5px 0 0;
+      padding-bottom: 24px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .album-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 16px; }
+    .album-pager { flex-wrap: wrap; }
+    .album-pager-where { order: -1; flex-basis: 100%; min-width: 0; }
+  }
+</style>

@@ -1,0 +1,261 @@
+---
+import { EPS, GUESTS, PANELIST_BY_NAME, chunk, portrait, pt, rankings } from "../lib/data";
+
+const winsBy: Record<string, number[]> = {};
+for (const ep of EPS) {
+  for (const w of ep.winners) (winsBy[w] ??= []).push(ep.i);
+}
+const nobody = EPS.filter((e) => e.winners.length === 0).map((e) => e.i);
+
+const bench = rankings.filter((r) => r.isMainPanelist).sort((a, b) => b.wins - a.wins);
+const guests = rankings
+  .filter((r) => !r.isMainPanelist && r.wins > 0 && Object.hasOwn(GUESTS, r.name))
+  .sort((a, b) => b.wins - a.wins || a.name.localeCompare(b.name, "pt-BR"));
+
+const epLabel = (i: number) => `${EPS[i].date}: ${EPS[i].title}`;
+---
+
+<section class="sec placar" id="placar">
+  <div class="wrap">
+    <h2 class="sec-title">Quem é o maior vencedor?</h2>
+    <p class="sec-lede">
+      Cada ovo é um acerto, na ordem em que aconteceu, agrupados de dez em dez.
+      Passe o mouse ou toque num ovo para ver o episódio e de quem era a voz.
+    </p>
+
+    <ol class="rows">
+      {bench.map((p) => {
+        const eggs = winsBy[p.name] ?? [];
+        const person = PANELIST_BY_NAME[p.name];
+        return (
+          <li class="row">
+            <a class="row-face" href={person.profile} target="_blank" rel="noopener noreferrer" aria-label={`Perfil de ${p.name} no X`}>
+              <img src={portrait(p.name)} alt={`Caricatura de ${p.name} feita pela revista piauí`} loading="lazy" />
+            </a>
+            <div class="row-who">
+              <p class="row-total">{p.wins}</p>
+              <h3 class="row-name">{p.name}</h3>
+              <p class="note">
+                {pt(p.winRate)}% de aproveitamento em {p.appearances} participações
+              </p>
+            </div>
+            <div class="row-eggs">
+              {chunk(eggs, 10).map((ten) => (
+                <span class="ten">
+                  {ten.map((i) => (
+                    <button type="button" class="egg" data-ep={i} aria-label={epLabel(i)} />
+                  ))}
+                </span>
+              ))}
+            </div>
+          </li>
+        );
+      })}
+
+      <li class="row row--nobody">
+        <span class="row-face row-face--egg" aria-hidden="true"></span>
+        <div class="row-who">
+          <p class="row-total">{nobody.length}</p>
+          <h3 class="row-name">Ninguém acertou</h3>
+          <p class="note">
+            {nobody.length === 1 ? "Ovo que ficou sem dono" : "Ovos que ficaram sem dono"}
+          </p>
+        </div>
+        <div class="row-eggs">
+          {chunk(nobody, 10).map((ten) => (
+            <span class="ten">
+              {ten.map((i) => (
+                <button type="button" class="egg egg--hollow" data-ep={i} aria-label={epLabel(i)} />
+              ))}
+            </span>
+          ))}
+        </div>
+      </li>
+    </ol>
+
+    <div class="guests" id="convidados-acertos">
+      <h3 class="guests-title">Convidados também acertam!</h3>
+      <ul class="guests-list">
+        {guests.map((g) => (
+          <li class="guest">
+            <a class="guest-face" href={GUESTS[g.name].profile} target="_blank" rel="noopener noreferrer" aria-label={`Perfil de ${g.name}`}>
+              <img src={portrait(g.name)} alt={`Retrato ilustrado de ${g.name}`} loading="lazy" />
+            </a>
+            <div>
+              <p class="guest-name">{g.name}</p>
+              <div class="guest-eggs">
+                {(winsBy[g.name] ?? []).map((i) => (
+                  <button type="button" class="egg" data-ep={i} aria-label={epLabel(i)} />
+                ))}
+              </div>
+              <p class="note">
+                {g.wins} {g.wins === 1 ? "acerto" : "acertos"} em {g.appearances}
+                {g.appearances === 1 ? " participação" : " participações"}
+              </p>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</section>
+
+<style>
+  .rows {
+    list-style: none;
+    max-width: 960px;
+    margin: clamp(36px, 5vw, 60px) auto 0;
+  }
+
+  .row {
+    display: grid;
+    grid-template-columns: 92px minmax(0, 296px) minmax(0, 1fr);
+    column-gap: 22px;
+    align-items: center;
+    padding: 18px 0;
+    border-top: 1px solid var(--rule);
+  }
+
+  .row:first-child { border-top: 2px solid var(--ink); }
+
+  .row-face {
+    display: block;
+    width: 92px;
+    height: 92px;
+  }
+
+  .row-face img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center bottom;
+    display: block;
+  }
+
+  .row-face--egg {
+    display: grid;
+    place-items: center;
+  }
+
+  .row-face--egg::before {
+    content: "";
+    width: 46px;
+    height: 60px;
+    border-radius: 50% 50% 50% 50% / 62% 62% 38% 38%;
+    border: 2.5px dashed var(--ink-3);
+  }
+
+  .row-who {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 14px;
+    align-items: center;
+  }
+
+  .row-total {
+    grid-row: span 2;
+    font-family: var(--font-display);
+    font-size: 3.25rem;
+    line-height: 1;
+    min-width: 2ch;
+    text-align: right;
+    font-variant-numeric: lining-nums tabular-nums;
+  }
+
+  .row-name {
+    font-family: var(--font-ui);
+    font-weight: 800;
+    font-size: 1.1875rem;
+    line-height: 1.15;
+    align-self: end;
+  }
+
+  .row-who .note { align-self: start; margin-top: 2px; }
+
+  .row--nobody .row-total,
+  .row--nobody .row-name { color: var(--ink-2); }
+
+  .row-eggs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 10px;
+  }
+
+  .ten {
+    display: grid;
+    grid-template-columns: repeat(5, auto);
+    justify-content: start;
+  }
+
+  /* ── Convidados ── */
+  .guests {
+    max-width: 960px;
+    margin: 8px auto 0;
+    padding-top: 28px;
+    border-top: 2px solid var(--ink);
+  }
+
+  .guests-title {
+    font-size: 1.625rem;
+    text-align: center;
+  }
+
+  .guests-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 22px 36px;
+    margin-top: 22px;
+  }
+
+  .guest {
+    width: 260px;
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    gap: 12px;
+    align-items: start;
+  }
+
+  .guest-face img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    display: block;
+    /* alguns retratos têm fundo branco chapado; o multiply faz o branco sumir no creme */
+    mix-blend-mode: multiply;
+  }
+
+  .guest-name {
+    font-family: var(--font-ui);
+    font-weight: 800;
+    font-size: 1.0625rem;
+    line-height: 1.2;
+  }
+
+  .guest-eggs {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 2px 0 0 -3px;
+  }
+
+  @media (max-width: 900px) {
+    .row {
+      grid-template-columns: 84px minmax(0, 1fr);
+      column-gap: 16px;
+      row-gap: 14px;
+    }
+
+    .row-face { width: 84px; height: 84px; }
+
+    .row-eggs { grid-column: 1 / -1; }
+  }
+
+  @media (max-width: 480px) {
+    .row { grid-template-columns: 64px minmax(0, 1fr); column-gap: 12px; }
+    .row-face { width: 64px; height: 64px; }
+    .row-total { font-size: 2.5rem; }
+    .row-name { font-size: 1.0625rem; }
+    .row-eggs { gap: 8px 10px; }
+  }
+</style>

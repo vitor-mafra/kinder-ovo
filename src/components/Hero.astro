@@ -1,72 +1,107 @@
 ---
-import HeroCounters from "./HeroCounters.astro";
-
-const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
+import stats from "../data/stats.json";
+import { base } from "../lib/data";
 ---
 
-<section class="hero">
-  <div class="hero-egg" aria-label="Kinder Ovo de chocolate se abrindo, revelando uma figura pública">
-    <div class="egg-stage">
-      <div class="face-layer">
-        <div class="face-sway">
-          <img class="face face-1" src={`${base}/animation/aecio_neves_cabeca.webp`} alt="" />
-          <img class="face face-2" src={`${base}/animation/magno_malta_cabeca.webp`} alt="" />
-          <img class="face face-3" src={`${base}/animation/ciro_nogueira_cabeca.webp`} alt="" />
-          <img class="face face-4" src={`${base}/animation/eduardo_cunha_cabeca.webp`} alt="" />
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-egg" role="img" aria-label="Um ovo de chocolate se abre e revela a cabeça de um político">
+      <div class="egg-stage">
+        <div class="face-layer">
+          <div class="face-sway">
+            <img class="face face-1" src={`${base}/animation/aecio_neves_cabeca.webp`} alt="" />
+            <img class="face face-2" src={`${base}/animation/magno_malta_cabeca.webp`} alt="" />
+            <img class="face face-3" src={`${base}/animation/ciro_nogueira_cabeca.webp`} alt="" />
+            <img class="face face-4" src={`${base}/animation/eduardo_cunha_cabeca.webp`} alt="" />
+          </div>
         </div>
-      </div>
 
-      <img class="frame frame-1" src={`${base}/animation/kinder_ovo_1.webp`} alt="" />
-      <img class="frame frame-2" src={`${base}/animation/kinder_ovo_2.webp`} alt="" />
-      <img class="frame frame-2 frame-2-brown" src={`${base}/animation/kinder_ovo_2_brown.webp`} alt="" />
-      <img class="frame frame-3" src={`${base}/animation/kinder_ovo_3.webp`} alt="" />
-      <img class="frame frame-4 frame-4-left" src={`${base}/animation/kinder_ovo_4_esquerda.webp`} alt="" />
-      <img class="frame frame-4 frame-4-right" src={`${base}/animation/kinder_ovo_4_direita.webp`} alt="" />
+        <img class="frame frame-1" src={`${base}/animation/kinder_ovo_1.webp`} alt="" />
+        <img class="frame frame-2" src={`${base}/animation/kinder_ovo_2.webp`} alt="" />
+        <img class="frame frame-2 frame-2-brown" src={`${base}/animation/kinder_ovo_2_brown.webp`} alt="" />
+        <img class="frame frame-3" src={`${base}/animation/kinder_ovo_3.webp`} alt="" />
+        <img class="frame frame-4 frame-4-left" src={`${base}/animation/kinder_ovo_4_esquerda.webp`} alt="" />
+        <img class="frame frame-4 frame-4-right" src={`${base}/animation/kinder_ovo_4_direita.webp`} alt="" />
+      </div>
+    </div>
+
+    <div class="hero-text">
+      <h1 class="hero-title">Momento Kinder Ovo</h1>
+
+      <p class="hero-dek">
+        Desde 2018, ao fim de cada episódio do Foro de Teresina,
+        a bancada escuta um áudio escolhido pela direção do programa e
+        precisa adivinhar de quem é a voz surpresa. A gente contou e abriu todos esses ovos.
+      </p>
+
+      <p class="hero-count">
+        São <strong>{stats.total}</strong> episódios, <strong>{stats.koDetected}</strong> ovos,
+        <strong>{stats.winnersFound}</strong> acertos e <strong>{stats.figuresFound}</strong> vozes diferentes.
+      </p>
+
+      <p class="hero-byline">
+        Um ensaio visual sobre o Foro de Teresina, por <a href="https://vitormafra.com">Vitor Mafra</a>
+      </p>
     </div>
   </div>
-
-  <div class="hero-kicker-stack">
-    <p class="kicker hero-kicker">Um ensaio visual sobre o Foro de Teresina</p>
-    <p class="hero-byline">
-      por <a href="https://vitormafra.com">Vitor Mafra</a>
-    </p>
-  </div>
-
-  <h1 class="hero-title">Momento<br />Kinder Ovo</h1>
-
-  <p class="hero-dek">
-    Desde 2018, ao fim de cada episódio do Foro de Teresina,
-    a bancada escuta um áudio escolhido pela direção do programa e
-    precisa adivinhar de quem é a voz surpresa. A gente contou e abriu todos esses ovos.
-  </p>
-
-  <HeroCounters />
-</section>
+</header>
 
 <style>
   .hero {
-    max-width: min(980px, 100%);
-    margin: 0 auto;
-    padding: 80px 24px var(--section-gap);
+    padding: clamp(16px, 3vw, 32px) 0 0;
+  }
+
+  .hero-grid {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
   }
 
-  .hero-egg {
-    width: min(620px, 96vw);
-    margin-bottom: 52px;
+  .hero-text {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
+  }
+
+  .hero-egg {
+    width: min(620px, 100%);
+  }
+
+  .hero-title {
+    font-size: clamp(3rem, 9vw, 5.75rem);
+    line-height: 0.92;
+    letter-spacing: -0.02em;
+    max-width: 10ch;
+    margin-top: clamp(8px, 2vw, 24px);
+  }
+
+  .hero-dek,
+  .hero-count {
+    max-width: 33rem;
+    font-size: clamp(1.1875rem, 1.6vw, 1.3125rem);
+    line-height: 1.5;
+    text-wrap: pretty;
+  }
+
+  .hero-dek { margin-top: clamp(22px, 3vw, 32px); }
+  .hero-count { margin-top: 0.8em; }
+
+  .hero-count strong { font-variant-numeric: lining-nums tabular-nums; }
+
+  .hero-byline {
+    margin-top: 24px;
+    font-family: var(--font-ui);
+    font-size: 1rem;
+    color: var(--ink-2);
   }
 
   .egg-stage {
     position: relative;
     width: 100%;
-    aspect-ratio: 2528 / 1686;
+    aspect-ratio: 1280 / 854;
     max-height: min(440px, 56vh);
+    margin: 0 auto;
   }
 
   .frame {
@@ -78,14 +113,13 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
     opacity: 0;
   }
 
-  /* ---- Stop-motion frame cycle ----
-     Total cycle: ~3.2s (1.6s open + 1.6s close via `alternate`)
-     ~400ms per visible frame, hard snaps (no cross-fade). */
-
+  /* ---- Stop-motion do ovo ----
+     Ciclo de ~3,2s (1,6s abrindo + 1,6s fechando via `alternate`),
+     ~400ms por quadro, cortes secos. */
   .frame-1 { animation: show-1 1.6s steps(1, end) infinite alternate; }
   .frame-2 { animation: show-2 1.6s steps(1, end) infinite alternate; }
-  /* Brown-only copy of frame 2, layered above the face so the shell rim
-     overlaps the head while the cream interior stays behind it. */
+  /* Cópia só da casca do quadro 2, por cima do rosto: a borda da casca
+     cobre a cabeça e o interior claro fica atrás dela. */
   .frame-2-brown { z-index: 3; }
   .frame-3 { animation: show-3 1.6s steps(1, end) infinite alternate; }
   .frame-4 { animation: show-4 1.6s steps(1, end) infinite alternate; }
@@ -111,8 +145,6 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
     75%  { opacity: 1; }
   }
 
-  /* ---- Face (Magno Malta) ----
-     Sits behind the egg shells, fades in once the egg cracks (frame 2+). */
   .face-layer {
     position: absolute;
     inset: 0;
@@ -135,15 +167,14 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
     width: 76%;
     aspect-ratio: 1 / 1;
     transform-origin: 50% 50%;
-    /* Synced with the egg cycle: one new pose per frame */
     animation: sway 1.6s steps(1, end) infinite alternate;
   }
 
   @keyframes sway {
-    0%   { transform: rotate(-12deg); }  /* frame 1 (hidden) */
-    25%  { transform: rotate(10deg); }   /* frame 2 */
-    50%  { transform: rotate(-8deg); }   /* frame 3 */
-    75%  { transform: rotate(15deg); }   /* frame 4 */
+    0%   { transform: rotate(-12deg); }
+    25%  { transform: rotate(10deg); }
+    50%  { transform: rotate(-8deg); }
+    75%  { transform: rotate(15deg); }
   }
 
   .face {
@@ -155,10 +186,7 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
     opacity: 0;
   }
 
-  /* ---- Face rotation across egg cycles ----
-     Full egg cycle = 3.2s (1.6s open + 1.6s close).
-     4 faces * 3.2s = 12.8s per full rotation.
-     Order: Aécio Neves -> Magno Malta -> Ciro Nogueira -> Eduardo Cunha */
+  /* Um rosto por ciclo completo do ovo: 4 rostos × 3,2s = 12,8s. */
   .face-1 { animation: face-cycle-1 12.8s steps(1, end) infinite; }
   .face-2 { animation: face-cycle-2 12.8s steps(1, end) infinite; }
   .face-3 { animation: face-cycle-3 12.8s steps(1, end) infinite; }
@@ -188,77 +216,5 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
     .frame-3 { opacity: 1; }
     .face-layer { opacity: 1; }
     .face-1 { opacity: 1; }
-  }
-
-  .hero-kicker-stack {
-    margin-bottom: 24px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    text-align: center;
-    max-width: min(520px, 100%);
-  }
-
-  @media (min-width: 720px) {
-    .hero-kicker-stack {
-      flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: baseline;
-      column-gap: 0.6rem;
-      row-gap: 6px;
-      max-width: none;
-    }
-
-    .hero-kicker-stack .hero-kicker::after {
-      content: "·";
-      margin-left: 0.45rem;
-      padding-right: 0.35rem;
-      font-family: var(--font-ui);
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: normal;
-      text-transform: none;
-      color: rgba(77, 59, 43, 0.38);
-    }
-  }
-
-  .hero-kicker {
-    margin-bottom: 0;
-    color: var(--color-primary-deep);
-  }
-
-  .hero-byline {
-    margin: 0;
-    font-family: var(--font-ui);
-    font-size: 12px;
-    font-weight: 500;
-    letter-spacing: 0.02em;
-    color: rgba(77, 59, 43, 0.72);
-    line-height: 1.4;
-  }
-
-  .hero-byline a {
-    font-weight: 600;
-  }
-
-  .hero-title {
-    font-family: var(--font-hero-display), var(--font-body);
-    font-weight: 700;
-    font-size: clamp(2.65rem, 7vw, 4.85rem);
-    line-height: 1.02;
-    letter-spacing: -0.025em;
-    color: var(--color-primary-deep);
-    margin-bottom: 32px;
-    max-width: 620px;
-  }
-
-  .hero-dek {
-    font-family: var(--font-body);
-    font-size: 1rem;
-    line-height: 1.6;
-    color: rgba(77, 59, 43, 0.78);
-    max-width: 480px;
   }
 </style>

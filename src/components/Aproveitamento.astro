@@ -1,0 +1,324 @@
+---
+import { GUESTS, PANELIST_BY_NAME, portrait, pt, rankings, shortName } from "../lib/data";
+
+const bench = rankings.filter((r) => r.isMainPanelist);
+const byWins = [...bench].sort((a, b) => b.wins - a.wins || b.winRate - a.winRate);
+const byRate = [...bench].sort((a, b) => b.winRate - a.winRate);
+
+const guests = rankings
+  .filter((r) => !r.isMainPanelist && r.wins > 0)
+  .sort((a, b) => b.winRate - a.winRate);
+
+const ROW = 64;
+const H = ROW * bench.length;
+const yOf = (i: number) => i * ROW + ROW / 2;
+
+const links = byWins.map((p, i) => ({
+  name: p.name,
+  color: PANELIST_BY_NAME[p.name].color,
+  y1: yOf(i),
+  y2: yOf(byRate.findIndex((r) => r.name === p.name)),
+}));
+
+const malu = bench.find((p) => p.name === "Malu Gaspar");
+const celso = bench.find((p) => p.name === "Celso Rocha de Barros");
+const celsoColor = PANELIST_BY_NAME["Celso Rocha de Barros"].color;
+---
+
+<section class="sec taxa" id="taxa-de-acerto">
+  <div class="wrap">
+    <h2 class="sec-title">Olhando melhor para os números</h2>
+    <p class="sec-lede">
+      Números absolutos contam apenas parte da história. Fernando, por exemplo,
+      já acertou mais momentos Kinder Ovo do que Celso e Ana, mas também já
+      participou de muito mais competições. Para um olhar mais justo, é preciso
+      encarar as coisas de forma proporcional. Se olharmos para a
+      <strong>taxa de vitória</strong>, a liderança muda de mãos:
+    </p>
+
+    <figure class="slope" style={`--row:${ROW}px`}>
+      <div class="slope-col slope-col--left">
+        <p class="slope-head">Por total de acertos</p>
+        <ol>
+          {byWins.map((p) => (
+            <li data-name={p.name} style={`--c:${PANELIST_BY_NAME[p.name].color}`}>
+              <span class="slope-label">
+                <span class="slope-name">{shortName(p.name)}</span>
+                <span class="slope-sub">em {p.appearances} participações</span>
+              </span>
+              <img src={portrait(p.name)} alt="" loading="lazy" />
+              <span class="slope-value">{p.wins}</span>
+            </li>
+          ))}
+        </ol>
+      </div>
+
+      <svg class="slope-lines" viewBox={`0 0 100 ${H}`} preserveAspectRatio="none" aria-hidden="true">
+        {links.map((l) => (
+          <g data-name={l.name}>
+            <line x1="0" y1={l.y1} x2="100" y2={l.y2} stroke={l.color} />
+          </g>
+        ))}
+      </svg>
+
+      <div class="slope-col slope-col--right">
+        <p class="slope-head">Por taxa de vitória</p>
+        <ol>
+          {byRate.map((p) => (
+            <li data-name={p.name} style={`--c:${PANELIST_BY_NAME[p.name].color}`}>
+              <span class="slope-value">{pt(p.winRate)}%</span>
+              <img src={portrait(p.name)} alt="" loading="lazy" />
+              <span class="slope-label">
+                <span class="slope-name">{shortName(p.name)}</span>
+                <span class="slope-sub">{p.wins} em {p.appearances}</span>
+              </span>
+            </li>
+          ))}
+        </ol>
+      </div>
+
+      <figcaption class="sr-only">
+        Ranking da bancada por total de acertos, à esquerda, e por taxa de vitória, à direita.
+        {byRate.map((p, i) => `${i + 1}º em taxa: ${p.name}, ${pt(p.winRate)}% (${p.wins} acertos em ${p.appearances} participações). `)}
+      </figcaption>
+    </figure>
+
+    <div class="taxa-notes">
+      <p>
+        <svg class="taxa-icon" width="26" height="26" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M21.609 13.5616L21.8382 11.1263C22.0182 9.2137 22.1082 8.25739 21.781 7.86207C21.604 7.64823 21.3633 7.5172 21.106 7.4946C20.6303 7.45282 20.0329 8.1329 18.8381 9.49307C18.2202 10.1965 17.9113 10.5482 17.5666 10.6027C17.3757 10.6328 17.1811 10.6018 17.0047 10.5131C16.6865 10.3529 16.4743 9.91812 16.0499 9.04851L13.8131 4.46485C13.0112 2.82162 12.6102 2 12 2C11.3898 2 10.9888 2.82162 10.1869 4.46486L7.95007 9.04852C7.5257 9.91812 7.31351 10.3529 6.99526 10.5131C6.81892 10.6018 6.62434 10.6328 6.43337 10.6027C6.08872 10.5482 5.77977 10.1965 5.16187 9.49307C3.96708 8.1329 3.36968 7.45282 2.89399 7.4946C2.63666 7.5172 2.39598 7.64823 2.21899 7.86207C1.8918 8.25739 1.9818 9.2137 2.16181 11.1263L2.391 13.5616C2.76865 17.5742 2.95748 19.5805 4.14009 20.7902C5.32271 22 7.09517 22 10.6401 22H13.3599C16.9048 22 18.6773 22 19.8599 20.7902C21.0425 19.5805 21.2313 17.5742 21.609 13.5616Z" fill="var(--yolk-deep)" />
+        </svg>
+        <strong>Malu Gaspar</strong> é a rainha do Kinder Ovo. Com
+        {malu?.appearances ?? 114} aparições, acerta mais de 1 em cada 3 Kinder Ovos.
+        A lenda é real: é a melhor eficiência da história da bancada.
+      </p>
+      <p>
+        <svg class="taxa-icon" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke={celsoColor} stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polyline points="3 17 9 11 13 15 21 7" />
+          <polyline points="15 7 21 7 21 13" />
+        </svg>
+        <strong>Celso Rocha de Barros</strong> é muito melhor do que parece:
+        com {pt(celso?.winRate ?? 35)}% de aproveitamento, ele disputa com Malu o
+        posto de maior taxa de acerto, podendo até superar sua fama (sem pressão, Celso!)
+      </p>
+    </div>
+
+    <details class="taxa-guests">
+      <summary>E os convidados?</summary>
+      <p class="note">
+        Com poucas participações, a taxa de vitória de um convidado diz pouco: um acerto em uma única visita já vale 100%
+      </p>
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">Convidado</th>
+            <th scope="col">Participações</th>
+            <th scope="col">Acertos</th>
+            <th scope="col">Taxa</th>
+          </tr>
+        </thead>
+        <tbody>
+          {guests.map((g) => (
+            <tr>
+              <th scope="row">
+                {GUESTS[g.name] && <img src={portrait(g.name)} alt="" loading="lazy" />}
+                {g.name}
+              </th>
+              <td>{g.appearances}</td>
+              <td>{g.wins}</td>
+              <td>{pt(g.winRate)}%</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </details>
+  </div>
+</section>
+
+<script>
+  // Destaca uma pessoa nas duas colunas e na linha que as liga.
+  const fig = document.querySelector<HTMLElement>(".slope");
+  if (fig) {
+    const set = (name: string | null) => {
+      fig.classList.toggle("has-focus", !!name);
+      fig.querySelectorAll<HTMLElement>("[data-name]").forEach((el) => {
+        el.classList.toggle("is-focus", el.dataset.name === name);
+      });
+    };
+    fig.querySelectorAll<HTMLElement>("li[data-name]").forEach((li) => {
+      li.addEventListener("mouseenter", () => set(li.dataset.name!));
+      li.addEventListener("click", () => set(li.classList.contains("is-focus") ? null : li.dataset.name!));
+    });
+    fig.addEventListener("mouseleave", () => set(null));
+  }
+</script>
+
+<style>
+  .slope {
+    display: grid;
+    grid-template-columns: auto minmax(60px, 1fr) auto;
+    margin: clamp(32px, 5vw, 56px) auto 0;
+    max-width: 900px;
+    font-family: var(--font-ui);
+  }
+
+  .slope-head {
+    font-size: 1rem;
+    font-weight: 700;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--ink);
+    margin-bottom: 8px;
+  }
+
+  .slope-col--left .slope-head { text-align: right; }
+
+  .slope ol { list-style: none; }
+
+  .slope li {
+    height: var(--row);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: default;
+    transition: opacity 0.15s ease;
+  }
+
+  .slope-col--left li { justify-content: flex-end; text-align: right; }
+
+  .slope li img {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    flex: none;
+  }
+
+  .slope-label {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.15;
+  }
+
+  .slope-name { font-weight: 800; font-size: 1.125rem; }
+  .slope-sub { font-size: 0.875rem; color: var(--ink-2); }
+
+  .slope-value {
+    font-family: var(--font-display);
+    font-size: 1.75rem;
+    line-height: 1;
+    min-width: 2.2ch;
+    font-variant-numeric: lining-nums tabular-nums;
+    padding: 0 8px 7px;
+    /* um traço da cor da pessoa "ancora" a linha no número */
+    box-shadow: inset 0 -4px 0 var(--c);
+  }
+
+  .slope-col--right .slope-value { min-width: 4.6ch; text-align: right; }
+
+  .slope-lines {
+    align-self: end;
+    width: 100%;
+    height: calc(var(--row) * 6);
+    overflow: visible;
+  }
+
+  .slope-lines line {
+    stroke-width: 3;
+    stroke-linecap: round;
+    vector-effect: non-scaling-stroke;
+    transition: opacity 0.15s ease;
+  }
+
+  .slope.has-focus li:not(.is-focus),
+  .slope.has-focus g:not(.is-focus) line { opacity: 0.18; }
+  .slope.has-focus g.is-focus line { stroke-width: 5; }
+
+  .taxa-notes {
+    display: grid;
+    gap: 18px;
+    max-width: var(--prose);
+    margin: clamp(28px, 4vw, 44px) auto 0;
+  }
+
+  .taxa-notes p {
+    position: relative;
+    padding-left: 40px;
+  }
+
+  .taxa-icon {
+    position: absolute;
+    left: 0;
+    top: 0.12em;
+  }
+
+  .taxa-guests {
+    margin: 32px auto 0;
+    max-width: var(--prose);
+    font-family: var(--font-ui);
+  }
+
+  .taxa-guests summary {
+    cursor: pointer;
+    font-weight: 700;
+    width: fit-content;
+  }
+
+  .taxa-guests .note { margin: 10px 0 12px; }
+
+  .taxa-guests table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1rem;
+    font-variant-numeric: lining-nums tabular-nums;
+  }
+
+  .taxa-guests th,
+  .taxa-guests td {
+    padding: 7px 0 7px 12px;
+    text-align: right;
+    border-bottom: 1px solid var(--rule);
+    font-weight: 400;
+  }
+
+  .taxa-guests thead th {
+    font-size: 0.875rem;
+    color: var(--ink-2);
+    border-bottom: 2px solid var(--ink);
+  }
+
+  .taxa-guests th:first-child {
+    text-align: left;
+    padding-left: 0;
+  }
+
+  .taxa-guests tbody th {
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .taxa-guests tbody img {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+    mix-blend-mode: multiply;
+  }
+
+  @media (max-width: 720px) {
+    .slope-sub { display: none; }
+    .slope li { gap: 6px; }
+    .slope li img { width: 38px; height: 38px; }
+    .slope-name { font-size: 1rem; }
+    .slope-value { font-size: 1.375rem; padding: 0 4px 6px; }
+    .slope-head { font-size: 0.9375rem; }
+  }
+
+  @media (max-width: 440px) {
+    .slope { grid-template-columns: auto minmax(28px, 1fr) auto; }
+    .slope li img { display: none; }
+    .slope-col--right .slope-value { min-width: 0; }
+    .slope-name { font-size: 0.9375rem; }
+    .slope-value { font-size: 1.25rem; padding: 0 2px 6px; }
+    .slope li { gap: 5px; }
+  }
+</style>

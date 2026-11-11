@@ -1,0 +1,211 @@
+---
+import { EPS, GUEST_COLOR, PANELISTS, PANELIST_BY_NAME, base, longestStreak, portrait } from "../lib/data";
+
+const years = [...new Set(EPS.map((e) => e.year))].sort();
+const byYear = years.map((y) => ({ year: y, eps: EPS.filter((e) => e.year === y) }));
+
+/** Quem "pinta" o ovo: titular tem cor própria; convidado, uma cor só; ninguém, ovo vazio. */
+function keyOf(name: string): string {
+  return PANELIST_BY_NAME[name]?.slug ?? "convidado";
+}
+function colorOf(name: string): string {
+  return PANELIST_BY_NAME[name]?.color ?? GUEST_COLOR;
+}
+function eggStyle(winners: string[]): string {
+  if (winners.length === 0) return "";
+  if (winners.length === 1) return `--egg:${colorOf(winners[0])}`;
+  // empate: o ovo é dividido em faixas, uma por vencedor
+  const step = 100 / winners.length;
+  const stops = winners.map((w, i) => `${colorOf(w)} ${i * step}% ${(i + 1) * step}%`).join(",");
+  return `--egg:linear-gradient(90deg,${stops})`;
+}
+function label(e: (typeof EPS)[number]): string {
+  const who = e.winners.length ? e.winners.join(" e ") : "ninguém acertou";
+  return `${e.date}: ${who}`;
+}
+
+const best = PANELISTS.map((p) => ({ p, s: longestStreak(p.name) }))
+  .filter((x) => x.s)
+  .sort((a, b) => b.s!.length - a.s!.length)[0];
+
+const MONTH_NAMES = ["janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho", "agosto", "setembro", "outubro", "novembro", "dezembro"];
+const monthOf = (iso: string) => MONTH_NAMES[Number(iso.slice(5, 7)) - 1];
+const NUM = ["zero", "um", "dois", "três", "quatro", "cinco", "seis", "sete", "oito", "nove", "dez"];
+---
+
+<section class="sec cal" id="ovo-a-ovo">
+  <div class="wrap">
+    <h2 class="sec-title">Ovo a ovo</h2>
+    <p class="sec-lede">
+      Todos os {EPS.length} ovos, na ordem em que foram abertos. A cor é de quem acertou;
+      ovo vazio é rodada em que ninguém levou.
+      {best?.s && best.s.length >= 4 && (
+        <>
+          {" "}Dá para achar, por exemplo, os {NUM[best.s.length] ?? best.s.length} acertos seguidos
+          de {best.p.short} entre {monthOf(best.s.from.iso)} e {monthOf(best.s.to.iso)} de {best.s.to.year}.
+        </>
+      )}
+    </p>
+
+    <div class="cal-legend" role="group" aria-label="Destacar os ovos de uma pessoa">
+      {PANELISTS.map((p) => (
+        <button type="button" class="cal-key" data-key={p.slug} aria-pressed="false" style={`--c:${p.color}`}>
+          <img src={portrait(p.name)} alt="" loading="lazy" />
+          <span class="cal-key-egg" aria-hidden="true"></span>
+          {p.short}
+        </button>
+      ))}
+      <span class="cal-pair">
+        <button type="button" class="cal-key" data-key="convidado" aria-pressed="false" style={`--c:${GUEST_COLOR}`}>
+          <img class="cal-key-guest" src={`${base}/guests/pinguim-colaborador.png`} alt="" loading="lazy" />
+          <span class="cal-key-egg" aria-hidden="true"></span>
+          Convidados
+        </button>
+        <button type="button" class="cal-key cal-key--hollow" data-key="ninguem" aria-pressed="false">
+          <span class="cal-key-egg" aria-hidden="true"></span>
+          Ninguém
+        </button>
+      </span>
+    </div>
+
+    <div class="cal-grid" id="cal-grid">
+      {byYear.map(({ year, eps }) => (
+        <div class="cal-row">
+          <p class="cal-year">{year}</p>
+          <div class="cal-eggs">
+            {eps.map((e) => (
+              <button
+                type="button"
+                class:list={["egg", { "egg--hollow": e.winners.length === 0 }]}
+                data-ep={e.i}
+                data-keys={e.winners.length ? e.winners.map(keyOf).join(" ") : "ninguem"}
+                style={eggStyle(e.winners)}
+                aria-label={label(e)}
+              />
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  const grid = document.getElementById("cal-grid");
+  const keys = document.querySelectorAll<HTMLButtonElement>(".cal-key");
+  if (grid && keys.length) {
+    let current: string | null = null;
+    const apply = () => {
+      grid.classList.toggle("is-filtered", current !== null);
+      grid.querySelectorAll<HTMLElement>(".egg").forEach((egg) => {
+        const on = current !== null && (egg.dataset.keys ?? "").split(" ").includes(current);
+        egg.classList.toggle("is-match", on);
+      });
+      keys.forEach((k) => k.setAttribute("aria-pressed", String(k.dataset.key === current)));
+    };
+    keys.forEach((k) => {
+      k.addEventListener("click", () => {
+        current = current === k.dataset.key ? null : k.dataset.key ?? null;
+        apply();
+      });
+    });
+  }
+</script>
+
+<style>
+  .cal-legend {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px 10px;
+    margin-top: 28px;
+  }
+
+  .cal-key {
+    --c: var(--ink-3);
+    appearance: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    height: 44px;
+    padding: 0 14px 0 8px;
+    background: none;
+    border: 1.5px solid var(--rule);
+    border-radius: 22px;
+    font-family: var(--font-ui);
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  .cal-key:hover { border-color: var(--ink-3); }
+
+  .cal-key[aria-pressed="true"] {
+    border-color: var(--ink);
+    background: var(--milk);
+  }
+
+  .cal-key img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+  }
+
+  /* o pinguim tem fundo branco chapado; o multiply faz o branco sumir no creme */
+  .cal-key-guest { mix-blend-mode: multiply; }
+
+  .cal-pair {
+    display: flex;
+    gap: 10px;
+  }
+
+  .cal-key-egg {
+    width: 12px;
+    height: 16px;
+    border-radius: 50% 50% 50% 50% / 62% 62% 38% 38%;
+    background: var(--c);
+    flex: none;
+  }
+
+  .cal-key:not(:has(img)) { padding-left: 14px; }
+
+  .cal-key--hollow .cal-key-egg {
+    background: none;
+    border: 1.5px dashed var(--ink-3);
+  }
+
+  .cal-grid {
+    max-width: 1010px;
+    margin: 24px auto 0;
+    border-top: 2px solid var(--ink);
+  }
+
+  .cal-row {
+    display: grid;
+    grid-template-columns: 64px minmax(0, 1fr);
+    align-items: start;
+    padding: 9px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .cal-year {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    line-height: 23px;
+  }
+
+  .cal-eggs {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .cal-grid.is-filtered .egg:not(.is-match)::before { opacity: 0.14; }
+
+  @media (max-width: 640px) {
+    .cal-row { grid-template-columns: 52px minmax(0, 1fr); }
+    .cal-year { font-size: 1.125rem; line-height: 27px; }
+    .cal-key { height: 40px; font-size: 0.9375rem; padding-right: 12px; }
+    .cal-key img { width: 28px; height: 28px; }
+    .cal-eggs .egg { width: 19px; }
+  }
+</style>
