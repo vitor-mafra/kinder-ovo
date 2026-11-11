@@ -85,9 +85,15 @@ import { base } from "../lib/data";
   }
 
   .hero-dek { margin-top: clamp(22px, 3vw, 32px); }
-  .hero-count { margin-top: 0.8em; }
+  /* os números em Caprasimo são mais largos: a frase ganha folga para caber em uma linha */
+  .hero-count { margin-top: 0.8em; max-width: 38rem; text-wrap: balance; }
 
-  .hero-count strong { font-variant-numeric: lining-nums tabular-nums; }
+  .hero-count strong {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 1.12em;
+    font-variant-numeric: lining-nums;
+  }
 
   .hero-byline {
     margin-top: 24px;
